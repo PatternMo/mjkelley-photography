@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement & Couples Photography | Michael J. Kelley | Bay Area</title>
+    <meta name="description" content="Professional engagement and couples photography in the San Francisco Bay Area. Romantic sessions capturing authentic connections and love stories by Michael J. Kelley.">
+    
+    <!-- Link to shared stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- All pages get this -->
+    <script src="shared.js"></script>
+    
+    <!-- Gallery pages get this -->
+    <script src="gallery.js"></script>
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Page-specific banner image */
+        .banner-image {
+            background-image: url('https://picsum.photos/1400/800?random=25');
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="architecture-photography.html">Architectural & Real Estate</a>
+                            <a href="automotive-photography.html">Automotive Photography</a>
+                            <a href="headshot-photography.html">Portrait Photography</a>
+                            <a href="landscape-photography.html">Landscape & Aerial</a>
+                        </div>
+                    </li>
+                    <li><a href="video.html">Video</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Engagement & Couples Photography</h1>
+            <p>Capturing authentic moments and genuine connections. Romantic engagement and couples sessions throughout the San Francisco Bay Area that celebrate your unique love story.</p>
+        </section>
+
+        <!-- Banner Image -->
+        <div class="banner-image"></div>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="https://picsum.photos/800/600?random=31" alt="Romantic engagement session">
+                    <div class="overlay">
+                        <div class="overlay-text">Romantic Engagement</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="https://picsum.photos/800/600?random=32" alt="Couples portrait session">
+                    <div class="overlay">
+                        <div class="overlay-text">Couples Portrait</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://picsum.photos/800/600?random=33" alt="Golden hour engagement">
+                    <div class="overlay">
+                        <div class="overlay-text">Golden Hour</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="https://picsum.photos/800/600?random=34" alt="Beach engagement photos">
+                    <div class="overlay">
+                        <div class="overlay-text">Beach Session</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="https://picsum.photos/800/600?random=35" alt="Urban couples session">
+                    <div class="overlay">
+                        <div class="overlay-text">Urban Romance</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="https://picsum.photos/800/600?random=36" alt="Garden engagement shoot">
+                    <div class="overlay">
+                        <div class="overlay-text">Garden Setting</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="https://picsum.photos/800/600?random=37" alt="Anniversary celebration">
+                    <div class="overlay">
+                        <div class="overlay-text">Anniversary</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="https://picsum.photos/800/600?random=38" alt="Intimate couple moments">
+                    <div class="overlay">
+                        <div class="overlay-text">Intimate Moments</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Authentic Love Story Photography</h2>
+                    <p>Every couple has a unique story to tell. My approach to engagement and couples photography focuses on capturing the genuine emotions, spontaneous laughter, and intimate moments that define your relationship.</p>
+                    
+                    <p>From romantic sunset sessions to playful urban adventures, I create a relaxed environment where your authentic connection can shine through. Each session is tailored to reflect your personalities and style:</p>
+                    
+                    <ul class="service-list">
+                        <li>Engagement sessions for wedding announcements</li>
+                        <li>Anniversary and milestone celebrations</li>
+                        <li>Couples portraits for holiday cards</li>
+                        <li>Save-the-date photography</li>
+                        <li>Maternity couples sessions</li>
+                        <li>Romantic getaway documentation</li>
+                    </ul>
+                    
+                    <p>Whether you envision a dreamy beach session at sunset, an urban adventure through San Francisco, or an intimate garden setting, I'll work with you to create images that authentically represent your love story and connection.</p>
+                    
+                    <a href="contact.html" class="cta-button">Book Session</a>
+                </div>
+                <div class="services-image" style="background-image: url('https://picsum.photos/600/400?random=39')"></div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What should we expect during our engagement session?</div>
+                <div class="faq-answer">Your session will be relaxed and fun! I'll guide you through natural poses and interactions while capturing candid moments. Sessions typically last 1-2 hours and include multiple outfit changes if desired. I'll help you feel comfortable and natural in front of the camera.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Where can we have our session?</div>
+                <div class="faq-answer">The Bay Area offers incredible locations! Popular spots include Baker Beach, Crissy Field, Golden Gate Park, Muir Woods, downtown San Francisco, Berkeley Rose Garden, or any location that's meaningful to your relationship. I'm happy to suggest locations based on your style preferences.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What should we wear for our photos?</div>
+                <div class="faq-answer">Wear something that makes you feel confident and comfortable! I recommend coordinating colors rather than matching exactly, avoiding busy patterns, and bringing layers. I'll provide a detailed styling guide with outfit suggestions once you book.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How many photos will we receive?</div>
+                <div class="faq-answer">You'll receive 50-75 professionally edited high-resolution images from a typical session, delivered through a private online gallery within one week. All images are ready for printing and sharing on social media.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can you photograph our proposal?</div>
+                <div class="faq-answer">Absolutely! Proposal photography is one of my favorite services. I'll work discreetly to capture the surprise and emotion of the moment, then continue with an impromptu engagement session if you'd like. Advanced planning and coordination are essential for successful proposal shoots.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's the best time of day for our session?</div>
+                <div class="faq-answer">The golden hour (one hour before sunset) provides the most flattering light for romantic photos. However, I can work with any time that fits your schedule. Morning sessions offer soft light and fewer crowds, while midday sessions work well for urban or shaded locations.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+            <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
+            <img id="lightbox-img" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+            <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <nav class="footer-navigation">
+            <ul>
+                <li class="footer-dropdown">
+                    <a href="#portfolio">Portfolio</a>
+                    <div class="footer-dropdown-content">
+                        <a href="architecture-photography.html">Architectural & Real Estate</a>
+                        <a href="automotive-photography.html">Automotive Photography</a>
+                        <a href="headshot-photography.html">Portrait Photography</a>
+                        <a href="landscape-photography.html">Landscape & Aerial</a>
+                    </div>
+                </li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="#" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Page-specific gallery images array
+        window.galleryImages = [
+            { src: 'https://picsum.photos/800/600?random=31', alt: 'Romantic engagement session' },
+            { src: 'https://picsum.photos/800/600?random=32', alt: 'Couples portrait session' },
+            { src: 'https://picsum.photos/800/600?random=33', alt: 'Golden hour engagement' },
+            { src: 'https://picsum.photos/800/600?random=34', alt: 'Beach engagement photos' },
+            { src: 'https://picsum.photos/800/600?random=35', alt: 'Urban couples session' },
+            { src: 'https://picsum.photos/800/600?random=36', alt: 'Garden engagement shoot' },
+            { src: 'https://picsum.photos/800/600?random=37', alt: 'Anniversary celebration' },
+            { src: 'https://picsum.photos/800/600?random=38', alt: 'Intimate couple moments' }
+        ];
+    </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video & Drone Cinematography | Michael J. Kelley | Bay Area</title>
+    <meta name="description" content="Professional video production and drone cinematography in the San Francisco Bay Area. Commercial videos, aerial footage, and cinematic storytelling by Michael J. Kelley.">
+    
+    <!-- Link to shared stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- All pages get this -->
+    <script src="shared.js"></script>
+    
+    <!-- Page-specific video styles -->
+    <style>
+        /* Video Gallery Section */
+        .gallery-section {
+            padding: 0 40px 80px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .video-item {
+            position: relative;
+            background: #f5f5f5;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-size: 16px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .video-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design for Video Grid */
+        @media (max-width: 768px) {
+            .gallery-section {
+                padding: 0 20px 60px;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="architecture-photography.html">Architectural & Real Estate</a>
+                            <a href="automotive-photography.html">Automotive Photography</a>
+                            <a href="portrait-photography.html">Portrait Photography</a>
+                            <a href="landscape-photography.html">Landscape & Aerial</a>
+                        </div>
+                    </li>
+                    <li><a href="video.html">Video</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Video & Drone Cinematography</h1>
+            <p>Bringing stories to life through cinematic video production and aerial perspectives. Professional video services throughout the San Francisco Bay Area.</p>
+        </section>
+
+        <!-- Video Gallery Section -->
+        <section class="gallery-section">
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">Aerial Real Estate Showcase</div>
+                        <div class="video-description">Luxury property tour combining ground and aerial perspectives in Marin County.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">Automotive Commercial</div>
+                        <div class="video-description">Dynamic automotive videography featuring the latest Porsche models.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">Corporate Documentary</div>
+                        <div class="video-description">Behind-the-scenes corporate storytelling for Bay Area tech company.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">Landscape Time-lapse</div>
+                        <div class="video-description">Golden hour time-lapse capturing the beauty of the California coastline.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">Event Coverage</div>
+                        <div class="video-description">Wedding cinematography showcasing intimate moments and aerial ceremony shots.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">Architectural Walkthrough</div>
+                        <div class="video-description">Cinematic tour of modern residential architecture in Berkeley Hills.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Professional Video Production Services</h2>
+                    <p>Combining cinematic storytelling with technical expertise to create compelling video content. As a Part 107 certified drone pilot, I offer comprehensive video production services throughout the Bay Area.</p>
+                    
+                    <p>My video services include both ground-based cinematography and aerial drone footage for:</p>
+                    
+                    <ul class="service-list">
+                        <li>Real estate promotional videos</li>
+                        <li>Corporate documentaries and commercials</li>
+                        <li>Automotive showcase videos</li>
+                        <li>Event and wedding cinematography</li>
+                        <li>Architectural walkthroughs</li>
+                        <li>Time-lapse and aerial landscape videos</li>
+                    </ul>
+                    
+                    <p>Each project is approached with careful planning, professional equipment, and post-production expertise to deliver high-quality video content that engages audiences and tells your story effectively.</p>
+                    
+                    <a href="contact.html" class="cta-button">Get Quote</a>
+                </div>
+                <div class="services-image" style="background-image: url('https://picsum.photos/600/400?random=20')"></div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is included in a video production package?</div>
+                <div class="faq-answer">Each package includes pre-production planning, professional filming with cinema-grade equipment, drone footage (when applicable), color grading, audio enhancement, and final edited video delivery in your preferred format.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long does video production take?</div>
+                <div class="faq-answer">Production timelines vary by project scope. Simple promotional videos typically take 1-2 weeks from shoot to delivery, while complex documentaries or commercials may require 3-6 weeks for completion.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you provide drone services for all projects?</div>
+                <div class="faq-answer">As a Part 107 certified pilot, I can provide drone footage for most projects. However, flight restrictions apply in certain areas. I'll verify airspace permissions and obtain necessary authorizations for your location.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What video formats do you deliver?</div>
+                <div class="faq-answer">I deliver videos optimized for your intended use - web streaming, social media, broadcast, or cinema. Common formats include MP4 for web, ProRes for broadcast, and custom specifications for specific platforms.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can you handle both filming and post-production?</div>
+                <div class="faq-answer">Yes, I provide complete video production services from concept to final delivery, including cinematography, drone operations, editing, color correction, audio mixing, and motion graphics when needed.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you travel outside the Bay Area?</div>
+                <div class="faq-answer">While based in Berkeley, I'm available for projects throughout California and beyond. Travel fees apply for locations outside the Bay Area, and I can coordinate multi-day shoots for destination projects.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <nav class="footer-navigation">
+            <ul>
+                <li class="footer-dropdown">
+                    <a href="#portfolio">Portfolio</a>
+                    <div class="footer-dropdown-content">
+                        <a href="architecture-photography.html">Architectural & Real Estate</a>
+                        <a href="automotive-photography.html">Automotive Photography</a>
+                        <a href="portrait-photography.html">Portrait Photography</a>
+                        <a href="landscape-photography.html">Landscape & Aerial</a>
+                    </div>
+                </li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="#" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>

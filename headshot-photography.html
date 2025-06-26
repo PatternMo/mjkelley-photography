@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Headshot Photography | Michael J. Kelley | Bay Area</title>
+    <meta name="description" content="Professional headshot and portrait photography in the San Francisco Bay Area. Corporate headshots, business portraits, and creative portraiture by Michael J. Kelley.">
+    
+    <!-- Link to shared stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- All pages get this -->
+    <script src="shared.js"></script>
+    
+    <!-- Gallery pages get this -->
+    <script src="gallery.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="architecture-photography.html">Architectural & Real Estate</a>
+                            <a href="automotive-photography.html">Automotive Photography</a>
+                            <a href="headshot-photography.html">Portrait Photography</a>
+                            <a href="landscape-photography.html">Landscape & Aerial</a>
+                        </div>
+                    </li>
+                    <li><a href="video.html">Video</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Professional Headshot Photography</h1>
+            <p>Creating compelling headshots that capture your unique personality and professional presence. Studio and on-location portrait sessions throughout the San Francisco Bay Area.</p>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="https://picsum.photos/800/600?random=21" alt="Corporate headshot photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Corporate Headshots</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="https://picsum.photos/800/600?random=22" alt="Business portrait session">
+                    <div class="overlay">
+                        <div class="overlay-text">Business Portraits</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://picsum.photos/800/600?random=23" alt="Professional studio headshot">
+                    <div class="overlay">
+                        <div class="overlay-text">Studio Sessions</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="https://picsum.photos/800/600?random=24" alt="Creative portrait photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Creative Portraits</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="https://picsum.photos/800/600?random=25" alt="Executive portrait session">
+                    <div class="overlay">
+                        <div class="overlay-text">Executive Portraits</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="https://picsum.photos/800/600?random=26" alt="Outdoor portrait photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Outdoor Sessions</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="https://picsum.photos/800/600?random=27" alt="Actor headshot session">
+                    <div class="overlay">
+                        <div class="overlay-text">Actor Headshots</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="https://picsum.photos/800/600?random=28" alt="Team portrait photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Team Portraits</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Professional Headshot & Portrait Services</h2>
+                    <p>Specializing in headshot and portrait photography that showcases your unique personality and professional brand. My approach combines technical expertise with an understanding of how to make you feel comfortable and confident in front of the camera.</p>
+                    
+                    <p>Working throughout the San Francisco Bay Area from my Berkeley studio and on location, I provide comprehensive portrait services for:</p>
+                    
+                    <ul class="service-list">
+                        <li>Corporate executives and professionals</li>
+                        <li>Actors, models, and performers</li>
+                        <li>Entrepreneurs and business owners</li>
+                        <li>Legal, medical, and financial professionals</li>
+                        <li>Real estate agents and consultants</li>
+                        <li>Teams and group portraits</li>
+                    </ul>
+                    
+                    <p>Each session is tailored to your specific needs and brand image. Whether you need polished corporate headshots for LinkedIn, creative portraits for your website, or professional images for marketing materials, I ensure every shot reflects your personality and professionalism.</p>
+                    
+                    <a href="contact.html" class="cta-button">Book Session</a>
+                </div>
+                <div class="services-image" style="background-image: url('https://picsum.photos/600/400?random=29')"></div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What should I wear for my headshot session?</div>
+                <div class="faq-answer">Choose clothing that reflects your professional image and makes you feel confident. Solid colors work best, avoiding busy patterns or bright whites. I provide a detailed style guide upon booking to help you prepare for your session.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long does a headshot session take?</div>
+                <div class="faq-answer">Individual headshot sessions typically last 1-2 hours, allowing time for multiple outfit changes and various looks. Group sessions and corporate team shoots are scheduled based on the number of participants.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you provide hair and makeup services?</div>
+                <div class="faq-answer">I work with talented hair and makeup artists who can be added to your session for an additional fee. Professional grooming can enhance your overall look and boost confidence during the shoot.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">When will I receive my photos?</div>
+                <div class="faq-answer">You'll receive a gallery of professionally edited high-resolution images within 48-72 hours of your session. The gallery includes both color and black & white versions of your selected images.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can we shoot outdoors or only in the studio?</div>
+                <div class="faq-answer">I offer both studio sessions in my Berkeley location and outdoor sessions throughout the Bay Area. Outdoor sessions can provide beautiful natural light and scenic backgrounds that complement your professional image.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How many final images do I receive?</div>
+                <div class="faq-answer">Most sessions include 10-15 professionally edited final images in high resolution. Additional images can be purchased, and I'm happy to customize packages based on your specific needs.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+            <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
+            <img id="lightbox-img" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+            <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <nav class="footer-navigation">
+            <ul>
+                <li class="footer-dropdown">
+                    <a href="#portfolio">Portfolio</a>
+                    <div class="footer-dropdown-content">
+                        <a href="architecture-photography.html">Architectural & Real Estate</a>
+                        <a href="automotive-photography.html">Automotive Photography</a>
+                        <a href="headshot-photography.html">Portrait Photography</a>
+                        <a href="landscape-photography.html">Landscape & Aerial</a>
+                    </div>
+                </li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="#" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Page-specific gallery images array
+        window.galleryImages = [
+            { src: 'https://picsum.photos/800/600?random=21', alt: 'Corporate headshot photography' },
+            { src: 'https://picsum.photos/800/600?random=22', alt: 'Business portrait session' },
+            { src: 'https://picsum.photos/800/600?random=23', alt: 'Professional studio headshot' },
+            { src: 'https://picsum.photos/800/600?random=24', alt: 'Creative portrait photography' },
+            { src: 'https://picsum.photos/800/600?random=25', alt: 'Executive portrait session' },
+            { src: 'https://picsum.photos/800/600?random=26', alt: 'Outdoor portrait photography' },
+            { src: 'https://picsum.photos/800/600?random=27', alt: 'Actor headshot session' },
+            { src: 'https://picsum.photos/800/600?random=28', alt: 'Team portrait photography' }
+        ];
+    </script>
+</body>
+</html>

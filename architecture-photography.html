@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architectural & Real Estate Photography | Michael J. Kelley | Bay Area</title>
+    <meta name="description" content="Professional architectural and real estate photography in the San Francisco Bay Area. Luxury homes, commercial spaces, and interior design photography by Michael J. Kelley.">
+    
+    <!-- Link to shared stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- All pages get this -->
+    <script src="shared.js"></script>
+    
+    <!-- Gallery pages get this -->
+    <script src="gallery.js"></script>
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Services section image for this page */
+        .services-image {
+            background-image: url('https://picsum.photos/600/400?random=19');
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="architecture-photography.html">Architectural & Real Estate</a>
+                            <a href="automotive-photography.html">Automotive Photography</a>
+                            <a href="headshot-photography.html">Portrait Photography</a>
+                            <a href="landscape-photography.html">Landscape & Aerial</a>
+                        </div>
+                    </li>
+                    <li><a href="video.html">Video</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Architectural & Real Estate Photography</h1>
+            <p>Capturing the essence of spaces through thoughtful composition and expert lighting. Professional architectural photography throughout the San Francisco Bay Area.</p>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="https://picsum.photos/800/600?random=11" alt="Modern residential architecture">
+                    <div class="overlay">
+                        <div class="overlay-text">Modern Residential</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="https://picsum.photos/800/600?random=12" alt="Commercial space interior">
+                    <div class="overlay">
+                        <div class="overlay-text">Commercial Interior</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://picsum.photos/800/600?random=13" alt="Luxury home exterior">
+                    <div class="overlay">
+                        <div class="overlay-text">Luxury Exterior</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="https://picsum.photos/800/600?random=14" alt="Kitchen design photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Kitchen Design</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="https://picsum.photos/800/600?random=15" alt="Office space design">
+                    <div class="overlay">
+                        <div class="overlay-text">Office Design</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="https://picsum.photos/800/600?random=16" alt="Bathroom interior design">
+                    <div class="overlay">
+                        <div class="overlay-text">Bathroom Design</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="https://picsum.photos/800/600?random=17" alt="Architectural details">
+                    <div class="overlay">
+                        <div class="overlay-text">Architectural Details</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="https://picsum.photos/800/600?random=18" alt="Real estate exterior">
+                    <div class="overlay">
+                        <div class="overlay-text">Real Estate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Professional Architectural Photography Services</h2>
+                    <p>Specializing in architectural and real estate photography that showcases properties at their finest. My approach combines technical expertise with artistic vision to create images that tell the story of each space.</p>
+                    
+                    <p>Working throughout the San Francisco Bay Area, I provide comprehensive photography services for:</p>
+                    
+                    <ul class="service-list">
+                        <li>Luxury residential properties</li>
+                        <li>Commercial real estate</li>
+                        <li>Interior design portfolios</li>
+                        <li>Architectural firms</li>
+                        <li>Property management companies</li>
+                        <li>Real estate agents and brokers</li>
+                    </ul>
+                    
+                    <p>Each shoot is carefully planned to capture the unique character and design elements that make your property stand out. From dramatic exteriors to intimate interior details, I ensure every image reflects the quality and craftsmanship of the space.</p>
+                    
+                    <a href="contact.html" class="cta-button">Get Quote</a>
+                </div>
+                <div class="services-image"></div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is included in an architectural photography session?</div>
+                <div class="faq-answer">Each session includes professional lighting setup, multiple angles and compositions, basic post-processing, and high-resolution digital files delivered within 48-72 hours. Drone photography can be added for exterior shots when permitted.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long does a typical shoot take?</div>
+                <div class="faq-answer">Residential properties typically require 2-4 hours, while larger commercial spaces may need 4-8 hours. The timeline depends on the size of the property, number of spaces, and specific requirements.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you provide staging advice?</div>
+                <div class="faq-answer">Yes, I provide guidance on preparing spaces for photography, including lighting, decluttering, and styling tips to ensure your property looks its absolute best.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What areas do you serve?</div>
+                <div class="faq-answer">I serve the entire San Francisco Bay Area, including San Francisco, Oakland, Berkeley, San Jose, Palo Alto, and surrounding communities. Travel fees may apply for locations beyond 30 miles from Berkeley.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can you photograph occupied properties?</div>
+                <div class="faq-answer">Absolutely. I work efficiently and respectfully in occupied spaces, coordinating with tenants and property managers to minimize disruption while capturing beautiful images.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+            <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
+            <img id="lightbox-img" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+            <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <nav class="footer-navigation">
+            <ul>
+                <li class="footer-dropdown">
+                    <a href="#portfolio">Portfolio</a>
+                    <div class="footer-dropdown-content">
+                        <a href="architecture-photography.html">Architectural & Real Estate</a>
+                        <a href="automotive-photography.html">Automotive Photography</a>
+                        <a href="headshot-photography.html">Portrait Photography</a>
+                        <a href="landscape-photography.html">Landscape & Aerial</a>
+                    </div>
+                </li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="#" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Page-specific gallery images array
+        window.galleryImages = [
+            { src: 'https://picsum.photos/800/600?random=11', alt: 'Modern residential architecture' },
+            { src: 'https://picsum.photos/800/600?random=12', alt: 'Commercial space interior' },
+            { src: 'https://picsum.photos/800/600?random=13', alt: 'Luxury home exterior' },
+            { src: 'https://picsum.photos/800/600?random=14', alt: 'Kitchen design photography' },
+            { src: 'https://picsum.photos/800/600?random=15', alt: 'Office space design' },
+            { src: 'https://picsum.photos/800/600?random=16', alt: 'Bathroom interior design' },
+            { src: 'https://picsum.photos/800/600?random=17', alt: 'Architectural details' },
+            { src: 'https://picsum.photos/800/600?random=18', alt: 'Real estate exterior' }
+        ];
+    </script>
+</body>
+</html>

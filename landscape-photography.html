@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landscape & Aerial Photography | Michael J. Kelley | Bay Area</title>
+    <meta name="description" content="Professional landscape and aerial photography in the San Francisco Bay Area and California. Fine art prints, commercial licensing, and Part 107 certified drone photography by Michael J. Kelley.">
+    
+    <!-- Link to shared stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- All pages get this -->
+    <script src="shared.js"></script>
+    
+    <!-- Gallery pages get this -->
+    <script src="gallery.js"></script>
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Page-specific service image */
+        .services-image {
+            background-image: url('https://picsum.photos/600/400?random=29');
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="architecture-photography.html">Architectural & Real Estate</a>
+                            <a href="automotive-photography.html">Automotive Photography</a>
+                            <a href="headshot-photography.html">Portrait Photography</a>
+                            <a href="landscape-photography.html">Landscape & Aerial</a>
+                        </div>
+                    </li>
+                    <li><a href="video.html">Video</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Landscape & Aerial Photography</h1>
+            <p>Capturing California's natural beauty from ground and sky. Fine art landscape photography and Part 107 certified aerial perspectives across the Sierra Nevada, Pacific Coast, and beyond.</p>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="https://picsum.photos/800/600?random=21" alt="Sierra Nevada mountain landscape">
+                    <div class="overlay">
+                        <div class="overlay-text">Sierra Nevada</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="https://picsum.photos/800/600?random=22" alt="Pacific Coast aerial view">
+                    <div class="overlay">
+                        <div class="overlay-text">Pacific Coast Aerial</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://picsum.photos/800/600?random=23" alt="Golden hour landscape">
+                    <div class="overlay">
+                        <div class="overlay-text">Golden Hour</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="https://picsum.photos/800/600?random=24" alt="Redwood forest canopy">
+                    <div class="overlay">
+                        <div class="overlay-text">Redwood Canopy</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="https://picsum.photos/800/600?random=25" alt="Desert landscape aerial">
+                    <div class="overlay">
+                        <div class="overlay-text">Desert Aerial</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="https://picsum.photos/800/600?random=26" alt="Lake reflection">
+                    <div class="overlay">
+                        <div class="overlay-text">Lake Reflection</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="https://picsum.photos/800/600?random=27" alt="Coastal cliffs">
+                    <div class="overlay">
+                        <div class="overlay-text">Coastal cliffs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="https://picsum.photos/800/600?random=28" alt="Mountain sunrise">
+                    <div class="overlay">
+                        <div class="overlay-text">Mountain Sunrise</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Fine Art Landscape & Aerial Photography</h2>
+                    <p>Exploring California's diverse landscapes through the lens, from the rolling hills of the Bay Area to the dramatic peaks of the Sierra Nevada. My work captures the raw beauty and quiet majesty of the natural world.</p>
+                    
+                    <p>As a Part 107 certified drone pilot, I combine traditional landscape photography with aerial perspectives to create unique visual narratives. Services include:</p>
+                    
+                    <ul class="service-list">
+                        <li>Fine art landscape prints</li>
+                        <li>Commercial licensing for publications</li>
+                        <li>Aerial photography and video</li>
+                        <li>Nature and wildlife photography</li>
+                        <li>Custom landscape commissions</li>
+                        <li>Stock photography licensing</li>
+                    </ul>
+                    
+                    <p>Each image is carefully composed to showcase the natural drama and beauty of California's wilderness. From intimate forest details to sweeping vistas, my goal is to create images that transport viewers into these remarkable landscapes.</p>
+                    
+                    <a href="contact.html" class="cta-button">View Prints</a>
+                </div>
+                <div class="services-image"></div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you sell fine art prints of your landscape work?</div>
+                <div class="faq-answer">Yes, high-quality fine art prints are available in various sizes and materials including metal, canvas, and archival paper. Each print is professionally produced and can be custom framed. Contact me for current print availability and pricing.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Where do you typically photograph landscapes?</div>
+                <div class="faq-answer">I photograph throughout California, with regular trips to the Sierra Nevada, Big Sur coastline, Marin Headlands, Point Reyes, and various national and state parks. I'm always exploring new locations and happy to travel for commissioned work.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can you provide aerial photography for commercial projects?</div>
+                <div class="faq-answer">Absolutely. As a Part 107 certified drone pilot, I provide commercial aerial photography and videography services for real estate, tourism, environmental documentation, and marketing projects throughout California.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you offer licensing for commercial use?</div>
+                <div class="faq-answer">Yes, I license images for commercial use including publications, websites, marketing materials, and editorial projects. Rights-managed and royalty-free options are available depending on your needs.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you accept custom landscape photography commissions?</div>
+                <div class="faq-answer">I welcome custom commissions for specific locations or projects. Whether you need images of a particular area, seasonal captures, or aerial perspectives of your property, I can work with you to create exactly what you envision.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+            <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
+            <img id="lightbox-img" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+            <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <nav class="footer-navigation">
+            <ul>
+                <li class="footer-dropdown">
+                    <a href="#portfolio">Portfolio</a>
+                    <div class="footer-dropdown-content">
+                        <a href="architecture-photography.html">Architectural & Real Estate</a>
+                        <a href="automotive-photography.html">Automotive Photography</a>
+                        <a href="headshot-photography.html">Portrait Photography</a>
+                        <a href="landscape-photography.html">Landscape & Aerial</a>
+                    </div>
+                </li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="#" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Page-specific gallery images array
+        window.galleryImages = [
+            { src: 'https://picsum.photos/800/600?random=21', alt: 'Sierra Nevada mountain landscape' },
+            { src: 'https://picsum.photos/800/600?random=22', alt: 'Pacific Coast aerial view' },
+            { src: 'https://picsum.photos/800/600?random=23', alt: 'Golden hour landscape' },
+            { src: 'https://picsum.photos/800/600?random=24', alt: 'Redwood forest canopy' },
+            { src: 'https://picsum.photos/800/600?random=25', alt: 'Desert landscape aerial' },
+            { src: 'https://picsum.photos/800/600?random=26', alt: 'Lake reflection' },
+            { src: 'https://picsum.photos/800/600?random=27', alt: 'Coastal cliffs' },
+            { src: 'https://picsum.photos/800/600?random=28', alt: 'Mountain sunrise' }
+        ];
+    </script>
+</body>
+</html>

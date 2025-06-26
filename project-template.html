@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name | Michael J. Kelley Photography | Bay Area</title>
+    <meta name="description" content="Project description showcasing photography and videography work by Michael J. Kelley in the San Francisco Bay Area.">
+    
+    <!-- Link to shared stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- All pages get this -->
+    <script src="shared.js"></script>
+    
+    <!-- Gallery pages get this -->
+    <script src="gallery.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="architecture-photography.html">Architectural & Real Estate</a>
+                            <a href="automotive-photography.html">Automotive Photography</a>
+                            <a href="headshot-photography.html">Portrait Photography</a>
+                            <a href="landscape-photography.html">Landscape & Aerial</a>
+                        </div>
+                    </li>
+                    <li><a href="video.html">Video</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Project Name</h1>
+            <p>A comprehensive visual narrative showcasing both photography and videography. This project combines ground-level and aerial perspectives to tell the complete story of the subject.</p>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="https://picsum.photos/800/600?random=21" alt="Project hero shot">
+                    <div class="overlay">
+                        <div class="overlay-text">Hero Shot</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="https://picsum.photos/800/600?random=22" alt="Detail perspective">
+                    <div class="overlay">
+                        <div class="overlay-text">Detail View</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://picsum.photos/800/600?random=23" alt="Wide angle composition">
+                    <div class="overlay">
+                        <div class="overlay-text">Wide Angle</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="https://picsum.photos/800/600?random=24" alt="Environmental context">
+                    <div class="overlay">
+                        <div class="overlay-text">Environment</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="https://picsum.photos/800/600?random=25" alt="Aerial perspective">
+                    <div class="overlay">
+                        <div class="overlay-text">Aerial View</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="https://picsum.photos/800/600?random=26" alt="Close-up details">
+                    <div class="overlay">
+                        <div class="overlay-text">Close Details</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="https://picsum.photos/800/600?random=27" alt="Artistic composition">
+                    <div class="overlay">
+                        <div class="overlay-text">Artistic View</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="https://picsum.photos/800/600?random=28" alt="Final presentation">
+                    <div class="overlay">
+                        <div class="overlay-text">Final Shot</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <h2>Project Video</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Project Video" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Project Details Section -->
+        <section class="project-details-section">
+            <div class="project-details-content">
+                <div class="project-details-text">
+                    <h2>Project Overview</h2>
+                    <p>This project exemplifies the comprehensive approach to visual storytelling that combines both photography and videography to create a complete narrative. The work showcases the subject from multiple perspectives, capturing both intimate details and expansive views.</p>
+                    
+                    <p>Working with both ground-level and aerial photography, this project demonstrates the full range of creative possibilities when documenting a subject. Each image and video frame was carefully composed to contribute to the overall story.</p>
+                    
+                    <ul class="project-specs">
+                        <li>Photography: Canon 5D Mark IV with 24-70mm f/2.8</li>
+                        <li>Drone: DJI Mavic 3 Pro with 4K video capability</li>
+                        <li>Duration: Full day shoot with golden hour timing</li>
+                        <li>Deliverables: 50+ edited photos and 3-minute video</li>
+                        <li>Location: San Francisco Bay Area</li>
+                        <li>Post-production: Adobe Lightroom and Premiere Pro</li>
+                    </ul>
+                    
+                    <p>The combination of still photography and video allows for a richer storytelling experience, providing clients with versatile content for various marketing and presentation needs.</p>
+                    
+                    <a href="contact.html" class="cta-button">Discuss Your Project</a>
+                </div>
+                <div class="project-details-image" style="background-image: url('https://picsum.photos/600/400?random=29')"></div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section">
+            <h2>Creative Process</h2>
+            
+            <div class="process-item">
+                <div class="process-title">Pre-Production Planning</div>
+                <div class="process-description">Comprehensive site visit and planning session to understand the subject, lighting conditions, and optimal timing. Flight planning for drone operations and equipment selection based on project requirements.</div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-title">Photography Session</div>
+                <div class="process-description">Ground-level photography session capturing multiple angles, compositions, and lighting scenarios. Focus on both wide establishing shots and detailed close-ups to tell the complete visual story.</div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-title">Aerial Videography</div>
+                <div class="process-description">Professional drone operations to capture aerial perspectives and smooth cinematic video sequences. All flights conducted under Part 107 certification with proper safety protocols.</div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-title">Post-Production</div>
+                <div class="process-description">Professional editing and color grading to ensure consistency across all deliverables. Video editing includes music selection, pacing, and seamless transitions between aerial and ground footage.</div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-title">Final Delivery</div>
+                <div class="process-description">High-resolution images optimized for various uses, plus professionally edited video in multiple formats. All files delivered with usage rights and organized for easy access and distribution.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+            <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
+            <img id="lightbox-img" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+            <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <nav class="footer-navigation">
+            <ul>
+                <li class="footer-dropdown">
+                    <a href="#portfolio">Portfolio</a>
+                    <div class="footer-dropdown-content">
+                        <a href="architecture-photography.html">Architectural & Real Estate</a>
+                        <a href="automotive-photography.html">Automotive Photography</a>
+                        <a href="headshot-photography.html">Portrait Photography</a>
+                        <a href="landscape-photography.html">Landscape & Aerial</a>
+                    </div>
+                </li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="#" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Page-specific gallery images array
+        window.galleryImages = [
+            { src: 'https://picsum.photos/800/600?random=21', alt: 'Project hero shot' },
+            { src: 'https://picsum.photos/800/600?random=22', alt: 'Detail perspective' },
+            { src: 'https://picsum.photos/800/600?random=23', alt: 'Wide angle composition' },
+            { src: 'https://picsum.photos/800/600?random=24', alt: 'Environmental context' },
+            { src: 'https://picsum.photos/800/600?random=25', alt: 'Aerial perspective' },
+            { src: 'https://picsum.photos/800/600?random=26', alt: 'Close-up details' },
+            { src: 'https://picsum.photos/800/600?random=27', alt: 'Artistic composition' },
+            { src: 'https://picsum.photos/800/600?random=28', alt: 'Final presentation' }
+        ];
+    </script>
+</body>
+</html>

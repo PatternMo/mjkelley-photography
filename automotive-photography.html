@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive Photography | Michael J. Kelley | Bay Area</title>
+    <meta name="description" content="Professional automotive photography in the San Francisco Bay Area. Dynamic vehicle photography for dealerships, collectors, and enthusiasts by Michael J. Kelley.">
+    
+    <!-- Link to shared stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- All pages get this -->
+    <script src="shared.js"></script>
+    
+    <!-- Gallery pages get this -->
+    <script src="gallery.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="architecture-photography.html">Architectural & Real Estate</a>
+                            <a href="automotive-photography.html">Automotive Photography</a>
+                            <a href="headshot-photography.html">Portrait Photography</a>
+                            <a href="landscape-photography.html">Landscape & Aerial</a>
+                        </div>
+                    </li>
+                    <li><a href="video.html">Video</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Automotive Photography</h1>
+            <p>Dynamic automotive photography that captures the spirit and craftsmanship of exceptional vehicles. Professional studio and location shoots throughout the San Francisco Bay Area.</p>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="https://picsum.photos/800/600?random=21" alt="Luxury sports car photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Luxury Sports Car</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="https://picsum.photos/800/600?random=22" alt="Classic car portrait">
+                    <div class="overlay">
+                        <div class="overlay-text">Classic Car Portrait</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://picsum.photos/800/600?random=23" alt="Motorcycle photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Motorcycle</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="https://picsum.photos/800/600?random=24" alt="Automotive detail photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Detail Photography</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="https://picsum.photos/800/600?random=25" alt="Car dealership inventory">
+                    <div class="overlay">
+                        <div class="overlay-text">Dealership Inventory</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="https://picsum.photos/800/600?random=26" alt="Car interior photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Interior Photography</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="https://picsum.photos/800/600?random=27" alt="Racing car photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Racing Photography</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="https://picsum.photos/800/600?random=28" alt="Automotive lifestyle photography">
+                    <div class="overlay">
+                        <div class="overlay-text">Lifestyle Photography</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Professional Automotive Photography Services</h2>
+                    <p>Specializing in automotive photography that showcases vehicles with dramatic lighting, dynamic compositions, and meticulous attention to detail. My approach combines technical precision with artistic vision to create images that capture the essence and character of each vehicle.</p>
+                    
+                    <p>Working throughout the San Francisco Bay Area, I provide comprehensive automotive photography services for:</p>
+                    
+                    <ul class="service-list">
+                        <li>Car dealerships and sales lots</li>
+                        <li>Classic car collectors and enthusiasts</li>
+                        <li>Automotive brands and manufacturers</li>
+                        <li>Racing teams and events</li>
+                        <li>Motorcycle dealers and custom builders</li>
+                        <li>Auto shows and exhibitions</li>
+                    </ul>
+                    
+                    <p>Each shoot is carefully planned to highlight the unique design elements and craftsmanship that make your vehicle special. From dramatic hero shots to detailed interior and engine bay photography, I ensure every image reflects the quality and passion behind automotive excellence.</p>
+                    
+                    <a href="contact.html" class="cta-button">Get Quote</a>
+                </div>
+                <div class="services-image" style="background-image: url('https://picsum.photos/600/400?random=29')"></div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is included in an automotive photography session?</div>
+                <div class="faq-answer">Each session includes professional lighting setup, multiple angles and compositions, exterior and interior shots, detail photography, basic post-processing, and high-resolution digital files delivered within 48-72 hours. Additional services like drone photography or lifestyle shots can be added.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long does a typical automotive shoot take?</div>
+                <div class="faq-answer">A single vehicle session typically requires 1-2 hours for comprehensive coverage, while dealership inventory shoots depend on the number of vehicles. Multiple vehicle sessions and custom collections may require 3-6 hours.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you provide location scouting?</div>
+                <div class="faq-answer">Yes, I can recommend and scout locations that complement your vehicle's character. From urban settings and scenic coastal roads to studio environments, I help select the perfect backdrop for your automotive photography.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can you photograph vehicles in motion?</div>
+                <div class="faq-answer">Absolutely. I specialize in dynamic automotive photography including rolling shots, panning techniques, and action photography that captures vehicles in motion while maintaining sharp focus and dramatic effect.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you work with dealerships for inventory photography?</div>
+                <div class="faq-answer">Yes, I provide efficient inventory photography services for dealerships throughout the Bay Area. I can work on-site at your location with standardized lighting and angles to ensure consistent, professional images for your entire inventory.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+            <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
+            <img id="lightbox-img" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+            <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <nav class="footer-navigation">
+            <ul>
+                <li class="footer-dropdown">
+                    <a href="#portfolio">Portfolio</a>
+                    <div class="footer-dropdown-content">
+                        <a href="architecture-photography.html">Architectural & Real Estate</a>
+                        <a href="automotive-photography.html">Automotive Photography</a>
+                        <a href="headshot-photography.html">Portrait Photography</a>
+                        <a href="landscape-photography.html">Landscape & Aerial</a>
+                    </div>
+                </li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="#" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Page-specific gallery images array
+        window.galleryImages = [
+            { src: 'https://picsum.photos/800/600?random=21', alt: 'Luxury sports car photography' },
+            { src: 'https://picsum.photos/800/600?random=22', alt: 'Classic car portrait' },
+            { src: 'https://picsum.photos/800/600?random=23', alt: 'Motorcycle photography' },
+            { src: 'https://picsum.photos/800/600?random=24', alt: 'Automotive detail photography' },
+            { src: 'https://picsum.photos/800/600?random=25', alt: 'Car dealership inventory' },
+            { src: 'https://picsum.photos/800/600?random=26', alt: 'Car interior photography' },
+            { src: 'https://picsum.photos/800/600?random=27', alt: 'Racing car photography' },
+            { src: 'https://picsum.photos/800/600?random=28', alt: 'Automotive lifestyle photography' }
+        ];
+    </script>
+</body>
+</html>
