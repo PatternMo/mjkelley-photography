@@ -340,65 +340,68 @@
                 
                 <div class="contact-form">
                     <h2>Project Inquiry</h2>
-                    <form id="contact-form" action="#" method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fullname" class="required">Full Name</label>
-                                <input type="text" id="fullname" name="fullname" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="required">Email Address</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone" class="required">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="budget" class="required">Budget</label>
-                                <select id="budget" name="budget" required>
-                                    <option value="">Select budget range</option>
-                                    <option value="under-1000">Under $1,000</option>
-                                    <option value="1000-2500">$1,000 - $2,500</option>
-                                    <option value="2500-5000">$2,500 - $5,000</option>
-                                    <option value="5000-10000">$5,000 - $10,000</option>
-                                    <option value="over-10000">Over $10,000</option>
-                                    <option value="discuss">Prefer to discuss</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="project" class="required">Project Type</label>
-                            <select id="project" name="project" required>
-                                <option value="">Select project type</option>
-                                <option value="architecture">Architecture</option>
-                                <option value="automotive">Automotive</option>
-                                <option value="aerial">Aerial/Drone</option>
-                                <option value="portraits">Portraits</option>
-                                <option value="headshots">Headshots</option>
-                                <option value="real-estate">Real Estate</option>
-                                <option value="couples">Couples</option>
-                                <option value="landscape">Landscape</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Tell me about your project, timeline, location, and any specific requirements..."></textarea>
-                        </div>
-                        
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="newsletter" name="newsletter" value="yes">
-                            <label for="newsletter">I would like to receive occasional updates about new work and availability.</label>
-                        </div>
-                        
-                        <button type="submit" class="cta-button">Send Message</button>
-                    </form>
+                      <form id="contact-form" name="contact" method="POST" netlify>
+                          <!-- Hidden bot field for spam protection -->
+                          <input type="hidden" name="bot-field" />
+                          
+                          <div class="form-row">
+                              <div class="form-group">
+                                  <label for="fullname" class="required">Full Name</label>
+                                  <input type="text" id="fullname" name="fullname" required>
+                              </div>
+                              <div class="form-group">
+                                  <label for="email" class="required">Email Address</label>
+                                  <input type="email" id="email" name="email" required>
+                              </div>
+                          </div>
+                          
+                          <div class="form-row">
+                              <div class="form-group">
+                                  <label for="phone" class="required">Phone Number</label>
+                                  <input type="tel" id="phone" name="phone" required>
+                              </div>
+                              <div class="form-group">
+                                  <label for="budget" class="required">Budget</label>
+                                  <select id="budget" name="budget" required>
+                                      <option value="">Select budget range</option>
+                                      <option value="under-1000">Under $1,000</option>
+                                      <option value="1000-2500">$1,000 - $2,500</option>
+                                      <option value="2500-5000">$2,500 - $5,000</option>
+                                      <option value="5000-10000">$5,000 - $10,000</option>
+                                      <option value="over-10000">Over $10,000</option>
+                                      <option value="discuss">Prefer to discuss</option>
+                                  </select>
+                              </div>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label for="project" class="required">Project Type</label>
+                              <select id="project" name="project" required>
+                                  <option value="">Select project type</option>
+                                  <option value="architecture">Architecture</option>
+                                  <option value="automotive">Automotive</option>
+                                  <option value="aerial">Aerial/Drone</option>
+                                  <option value="portraits">Portraits</option>
+                                  <option value="headshots">Headshots</option>
+                                  <option value="real-estate">Real Estate</option>
+                                  <option value="couples">Couples</option>
+                                  <option value="landscape">Landscape</option>
+                                  <option value="other">Other</option>
+                              </select>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label for="message">Message</label>
+                              <textarea id="message" name="message" placeholder="Tell me about your project, timeline, location, and any specific requirements..."></textarea>
+                          </div>
+                          
+                          <div class="checkbox-group">
+                              <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                              <label for="newsletter">I would like to receive occasional updates about new work and availability.</label>
+                          </div>
+                          
+                          <button type="submit" class="cta-button">Send Message</button>
+                      </form>
                 </div>
             </div>
         </section>

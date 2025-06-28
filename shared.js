@@ -154,7 +154,7 @@ function initializeContactForm() {
     if (!contactForm) return;
     
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        // e.preventDefault(); // Disabled for Netlify form handling
         
         // Get form data
         const formData = new FormData(this);
