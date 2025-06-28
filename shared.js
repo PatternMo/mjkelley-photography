@@ -148,7 +148,9 @@ function debounce(func, wait, immediate) {
 /**
  * Initialize contact form if present on the page
  */
-function initializeContactForm() {
+// function initializeContactForm() {
+    //Disabling JS contact form handling
+    /*
     const contactForm = document.getElementById('contact-form');
     
     if (!contactForm) return;
@@ -182,8 +184,9 @@ function initializeContactForm() {
         
         // Reset form
         this.reset();
+        
     });
-}
+} */
 
 // =============================================================================
 // Performance Optimization
@@ -221,7 +224,7 @@ function initializeSharedFunctionality() {
     // Initialize core features
     initializeMobileDropdowns();
     initializeSmoothScrolling();
-    initializeContactForm();
+    // initializeContactForm(); // Disabled for Netlify handling
     
     // Performance optimizations
     preloadCriticalImages();
