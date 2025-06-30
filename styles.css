@@ -977,6 +977,41 @@ main {
         display: flex;
     }
 
+    /* MOBILE DROPDOWN FIX - Forces JavaScript control over hover behavior */
+    .dropdown:hover .dropdown-content {
+        display: none !important;
+    }
+    
+    .dropdown.active .dropdown-content {
+        display: block !important;
+        position: static;
+        box-shadow: none;
+        border: none;
+        margin-top: 0;
+        padding: 0;
+        background: transparent;
+        backdrop-filter: none;
+    }
+    
+    .footer-dropdown:hover .footer-dropdown-content {
+        display: none !important;
+    }
+    
+    .footer-dropdown.active .footer-dropdown-content {
+        display: block !important;
+        position: static;
+        box-shadow: none;
+        border: none;
+        margin-bottom: 0;
+        margin-top: 10px;
+        padding: 0;
+        background: transparent;
+        backdrop-filter: none;
+        transform: none;
+        left: auto;
+    }
+    /* END MOBILE DROPDOWN FIX */
+
     .dropdown-content {
         position: static;
         display: none;
@@ -986,11 +1021,6 @@ main {
         padding: 0;
         background: transparent;
         backdrop-filter: none;
-    }
-
-    .dropdown:hover .dropdown-content,
-    .dropdown.active .dropdown-content {
-        display: block;
     }
 
     .dropdown-content a {
@@ -1154,39 +1184,6 @@ main {
     .lightbox-counter {
         font-size: 13px;
         min-width: 50px;
-    }
-
-    /* Footer dropdown mobile styles */
-    .footer-dropdown-content {
-        position: static;
-        display: none;
-        box-shadow: none;
-        border: none;
-        margin-bottom: 0;
-        margin-top: 10px;
-        padding: 0;
-        background: transparent;
-        backdrop-filter: none;
-        transform: none;
-        left: auto;
-    }
-
-    .footer-dropdown:hover .footer-dropdown-content,
-    .footer-dropdown.active .footer-dropdown-content {
-        display: block;
-    }
-
-    .footer-dropdown-content a {
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .footer-dropdown-content a:hover {
-        background: transparent;
-        opacity: 0.6;
-        padding-left: 0;
     }
 }
 
