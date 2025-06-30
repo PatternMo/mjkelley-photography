@@ -34,7 +34,14 @@ function initializeMobileDropdowns() {
             portfolioLink.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
+                    // Toggle the dropdown
                     headerDropdown.classList.toggle('active');
+                    
+                    // Close other open dropdowns
+                    const footerDropdown = document.querySelector('.footer-dropdown');
+                    if (footerDropdown && footerDropdown.classList.contains('active')) {
+                        footerDropdown.classList.remove('active');
+                    }
                 }
             });
         }
@@ -49,7 +56,14 @@ function initializeMobileDropdowns() {
             footerPortfolioLink.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
+                    // Toggle the dropdown
                     footerDropdown.classList.toggle('active');
+                    
+                    // Close other open dropdowns
+                    const headerDropdown = document.querySelector('.dropdown');
+                    if (headerDropdown && headerDropdown.classList.contains('active')) {
+                        headerDropdown.classList.remove('active');
+                    }
                 }
             });
         }
@@ -142,53 +156,6 @@ function debounce(func, wait, immediate) {
 }
 
 // =============================================================================
-// Contact Form Handling (for contact.html)
-// =============================================================================
-
-/**
- * Initialize contact form if present on the page
- */
-// function initializeContactForm() {
-    //Disabling JS contact form handling
-    /*
-    const contactForm = document.getElementById('contact-form');
-    
-    if (!contactForm) return;
-    
-    contactForm.addEventListener('submit', function(e) {
-        // e.preventDefault(); // Disabled for Netlify form handling
-        
-        // Get form data
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
-        
-        // Simple validation check
-        const requiredFields = ['fullname', 'email', 'phone', 'budget', 'project'];
-        const missingFields = requiredFields.filter(field => !data[field]);
-        
-        if (missingFields.length > 0) {
-            alert('Please fill in all required fields.');
-            return;
-        }
-        
-        // Validate email format
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.email)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-        
-        // Here you would typically send the data to your server
-        // For now, we'll just show a success message
-        alert('Thank you for your message! I will get back to you within 24 hours.');
-        
-        // Reset form
-        this.reset();
-        
-    });
-} */
-
-// =============================================================================
 // Performance Optimization
 // =============================================================================
 
@@ -224,7 +191,6 @@ function initializeSharedFunctionality() {
     // Initialize core features
     initializeMobileDropdowns();
     initializeSmoothScrolling();
-    // initializeContactForm(); // Disabled for Netlify handling
     
     // Performance optimizations
     preloadCriticalImages();
@@ -232,16 +198,29 @@ function initializeSharedFunctionality() {
     // Set up event listeners
     window.addEventListener('resize', debounce(handleWindowResize, 250));
     
-    // Close mobile menu when clicking outside
+    // Close mobile menu when clicking outside (but preserve dropdown functionality)
     document.addEventListener('click', function(e) {
         const menu = document.getElementById('nav-menu');
         const menuToggle = document.querySelector('.menu-toggle');
+        const headerDropdown = document.querySelector('.dropdown');
+        const footerDropdown = document.querySelector('.footer-dropdown');
         
+        // Close mobile hamburger menu when clicking outside
         if (menu && menuToggle && 
             !menu.contains(e.target) && 
             !menuToggle.contains(e.target) && 
             menu.classList.contains('active')) {
             menu.classList.remove('active');
+        }
+        
+        // Close dropdowns when clicking outside (only on mobile)
+        if (window.innerWidth <= 768) {
+            if (headerDropdown && !headerDropdown.contains(e.target) && headerDropdown.classList.contains('active')) {
+                headerDropdown.classList.remove('active');
+            }
+            if (footerDropdown && !footerDropdown.contains(e.target) && footerDropdown.classList.contains('active')) {
+                footerDropdown.classList.remove('active');
+            }
         }
     });
 }
