@@ -1,5 +1,5 @@
 /**
- * Michael J. Kelley Photography - Shared JavaScript
+ * Michael J. Kelley Photography - Shared JavaScript (FIXED VERSION)
  * Core functionality used across all pages
  */
 
@@ -18,7 +18,7 @@ function toggleMenu() {
 }
 
 // =============================================================================
-// Mobile Dropdown Handling
+// Mobile Dropdown Handling (IMPROVED)
 // =============================================================================
 
 /**
@@ -34,13 +34,17 @@ function initializeMobileDropdowns() {
             portfolioLink.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
-                    // Toggle the dropdown
-                    headerDropdown.classList.toggle('active');
+                    e.stopPropagation(); // Prevent event bubbling
                     
-                    // Close other open dropdowns
-                    const footerDropdown = document.querySelector('.footer-dropdown');
-                    if (footerDropdown && footerDropdown.classList.contains('active')) {
-                        footerDropdown.classList.remove('active');
+                    // Check current state and toggle explicitly
+                    const isCurrentlyActive = headerDropdown.classList.contains('active');
+                    
+                    // Close all dropdowns first
+                    closeAllDropdowns();
+                    
+                    // If it wasn't active, open it
+                    if (!isCurrentlyActive) {
+                        headerDropdown.classList.add('active');
                     }
                 }
             });
@@ -56,17 +60,36 @@ function initializeMobileDropdowns() {
             footerPortfolioLink.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
-                    // Toggle the dropdown
-                    footerDropdown.classList.toggle('active');
+                    e.stopPropagation(); // Prevent event bubbling
                     
-                    // Close other open dropdowns
-                    const headerDropdown = document.querySelector('.dropdown');
-                    if (headerDropdown && headerDropdown.classList.contains('active')) {
-                        headerDropdown.classList.remove('active');
+                    // Check current state and toggle explicitly
+                    const isCurrentlyActive = footerDropdown.classList.contains('active');
+                    
+                    // Close all dropdowns first
+                    closeAllDropdowns();
+                    
+                    // If it wasn't active, open it
+                    if (!isCurrentlyActive) {
+                        footerDropdown.classList.add('active');
                     }
                 }
             });
         }
+    }
+}
+
+/**
+ * Close all open dropdowns (NEW HELPER FUNCTION)
+ */
+function closeAllDropdowns() {
+    const headerDropdown = document.querySelector('.dropdown');
+    const footerDropdown = document.querySelector('.footer-dropdown');
+    
+    if (headerDropdown) {
+        headerDropdown.classList.remove('active');
+    }
+    if (footerDropdown) {
+        footerDropdown.classList.remove('active');
     }
 }
 
@@ -198,7 +221,7 @@ function initializeSharedFunctionality() {
     // Set up event listeners
     window.addEventListener('resize', debounce(handleWindowResize, 250));
     
-    // Close mobile menu when clicking outside (but preserve dropdown functionality)
+    // IMPROVED: Close mobile menu and dropdowns when clicking outside
     document.addEventListener('click', function(e) {
         const menu = document.getElementById('nav-menu');
         const menuToggle = document.querySelector('.menu-toggle');
@@ -213,13 +236,21 @@ function initializeSharedFunctionality() {
             menu.classList.remove('active');
         }
         
-        // Close dropdowns when clicking outside (only on mobile)
+        // IMPROVED: Close dropdowns when clicking outside (only on mobile)
         if (window.innerWidth <= 768) {
-            if (headerDropdown && !headerDropdown.contains(e.target) && headerDropdown.classList.contains('active')) {
-                headerDropdown.classList.remove('active');
+            let clickedInsideDropdown = false;
+            
+            // Check if click was inside any dropdown
+            if (headerDropdown && headerDropdown.contains(e.target)) {
+                clickedInsideDropdown = true;
             }
-            if (footerDropdown && !footerDropdown.contains(e.target) && footerDropdown.classList.contains('active')) {
-                footerDropdown.classList.remove('active');
+            if (footerDropdown && footerDropdown.contains(e.target)) {
+                clickedInsideDropdown = true;
+            }
+            
+            // If click was outside all dropdowns, close them
+            if (!clickedInsideDropdown) {
+                closeAllDropdowns();
             }
         }
     });
