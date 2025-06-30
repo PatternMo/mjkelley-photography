@@ -173,15 +173,17 @@
     </main>
 
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <div class="lightbox-content" onclick="event.stopPropagation()">
-            <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
-            <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
-            <img id="lightbox-img" src="" alt="">
-            <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
-            <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
+        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+            <div class="lightbox-content" onclick="event.stopPropagation()">
+                <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+                <img id="lightbox-img" src="" alt="">
+                <div class="lightbox-controls">
+                    <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
+                    <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
+                    <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+                </div>
+            </div>
         </div>
-    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
