@@ -882,9 +882,9 @@ function waitForGalleryAPI(callback, maxAttempts = 50) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 DOM loaded, waiting for Gallery API...');
     
-waitForGalleryAPI(() => {
-    initializeGalleryAutomation();
-    // addImageErrorHandling will be called inside generateGalleryHTML
-    console.log('Gallery automation initialized');
+    waitForGalleryAPI(() => {
+        initializeGalleryAutomation();
+        // addImageErrorHandling will be called inside generateGalleryHTML
+        console.log('✅ Gallery automation initialized');
+    });
 });
-
