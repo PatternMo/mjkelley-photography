@@ -179,7 +179,7 @@ function debounce(func, wait, immediate) {
 }
 
 // =============================================================================
-// --- NEW: Fade-in on Scroll Functionality ---
+// --- NEW: Fade-in on Scroll Functionality (UPDATED) ---
 // =============================================================================
 /**
  * Sets up an Intersection Observer to add a 'is-visible' class to elements
@@ -189,28 +189,28 @@ function debounce(func, wait, immediate) {
 function initializeScrollFadeIn(selector) {
     const elementsToFade = document.querySelectorAll(selector);
     if (elementsToFade.length === 0) {
-        // No elements to animate, so we can exit.
         return;
     }
 
     const observer = new IntersectionObserver((entries, observerInstance) => {
         entries.forEach(entry => {
-            // When an element is intersecting with the viewport
             if (entry.isIntersecting) {
-                // Add the class to make it visible
                 entry.target.classList.add('is-visible');
-                // Stop observing the element so the animation only happens once
                 observerInstance.unobserve(entry.target);
             }
         });
     }, { 
-        threshold: 0.1 // Trigger when 10% of the item is visible
+        threshold: 0.1 
     });
 
-    // Start observing each of the elements
-    elementsToFade.forEach(element => {
-        observer.observe(element);
-    });
+    // --- CHANGE: Wrap the observation start in a short timeout ---
+    // This gives the browser a moment to paint the initial (opacity: 0) state
+    // before the observer starts, preventing the race condition on fast reloads.
+    setTimeout(() => {
+        elementsToFade.forEach(element => {
+            observer.observe(element);
+        });
+    }, 100); // 100ms is a safe, imperceptible delay.
 }
 
 
