@@ -794,19 +794,19 @@ function initializeGalleryAutomation() {
     
     // Detect page and populate appropriate gallery
     let category = null;
-    if (filename.includes('headshot-photography.html')) {
+    if (filename.includes('headshot-photography')) {
         category = 'headshots';
-    } else if (filename.includes('architecture-photography.html')) {
+    } else if (filename.includes('architecture-photography')) {
         category = 'architecture';
-    } else if (filename.includes('automotive-photography.html')) {
+    } else if (filename.includes('automotive-photography')) {
         category = 'automotive';
-    } else if (filename.includes('landscape-photography.html')) {
+    } else if (filename.includes('landscape-photography')) {
         category = 'landscape';
-    } else if (filename.includes('engagement-couples-photography.html')) {
+    } else if (filename.includes('engagement-couples-photography')) {
         category = 'engagement';
-    } else if (filename.includes('portraits.html')) {
+    } else if (filename.includes('portraits')) {
         category = 'portraits';
-    } else if (filename.includes('real-estate.html')) {
+    } else if (filename.includes('real-estate')) {
         category = 'realestate';        
     }
     
