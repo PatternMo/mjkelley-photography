@@ -624,12 +624,9 @@ const imageCollections = {
 };
 
 // =============================================================================
-// RANDOM SHUFFLING FUNCTIONALITY - NEW FEATURE
+// RANDOM SHUFFLING FUNCTIONALITY 
 // =============================================================================
 
-/**
- * Get or increment page load counter for shuffle timing
- */
 function getPageLoadCounter(category) {
     const key = `gallery_loads_${category}`;
     let count = parseInt(localStorage.getItem(key) || '0');
@@ -638,17 +635,11 @@ function getPageLoadCounter(category) {
     return count;
 }
 
-/**
- * Generate a seeded random number for consistent shuffling per cycle
- */
 function seededRandom(seed) {
     const x = Math.sin(seed) * 10000;
     return x - Math.floor(x);
 }
 
-/**
- * Fisher-Yates shuffle with optional seed for consistency
- */
 function shuffleArray(array, seed = null) {
     const shuffled = [...array];
     const random = seed ? () => seededRandom(seed++) : Math.random;
@@ -660,21 +651,13 @@ function shuffleArray(array, seed = null) {
     return shuffled;
 }
 
-/**
- * Get shuffle seed based on load count - changes every 3 loads
- */
 function getShuffleSeed(category) {
     const loadCount = getPageLoadCounter(category);
-    const cycle = Math.floor((loadCount - 1) / 3); // 0, 1, 2 loads = cycle 0; 3, 4, 5 = cycle 1, etc.
-    
-    // Create a seed that's consistent for each 3-load cycle
+    const cycle = Math.floor((loadCount - 1) / 3);
     const baseSeed = category.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
     return baseSeed + cycle * 1000;
 }
 
-/**
- * Shuffle image arrays keeping them synchronized
- */
 function shuffleImageCollection(collection, category) {
     const seed = getShuffleSeed(category);
     const indices = Array.from({ length: collection.images.length }, (_, i) => i);
@@ -689,218 +672,135 @@ function shuffleImageCollection(collection, category) {
     };
 }
 
+// =============================================================================
+// --- NEW: ROBUST GALLERY GENERATION WITH IMAGE PRELOADING ---
+// =============================================================================
+
 /**
- * Manually shuffle the current gallery (useful for testing)
+ * Preloads an array of image sources and returns a promise that resolves when all are loaded.
+ * @param {string[]} sources - An array of image URLs to preload.
+ * @returns {Promise<void>}
  */
-function manualShuffle(category) {
-    // Force a new shuffle by incrementing cycle
-    const key = `gallery_loads_${category}`;
-    const currentCount = parseInt(localStorage.getItem(key) || '0');
-    const nextCycleStart = Math.ceil((currentCount + 1) / 3) * 3;
-    localStorage.setItem(key, nextCycleStart.toString());
-    
-    // Regenerate gallery
-    initializeGalleryAutomation();
-    console.log('🔀 Manual shuffle triggered!');
+function preloadImages(sources) {
+    const promises = sources.map(src => {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = resolve;
+            img.onerror = reject; // You might want to handle errors differently
+            img.src = src;
+        });
+    });
+    return Promise.all(promises);
 }
 
-// =============================================================================
-// GALLERY POPULATION FUNCTIONS (Enhanced with Shuffling)
-// =============================================================================
-
 /**
- * Function to populate gallery data (compatible with existing gallery.js)
+ * Generates gallery HTML only after all thumbnail images have been preloaded.
+ * @param {string} category - The category of images to display.
+ * @param {string} containerId - The ID of the gallery container element.
  */
-function populateGallery(category, shouldShuffle = true) {
+function generateGalleryHTML(category, containerId = 'gallery-container') {
+    const galleryContainer = document.getElementById(containerId);
+    const loader = document.getElementById('gallery-loader');
+
+    if (!galleryContainer || !loader) {
+        console.error('Gallery container or loader not found.');
+        return;
+    }
+
+    // Ensure the gallery is hidden and the loader is visible initially.
+    galleryContainer.classList.remove('is-ready');
+    loader.style.display = 'block';
+
     let collection = imageCollections[category];
-    if (!collection) return [];
-    
-    // Shuffle the collection if requested
-    if (shouldShuffle) {
-        collection = shuffleImageCollection(collection, category);
+    if (!collection) {
+        console.warn(`No collection found for category '${category}'`);
+        loader.style.display = 'none'; // Hide loader if no images
+        return;
     }
     
-    return collection.images.map((image, index) => ({
+    // Shuffle the collection
+    collection = shuffleImageCollection(collection, category);
+    
+    const imagesData = collection.images.map((image, index) => ({
         src: collection.folder + image,
         thumbnail: collection.thumbFolder + collection.thumbnails[index],
         alt: collection.alts[index] || `${category} photography ${index + 1}`,
         thumbAlt: collection.thumbAlts[index] || `${category} photography thumbnail ${index + 1}`
     }));
+
+    // Array of thumbnail sources to preload
+    const thumbnailSources = imagesData.map(img => img.thumbnail);
+
+    // --- Start Preloading ---
+    preloadImages(thumbnailSources)
+        .then(() => {
+            // --- This code runs ONLY after ALL thumbnails are loaded ---
+
+            // 1. Set the global array for the lightbox
+            window.galleryImages = imagesData.map(img => ({ src: img.src, alt: img.alt }));
+            
+            // 2. Generate the final HTML
+            const galleryHTML = imagesData.map((img, index) => `
+                <div class="gallery-item" onclick="openLightbox(${index})" data-full-src="${img.src}">
+                    <img src="${img.thumbnail}" alt="${img.thumbAlt}" class="gallery-thumbnail">
+                    <div class="overlay">
+                        <div class="overlay-text">${img.alt}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            // 3. Populate the container
+            galleryContainer.innerHTML = galleryHTML;
+            
+            // 4. Initialize the lightbox functionality
+            if (typeof window.GalleryAPI !== 'undefined' && window.GalleryAPI.initialize) {
+                window.GalleryAPI.initialize(window.galleryImages);
+            }
+
+            // 5. Initialize the fade-in-on-scroll for individual items
+            if (typeof initializeScrollFadeIn === 'function') {
+                initializeScrollFadeIn('.gallery-item');
+            }
+
+            // 6. Hide the loader and reveal the gallery
+            loader.style.display = 'none';
+            galleryContainer.classList.add('is-ready');
+
+            console.log(`✅ Gallery '${category}' successfully loaded and displayed.`);
+        })
+        .catch(error => {
+            console.error("Error preloading gallery thumbnails:", error);
+            loader.style.display = 'none'; // Hide loader on error too
+        });
 }
 
-/**
- * Function to generate gallery HTML with thumbnails and shuffling
- */
-function generateGalleryHTML(category, containerId = 'gallery-container') {
-    const images = populateGallery(category);
-    const container = document.getElementById(containerId);
-    
-    if (!container || !images.length) {
-        console.warn(`Gallery container '${containerId}' not found or no images for category '${category}'`);
-        return;
-    }
-
-    // --- NEW: Ensure the container is hidden before we start ---
-    container.classList.remove('is-ready');
-    
-    // CRITICAL: Set the global array for lightbox (full-size images)
-    window.galleryImages = images.map(img => ({
-        src: img.src,  // Full-size image for lightbox
-        alt: img.alt   // Full alt text for lightbox
-    }));
-    
-    // Generate HTML that uses thumbnails for display, full images for lightbox
-    const galleryHTML = images.map((img, index) => `
-        <div class="gallery-item" onclick="openLightbox(${index})" data-full-src="${img.src}">
-            <img src="${img.thumbnail}" alt="${img.thumbAlt}" loading="lazy" class="gallery-thumbnail">
-            <div class="overlay">
-                <div class="overlay-text">${img.alt}</div>
-            </div>
-        </div>
-    `).join('');
-    
-    container.innerHTML = galleryHTML;
-
-    // Apply the fade-in effect to the newly created items
-    if (typeof initializeScrollFadeIn === 'function') {
-        initializeScrollFadeIn('.gallery-item');
-    }
-    
-    // Manually initialize gallery system
-    if (typeof window.GalleryAPI !== 'undefined' && window.GalleryAPI.initialize) {
-        window.GalleryAPI.initialize(window.galleryImages);
-        console.log(`✅ Gallery manually initialized: ${images.length} images for ${category}`);
-    } else {
-        console.warn('⚠️ GalleryAPI not available for manual initialization');
-    }
-    
-    // Log shuffle info for debugging
-    const loadCount = parseInt(localStorage.getItem(`gallery_loads_${category}`) || '0');
-    const cyclePosition = ((loadCount - 1) % 3) + 1;
-    console.log(`✅ Gallery populated: ${images.length} images for ${category}`);
-    console.log(`📊 Load ${loadCount}, Cycle position: ${cyclePosition}/3`);
-    if (cyclePosition === 1) {
-        console.log('🔀 New shuffle cycle started!');
-    }
-
-    // --- NEW: Reveal the container after it has been populated ---
-    requestAnimationFrame(() => {
-        container.classList.add('is-ready');
-    });
-}
 
 // =============================================================================
-// INITIALIZATION SECTION:
+// INITIALIZATION SECTION (No changes needed below this line)
 // =============================================================================
 
-/**
- * Enhanced auto-detect page and populate gallery with multiple fallbacks
- */
 function initializeGalleryAutomation() {
     const path = window.location.pathname;
     const filename = path.split('/').pop() || '';
-
-    // DEBUG LINE:
-    console.log('🔍 Detecting page:', filename, 'from path:', path);
     
-    console.log('Gallery initialization starting for:', filename);
-    
-    // Detect page and populate appropriate gallery
     let category = null;
-    if (filename.includes('headshot-photography')) {
-        category = 'headshots';
-    } else if (filename.includes('architecture-photography')) {
-        category = 'architecture';
-    } else if (filename.includes('automotive-photography')) {
-        category = 'automotive';
-    } else if (filename.includes('landscape-photography')) {
-        category = 'landscape';
-    } else if (filename.includes('engagement-couples-photography')) {
-        category = 'engagement';
-    } else if (filename.includes('portraits')) {
-        category = 'portraits';
-    } else if (filename.includes('real-estate')) {
-        category = 'realestate';        
-    }
+    if (filename.includes('headshot-photography')) category = 'headshots';
+    else if (filename.includes('architecture-photography')) category = 'architecture';
+    else if (filename.includes('automotive-photography')) category = 'automotive';
+    else if (filename.includes('landscape-photography')) category = 'landscape';
+    else if (filename.includes('engagement-couples-photography')) category = 'engagement';
+    else if (filename.includes('portraits')) category = 'portraits';
+    else if (filename.includes('real-estate')) category = 'realestate';
     
     if (category) {
-        console.log('Detected category:', category);
-        
-        // Try immediate initialization
-        attemptGalleryInit(category);
-        
-        // Fallback with delay
-        setTimeout(() => attemptGalleryInit(category), 500);
-        
-        // Final fallback with longer delay
-        setTimeout(() => attemptGalleryInit(category), 1500);
+        // We only need to call generateGalleryHTML once now.
+        // The function handles its own timing.
+        generateGalleryHTML(category);
     } else {
-        console.log('No gallery needed for this page');
+        // If there's no category, make sure to hide the loader if it exists
+        const loader = document.getElementById('gallery-loader');
+        if (loader) loader.style.display = 'none';
     }
 }
 
-/**
- * Attempt to initialize gallery with error checking
- */
-function attemptGalleryInit(category) {
-    const container = document.getElementById('gallery-container');
-    
-    if (!container) {
-        console.log('Gallery container not found, skipping...');
-        return;
-    }
-    
-    // Check if already populated
-    if (container.children.length > 0 && container.classList.contains('is-ready')) {
-        console.log('Gallery already populated, skipping...');
-        return;
-    }
-    
-    console.log('Attempting to populate gallery for:', category);
-    generateGalleryHTML(category);
-    
-    // Verify it worked
-    setTimeout(() => {
-        const itemCount = container.children.length;
-        console.log('Gallery items created:', itemCount);
-        if (itemCount === 0) {
-            console.warn('Gallery failed to populate - check image paths');
-        }
-    }, 100);
-}
-
-// =============================================================================
-// INITIALIZATION (FIXED - Race Condition Protection)
-// =============================================================================
-
-/**
- * Wait for Gallery API to be available before initializing
- */
-function waitForGalleryAPI(callback, maxAttempts = 50) {
-    let attempts = 0;
-    const checkAPI = () => {
-        if (typeof window.GalleryAPI !== 'undefined' && window.GalleryAPI.initialize) {
-            console.log('Gallery API ready, initializing automation');
-            callback();
-        } else if (attempts < maxAttempts) {
-            attempts++;
-            setTimeout(checkAPI, 100);
-        } else {
-            console.error('❌ Gallery API failed to load after 5 seconds');
-            // Fallback: try basic initialization anyway
-            callback();
-        }
-    };
-    checkAPI();
-}
-
-// Single initialization with dependency checking
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 DOM loaded, waiting for Gallery API...');
-    
-    waitForGalleryAPI(() => {
-        initializeGalleryAutomation();
-        // addImageErrorHandling will be called inside generateGalleryHTML
-        console.log('✅ Gallery automation initialized');
-    });
-});
+document.addEventListener('DOMContentLoaded', initializeGalleryAutomation);
