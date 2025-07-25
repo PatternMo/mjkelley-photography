@@ -739,6 +739,9 @@ function generateGalleryHTML(category, containerId = 'gallery-container') {
         console.warn(`Gallery container '${containerId}' not found or no images for category '${category}'`);
         return;
     }
+
+    // --- NEW: Ensure the container is hidden before we start ---
+    container.classList.remove('is-ready');
     
     // CRITICAL: Set the global array for lightbox (full-size images)
     window.galleryImages = images.map(img => ({
@@ -758,13 +761,12 @@ function generateGalleryHTML(category, containerId = 'gallery-container') {
     
     container.innerHTML = galleryHTML;
 
-    // --- NEW: Apply the fade-in effect to the newly created items ---
-    // We check if the function exists (it's in shared.js) before calling it.
+    // Apply the fade-in effect to the newly created items
     if (typeof initializeScrollFadeIn === 'function') {
         initializeScrollFadeIn('.gallery-item');
     }
     
-    // CRITICAL: Manually initialize gallery system
+    // Manually initialize gallery system
     if (typeof window.GalleryAPI !== 'undefined' && window.GalleryAPI.initialize) {
         window.GalleryAPI.initialize(window.galleryImages);
         console.log(`✅ Gallery manually initialized: ${images.length} images for ${category}`);
@@ -780,6 +782,11 @@ function generateGalleryHTML(category, containerId = 'gallery-container') {
     if (cyclePosition === 1) {
         console.log('🔀 New shuffle cycle started!');
     }
+
+    // --- NEW: Reveal the container after it has been populated ---
+    requestAnimationFrame(() => {
+        container.classList.add('is-ready');
+    });
 }
 
 // =============================================================================
@@ -844,7 +851,7 @@ function attemptGalleryInit(category) {
     }
     
     // Check if already populated
-    if (container.children.length > 0) {
+    if (container.children.length > 0 && container.classList.contains('is-ready')) {
         console.log('Gallery already populated, skipping...');
         return;
     }

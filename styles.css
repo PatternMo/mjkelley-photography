@@ -204,9 +204,19 @@ main {
 
 .gallery-grid {
     column-count: 3;
-    column-gap: 8px; /* changed to create visual balance */
+    column-gap: 8px; 
     margin-bottom: 80px;
+    
+    /* --- NEW: Hide the grid initially to prevent layout flash --- */
+    opacity: 0;
+    transition: opacity 0.2s ease-in; /* A quick fade-in for the container */
 }
+
+/* --- NEW: The class that makes the grid visible --- */
+.gallery-grid.is-ready {
+    opacity: 1;
+}
+
 
 .gallery-item {
     position: relative;
@@ -218,13 +228,12 @@ main {
     background: #f5f5f5;
     break-inside: avoid;
     
-    /* --- NEW: Styles for fade-in effect --- */
+    /* These styles remain the same */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* --- NEW: Class to trigger the fade-in --- */
 .gallery-item.is-visible {
     opacity: 1;
     transform: translateY(0);
