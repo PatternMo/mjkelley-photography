@@ -757,6 +757,12 @@ function generateGalleryHTML(category, containerId = 'gallery-container') {
     `).join('');
     
     container.innerHTML = galleryHTML;
+
+    // --- NEW: Apply the fade-in effect to the newly created items ---
+    // We check if the function exists (it's in shared.js) before calling it.
+    if (typeof initializeScrollFadeIn === 'function') {
+        initializeScrollFadeIn('.gallery-item');
+    }
     
     // CRITICAL: Manually initialize gallery system
     if (typeof window.GalleryAPI !== 'undefined' && window.GalleryAPI.initialize) {

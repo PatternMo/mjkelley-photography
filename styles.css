@@ -217,7 +217,19 @@ main {
     cursor: pointer;
     background: #f5f5f5;
     break-inside: avoid;
+    
+    /* --- NEW: Styles for fade-in effect --- */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
+/* --- NEW: Class to trigger the fade-in --- */
+.gallery-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .gallery-item img {
     width: 100%;
