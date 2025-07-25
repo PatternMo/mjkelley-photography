@@ -777,96 +777,95 @@ function generateGalleryHTML(category, containerId = 'gallery-container') {
 }
 
 // =============================================================================
-// AUTO-DETECTION AND INITIALIZATION
+// INITIALIZATION SECTION:
 // =============================================================================
 
 /**
- * Auto-detect page and populate gallery
+ * Enhanced auto-detect page and populate gallery with multiple fallbacks
  */
 function initializeGalleryAutomation() {
     const path = window.location.pathname;
     const filename = path.split('/').pop() || '';
     
+    console.log('Gallery initialization starting for:', filename);
+    
     // Detect page and populate appropriate gallery
+    let category = null;
     if (filename.includes('headshot-photography.html')) {
-        generateGalleryHTML('headshots');
+        category = 'headshots';
     } else if (filename.includes('architecture-photography.html')) {
-        generateGalleryHTML('architecture');
+        category = 'architecture';
     } else if (filename.includes('automotive-photography.html')) {
-        generateGalleryHTML('automotive');
+        category = 'automotive';
     } else if (filename.includes('landscape-photography.html')) {
-        generateGalleryHTML('landscape');
+        category = 'landscape';
     } else if (filename.includes('engagement-couples-photography.html')) {
-        generateGalleryHTML('engagement');
+        category = 'engagement';
     } else if (filename.includes('portraits.html')) {
-        generateGalleryHTML('portraits');
+        category = 'portraits';
     } else if (filename.includes('real-estate.html')) {
-        generateGalleryHTML('real-estate');        
+        category = 'realestate';        
+    }
+    
+    if (category) {
+        console.log('Detected category:', category);
+        
+        // Try immediate initialization
+        attemptGalleryInit(category);
+        
+        // Fallback with delay
+        setTimeout(() => attemptGalleryInit(category), 500);
+        
+        // Final fallback with longer delay
+        setTimeout(() => attemptGalleryInit(category), 1500);
     } else {
-        console.log('No gallery automation needed for this page');
+        console.log('No gallery needed for this page');
     }
 }
 
-// =============================================================================
-// ERROR HANDLING AND UTILITY FUNCTIONS
-// =============================================================================
-
 /**
- * Enhanced error handling for missing images
+ * Attempt to initialize gallery with error checking
  */
-function handleImageError(event) {
-    const img = event.target;
-    const fallbackSrc = img.dataset.fallback || 'https://picsum.photos/400/300?random=' + Math.floor(Math.random() * 100);
+function attemptGalleryInit(category) {
+    const container = document.getElementById('gallery-container');
     
-    console.warn(`Image failed to load: ${img.src}`);
-    img.src = fallbackSrc;
-    img.alt = img.alt + ' (placeholder)';
-}
-
-/**
- * Add error handling to all gallery images
- */
-function addImageErrorHandling() {
-    document.querySelectorAll('.gallery-thumbnail').forEach(img => {
-        img.addEventListener('error', handleImageError);
-    });
-}
-
-// =============================================================================
-// INITIALIZATION
-// =============================================================================
-
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    initializeGalleryAutomation();
-    addImageErrorHandling();
-});
-
-// =============================================================================
-// PUBLIC API
-// =============================================================================
-
-// Expose functions for manual control and debugging
-window.GalleryAutomation = {
-    populate: generateGalleryHTML,
-    getImages: populateGallery,
-    collections: imageCollections,
-    handleError: handleImageError,
+    if (!container) {
+        console.log('Gallery container not found, skipping...');
+        return;
+    }
     
-    // New shuffle functions
-    manualShuffle: manualShuffle,
-    resetCounter: (category) => localStorage.removeItem(`gallery_loads_${category}`),
-    getLoadCount: (category) => parseInt(localStorage.getItem(`gallery_loads_${category}`) || '0'),
+    // Check if already populated
+    if (container.children.length > 0) {
+        console.log('Gallery already populated, skipping...');
+        return;
+    }
     
-    // Debug functions
-    debug: {
-        getCurrentCycle: (category) => Math.floor((parseInt(localStorage.getItem(`gallery_loads_${category}`) || '0') - 1) / 3),
-        getCyclePosition: (category) => ((parseInt(localStorage.getItem(`gallery_loads_${category}`) || '0') - 1) % 3) + 1,
-        logShuffleInfo: (category) => {
-            const loads = parseInt(localStorage.getItem(`gallery_loads_${category}`) || '0');
-            const cycle = Math.floor((loads - 1) / 3);
-            const position = ((loads - 1) % 3) + 1;
-            console.log(`${category}: Load ${loads}, Cycle ${cycle}, Position ${position}/3`);
+    console.log('Attempting to populate gallery for:', category);
+    generateGalleryHTML(category);
+    
+    // Verify it worked
+    setTimeout(() => {
+        const itemCount = container.children.length;
+        console.log('Gallery items created:', itemCount);
+        if (itemCount === 0) {
+            console.warn('Gallery failed to populate - check image paths');
         }
-    }
-};
+    }, 100);
+}
+
+// =============================================================================
+// INITIALIZATION:
+// =============================================================================
+
+// Multiple initialization attempts for reliability
+document.addEventListener('DOMContentLoaded', initializeGalleryAutomation);
+
+// Fallback for already loaded pages
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeGalleryAutomation);
+} else {
+    initializeGalleryAutomation();
+}
+
+// Final fallback on window load
+window.addEventListener('load', initializeGalleryAutomation);
