@@ -171,5 +171,22 @@
             © 2025 Michael J. Kelley Photography | All Rights Reserved.
         </div>
     </footer>
+
+    <script>
+    console.log('Gallery Debug Script Loaded');
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            console.log('=== GALLERY DEBUG INFO ===');
+            console.log('GalleryAPI available:', typeof window.GalleryAPI);
+            console.log('GalleryAutomation available:', typeof window.GalleryAutomation);
+            console.log('galleryImages set:', typeof window.galleryImages);
+            console.log('galleryImages length:', window.galleryImages ? window.galleryImages.length : 'N/A');
+            console.log('Gallery container found:', !!document.getElementById('gallery-container'));
+            console.log('Gallery items in DOM:', document.querySelectorAll('.gallery-item').length);
+            console.log('========================');
+        }, 1000);
+    });
+    </script>
+
 </body>
 </html>
