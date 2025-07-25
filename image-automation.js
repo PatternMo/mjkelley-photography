@@ -869,3 +869,8 @@ if (document.readyState === 'loading') {
 
 // Final fallback on window load
 window.addEventListener('load', initializeGalleryAutomation);
+
+// Additional window.load initialization for timing issues
+window.addEventListener('load', function() {
+    setTimeout(initializeGalleryAutomation, 1000);
+});
