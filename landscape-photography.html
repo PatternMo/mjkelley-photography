@@ -14,6 +14,9 @@
     
     <!-- Gallery pages get this -->
     <script src="gallery.js"></script>
+
+    <!-- Gallery Automation -->
+    <script src="image-automation.js"></script>
     
     <!-- Page-specific styles -->
     <style>
@@ -38,10 +41,13 @@
                     <li class="dropdown">
                         <a href="#portfolio">Portfolio</a>
                         <div class="dropdown-content">
-                            <a href="architecture-photography.html">Architectural & Real Estate</a>
-                            <a href="automotive-photography.html">Automotive Photography</a>
-                            <a href="headshot-photography.html">Portrait Photography</a>
-                            <a href="landscape-photography.html">Landscape & Aerial</a>
+                            <a href="architecture-photography.html">Architecture</a>
+                            <a href="automotive-photography.html">Automotive</a>
+                            <a href="headshot-photography.html">Headshot</a>
+                            <a href="landscape-photography.html">Landscape</a>
+                            <a href="portraits.html">Portrait</a>
+                            <a href="real-estate.html">Real Estate</a>
+                            <a href="engagement-couples-photography.html">Couples</a>
                         </div>
                     </li>
                     <li><a href="video.html">Video</a></li>
@@ -63,55 +69,8 @@
 
         <!-- Gallery Section -->
         <section class="gallery-section">
-            <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox(0)">
-                    <img src="https://picsum.photos/800/600?random=21" alt="Sierra Nevada mountain landscape">
-                    <div class="overlay">
-                        <div class="overlay-text">Sierra Nevada</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(1)">
-                    <img src="https://picsum.photos/800/600?random=22" alt="Pacific Coast aerial view">
-                    <div class="overlay">
-                        <div class="overlay-text">Pacific Coast Aerial</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(2)">
-                    <img src="https://picsum.photos/800/600?random=23" alt="Golden hour landscape">
-                    <div class="overlay">
-                        <div class="overlay-text">Golden Hour</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(3)">
-                    <img src="https://picsum.photos/800/600?random=24" alt="Redwood forest canopy">
-                    <div class="overlay">
-                        <div class="overlay-text">Redwood Canopy</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(4)">
-                    <img src="https://picsum.photos/800/600?random=25" alt="Desert landscape aerial">
-                    <div class="overlay">
-                        <div class="overlay-text">Desert Aerial</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(5)">
-                    <img src="https://picsum.photos/800/600?random=26" alt="Lake reflection">
-                    <div class="overlay">
-                        <div class="overlay-text">Lake Reflection</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(6)">
-                    <img src="https://picsum.photos/800/600?random=27" alt="Coastal cliffs">
-                    <div class="overlay">
-                        <div class="overlay-text">Coastal cliffs</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(7)">
-                    <img src="https://picsum.photos/800/600?random=28" alt="Mountain sunrise">
-                    <div class="overlay">
-                        <div class="overlay-text">Mountain Sunrise</div>
-                    </div>
-                </div>
+            <div class="gallery-grid" id="gallery-container">
+            <!-- Images will be populated by JavaScript -->
             </div>
         </section>
 
@@ -192,10 +151,13 @@
                 <li class="footer-dropdown">
                     <a href="#portfolio">Portfolio</a>
                     <div class="footer-dropdown-content">
-                        <a href="architecture-photography.html">Architectural & Real Estate</a>
-                        <a href="automotive-photography.html">Automotive Photography</a>
-                        <a href="headshot-photography.html">Portrait Photography</a>
-                        <a href="landscape-photography.html">Landscape & Aerial</a>
+                        <a href="architecture-photography.html">Architecture</a>
+                        <a href="automotive-photography.html">Automotive</a>
+                        <a href="headshot-photography.html">Headshot</a>
+                        <a href="landscape-photography.html">Landscape</a>
+                        <a href="portraits.html">Portrait</a>
+                        <a href="real-estate.html">Real Estate</a>
+                        <a href="engagement-couples-photography.html">Couples</a>
                     </div>
                 </li>
                 <li><a href="video.html">Video</a></li>
@@ -217,18 +179,5 @@
         </div>
     </footer>
 
-    <script>
-        // Page-specific gallery images array
-        window.galleryImages = [
-            { src: 'https://picsum.photos/800/600?random=21', alt: 'Sierra Nevada mountain landscape' },
-            { src: 'https://picsum.photos/800/600?random=22', alt: 'Pacific Coast aerial view' },
-            { src: 'https://picsum.photos/800/600?random=23', alt: 'Golden hour landscape' },
-            { src: 'https://picsum.photos/800/600?random=24', alt: 'Redwood forest canopy' },
-            { src: 'https://picsum.photos/800/600?random=25', alt: 'Desert landscape aerial' },
-            { src: 'https://picsum.photos/800/600?random=26', alt: 'Lake reflection' },
-            { src: 'https://picsum.photos/800/600?random=27', alt: 'Coastal cliffs' },
-            { src: 'https://picsum.photos/800/600?random=28', alt: 'Mountain sunrise' }
-        ];
-    </script>
 </body>
 </html>

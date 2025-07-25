@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architectural & Real Estate Photography | Michael J. Kelley | Bay Area</title>
+    <title>Architectural Exterior & Interior Photography | Michael J. Kelley | Bay Area</title>
     <meta name="description" content="Professional architectural and real estate photography in the San Francisco Bay Area. Luxury homes, commercial spaces, and interior design photography by Michael J. Kelley.">
     
     <!-- Link to shared stylesheet -->
@@ -14,6 +14,9 @@
     
     <!-- Gallery pages get this -->
     <script src="gallery.js"></script>
+
+    <!-- Gallery Automation -->
+    <script src="image-automation.js"></script>
     
     <!-- Page-specific styles -->
     <style>
@@ -38,10 +41,13 @@
                     <li class="dropdown">
                         <a href="#portfolio">Portfolio</a>
                         <div class="dropdown-content">
-                            <a href="architecture-photography.html">Architectural & Real Estate</a>
-                            <a href="automotive-photography.html">Automotive Photography</a>
-                            <a href="headshot-photography.html">Portrait Photography</a>
-                            <a href="landscape-photography.html">Landscape & Aerial</a>
+                            <a href="architecture-photography.html">Architecture</a>
+                            <a href="automotive-photography.html">Automotive</a>
+                            <a href="headshot-photography.html">Headshot</a>
+                            <a href="landscape-photography.html">Landscape</a>
+                            <a href="portraits.html">Portrait</a>
+                            <a href="real-estate.html">Real Estate</a>
+                            <a href="engagement-couples-photography.html">Couples</a>
                         </div>
                     </li>
                     <li><a href="video.html">Video</a></li>
@@ -57,61 +63,14 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Architectural & Real Estate Photography</h1>
+            <h1>Architectural Exterior & Interior Photography</h1>
             <p>Capturing the essence of spaces through thoughtful composition and expert lighting. Professional architectural photography throughout the San Francisco Bay Area.</p>
         </section>
 
         <!-- Gallery Section -->
         <section class="gallery-section">
-            <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox(0)">
-                    <img src="https://picsum.photos/800/600?random=11" alt="Modern residential architecture">
-                    <div class="overlay">
-                        <div class="overlay-text">Modern Residential</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(1)">
-                    <img src="https://picsum.photos/800/600?random=12" alt="Commercial space interior">
-                    <div class="overlay">
-                        <div class="overlay-text">Commercial Interior</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(2)">
-                    <img src="https://picsum.photos/800/600?random=13" alt="Luxury home exterior">
-                    <div class="overlay">
-                        <div class="overlay-text">Luxury Exterior</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(3)">
-                    <img src="https://picsum.photos/800/600?random=14" alt="Kitchen design photography">
-                    <div class="overlay">
-                        <div class="overlay-text">Kitchen Design</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(4)">
-                    <img src="https://picsum.photos/800/600?random=15" alt="Office space design">
-                    <div class="overlay">
-                        <div class="overlay-text">Office Design</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(5)">
-                    <img src="https://picsum.photos/800/600?random=16" alt="Bathroom interior design">
-                    <div class="overlay">
-                        <div class="overlay-text">Bathroom Design</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(6)">
-                    <img src="https://picsum.photos/800/600?random=17" alt="Architectural details">
-                    <div class="overlay">
-                        <div class="overlay-text">Architectural Details</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(7)">
-                    <img src="https://picsum.photos/800/600?random=18" alt="Real estate exterior">
-                    <div class="overlay">
-                        <div class="overlay-text">Real Estate</div>
-                    </div>
-                </div>
+            <div class="gallery-grid" id="gallery-container">
+            <!-- Images will be populated by JavaScript -->
             </div>
         </section>
 
@@ -192,10 +151,13 @@
                 <li class="footer-dropdown">
                     <a href="#portfolio">Portfolio</a>
                     <div class="footer-dropdown-content">
-                        <a href="architecture-photography.html">Architectural & Real Estate</a>
-                        <a href="automotive-photography.html">Automotive Photography</a>
-                        <a href="headshot-photography.html">Portrait Photography</a>
-                        <a href="landscape-photography.html">Landscape & Aerial</a>
+                        <a href="architecture-photography.html">Architecture</a>
+                        <a href="automotive-photography.html">Automotive</a>
+                        <a href="headshot-photography.html">Headshot</a>
+                        <a href="landscape-photography.html">Landscape</a>
+                        <a href="portraits.html">Portrait</a>
+                        <a href="real-estate.html">Real Estate</a>
+                        <a href="engagement-couples-photography.html">Couples</a>
                     </div>
                 </li>
                 <li><a href="video.html">Video</a></li>
@@ -216,19 +178,5 @@
             © 2025 Michael J. Kelley Photography | All Rights Reserved.
         </div>
     </footer>
-
-    <script>
-        // Page-specific gallery images array
-        window.galleryImages = [
-            { src: 'https://picsum.photos/800/600?random=11', alt: 'Modern residential architecture' },
-            { src: 'https://picsum.photos/800/600?random=12', alt: 'Commercial space interior' },
-            { src: 'https://picsum.photos/800/600?random=13', alt: 'Luxury home exterior' },
-            { src: 'https://picsum.photos/800/600?random=14', alt: 'Kitchen design photography' },
-            { src: 'https://picsum.photos/800/600?random=15', alt: 'Office space design' },
-            { src: 'https://picsum.photos/800/600?random=16', alt: 'Bathroom interior design' },
-            { src: 'https://picsum.photos/800/600?random=17', alt: 'Architectural details' },
-            { src: 'https://picsum.photos/800/600?random=18', alt: 'Real estate exterior' }
-        ];
-    </script>
 </body>
 </html>

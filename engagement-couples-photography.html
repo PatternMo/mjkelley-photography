@@ -14,12 +14,15 @@
     
     <!-- Gallery pages get this -->
     <script src="gallery.js"></script>
+
+    <!-- Gallery Automation -->
+    <script src="image-automation.js"></script>
     
     <!-- Page-specific styles -->
     <style>
         /* Page-specific banner image */
         .banner-image {
-            background-image: url('https://picsum.photos/1400/800?random=25');
+            background-image: url('images/engagement-couples/Engagement-couples-golden-gate-park-san-francisco-11.jpg');
         }
     </style>
 </head>
@@ -38,10 +41,13 @@
                     <li class="dropdown">
                         <a href="#portfolio">Portfolio</a>
                         <div class="dropdown-content">
-                            <a href="architecture-photography.html">Architectural & Real Estate</a>
-                            <a href="automotive-photography.html">Automotive Photography</a>
-                            <a href="headshot-photography.html">Portrait Photography</a>
-                            <a href="landscape-photography.html">Landscape & Aerial</a>
+                            <a href="architecture-photography.html">Architecture</a>
+                            <a href="automotive-photography.html">Automotive</a>
+                            <a href="headshot-photography.html">Headshot</a>
+                            <a href="landscape-photography.html">Landscape</a>
+                            <a href="portraits.html">Portrait</a>
+                            <a href="real-estate.html">Real Estate</a>
+                            <a href="engagement-couples-photography.html">Couples</a>
                         </div>
                     </li>
                     <li><a href="video.html">Video</a></li>
@@ -66,55 +72,8 @@
 
         <!-- Gallery Section -->
         <section class="gallery-section">
-            <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox(0)">
-                    <img src="https://picsum.photos/800/600?random=31" alt="Romantic engagement session">
-                    <div class="overlay">
-                        <div class="overlay-text">Romantic Engagement</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(1)">
-                    <img src="https://picsum.photos/800/600?random=32" alt="Couples portrait session">
-                    <div class="overlay">
-                        <div class="overlay-text">Couples Portrait</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(2)">
-                    <img src="https://picsum.photos/800/600?random=33" alt="Golden hour engagement">
-                    <div class="overlay">
-                        <div class="overlay-text">Golden Hour</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(3)">
-                    <img src="https://picsum.photos/800/600?random=34" alt="Beach engagement photos">
-                    <div class="overlay">
-                        <div class="overlay-text">Beach Session</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(4)">
-                    <img src="https://picsum.photos/800/600?random=35" alt="Urban couples session">
-                    <div class="overlay">
-                        <div class="overlay-text">Urban Romance</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(5)">
-                    <img src="https://picsum.photos/800/600?random=36" alt="Garden engagement shoot">
-                    <div class="overlay">
-                        <div class="overlay-text">Garden Setting</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(6)">
-                    <img src="https://picsum.photos/800/600?random=37" alt="Anniversary celebration">
-                    <div class="overlay">
-                        <div class="overlay-text">Anniversary</div>
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(7)">
-                    <img src="https://picsum.photos/800/600?random=38" alt="Intimate couple moments">
-                    <div class="overlay">
-                        <div class="overlay-text">Intimate Moments</div>
-                    </div>
-                </div>
+            <div class="gallery-grid" id="gallery-container">
+            <!-- Images will be populated by JavaScript -->
             </div>
         </section>
 
@@ -140,7 +99,7 @@
                     
                     <a href="contact.html" class="cta-button">Book Session</a>
                 </div>
-                <div class="services-image" style="background-image: url('https://picsum.photos/600/400?random=39')"></div>
+                <div class="services-image" style="background-image: url('images/engagement-couples/Engagement-couples-golden-gate-park-san-francisco-12.jpg')"></div>
             </div>
         </section>
 
@@ -200,10 +159,13 @@
                 <li class="footer-dropdown">
                     <a href="#portfolio">Portfolio</a>
                     <div class="footer-dropdown-content">
-                        <a href="architecture-photography.html">Architectural & Real Estate</a>
-                        <a href="automotive-photography.html">Automotive Photography</a>
-                        <a href="headshot-photography.html">Portrait Photography</a>
-                        <a href="landscape-photography.html">Landscape & Aerial</a>
+                        <a href="architecture-photography.html">Architecture</a>
+                        <a href="automotive-photography.html">Automotive</a>
+                        <a href="headshot-photography.html">Headshot</a>
+                        <a href="landscape-photography.html">Landscape</a>
+                        <a href="portraits.html">Portrait</a>
+                        <a href="real-estate.html">Real Estate</a>
+                        <a href="engagement-couples-photography.html">Couples</a>
                     </div>
                 </li>
                 <li><a href="video.html">Video</a></li>
@@ -225,18 +187,5 @@
         </div>
     </footer>
 
-    <script>
-        // Page-specific gallery images array
-        window.galleryImages = [
-            { src: 'https://picsum.photos/800/600?random=31', alt: 'Romantic engagement session' },
-            { src: 'https://picsum.photos/800/600?random=32', alt: 'Couples portrait session' },
-            { src: 'https://picsum.photos/800/600?random=33', alt: 'Golden hour engagement' },
-            { src: 'https://picsum.photos/800/600?random=34', alt: 'Beach engagement photos' },
-            { src: 'https://picsum.photos/800/600?random=35', alt: 'Urban couples session' },
-            { src: 'https://picsum.photos/800/600?random=36', alt: 'Garden engagement shoot' },
-            { src: 'https://picsum.photos/800/600?random=37', alt: 'Anniversary celebration' },
-            { src: 'https://picsum.photos/800/600?random=38', alt: 'Intimate couple moments' }
-        ];
-    </script>
 </body>
 </html>

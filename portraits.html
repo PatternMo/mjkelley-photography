@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portrait Photography | Michael J. Kelley | Bay Area</title>
+    <meta name="description" content="Professional portrait photography in the San Francisco Bay Area. Creative portraits, family sessions, and lifestyle photography by Michael J. Kelley.">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://www.mjkelleyphoto.com/portraits.html#service",
+          "name": "Portrait Photography",
+          "description": "Professional portrait photography services for families, individuals, and lifestyle sessions throughout the San Francisco Bay Area.",
+          "url": "https://www.mjkelleyphoto.com/portraits.html",
+          "provider": {
+            "@id": "https://www.mjkelleyphoto.com/#business"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "California"
+          },
+          "serviceType": [
+            "Portrait Photography",
+            "Family Photography",
+            "Lifestyle Photography",
+            "Creative Portraits",
+            "Outdoor Portraits"
+          ],
+          "priceRange": "$300-$1200",
+          "offers": {
+            "@type": "Offer",
+            "name": "Portrait Photography Session",
+            "description": "Professional portrait photography including multiple outfit changes, location options, and professional editing",
+            "priceRange": "$300-$1200",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.mjkelleyphoto.com/portraits.html#page",
+          "name": "Portrait Photography - Michael J. Kelley Photography",
+          "description": "Professional portrait photography services in the San Francisco Bay Area for families and individuals",
+          "url": "https://www.mjkelleyphoto.com/portraits.html",
+          "mainEntity": {
+            "@id": "https://www.mjkelleyphoto.com/portraits.html#service"
+          },
+          "breadcrumb": {
+            "@id": "https://www.mjkelleyphoto.com/portraits.html#breadcrumbs"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.mjkelleyphoto.com/portraits.html#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.mjkelleyphoto.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Portrait Photography",
+              "item": "https://www.mjkelleyphoto.com/portraits.html"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.mjkelleyphoto.com/portraits.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is included in a portrait photography session?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Each session includes professional lighting setup, multiple poses and compositions, outfit changes if desired, basic post-processing, and high-resolution digital files delivered within 48-72 hours. Sessions can be in our Berkeley studio or on location."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does a portrait session take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most portrait sessions last 1-2 hours, allowing time for multiple outfit changes, different poses, and various lighting setups. Family sessions may take longer depending on group size."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you photograph families and groups?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, I specialize in family portraits, group sessions, and lifestyle photography. I work with families of all sizes and can accommodate special requirements for children or elderly family members."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Link to shared stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- All pages get this -->
+    <script src="shared.js"></script>
+    
+    <!-- Gallery pages get this -->
+    <script src="gallery.js"></script>
+    
+    <!-- Gallery Automation -->
+    <script src="image-automation.js"></script>
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Page-specific banner image */
+        .banner-image {
+            background-image: url('https://picsum.photos/1400/800?random=40');
+        }
+        
+        /* Services section image for this page */
+        .services-image {
+            background-image: url('https://picsum.photos/600/400?random=41');
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="architecture-photography.html">Architecture</a>
+                            <a href="automotive-photography.html">Automotive</a>
+                            <a href="headshot-photography.html">Headshot</a>
+                            <a href="landscape-photography.html">Landscape</a>
+                            <a href="portraits.html">Portrait</a>
+                            <a href="real-estate.html">Real Estate</a>
+                            <a href="engagement-couples-photography.html">Couples</a>
+                        </div>
+                    </li>
+                    <li><a href="video.html">Video</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Portrait Photography</h1>
+            <p>Capturing authentic personalities and genuine connections through thoughtful portraiture. Creative portrait sessions throughout the San Francisco Bay Area in studio and beautiful outdoor locations.</p>
+        </section>
+
+        <!-- Banner Image -->
+        <div class="banner-image"></div>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="gallery-grid" id="gallery-container">
+            <!-- Images will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Creative Portrait Photography Services</h2>
+                    <p>Specializing in portrait photography that captures the essence of who you are. My approach combines artistic vision with personal connection to create images that tell your unique story and showcase your authentic personality.</p>
+                    
+                    <p>Working throughout the San Francisco Bay Area, I provide comprehensive portrait photography services for:</p>
+                    
+                    <ul class="service-list">
+                        <li>Individual creative portraits</li>
+                        <li>Family portrait sessions</li>
+                        <li>Lifestyle and environmental portraits</li>
+                        <li>Milestone and celebration photography</li>
+                        <li>Personal branding portraits</li>
+                        <li>Artistic and fine art portraiture</li>
+                    </ul>
+                    
+                    <p>Each session is designed to make you feel comfortable and confident while creating beautiful, timeless images. Whether in our Berkeley studio or at stunning Bay Area locations, I ensure every portrait reflects your personality and the relationships that matter most.</p>
+                    
+                    <a href="contact.html" class="cta-button">Book Session</a>
+                </div>
+                <div class="services-image"></div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is included in a portrait photography session?</div>
+                <div class="faq-answer">Each session includes professional lighting setup, multiple poses and compositions, outfit changes if desired, basic post-processing, and high-resolution digital files delivered within 48-72 hours. Sessions can be in our Berkeley studio or on location.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long does a portrait session take?</div>
+                <div class="faq-answer">Most portrait sessions last 1-2 hours, allowing time for multiple outfit changes, different poses, and various lighting setups. Family sessions may take longer depending on group size.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you photograph families and groups?</div>
+                <div class="faq-answer">Yes, I specialize in family portraits, group sessions, and lifestyle photography. I work with families of all sizes and can accommodate special requirements for children or elderly family members.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What should we wear for our portrait session?</div>
+                <div class="faq-answer">I provide a detailed style guide upon booking with clothing suggestions, color coordination tips, and outfit options. The key is choosing clothes that make you feel confident and reflect your personality while coordinating well together.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can we choose between studio and outdoor locations?</div>
+                <div class="faq-answer">Absolutely! I offer both studio sessions in Berkeley and outdoor sessions at beautiful Bay Area locations. We can discuss the best option based on your style preferences, family needs, and the type of portraits you envision.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How many final images will we receive?</div>
+                <div class="faq-answer">Most sessions include 20-40 professionally edited final images in high resolution. The exact number depends on session length and type. Additional images can be purchased, and I'm happy to customize packages based on your specific needs.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+            <div class="lightbox-content" onclick="event.stopPropagation()">
+                <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+                <img id="lightbox-img" src="" alt="">
+                <div class="lightbox-controls">
+                    <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
+                    <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
+                    <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+                </div>
+            </div>
+        </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <nav class="footer-navigation">
+            <ul>
+                <li class="footer-dropdown">
+                    <a href="#portfolio">Portfolio</a>
+                    <div class="footer-dropdown-content">
+                        <a href="architecture-photography.html">Architecture</a>
+                        <a href="automotive-photography.html">Automotive</a>
+                        <a href="headshot-photography.html">Headshot</a>
+                        <a href="landscape-photography.html">Landscape</a>
+                        <a href="portraits.html">Portrait</a>
+                        <a href="real-estate.html">Real Estate</a>
+                        <a href="engagement-couples-photography.html">Couples</a>
+                    </div>
+                </li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="#" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>
