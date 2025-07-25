@@ -864,7 +864,7 @@ function waitForGalleryAPI(callback, maxAttempts = 50) {
     let attempts = 0;
     const checkAPI = () => {
         if (typeof window.GalleryAPI !== 'undefined' && window.GalleryAPI.initialize) {
-            console.log('✅ Gallery API ready, initializing automation');
+            console.log('Gallery API ready, initializing automation');
             callback();
         } else if (attempts < maxAttempts) {
             attempts++;
@@ -882,10 +882,9 @@ function waitForGalleryAPI(callback, maxAttempts = 50) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 DOM loaded, waiting for Gallery API...');
     
-    waitForGalleryAPI(() => {
-        initializeGalleryAutomation();
-        addImageErrorHandling();
-        console.log('✅ Gallery automation initialized');
-    });
+waitForGalleryAPI(() => {
+    initializeGalleryAutomation();
+    // addImageErrorHandling will be called inside generateGalleryHTML
+    console.log('Gallery automation initialized');
 });
 
