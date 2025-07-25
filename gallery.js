@@ -422,17 +422,19 @@ function generateGalleryHTML(images, containerId) {
  * Auto-initialize gallery if galleryImages array exists on the page
  */
 function autoInitializeGallery() {
+    // Skip if automation system is handling initialization
+    if (typeof window.GalleryAutomation !== 'undefined') {
+        console.log('🤖 Gallery automation detected, skipping auto-init');
+        return;
+    }
+    
     // Check if galleryImages is defined globally (from page-specific script)
     if (typeof window.galleryImages !== 'undefined' && Array.isArray(window.galleryImages)) {
         initializeGallery(window.galleryImages);
+        console.log('Gallery auto-initialized from global array');
+    } else {
+        console.log('No global galleryImages found for auto-initialization');
     }
-}
-
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', autoInitializeGallery);
-} else {
-    autoInitializeGallery();
 }
 
 // =============================================================================

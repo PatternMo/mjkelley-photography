@@ -854,23 +854,38 @@ function attemptGalleryInit(category) {
 }
 
 // =============================================================================
-// INITIALIZATION:
+// INITIALIZATION (FIXED - Race Condition Protection)
 // =============================================================================
 
-// Multiple initialization attempts for reliability
-document.addEventListener('DOMContentLoaded', initializeGalleryAutomation);
-
-// Fallback for already loaded pages
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeGalleryAutomation);
-} else {
-    initializeGalleryAutomation();
+/**
+ * Wait for Gallery API to be available before initializing
+ */
+function waitForGalleryAPI(callback, maxAttempts = 50) {
+    let attempts = 0;
+    const checkAPI = () => {
+        if (typeof window.GalleryAPI !== 'undefined' && window.GalleryAPI.initialize) {
+            console.log('✅ Gallery API ready, initializing automation');
+            callback();
+        } else if (attempts < maxAttempts) {
+            attempts++;
+            setTimeout(checkAPI, 100);
+        } else {
+            console.error('❌ Gallery API failed to load after 5 seconds');
+            // Fallback: try basic initialization anyway
+            callback();
+        }
+    };
+    checkAPI();
 }
 
-// Final fallback on window load
-window.addEventListener('load', initializeGalleryAutomation);
-
-// Additional window.load initialization for timing issues
-window.addEventListener('load', function() {
-    setTimeout(initializeGalleryAutomation, 1000);
+// Single initialization with dependency checking
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 DOM loaded, waiting for Gallery API...');
+    
+    waitForGalleryAPI(() => {
+        initializeGalleryAutomation();
+        addImageErrorHandling();
+        console.log('✅ Gallery automation initialized');
+    });
 });
+
