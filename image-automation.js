@@ -786,6 +786,9 @@ function generateGalleryHTML(category, containerId = 'gallery-container') {
 function initializeGalleryAutomation() {
     const path = window.location.pathname;
     const filename = path.split('/').pop() || '';
+
+    // DEBUG LINE:
+    console.log('🔍 Detecting page:', filename, 'from path:', path);
     
     console.log('Gallery initialization starting for:', filename);
     
