@@ -179,7 +179,7 @@ function debounce(func, wait, immediate) {
 }
 
 // =============================================================================
-// --- NEW: Fade-in on Scroll Functionality (UPDATED) ---
+// --- NEW: Fade-in on Scroll Functionality (FINAL, MOST RELIABLE VERSION) ---
 // =============================================================================
 /**
  * Sets up an Intersection Observer to add a 'is-visible' class to elements
@@ -203,14 +203,15 @@ function initializeScrollFadeIn(selector) {
         threshold: 0.1 
     });
 
-    // --- CHANGE: Wrap the observation start in a short timeout ---
-    // This gives the browser a moment to paint the initial (opacity: 0) state
-    // before the observer starts, preventing the race condition on fast reloads.
-    setTimeout(() => {
+    // --- CHANGE: Use requestAnimationFrame instead of setTimeout. ---
+    // This is the browser's native way to handle animations and rendering.
+    // It schedules the observer to start right before the next repaint,
+    // which reliably prevents the race condition.
+    requestAnimationFrame(() => {
         elementsToFade.forEach(element => {
             observer.observe(element);
         });
-    }, 100); // 100ms is a safe, imperceptible delay.
+    });
 }
 
 
