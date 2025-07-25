@@ -179,38 +179,5 @@
         </div>
     </footer>
 
-<script>
-console.log('=== DEBUG STARTING ===');
-
-window.addEventListener('load', function() {
-    console.log('1. Page loaded');
-    console.log('2. image-automation.js loaded:', typeof initializeGalleryAutomation !== 'undefined');
-    console.log('3. imageCollections exists:', typeof imageCollections !== 'undefined');
-    console.log('4. generateGalleryHTML exists:', typeof generateGalleryHTML !== 'undefined');
-    console.log('5. Container exists:', !!document.getElementById('gallery-container'));
-    
-    if (typeof imageCollections !== 'undefined') {
-        console.log('6. Architecture images available:', !!imageCollections.architecture);
-        console.log('7. Image count:', imageCollections.architecture?.images?.length || 'none');
-    }
-    
-    // Manual test
-    setTimeout(() => {
-        console.log('8. Manual test starting...');
-        if (typeof generateGalleryHTML !== 'undefined') {
-            generateGalleryHTML('architecture');
-            console.log('9. Manual generation attempted');
-            
-            setTimeout(() => {
-                const container = document.getElementById('gallery-container');
-                console.log('10. Items in container:', container?.children?.length || 0);
-            }, 100);
-        } else {
-            console.log('9. generateGalleryHTML not available');
-        }
-    }, 1000);
-});
-</script>
-
 </body>
 </html>
