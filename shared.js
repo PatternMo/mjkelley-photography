@@ -14,7 +14,6 @@ function toggleMenu() {
     const menu = document.getElementById('nav-menu');
     if (menu) {
         menu.classList.toggle('active');
-        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
     }
 }
 
