@@ -11,6 +11,54 @@
     
     <!-- All pages get this -->
     <script src="shared.js"></script>
+    
+    <style>
+        .under-construction {
+            text-align: center;
+            padding: 100px 40px;
+            background: #fafafa;
+        }
+        
+        .construction-icon {
+            font-size: 80px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .under-construction h2 {
+            font-size: 32px;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .under-construction p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            .under-construction {
+                padding: 80px 20px;
+            }
+            
+            .construction-icon {
+                font-size: 60px;
+            }
+            
+            .under-construction h2 {
+                font-size: 24px;
+            }
+            
+            .under-construction p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -50,187 +98,15 @@
         <!-- Hero Section -->
         <section class="hero">
             <h1>Photography Projects & Case Studies</h1>
-            <p>Comprehensive photography projects showcasing complete workflows from concept to delivery. Combining ground-level and aerial perspectives for complete visual storytelling.</p>
+            <p>Comprehensive photography projects showcasing complete workflows from concept to delivery.</p>
         </section>
 
-        <!-- Projects Gallery Section -->
-        <section class="gallery-section">
-            <div class="projects-grid">
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/1200/300?random=31" alt="Luxury Real Estate Campaign">
-                        <div class="project-overlay">
-                            <div class="overlay-text">View Project</div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-category">Real Estate</div>
-                        <div class="project-title">Luxury Real Estate Campaign</div>
-                        <div class="project-description">Complete visual campaign for a $15M Marin County estate featuring architectural photography, aerial perspectives, and lifestyle imagery for luxury marketing materials.</div>
-                        <div class="project-details">
-                            <div class="project-detail">📍 Marin County</div>
-                            <div class="project-detail">📅 2024</div>
-                            <div class="project-detail">🎯 Luxury Real Estate</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/1200/300?random=32" alt="Porsche Unveiling Event">
-                        <div class="project-overlay">
-                            <div class="overlay-text">View Project</div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-category">Automotive</div>
-                        <div class="project-title">Porsche Unveiling Event</div>
-                        <div class="project-description">Documentation of Porsche's latest model unveiling including product photography, event coverage, and behind-the-scenes content for marketing and press materials.</div>
-                        <div class="project-details">
-                            <div class="project-detail">📍 San Francisco</div>
-                            <div class="project-detail">📅 2024</div>
-                            <div class="project-detail">🎯 Automotive Events</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/1200/300?random=33" alt="Corporate Headquarters">
-                        <div class="project-overlay">
-                            <div class="overlay-text">View Project</div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-category">Commercial</div>
-                        <div class="project-title">Corporate Headquarters Documentation</div>
-                        <div class="project-description">Comprehensive architectural and interior photography of tech company's new headquarters, including employee portraits and workspace documentation for annual reports.</div>
-                        <div class="project-details">
-                            <div class="project-detail">📍 Palo Alto</div>
-                            <div class="project-detail">📅 2024</div>
-                            <div class="project-detail">🎯 Corporate</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/1200/300?random=34" alt="Sierra Nevada Expedition">
-                        <div class="project-overlay">
-                            <div class="overlay-text">View Project</div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-category">Landscape</div>
-                        <div class="project-title">Sierra Nevada Expedition</div>
-                        <div class="project-description">Multi-day landscape photography expedition capturing the changing seasons across California's Sierra Nevada range for fine art print series and conservation awareness campaign.</div>
-                        <div class="project-details">
-                            <div class="project-detail">📍 Sierra Nevada</div>
-                            <div class="project-detail">📅 2024</div>
-                            <div class="project-detail">🎯 Fine Art / Conservation</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/1200/300?random=35" alt="Executive Portrait Series">
-                        <div class="project-overlay">
-                            <div class="overlay-text">View Project</div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-category">Portrait</div>
-                        <div class="project-title">Executive Portrait Series</div>
-                        <div class="project-description">Cohesive portrait series for Bay Area venture capital firm featuring 20+ partners and executives shot in Berkeley studio and various San Francisco locations.</div>
-                        <div class="project-details">
-                            <div class="project-detail">📍 Berkeley / SF</div>
-                            <div class="project-detail">📅 2024</div>
-                            <div class="project-detail">🎯 Corporate Portraits</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/1200/300?random=36" alt="Bring A Trailer Campaign">
-                        <div class="project-overlay">
-                            <div class="overlay-text">View Project</div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-category">Automotive</div>
-                        <div class="project-title">Bring A Trailer Campaign</div>
-                        <div class="project-description">Ongoing partnership creating high-quality automotive photography for classic and collectible vehicle auctions, combining studio and location shooting for premium listings.</div>
-                        <div class="project-details">
-                            <div class="project-detail">📍 Various Locations</div>
-                            <div class="project-detail">📅 2023-2024</div>
-                            <div class="project-detail">🎯 Automotive Commerce</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="services-section">
-            <div class="services-content">
-                <div class="services-text">
-                    <h2>Complete Project Documentation</h2>
-                    <p>Every project is approached as a comprehensive visual story, combining multiple photography disciplines to create cohesive campaigns that serve your specific goals and audience.</p>
-                    
-                    <p>My project-based approach ensures complete coverage for:</p>
-                    
-                    <ul class="service-list">
-                        <li>Multi-property real estate campaigns</li>
-                        <li>Corporate annual report photography</li>
-                        <li>Product launch documentation</li>
-                        <li>Brand storytelling projects</li>
-                        <li>Event and conference coverage</li>
-                        <li>Fine art series and exhibitions</li>
-                    </ul>
-                    
-                    <p>Each project includes detailed planning, on-site coordination, professional execution across multiple shooting days if needed, and final delivery of carefully curated image collections optimized for your intended use.</p>
-                    
-                    <a href="contact.html" class="cta-button">Discuss Project</a>
-                </div>
-                <div class="services-image" style="background-image: url('https://picsum.photos/600/400?random=37')"></div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="faq-section">
-            <h2>Project Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">How do you structure multi-day projects?</div>
-                <div class="faq-answer">Large projects are broken into phases with detailed planning, shot lists, and coordination schedules. I provide project timelines, regular check-ins, and preliminary image reviews to ensure we stay on track and meet all objectives.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">What is included in project deliverables?</div>
-                <div class="faq-answer">Complete projects include planning documentation, raw and edited high-resolution images, web-optimized versions, usage rights documentation, and organized delivery via cloud storage with clear file naming conventions.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Can you coordinate with other vendors?</div>
-                <div class="faq-answer">Yes, I regularly collaborate with marketing teams, designers, writers, videographers, and event coordinators to ensure seamless project execution and consistent creative vision across all deliverables.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">How do you handle project revisions?</div>
-                <div class="faq-answer">Each project includes two rounds of revisions on selected images. Additional editing or reshooting can be accommodated within the project scope or as separate line items, depending on the request.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">What usage rights come with project work?</div>
-                <div class="faq-answer">Usage rights are tailored to each project's needs. Standard packages include broad commercial use for marketing and promotion. Extended rights for resale, licensing, or exclusive use are available with appropriate licensing agreements.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Do you provide project case studies?</div>
-                <div class="faq-answer">With client approval, I document project processes and results as case studies for both portfolio use and client reference. These help demonstrate methodology and can serve as valuable marketing materials for your organization.</div>
-            </div>
+        <!-- Under Construction Section -->
+        <section class="under-construction">
+            <div class="construction-icon">🚧</div>
+            <h2>Under Construction</h2>
+            <p>This page is currently being developed to showcase detailed project case studies and workflows. In the meantime, please explore our portfolio galleries to see examples of our work across architectural, automotive, portrait, and landscape photography.</p>
+            <a href="index.html" class="cta-button">View Portfolio</a>
         </section>
     </main>
 
