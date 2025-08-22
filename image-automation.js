@@ -21,8 +21,7 @@ const imageCollections = {
             'headshot-natural-environment-professional-4.jpg',
             'headshot-natural-environment-professional-5.jpg',
             'headshot-natural-environment-professional-6.jpg',
-            'headshot-natural-environment-professional-7.jpg',
-            'headshot-natural-environment-professional-8.jpg'
+            'headshot-natural-environment-professional-7.jpg'
         ],
         thumbnails: [
             'headshot-dramatic-style-artist-poet-thumb.jpg',
@@ -41,8 +40,7 @@ const imageCollections = {
             'headshot-natural-environment-professional-thumb-4.jpg',
             'headshot-natural-environment-professional-thumb-5.jpg',
             'headshot-natural-environment-professional-thumb-6.jpg',
-            'headshot-natural-environment-professional-thumb-7.jpg',
-            'headshot-natural-environment-professional-thumb-8.jpg'
+            'headshot-natural-environment-professional-thumb-7.jpg'
         ],
         alts: [
             'Professional headshot photography featuring headshot dramatic style artist poet',
@@ -541,7 +539,8 @@ const imageCollections = {
             'Outdoor-Portrait-Yoga-Vasquez-Rocks-1.jpg',
             'Outdoor-Portrait-Yoga-Vasquez-Rocks-2.jpg',
             'Outdoor-Portrait-Yoga-Vasquez-Rocks-3.jpg',
-            'Sunset-Outdoor-Portrait-California-Coast.jpg'
+            'Sunset-Outdoor-Portrait-California-Coast.jpg',
+            'headshot-natural-environment-professional-8.jpg'
         ],
         thumbnails: [
             'Outdoor-Portrait-Bride-Model-Beach-California-1-thumb.jpg',
@@ -552,7 +551,8 @@ const imageCollections = {
             'Outdoor-Portrait-Yoga-Vasquez-Rocks-1-thumb.jpg',
             'Outdoor-Portrait-Yoga-Vasquez-Rocks-2-thumb.jpg',
             'Outdoor-Portrait-Yoga-Vasquez-Rocks-3-thumb.jpg',
-            'Sunset-Outdoor-Portrait-California-Coast-thumb.jpg'
+            'Sunset-Outdoor-Portrait-California-Coast-thumb.jpg',
+            'headshot-natural-environment-professional-thumb-8.jpg'
         ],
         alts: [
             'Portrait photography featuring Outdoor Bride Model Beach California',
