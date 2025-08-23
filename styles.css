@@ -319,7 +319,7 @@ main {
 
 .service-image {
     width: 100%;
-    aspect-ratio: 3/2; /* Matches 2400×1600 source images */
+    aspect-ratio: 1/1; /* Accomodates different image aspect ratios */
     background-size: cover;
     background-position: center;
     margin-bottom: 20px;
