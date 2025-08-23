@@ -111,12 +111,53 @@
     <!-- All pages get this -->
     <script src="shared.js"></script>
     
-    <!-- Gallery pages get this -->
-    <script src="gallery.js"></script>
-    
-    <!-- Gallery Automation -->
-    <script src="image-automation.js"></script>
-
+    <style>
+        .under-construction {
+            text-align: center;
+            padding: 100px 40px;
+            background: #fafafa;
+        }
+        
+        .construction-icon {
+            font-size: 80px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .under-construction h2 {
+            font-size: 32px;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .under-construction p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            .under-construction {
+                padding: 80px 20px;
+            }
+            
+            .construction-icon {
+                font-size: 60px;
+            }
+            
+            .under-construction h2 {
+                font-size: 24px;
+            }
+            
+            .under-construction p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -156,91 +197,17 @@
         <!-- Hero Section -->
         <section class="hero">
             <h1>Real Estate Photography</h1>
-            <p>Professional property photography that showcases homes at their finest. High-quality real estate photography throughout the San Francisco Bay Area for agents, brokers, and property owners. Also open to photographing AirBnBs and staged rentals.</p>
+            <p>Professional property photography that showcases homes at their finest. High-quality real estate photography throughout the San Francisco Bay Area.</p>
         </section>
 
-        <!-- Gallery Section -->
-        <section class="gallery-section">
-            <div id="gallery-loader" class="loader"></div>
-            <div class="gallery-grid" id="gallery-container">
-            <!-- Images will be populated by JavaScript -->
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="services-section">
-            <div class="services-content">
-                <div class="services-text">
-                    <h2>Real Estate Photography Services</h2>
-                    <p>Specializing in real estate photography that helps properties sell faster and for higher prices. My approach combines technical expertise with marketing strategy to create images that attract buyers and showcase properties in their best light.</p>
-                    
-                    <p>Working throughout the San Francisco Bay Area, I provide comprehensive real estate photography services for:</p>
-                    
-                    <ul class="service-list">
-                        <li>Residential property listings</li>
-                        <li>Luxury home marketing</li>
-                        <li>Commercial real estate</li>
-                        <li>Real estate agents and brokers</li>
-                        <li>Property management companies</li>
-                        <li>Investment property portfolios</li>
-                    </ul>
-                    
-                    <p>Each shoot is designed to highlight the property's best features and create emotional connections with potential buyers. From curb appeal exteriors to inviting interior spaces, I ensure every image contributes to faster sales and higher offers.</p>
-                    
-                    <a href="contact.html" class="cta-button">Get an Estimate</a>
-                </div>
-                <div></div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">What is included in a real estate photography session?</div>
-                <div class="faq-answer">Each session includes professional lighting setup, multiple angles and compositions, exterior and interior shots, basic post-processing, and high-resolution digital files delivered within 7-10 days. Drone photography, video, and twilight shots can be added when conditions permit.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">How long does a real estate photography shoot take?</div>
-                <div class="faq-answer">Most residential properties require 1-3 hours depending on size and number of rooms. Larger luxury properties or commercial spaces may need 3-6 hours for complete coverage.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Do you provide same-day or next-day delivery?</div>
-                <div class="faq-answer">Yes, I understand the fast-paced nature of real estate. Standard delivery is within 7-10 days, with same-day and rush delivery available for an additional fee when booked in advance.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">What preparation is needed before the shoot?</div>
-                <div class="faq-answer">I provide a detailed preparation checklist including decluttering, lighting optimization, and staging suggestions. Proper preparation ensures the property photographs beautifully and appeals to the maximum number of potential buyers.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Do you offer twilight and drone photography?</div>
-                <div class="faq-answer">Yes, twilight photography showcases properties with warm, inviting lighting, while drone photography provides stunning aerial perspectives. Both services can be added to create premium marketing packages that help listings stand out.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">What areas do you serve in the Bay Area?</div>
-                <div class="faq-answer">I serve the entire San Francisco Bay Area including San Francisco, Oakland, Berkeley, San Jose, Palo Alto, Marin County, and surrounding communities. Travel fees may apply for locations beyond 30 miles from Berkeley.</div>
-            </div>
+        <!-- Under Construction Section -->
+        <section class="under-construction">
+            <div class="construction-icon">🚧</div>
+            <h2>Under Construction</h2>
+            <p>This gallery is currently being developed to showcase our real estate photography portfolio. In the meantime, please explore our architectural photography gallery or contact us directly to discuss your real estate photography needs.</p>
+            <a href="architecture-photography.html" class="cta-button">View Architecture Gallery</a>
         </section>
     </main>
-
-    <!-- Lightbox -->
-        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-            <div class="lightbox-content" onclick="event.stopPropagation()">
-                <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
-                <img id="lightbox-img" src="" alt="">
-                <div class="lightbox-controls">
-                    <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
-                    <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
-                    <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
-                </div>
-            </div>
-        </div>
 
     <!-- Footer -->
     <footer class="site-footer">
