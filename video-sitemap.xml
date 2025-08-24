@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://www.mjkelleyphoto.com/video.html</loc>
+    <lastmod>2025-08-22</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/vLqSuIEu6FA/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Professional Video Production | Michael J. Kelley Photography</video:title>
+      <video:description>Professional video and drone cinematography services in the San Francisco Bay Area by Michael J. Kelley Photography.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/vLqSuIEu6FA</video:player_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/prIUWrytr0Q/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Professional Video Production | Michael J. Kelley Photography</video:title>
+      <video:description>Professional video and drone cinematography services in the San Francisco Bay Area by Michael J. Kelley Photography.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/prIUWrytr0Q</video:player_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/YHDUXdKPtZo/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Professional Video Production | Michael J. Kelley Photography</video:title>
+      <video:description>Professional video and drone cinematography services in the San Francisco Bay Area by Michael J. Kelley Photography.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/YHDUXdKPtZo</video:player_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/Qu1N8kVzVZw/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Professional Video Production | Michael J. Kelley Photography</video:title>
+      <video:description>Professional video and drone cinematography services in the San Francisco Bay Area by Michael J. Kelley Photography.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/Qu1N8kVzVZw</video:player_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+</urlset>
