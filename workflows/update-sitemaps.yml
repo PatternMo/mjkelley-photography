@@ -1,0 +1,44 @@
+name: Update Sitemaps
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  update-sitemaps:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history for accurate dates
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install --no-package-lock --no-save fast-glob
+        
+    - name: Generate sitemaps
+      run: node .github/scripts/generate-sitemaps.js
+      
+    - name: Commit and push if sitemaps changed
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add sitemaps if they exist
+        git add sitemap.xml image-sitemap.xml video-sitemap.xml blog-sitemap.xml 2>/dev/null || true
+        
+        # Check if there are changes
+        if git diff --staged --quiet; then
+          echo "No sitemap changes to commit"
+        else
+          git commit -m "Auto-update sitemaps [skip ci]"
+          git push
+        fi
