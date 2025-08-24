@@ -21,24 +21,27 @@ jobs:
       with:
         node-version: '18'
         
+    - name: Cache Node.js modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('package.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+          
     - name: Install dependencies
       run: npm install --no-package-lock --no-save fast-glob
         
     - name: Generate sitemaps
       run: node .github/scripts/generate-sitemaps.js
       
-    - name: Commit and push if sitemaps changed
+    - name: Commit and push sitemaps
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         
-        # Add sitemaps if they exist
+        # Add sitemaps
         git add sitemap.xml image-sitemap.xml video-sitemap.xml blog-sitemap.xml 2>/dev/null || true
         
-        # Check if there are changes
-        if git diff --staged --quiet; then
-          echo "No sitemap changes to commit"
-        else
-          git commit -m "Auto-update sitemaps [skip ci]"
-          git push
-        fi
+        git commit -m "Auto-update sitemaps [skip ci]"
+        git push
