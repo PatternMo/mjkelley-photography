@@ -276,7 +276,7 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0);  /* Changed from 0.3 to 0 */
     opacity: 0;
     transition: opacity 0.3s ease;
     display: flex;
@@ -285,18 +285,11 @@ main {
 }
 
 .gallery-item:hover .overlay {
-    opacity: 1;
+    opacity: 1;  /* Keep this as 1 for functionality */
 }
 
 .overlay-text {
-    color: white;
-    font-size: 14px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 0 10px;
-    line-height: 1.3;
+    display: none;  /* Hide the text */
 }
 
 /* Services Section

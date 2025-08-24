@@ -600,7 +600,19 @@ const imageCollections = {
             'Sausalito-California-interior-dining-room-kitchen.jpg',
             'Sausalito-California-interior-living-room-view-2.jpg',
             'Sausalito-California-interior-living-room-view.jpg',
-            'Sausalito-California-interior-living-room.jpg'
+            'Sausalito-California-interior-living-room.jpg',
+            'Hillsborough-California-interior-guest-bedroom.jpg',
+            'Hillsborough-California-interior-kitchen-dining-room-2.jpg',
+            'Hillsborough-California-interior-kitchen-dining-room.jpg',
+            'Hillsborough-California-interior-kitchen.jpg',
+            'Hillsborough-California-interior-minimal-living-room-1.jpg',
+            'Hillsborough-California-interior-minimal-living-room-2.jpg',
+            'Moss-Beach-California-interior-guest-bedroom.jpg',
+            'Moss-Beach-California-interior-living-room-2.jpg',
+            'Moss-Beach-California-interior-living-room.jpg',
+            'Moss-Beach-California-interior-master-bathroom.jpg',
+            'Moss-Beach-California-interior-master-bedroom.jpg',
+            'San-Francisco-California-interior-bathroom-shower.jpg'
         ],
         thumbnails: [
             'Moss-Beach-aerial-exterior-1-thumb.jpg',
@@ -622,7 +634,19 @@ const imageCollections = {
             'Sausalito-California-interior-dining-room-kitchen-thumb.jpg',
             'Sausalito-California-interior-living-room-thumb.jpg',
             'Sausalito-California-interior-living-room-view-2-thumb.jpg',
-            'Sausalito-California-interior-living-room-view-thumb.jpg'
+            'Sausalito-California-interior-living-room-view-thumb.jpg',
+            'Hillsborough-California-interior-guest-bedroom-thumb.jpg',
+            'Hillsborough-California-interior-kitchen-dining-room-2-thumb.jpg',
+            'Hillsborough-California-interior-kitchen-dining-room-thumb.jpg',
+            'Hillsborough-California-interior-kitchen-thumb.jpg',
+            'Hillsborough-California-interior-minimal-living-room-1-thumb.jpg',
+            'Hillsborough-California-interior-minimal-living-room-2-thumb.jpg',
+            'Moss-Beach-California-interior-guest-bedroom-thumb.jpg',
+            'Moss-Beach-California-interior-living-room-2-thumb.jpg',
+            'Moss-Beach-California-interior-living-room-thumb.jpg',
+            'Moss-Beach-California-interior-master-bathroom-thumb.jpg',
+            'Moss-Beach-California-interior-master-bedroom-thumb.jpg',
+            'San-Francisco-California-interior-bathroom-shower-thumb.jpg'
         ],
         alts: [
             'Real estate photography featuring Moss Beach aerial exterior',
@@ -645,7 +669,19 @@ const imageCollections = {
             'Real estate photography featuring Sausalito California interior dining room kitchen',
             'Real estate photography featuring Sausalito California interior living room view',
             'Real estate photography featuring Sausalito California interior living room view',
-            'Real estate photography featuring Sausalito California interior living room'
+            'Real estate photography featuring Sausalito California interior living room',
+            'Real estate photography featuring Hillsborough California interior guest bedroom',
+            'Real estate photography featuring Hillsborough California interior kitchen dining room',
+            'Real estate photography featuring Hillsborough California interior kitchen dining room',
+            'Real estate photography featuring Hillsborough California interior kitchen',
+            'Real estate photography featuring Hillsborough California interior minimal living room',
+            'Real estate photography featuring Hillsborough California interior minimal living room',
+            'Real estate photography featuring Moss Beach California interior guest bedroom',
+            'Real estate photography featuring Moss Beach California interior living room',
+            'Real estate photography featuring Moss Beach California interior living room',
+            'Real estate photography featuring Moss Beach California interior master bathroom',
+            'Real estate photography featuring Moss Beach California interior master bedroom',
+            'Real estate photography featuring San Francisco California interior bathroom shower'
         ],
         thumbAlts: [
             'Real estate photography featuring Moss Beach aerial exterior',
@@ -668,7 +704,19 @@ const imageCollections = {
             'Real estate photography featuring Sausalito California interior dining room kitchen',
             'Real estate photography featuring Sausalito California interior living room view',
             'Real estate photography featuring Sausalito California interior living room view',
-            'Real estate photography featuring Sausalito California interior living room'
+            'Real estate photography featuring Sausalito California interior living room',
+            'Real estate photography featuring Hillsborough California interior guest bedroom',
+            'Real estate photography featuring Hillsborough California interior kitchen dining room',
+            'Real estate photography featuring Hillsborough California interior kitchen dining room',
+            'Real estate photography featuring Hillsborough California interior kitchen',
+            'Real estate photography featuring Hillsborough California interior minimal living room',
+            'Real estate photography featuring Hillsborough California interior minimal living room',
+            'Real estate photography featuring Moss Beach California interior guest bedroom',
+            'Real estate photography featuring Moss Beach California interior living room',
+            'Real estate photography featuring Moss Beach California interior living room',
+            'Real estate photography featuring Moss Beach California interior master bathroom',
+            'Real estate photography featuring Moss Beach California interior master bedroom',
+            'Real estate photography featuring San Francisco California interior bathroom shower'
         ]
     }
 };
