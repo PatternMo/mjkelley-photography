@@ -35,7 +35,7 @@ jobs:
     - name: Generate sitemaps
       run: node .github/scripts/generate-sitemaps.js
       
-    - name: Commit and push sitemaps
+    - name: Commit and push if sitemaps changed
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
@@ -43,5 +43,10 @@ jobs:
         # Add all changes, including new and untracked files
         git add --all
         
-        git commit -m "Auto-update sitemaps [skip ci]"
-        git push
+        # Check if there are changes
+        if git diff --staged --quiet; then
+          echo "No sitemap changes to commit"
+        else
+          git commit -m "Auto-update sitemaps [skip ci]"
+          git push
+        fi
