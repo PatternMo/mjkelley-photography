@@ -40,8 +40,8 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         
-        # Add sitemaps
-        git add sitemap.xml image-sitemap.xml video-sitemap.xml blog-sitemap.xml 2>/dev/null || true
+        # Add all changes, including new and untracked files
+        git add --all
         
         git commit -m "Auto-update sitemaps [skip ci]"
         git push
