@@ -1,6 +1,2 @@
-# Ignore automatically generated blog files
-/blog/posts/
-/blog/index.html
-
 # Ignore Node.js dependencies
 /node_modules/
