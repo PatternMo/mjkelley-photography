@@ -1531,37 +1531,18 @@ main {
     letter-spacing: 1px;
 }
 
-.featured-post {
+/* Featured post inherits blog-post-container styles but needs spacing adjustments */
+.featured-post.blog-post-container {
     margin-bottom: 60px;
     padding-bottom: 60px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
+    margin-top: 0; /* Override blog-post-container margin-top */
 }
 
-.featured-post .post-title a {
-    font-size: 32px;
-    font-weight: 400;
+/* Reset the centered h1 for featured post titles */
+.featured-post.blog-post-container h1 {
+    text-align: left;
     margin-bottom: 15px;
-    display: block;
-    color: #333;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-.featured-post .post-title a:hover {
-    opacity: 0.6;
-}
-
-.featured-post .post-meta {
-    font-size: 14px;
-    color: #999;
-    margin-bottom: 25px;
-}
-
-.featured-post img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-    border-radius: 2px;
 }
 
 .post-list .post-preview {
@@ -1718,10 +1699,6 @@ main {
     
     .blog-post-container h3 {
         font-size: 18px;
-    }
-    
-    .featured-post .post-title a {
-        font-size: 24px !important;
     }
     
     .post-preview h3 {

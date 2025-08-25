@@ -9,80 +9,6 @@
     <link rel="stylesheet" href="../styles.css">
     
     <script src="../shared.js"></script>
-
-    <style>
-      .blog-index-container {
-        max-width: 800px;
-        margin: 120px auto 80px;
-        padding: 0 20px;
-      }
-      .blog-index-container h1 {
-        font-size: 32px;
-        font-weight: 300;
-        color: #333;
-        margin-bottom: 40px;
-        letter-spacing: 1px;
-      }
-      .featured-post {
-        margin-bottom: 60px;
-        padding-bottom: 60px;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-      }
-      .featured-post .post-title a {
-        font-size: 32px;
-        font-weight: 400;
-        margin-bottom: 15px;
-        display: block;
-      }
-      .featured-post .post-meta {
-        font-size: 14px;
-        color: #999;
-        margin-bottom: 25px;
-      }
-      .featured-post img {
-        max-width: 100%;
-        height: auto;
-        margin-top: 20px;
-        border-radius: 2px;
-      }
-      .post-preview {
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-        padding-bottom: 30px;
-        margin-bottom: 30px;
-      }
-      .post-preview:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-      }
-      .post-preview h3 {
-        font-size: 24px;
-        font-weight: 400;
-        margin-bottom: 10px;
-      }
-      .post-preview h3 a {
-        color: #333;
-        text-decoration: none;
-        transition: opacity 0.3s ease;
-      }
-      .post-preview h3 a:hover {
-        opacity: 0.6;
-      }
-      .post-meta {
-        font-size: 13px;
-        color: #999;
-        margin-bottom: 15px;
-      }
-      .post-meta .post-date {
-        margin-right: 15px;
-      }
-      .post-meta .post-tags {
-        font-style: italic;
-      }
-      .post-preview p {
-        font-size: 16px;
-        color: #666;
-      }
-    </style>
 </head>
 <body>
   <header>
@@ -118,15 +44,17 @@
   </header>
 
     <main>
-      <section class="blog-index-container">
+      <div class="blog-index-container">
           <h1>Latest Posts</h1>
-          <div class="featured-post">
+          
+          <div class="featured-post blog-post-container">
               {{featured_post}}
           </div>
+          
           <div class="post-list">
               {{previous_posts}}
           </div>
-      </section>
+      </div>
     </main>
 
     <footer class="site-footer">
