@@ -57,3 +57,8 @@ jobs:
             git commit -m "Auto-generate blog posts [skip ci]"
             git push
           fi
+
+      - name: Trigger Netlify Deploy
+        if: success()
+        run: |
+          curl -X POST -d {} "${{ secrets.NETLIFY_BUILD_HOOK }}"
