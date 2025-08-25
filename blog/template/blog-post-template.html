@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:image" content="{{image}}">
+    <meta property="og:url" content="https://www.mjkelleyphoto.com{{url}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{title}}">
+    <meta name="twitter:description" content="{{description}}">
+    <meta name="twitter:image" content="{{image}}">
+
+    <link rel="stylesheet" href="../styles.css">
+    
+    <script src="../shared.js"></script>
+
+    <script>
+        function loadDisqus() {
+            var disqus_config = function () {
+                this.page.url = 'https://www.mjkelleyphoto.com{{url}}';
+                this.page.identifier = '{{slug}}';
+            };
+            var d = document, s = d.createElement('script');
+            s.src = 'https://mjkelleyphotography.disqus.com/embed.js'; // Replace with your Disqus shortname
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="../architecture-photography.html">Architecture</a>
+                            <a href="../automotive-photography.html">Automotive</a>
+                            <a href="../headshot-photography.html">Headshot</a>
+                            <a href="../landscape-photography.html">Landscape</a>
+                            <a href="../portraits.html">Portrait</a>
+                            <a href="../real-estate.html">Real Estate</a>
+                            <a href="../engagement-couples-photography.html">Couples</a>
+                        </div>
+                    </li>
+                    <li><a href="../video.html">Video</a></li>
+                    <li><a href="../projects.html">Projects</a></li>
+                    <li><a href="../about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="index.html">Blog</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="blog-post-container">
+            {{content}}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <nav class="footer-nav">
+        <ul>
+            <li class="footer-dropdown">
+                <a href="#portfolio">Portfolio</a>
+                <div class="footer-dropdown-content">
+                    <a href="../architecture-photography.html">Architecture</a>
+                    <a href="../automotive-photography.html">Automotive</a>
+                    <a href="../headshot-photography.html">Headshot</a>
+                    <a href="../landscape-photography.html">Landscape</a>
+                    <a href="../portraits.html">Portrait</a>
+                    <a href="../real-estate.html">Real Estate</a>
+                    <a href="../engagement-couples-photography.html">Couples</a>
+                </div>
+            </li>
+            <li><a href="../video.html">Video</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../about-michael-j-kelley-photography.html">About</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="#" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+    
+    <script>
+        window.addEventListener('load', loadDisqus);
+    </script>
+</body>
+</html>

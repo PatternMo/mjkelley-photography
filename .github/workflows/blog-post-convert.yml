@@ -1,0 +1,35 @@
+name: Generate Blog Posts and Update Index
+
+on:
+  push:
+    paths:
+      - 'blog/generate/**.md'
+      - 'blog/template/**.html'
+      - '.github/scripts/generate-blog.js'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install gray-matter marked imagemin-cli imagemin-mozjpeg imagemin-pngquant
+
+      - name: Process and optimize images
+        run: |
+          # Create a directory for processed images if it doesn't exist
+          mkdir -p blog/images
+          # Use imagemin to optimize all images in the source folder
+          npx imagemin blog/images_source/** --out-dir=blog/images --plugin=imagemin-mozjpeg --plugin=imagemin-pngquant
+
+      - name: Run blog generation script
+        run: |
+          node .github/scripts/generate-blog.js
