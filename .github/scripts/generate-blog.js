@@ -27,7 +27,13 @@ async function generatePosts() {
         const filePath = path.join(generateDir, file);
         const fileContent = fs.readFileSync(filePath, 'utf8');
         const { data, content } = matter(fileContent);
-        const slug = path.basename(file, '.md');
+    // Generate slug from title instead of filename
+        const slug = data.title 
+            ? data.title
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')  // Replace non-alphanumeric with hyphens
+                .replace(/^-+|-+$/g, '')      // Remove leading/trailing hyphens
+            : path.basename(file, '.md');    // Fallback to filename if no title
 
         const postHtml = marked(content);
 

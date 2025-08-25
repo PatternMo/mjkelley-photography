@@ -113,7 +113,7 @@ function generateImageSitemap() {
   }
   
   const imageFiles = glob.sync('images/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { 
-    ignore: ['**/thumbs/**', '**/thumb/**'],
+    ignore: ['**/thumbs/**', '**/thumb/**', 'blog/images-source/**', 'blog/image-source/**'],
     onlyFiles: true
   });
   
@@ -271,7 +271,10 @@ function generateBlogSitemap() {
   
   console.log('Generating blog sitemap...');
   
-  const blogFiles = glob.sync('blog/**/*.html', { onlyFiles: true });
+  const blogFiles = glob.sync('blog/**/*.html', { 
+    onlyFiles: true,
+    ignore: ['blog/template/**', 'blog/templates/**'] 
+  });
   
   if (blogFiles.length === 0) {
     console.log('No blog posts found');
