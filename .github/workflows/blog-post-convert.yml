@@ -7,6 +7,7 @@ on:
       - 'blog/template/**.html'
       - '.github/scripts/generate-blog.js'
       - 'package.json'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,21 +15,45 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: |
-          npm install
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package.json') }}
 
-      - name: Process and optimize images
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create blog directories
         run: |
+          mkdir -p blog/generate
+          mkdir -p blog/template
+          mkdir -p blog/posts
           mkdir -p blog/images
-          npx imagemin blog/images_source/** --out-dir=blog/images --plugin=imagemin-mozjpeg --plugin=imagemin-pngquant
 
       - name: Run blog generation script
+        run: node .github/scripts/generate-blog.js
+
+      - name: Commit and push generated files
         run: |
-          node .github/scripts/generate-blog.js
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          git add blog/posts/
+          git add blog/index.html
+          
+          if git diff --staged --quiet; then
+            echo "No blog changes to commit"
+          else
+            git commit -m "Auto-generate blog posts [skip ci]"
+            git push
+          fi
