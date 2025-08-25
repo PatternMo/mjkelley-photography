@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Michael J. Kelley Photography</title>
+    <meta name="description" content="Latest news, tips, and photography insights from Michael J. Kelley Photography.">
+    
+    <link rel="stylesheet" href="../styles.css">
+    
+    <script src="../shared.js"></script>
+
+    <style>
+      .blog-index-container {
+        max-width: 800px;
+        margin: 120px auto 80px;
+        padding: 0 20px;
+      }
+      .blog-index-container h1 {
+        font-size: 32px;
+        font-weight: 300;
+        color: #333;
+        margin-bottom: 40px;
+        letter-spacing: 1px;
+      }
+      .featured-post {
+        margin-bottom: 60px;
+        padding-bottom: 60px;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+      .featured-post .post-title a {
+        font-size: 32px;
+        font-weight: 400;
+        margin-bottom: 15px;
+        display: block;
+      }
+      .featured-post .post-meta {
+        font-size: 14px;
+        color: #999;
+        margin-bottom: 25px;
+      }
+      .featured-post img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+        border-radius: 2px;
+      }
+      .post-preview {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+      }
+      .post-preview:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+      .post-preview h3 {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+      .post-preview h3 a {
+        color: #333;
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+      }
+      .post-preview h3 a:hover {
+        opacity: 0.6;
+      }
+      .post-meta {
+        font-size: 13px;
+        color: #999;
+        margin-bottom: 15px;
+      }
+      .post-meta .post-date {
+        margin-right: 15px;
+      }
+      .post-meta .post-tags {
+        font-style: italic;
+      }
+      .post-preview p {
+        font-size: 16px;
+        color: #666;
+      }
+    </style>
+</head>
+<body>
+  <header>
+      <div class="header-container">
+          <a href="../index.html" class="logo">Michael J. Kelley Photography</a>
+          <nav class="header-nav">
+              <div class="menu-toggle" onclick="toggleMenu()">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+              <ul id="nav-menu">
+                  <li class="dropdown">
+                      <a href="#portfolio">Portfolio</a>
+                      <div class="dropdown-content">
+                          <a href="../architecture-photography.html">Architecture</a>
+                          <a href="../automotive-photography.html">Automotive</a>
+                          <a href="../headshot-photography.html">Headshot</a>
+                          <a href="../landscape-photography.html">Landscape</a>
+                          <a href="../portraits.html">Portrait</a>
+                          <a href="../real-estate.html">Real Estate</a>
+                          <a href="../engagement-couples-photography.html">Couples</a>
+                      </div>
+                  </li>
+                  <li><a href="../video.html">Video</a></li>
+                  <li><a href="../projects.html">Projects</a></li>
+                  <li><a href="../about-michael-j-kelley-photography.html">About</a></li>
+                  <li><a href="index.html">Blog</a></li>
+                  <li><a href="../contact.html">Contact</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+
+    <main>
+      <section class="blog-index-container">
+          <h1>Latest Posts</h1>
+          <div class="featured-post">
+              <h1>The Ultimate Guide to Bay Area Sunset Photography</h1>
+<p>The San Francisco Bay Area is a photographer&#39;s paradise, especially when it comes to capturing breathtaking sunsets. The diverse landscapes, from urban skylines to rugged coastlines, provide endless opportunities for dramatic and colorful shots.</p>
+<h2>Best Locations for Sunset Photography</h2>
+<p>Here are some of my favorite spots to capture the magic hour:</p>
+<ol>
+<li><strong>Golden Gate Bridge from Baker Beach:</strong> This classic view offers a perfect silhouette of the bridge against the setting sun. The waves crashing on the shore add a dynamic foreground element.</li>
+<li><strong>Mount Tamalpais:</strong> For a panoramic, above-the-clouds perspective, head to the Marin Headlands. The views of San Francisco and the entire Bay are simply unbeatable.</li>
+<li><strong>Sausalito Waterfront:</strong> A quieter, more intimate option. The calm waters of Richardson Bay reflect the sky&#39;s changing colors, and the charming sailboats provide a great focal point.</li>
+</ol>
+<h2>Essential Gear and Tips</h2>
+<p>You don&#39;t need a lot of gear, but a few key items will make a big difference.</p>
+<ul>
+<li><strong>Wide-Angle Lens:</strong> Captures the vastness of the sky and landscape.</li>
+<li><strong>Tripod:</strong> Critical for long exposures, especially as the light fades.</li>
+<li><strong>Graduated ND Filter:</strong> Balances the bright sky with the darker foreground, preventing overexposure.</li>
+</ul>
+<h3>Camera Settings</h3>
+<p>I recommend shooting in <strong>RAW format</strong> for maximum flexibility in post-processing. Start with an aperture of f/8 to f/11 for a sharp image from front to back. Adjust your shutter speed and ISO to get the correct exposure.</p>
+<hr>
+<p>Feel free to customize this template with new fields like <code>category</code> or <code>readingTime</code> as your blog grows. Once you&#39;ve written a post, you&#39;ll save it as a <code>.md</code> file (e.g., <code>my-first-post.md</code>) in the <code>/blog/generate/</code> folder.</p>
+<p>Next, we can move on to building the <strong><code>blog-post-convert.yml</code></strong> file for GitHub Actions. Are you ready to proceed with that?</p>
+
+          </div>
+          <div class="post-list">
+              
+          </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+        <nav class="footer-nav">
+        <ul>
+            <li class="footer-dropdown">
+                <a href="#portfolio">Portfolio</a>
+                <div class="footer-dropdown-content">
+                    <a href="../architecture-photography.html">Architecture</a>
+                    <a href="../automotive-photography.html">Automotive</a>
+                    <a href="../headshot-photography.html">Headshot</a>
+                    <a href="../landscape-photography.html">Landscape</a>
+                    <a href="../portraits.html">Portrait</a>
+                    <a href="../real-estate.html">Real Estate</a>
+                    <a href="../engagement-couples-photography.html">Couples</a>
+                </div>
+            </li>
+            <li><a href="../video.html">Video</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../about-michael-j-kelley-photography.html">About</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="#" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>
