@@ -6,6 +6,7 @@ on:
       - 'blog/generate/**.md'
       - 'blog/template/**.html'
       - '.github/scripts/generate-blog.js'
+      - 'package.json'
 
 jobs:
   build:
@@ -21,13 +22,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install gray-matter marked imagemin-cli imagemin-mozjpeg imagemin-pngquant
+          npm install
 
       - name: Process and optimize images
         run: |
-          # Create a directory for processed images if it doesn't exist
           mkdir -p blog/images
-          # Use imagemin to optimize all images in the source folder
           npx imagemin blog/images_source/** --out-dir=blog/images --plugin=imagemin-mozjpeg --plugin=imagemin-pngquant
 
       - name: Run blog generation script
