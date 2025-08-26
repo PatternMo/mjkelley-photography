@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../styles.css">
     
     <script src="../shared.js"></script>
-
 </head>
 <body>
   <header>
@@ -45,36 +44,41 @@
   </header>
 
     <main>
-      <section class="blog-index-container">
+      <div class="blog-index-container">
           <h1>Latest Posts</h1>
-          <div class="featured-post">
-              <h1>The Ultimate Guide to Bay Area Sunset Photography</h1>
-<p>The San Francisco Bay Area is a photographer&#39;s paradise, especially when it comes to capturing breathtaking sunsets. The diverse landscapes, from urban skylines to rugged coastlines, provide endless opportunities for dramatic and colorful shots.</p>
-<h2>Best Locations for Sunset Photography</h2>
-<p>Here are some of my favorite spots to capture the magic hour:</p>
-<ol>
-<li><strong>Golden Gate Bridge from Baker Beach:</strong> This classic view offers a perfect silhouette of the bridge against the setting sun. The waves crashing on the shore add a dynamic foreground element.</li>
-<li><strong>Mount Tamalpais:</strong> For a panoramic, above-the-clouds perspective, head to the Marin Headlands. The views of San Francisco and the entire Bay are simply unbeatable.</li>
-<li><strong>Sausalito Waterfront:</strong> A quieter, more intimate option. The calm waters of Richardson Bay reflect the sky&#39;s changing colors, and the charming sailboats provide a great focal point.</li>
-</ol>
-<h2>Essential Gear and Tips</h2>
-<p>You don&#39;t need a lot of gear, but a few key items will make a big difference.</p>
-<ul>
-<li><strong>Wide-Angle Lens:</strong> Captures the vastness of the sky and landscape.</li>
-<li><strong>Tripod:</strong> Critical for long exposures, especially as the light fades.</li>
-<li><strong>Graduated ND Filter:</strong> Balances the bright sky with the darker foreground, preventing overexposure.</li>
-</ul>
-<h3>Camera Settings</h3>
-<p>I recommend shooting in <strong>RAW format</strong> for maximum flexibility in post-processing. Start with an aperture of f/8 to f/11 for a sharp image from front to back. Adjust your shutter speed and ISO to get the correct exposure.</p>
-<hr>
-<p>Feel free to customize this template with new fields like <code>category</code> or <code>readingTime</code> as your blog grows. Once you&#39;ve written a post, you&#39;ll save it as a <code>.md</code> file (e.g., <code>my-first-post.md</code>) in the <code>/blog/generate/</code> folder.</p>
-<p>Next, we can move on to building the <strong><code>blog-post-convert.yml</code></strong> file for GitHub Actions. Are you ready to proceed with that?</p>
-
-          </div>
+          
+          <!-- Featured Post -->
+          <section class="featured-post blog-post-container">
+            <article class="post">
+              <header class="post-header">
+                <h1 class="post-title">
+                  <a href="/blog/posts/the-ultimate-guide-to-bay-area-sunset-photography.html">The Ultimate Guide to Bay Area Sunset Photography</a>
+                </h1>
+                <div class="post-meta">
+                  <time datetime="2025-08-24T00:00:00.000Z">August 24, 2025</time>
+                  {% if featured_category %}
+                    <span aria-hidden="true">•</span>
+                    <span class="post-tag">landscape</span>
+                  {% endif %}
+                </div>
+                {% if featured_hero %}
+                  <div class="post-hero">
+                    <a href="/blog/posts/the-ultimate-guide-to-bay-area-sunset-photography.html">
+                      <img src="/blog/images/sunset-guide-header.jpg" alt="The Ultimate Guide to Bay Area Sunset Photography">
+                    </a>
+                  </div>
+                {% endif %}
+              </header>
+              <div class="post-content">
+                <p class="line-clamp-3">A detailed guide on finding the best locations and techniques for capturing stunning sunset photos across the San Francisco Bay Area.</p>
+              </div>
+            </article>
+          </section>
+          
           <div class="post-list">
               
           </div>
-      </section>
+      </div>
     </main>
 
     <footer class="site-footer">
