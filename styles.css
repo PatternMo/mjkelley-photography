@@ -1631,6 +1631,40 @@ main {
     margin-bottom: 20px;
 }
 
+/* Author byline */
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0 32px 0;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.author-name {
+    font-weight: 500;
+    color: #333;
+    font-size: 15px;
+}
+
+.author-title {
+    color: #666;
+    font-size: 13px;
+}
+
 .blog-post-container img {
     max-width: 100%;
     height: auto;
@@ -1866,6 +1900,26 @@ main {
     
     .post-preview h3 {
         font-size: 20px !important;
+    }
+
+    /* Mobile author byline */
+    .post-author {
+        gap: 10px;
+        margin: 12px 0 24px 0;
+        padding-bottom: 20px;
+    }
+    
+    .author-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .author-name {
+        font-size: 14px;
+    }
+    
+    .author-title {
+        font-size: 12px;
     }
 }
 
