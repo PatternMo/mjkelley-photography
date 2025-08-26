@@ -67,21 +67,21 @@
 
     <main>
         <article class="blog-post-container post">
-            <header class="post-header">
-            <h1 class="post-title">The Ultimate Guide to Bay Area Sunset Photography</h1>
-            <div class="post-meta">
-                <time datetime="2025-08-24T00:00:00.000Z">August 24, 2025</time>
-                {% if category %}
-                <span aria-hidden="true">•</span>
-                <span class="post-tag">landscape</span>
+            <div class="post-header">
+                <h1 class="post-title">The Ultimate Guide to Bay Area Sunset Photography</h1>
+                <div class="post-meta">
+                    <time datetime="2025-08-24T00:00:00.000Z">August 24, 2025</time>
+                    {% if category %}
+                    <span aria-hidden="true">•</span>
+                    <span class="post-tag">landscape</span>
+                    {% endif %}
+                </div>
+                {% if image %}
+                    <div class="post-hero">
+                    <img src="/blog/images/sunset-guide-header.jpg" alt="The Ultimate Guide to Bay Area Sunset Photography">
+                    </div>
                 {% endif %}
             </div>
-            {% if image %}
-                <div class="post-hero">
-                <img src="/blog/images/sunset-guide-header.jpg" alt="The Ultimate Guide to Bay Area Sunset Photography">
-                </div>
-            {% endif %}
-            </header>
 
             <div class="post-content">
             <h1>The Ultimate Guide to Bay Area Sunset Photography</h1>
