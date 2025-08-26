@@ -1796,12 +1796,17 @@ main {
   aspect-ratio: 3 / 2;
 }
 
-/* Utility: clamp long excerpts cleanly on cards */
+/* Utility: clamp long excerpts to 3 lines (standard + vendor fallback) */
 .line-clamp-3 {
+  overflow: hidden;
+
+  /* Standard property (new spec, linter requires this) */
+  line-clamp: 3;
+
+  /* WebKit/Blink fallback for now */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 /* Subtle tag pill (if you show categories) */
@@ -1825,29 +1830,6 @@ main {
   border-top: 1px solid #e5e7eb;
   color: #6b7280;
   font-size: 0.95rem;
-}
-
-/* Blog Utilities
-   ========================================================================== */
-
-/* Clamp long excerpts to 3 lines (for featured + previews) */
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Category/Tag pill */
-.post-tag {
-  display: inline-block;
-  padding: 2px 8px;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 999px;
-  font-size: 12px;
-  line-height: 1.4;
-  color: #666;
-  background: #f7f7f7;
 }
 
 /* Blog Responsive Styles */
