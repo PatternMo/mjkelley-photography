@@ -1636,7 +1636,7 @@ main {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 16px 0 32px 0;
+    margin: 8px 0 12px 0;
     padding-bottom: 24px;
     border-bottom: 1px solid #e5e7eb;
 }
@@ -1729,7 +1729,7 @@ main {
   font-size: clamp(1.75rem, 3.2vw, 2.5rem);
   line-height: 1.2;
   letter-spacing: -0.01em;
-  margin: 0 0 0.25rem 0;
+  margin: 0 0 0.15rem 0;
 }
 /* Blog Post Title Links */
 .post-title a {
@@ -1745,6 +1745,7 @@ main {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-top: -8px;
 }
 
 /* Hero image (optional) */
