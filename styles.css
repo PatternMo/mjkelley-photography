@@ -1138,6 +1138,19 @@ main {
         gap: 40px;
     }
 
+    .services-image {
+        height: auto !important;
+        aspect-ratio: 4/3;
+        min-height: 200px;
+        max-height: 300px;
+        order: -1;
+        border-radius: 4px;
+    }
+
+    .services-text {
+        order: 1;
+    }
+
     .services-text h2 {
         font-size: 22px;
     }
@@ -1615,7 +1628,7 @@ main {
     font-size: 28px;
     font-weight: 400;
     color: #333;
-    margin: 40px 0 20px 0;
+    margin: 20px 0 20px 0;
     letter-spacing: 0.5px;
 }
 
@@ -1628,7 +1641,7 @@ main {
 }
 
 .blog-post-container p {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 /* Author byline */
@@ -1766,10 +1779,10 @@ main {
   line-height: 1.75;
   color: #111827; /* neutral-900 */
 }
-.post-content p { margin: 0 0 1.1em 0; }
+.post-content p { margin: 0 0 0.55em 0; }
 .post-content h2 {
   font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-  margin: 1.8em 0 0.6em;
+  margin: 0.8em 0 0.3em;
   line-height: 1.3;
 }
 .post-content h3 {
