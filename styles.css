@@ -1138,16 +1138,16 @@ main {
         gap: 40px;
     }
 
-    .services-image {
+    .services-section .services-image {
         height: auto !important;
-        aspect-ratio: 4/3;
-        min-height: 200px;
-        max-height: 300px;
+        aspect-ratio: 4/3 !important;
+        min-height: 200px !important;
+        max-height: 300px !important;
         order: -1;
         border-radius: 4px;
     }
 
-    .services-text {
+    .services-section .services-text {
         order: 1;
     }
 
@@ -1258,6 +1258,12 @@ main {
 @media (max-width: 480px) {
     .gallery-grid {
         column-count: 1;
+    }
+
+    .services-section .services-image {
+    aspect-ratio: 3/2 !important;
+    min-height: 180px !important;
+    max-height: 250px !important;
     }
 
     .video-grid {
