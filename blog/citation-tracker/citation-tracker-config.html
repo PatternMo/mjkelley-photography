@@ -424,14 +424,33 @@
                     📎 Save Citation
                 </a>
                 
+                <div style="margin-top: 15px;">
+                    <button onclick="copyBookmarkletCode()" style="background: #5a4a3a;">📋 Copy Bookmarklet Code</button>
+                    <p style="font-size: 12px; color: #a0a0a0; margin-top: 5px;">
+                        If dragging doesn't work, copy the code and create a bookmark manually
+                    </p>
+                </div>
+                
                 <div class="instruction-steps">
                     <strong>How to use:</strong>
                     <ol>
                         <li>Drag the "📎 Save Citation" link above to your bookmarks bar</li>
+                        <li>OR click "Copy Bookmarklet Code" and create a bookmark manually</li>
                         <li>Select a current project above</li>
                         <li>While reading any article, click the bookmarklet</li>
                         <li>The citation will be saved to GitHub automatically!</li>
                     </ol>
+                    
+                    <div style="margin-top: 15px; padding: 10px; background: #2d2520; border-radius: 6px;">
+                        <strong style="color: #d4a574;">Manual Installation:</strong>
+                        <ol style="margin-top: 5px;">
+                            <li>Click "Copy Bookmarklet Code" button above</li>
+                            <li>Create a new bookmark in Brave</li>
+                            <li>Name it: "📎 Save Citation"</li>
+                            <li>Paste the code as the URL</li>
+                            <li>Save!</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
@@ -758,6 +777,32 @@ javascript:(async function(){
             `.trim();
             
             document.getElementById('bookmarkletLink').href = bookmarkletCode;
+        }
+        
+        // Copy bookmarklet code to clipboard
+        function copyBookmarkletCode() {
+            const bookmarkletLink = document.getElementById('bookmarkletLink');
+            const code = bookmarkletLink.href;
+            
+            if (code.includes('Please configure')) {
+                showMessage('Please save GitHub config and select a project first', 'error');
+                return;
+            }
+            
+            navigator.clipboard.writeText(code).then(() => {
+                showMessage('📋 Bookmarklet code copied! Now create a bookmark and paste this as the URL.', 'success');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = code;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showMessage('📋 Bookmarklet code copied!', 'success');
+            });
         }
         
         // Show status message
