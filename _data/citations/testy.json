@@ -1,5 +1,11 @@
 {
   "project": "test",
   "created": "2025-11-12T23:14:29.436Z",
-  "citations": []
+  "citations": [
+    {
+      "timestamp": "2025-11-12T23:36:10.458Z",
+      "title": "Test Article - Democracy and Political Systems",
+      "url": "file:///Users/michaelkelley/Documents/GitHub/mjkelley-photography/blog/citation-tracker/test-article.html"
+    }
+  ]
 }
