@@ -709,72 +709,8 @@
                 return;
             }
             
-            const bookmarkletCode = `
-javascript:(async function(){
-    const config = {
-        token: '${token}',
-        repo: '${repo}',
-        path: '${config.citationsPath}${project.file}',
-        projectName: '${project.name}'
-    };
-    
-    const showNotification = (message, isError = false) => {
-        const div = document.createElement('div');
-        div.innerHTML = message;
-        div.style.cssText = 'position:fixed;top:20px;right:20px;background:' + (isError ? '#3a2525' : '#2d3a2e') + ';color:' + (isError ? '#e8a0a0' : '#a8d8a0') + ';padding:15px 20px;border-radius:8px;z-index:999999;font-family:sans-serif;font-size:14px;box-shadow:0 4px 12px rgba(0,0,0,0.5);border-left:4px solid ' + (isError ? '#8b4513' : '#7a9b6c');
-        document.body.appendChild(div);
-        setTimeout(() => div.remove(), 3000);
-    };
-    
-    try {
-        // Get current file content
-        const getResponse = await fetch(\`https://api.github.com/repos/\${config.repo}/contents/\${config.path}\`, {
-            headers: {
-                'Authorization': \`token \${config.token}\`,
-                'Accept': 'application/vnd.github.v3+json'
-            }
-        });
-        
-        if (!getResponse.ok) {
-            throw new Error('Failed to fetch file');
-        }
-        
-        const fileData = await getResponse.json();
-        const content = JSON.parse(atob(fileData.content));
-        
-        // Add new citation
-        content.citations.push({
-            timestamp: new Date().toISOString(),
-            title: document.title,
-            url: window.location.href
-        });
-        
-        // Update file
-        const updateResponse = await fetch(\`https://api.github.com/repos/\${config.repo}/contents/\${config.path}\`, {
-            method: 'PUT',
-            headers: {
-                'Authorization': \`token \${config.token}\`,
-                'Accept': 'application/vnd.github.v3+json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                message: \`Add citation: \${document.title.substring(0, 50)}\`,
-                content: btoa(JSON.stringify(content, null, 2)),
-                sha: fileData.sha
-            })
-        });
-        
-        if (!updateResponse.ok) {
-            throw new Error('Failed to save citation');
-        }
-        
-        showNotification('✓ Saved to ' + config.projectName);
-        
-    } catch (error) {
-        showNotification('✗ Error: ' + error.message, true);
-    }
-})();
-            `.trim();
+            // Simpler bookmarklet that just reads from localStorage
+            const bookmarkletCode = `javascript:(function(){const t=localStorage.getItem('github_token'),r=localStorage.getItem('github_repo'),p=localStorage.getItem('current_project'),ps=JSON.parse(localStorage.getItem('projects')||'[]'),pr=ps.find(x=>x.id===p);if(!t||!r||!pr){alert('Config not found. Open citation tracker config page first.');return;}const n=(m,e)=>{const d=document.createElement('div');d.innerHTML=m;d.style.cssText='position:fixed;top:20px;right:20px;background:'+(e?'#3a2525':'#2d3a2e')+';color:'+(e?'#e8a0a0':'#a8d8a0')+';padding:15px 20px;border-radius:8px;z-index:999999;font-family:sans-serif;font-size:14px;box-shadow:0 4px 12px rgba(0,0,0,0.5);border-left:4px solid '+(e?'#8b4513':'#7a9b6c');document.body.appendChild(d);setTimeout(()=>d.remove(),3000);};(async()=>{try{const g=await fetch('https://api.github.com/repos/'+r+'/contents/_data/citations/'+pr.file,{headers:{'Authorization':'token '+t,'Accept':'application/vnd.github.v3+json'}});if(!g.ok)throw new Error('Failed to fetch');const f=await g.json(),c=JSON.parse(atob(f.content));c.citations.push({timestamp:new Date().toISOString(),title:document.title,url:window.location.href});const u=await fetch('https://api.github.com/repos/'+r+'/contents/_data/citations/'+pr.file,{method:'PUT',headers:{'Authorization':'token '+t,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({message:'Add citation: '+document.title.substring(0,50),content:btoa(JSON.stringify(c,null,2)),sha:f.sha})});if(!u.ok)throw new Error('Failed to save');n('✓ Saved to '+pr.name);}catch(e){n('✗ Error: '+e.message,true);}})();})();`;
             
             document.getElementById('bookmarkletLink').href = bookmarkletCode;
         }
