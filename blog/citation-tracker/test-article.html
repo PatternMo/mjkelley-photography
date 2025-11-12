@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Article - Democracy and Political Systems</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f5f5f5;
+        }
+        
+        article {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        .test-instructions {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .test-instructions h2 {
+            color: #856404;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        
+        .test-instructions ol {
+            color: #856404;
+            margin-left: 20px;
+        }
+        
+        .test-instructions li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <div class="test-instructions">
+            <h2>🧪 Test Your Citation Bookmarklet Here!</h2>
+            <ol>
+                <li>Make sure you've set up the config page first</li>
+                <li>Make sure you've selected a current project</li>
+                <li>Click your "📎 Save Citation" bookmarklet</li>
+                <li>You should see a green notification appear</li>
+                <li>Check your GitHub repo at <code>_data/citations/[your-file].json</code></li>
+                <li>This page's title and URL should be saved there!</li>
+            </ol>
+        </div>
+        
+        <h1>Test Article - Democracy and Political Systems</h1>
+        <div class="meta">Published: November 12, 2025 | By Test Author</div>
+        
+        <p>
+            This is a test article to verify that your citation bookmarklet is working correctly. 
+            When you click the bookmarklet while viewing this page, it should capture:
+        </p>
+        
+        <ul>
+            <li><strong>Title:</strong> "Test Article - Democracy and Political Systems"</li>
+            <li><strong>URL:</strong> The file path where this HTML file is located</li>
+            <li><strong>Timestamp:</strong> The current date and time</li>
+        </ul>
+        
+        <p>
+            The collected citation will be stored in your GitHub repository at 
+            <code>_data/citations/[your-project-file].json</code> in this format:
+        </p>
+        
+        <pre style="background: #f5f5f5; padding: 15px; overflow-x: auto;">
+{
+  "project": "Your Project Name",
+  "created": "2025-11-12T10:30:00.000Z",
+  "citations": [
+    {
+      "timestamp": "2025-11-12T14:30:00.000Z",
+      "title": "Test Article - Democracy and Political Systems",
+      "url": "file:///path/to/test-article.html"
+    }
+  ]
+}
+        </pre>
+        
+        <h2>What Should Happen</h2>
+        
+        <p>
+            After clicking the bookmarklet, you should see a small green notification 
+            in the top-right corner of this page that says "✓ Saved to [Your Project Name]". 
+            This notification will disappear after 3 seconds.
+        </p>
+        
+        <h2>Verifying It Worked</h2>
+        
+        <p>To confirm the citation was saved:</p>
+        
+        <ol>
+            <li>Go to your GitHub repository on github.com</li>
+            <li>Navigate to <code>_data/citations/</code></li>
+            <li>Click on your project's JSON file</li>
+            <li>You should see this test article listed in the citations array</li>
+        </ol>
+        
+        <h2>Troubleshooting</h2>
+        
+        <p><strong>If you see a red error notification:</strong></p>
+        <ul>
+            <li>Check that you've selected a current project in the config page</li>
+            <li>Verify your GitHub token and repo are saved correctly</li>
+            <li>Make sure you're connected to the internet</li>
+            <li>Try clicking "Test Connection" in the config page</li>
+        </ul>
+        
+        <p><strong>If nothing happens:</strong></p>
+        <ul>
+            <li>Make sure you dragged the bookmarklet to your bookmarks bar</li>
+            <li>Try refreshing the config page and re-dragging the bookmarklet</li>
+            <li>Check your browser's console for any errors (F12 → Console tab)</li>
+        </ul>
+        
+        <h2>Sample Article Content</h2>
+        
+        <p>
+            Here's some sample content to make this look like a real article you might cite. 
+            Democracy, as a form of government, has evolved significantly over the centuries. 
+            From ancient Athens to modern representative systems, the core principles of 
+            popular sovereignty and political equality have remained central to democratic theory.
+        </p>
+        
+        <p>
+            Recent studies have shown concerning trends in democratic backsliding across 
+            various nations. Factors contributing to this phenomenon include increased 
+            polarization, erosion of institutional norms, and the concentration of executive power.
+        </p>
+        
+        <p>
+            Political scientists argue that maintaining healthy democratic systems requires 
+            constant vigilance, civic engagement, and robust institutions that can withstand 
+            attempts at authoritarian consolidation.
+        </p>
+        
+        <p style="text-align: center; color: #999; margin-top: 40px; font-style: italic;">
+            This is a test article for citation tracking purposes only.
+        </p>
+    </article>
+</body>
+</html>

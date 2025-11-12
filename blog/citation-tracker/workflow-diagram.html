@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citation Tracker - Visual Workflow</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .workflow {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .step {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .step-number {
+            min-width: 60px;
+            height: 60px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .step-content h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .step-content p {
+            margin: 0;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .arrow {
+            text-align: center;
+            color: #667eea;
+            font-size: 30px;
+            margin: -10px 0;
+        }
+        
+        .diagram {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .diagram-title {
+            text-align: center;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        
+        .flow {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .node {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .node-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .node-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .node-desc {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .connector {
+            font-size: 30px;
+            color: #667eea;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .benefit {
+            background: #e0e7ff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .benefit-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .benefit-desc {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .flow {
+                flex-direction: column;
+            }
+            
+            .connector {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📎 Citation Tracker Workflow</h1>
+        <p class="subtitle">Visual guide to how the system works</p>
+        
+        <!-- Simple Workflow -->
+        <div class="workflow">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>One-Time Setup</h3>
+                    <p>Create GitHub token → Open config page → Save token and repo → Create first project → Install bookmarklet</p>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Start Research</h3>
+                    <p>Open config page → Select your project (or create new one) → Project is now active</p>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Browse & Capture</h3>
+                    <p>Read articles online → Click bookmarklet when you want to cite → See confirmation → Keep researching!</p>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Citations Saved</h3>
+                    <p>All citations automatically saved to GitHub → Organized by project → Ready for future agents to use</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technical Flow Diagram -->
+        <div class="diagram">
+            <div class="diagram-title">How It Works Behind the Scenes</div>
+            <div class="flow">
+                <div class="node">
+                    <div class="node-icon">🌐</div>
+                    <div class="node-label">Article Page</div>
+                    <div class="node-desc">You're reading</div>
+                </div>
+                
+                <div class="connector">→</div>
+                
+                <div class="node">
+                    <div class="node-icon">📎</div>
+                    <div class="node-label">Bookmarklet</div>
+                    <div class="node-desc">You click</div>
+                </div>
+                
+                <div class="connector">→</div>
+                
+                <div class="node">
+                    <div class="node-icon">📡</div>
+                    <div class="node-label">GitHub API</div>
+                    <div class="node-desc">Fetches & updates</div>
+                </div>
+                
+                <div class="connector">→</div>
+                
+                <div class="node">
+                    <div class="node-icon">📄</div>
+                    <div class="node-label">JSON File</div>
+                    <div class="node-desc">Citation stored</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Data Flow Example -->
+        <div class="diagram">
+            <div class="diagram-title">What Gets Captured</div>
+            <div style="background: white; padding: 20px; border-radius: 8px; border: 2px solid #dee2e6;">
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #667eea;">From This:</strong>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-top: 5px; font-family: monospace; font-size: 14px;">
+                        Page Title: "Democracy in Decline - NYT Analysis"<br>
+                        Page URL: https://nytimes.com/2025/11/democracy-decline
+                    </div>
+                </div>
+                
+                <div style="text-align: center; font-size: 24px; color: #667eea; margin: 20px 0;">↓</div>
+                
+                <div>
+                    <strong style="color: #667eea;">To This (in GitHub):</strong>
+                    <pre style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-top: 5px; overflow-x: auto; font-size: 13px;">{
+  "timestamp": "2025-11-12T14:30:00.000Z",
+  "title": "Democracy in Decline - NYT Analysis",
+  "url": "https://nytimes.com/2025/11/democracy-decline"
+}</pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Benefits -->
+        <h2 style="text-align: center; margin-top: 50px; margin-bottom: 20px; color: #333;">Why This System Rocks</h2>
+        <div class="benefits">
+            <div class="benefit">
+                <div class="benefit-icon">⚡</div>
+                <div class="benefit-title">One Click</div>
+                <div class="benefit-desc">No forms, no dialogs, just click and it's saved</div>
+            </div>
+            
+            <div class="benefit">
+                <div class="benefit-icon">🎯</div>
+                <div class="benefit-title">Organized</div>
+                <div class="benefit-desc">Citations grouped by project automatically</div>
+            </div>
+            
+            <div class="benefit">
+                <div class="benefit-icon">☁️</div>
+                <div class="benefit-title">Cloud Synced</div>
+                <div class="benefit-desc">GitHub keeps everything backed up</div>
+            </div>
+            
+            <div class="benefit">
+                <div class="benefit-icon">🤖</div>
+                <div class="benefit-title">Agent Ready</div>
+                <div class="benefit-desc">Future agents can access your citations</div>
+            </div>
+            
+            <div class="benefit">
+                <div class="benefit-icon">🔒</div>
+                <div class="benefit-title">Secure</div>
+                <div class="benefit-desc">Your token stays in your browser only</div>
+            </div>
+            
+            <div class="benefit">
+                <div class="benefit-icon">📱</div>
+                <div class="benefit-title">Cross Device</div>
+                <div class="benefit-desc">Works on all your computers</div>
+            </div>
+        </div>
+        
+        <!-- Future Integration -->
+        <div class="diagram" style="margin-top: 40px;">
+            <div class="diagram-title">Future Agent Integration</div>
+            <div style="background: white; padding: 20px; border-radius: 8px;">
+                <p style="color: #666; margin-bottom: 20px; text-align: center;">
+                    Once you have citations captured, you can build agents that...
+                </p>
+                
+                <div style="display: grid; gap: 15px;">
+                    <div style="background: #e0e7ff; padding: 15px; border-radius: 6px; border-left: 4px solid #667eea;">
+                        <strong style="color: #333;">📝 Citation Formatter Agent</strong><br>
+                        <span style="font-size: 14px; color: #666;">
+                            Reads your blog draft → Fetches citations from GitHub → Matches quotes → Inserts HTML links
+                        </span>
+                    </div>
+                    
+                    <div style="background: #e0e7ff; padding: 15px; border-radius: 6px; border-left: 4px solid #667eea;">
+                        <strong style="color: #333;">🚀 Blog Automation Agent</strong><br>
+                        <span style="font-size: 14px; color: #666;">
+                            Formats markdown → Compresses images → Uploads to GitHub → Publishes to website
+                        </span>
+                    </div>
+                    
+                    <div style="background: #e0e7ff; padding: 15px; border-radius: 6px; border-left: 4px solid #667eea;">
+                        <strong style="color: #333;">🎨 Project Page Builder</strong><br>
+                        <span style="font-size: 14px; color: #666;">
+                            Takes your content → Uses template → Adds citations → Builds complete project page
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 2px solid #e0e0e0;">
+            <p style="color: #666; font-size: 14px;">
+                Ready to get started? Open <strong>SETUP-GUIDE.md</strong> for detailed instructions!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
