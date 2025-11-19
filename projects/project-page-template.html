@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name | Michael J. Kelley Photography | Bay Area</title>
+    <meta name="description" content="Project description showcasing photography work by Michael J. Kelley in the San Francisco Bay Area.">
+    
+    <!-- Link to shared stylesheet -->
+    <link rel="stylesheet" href="../styles.css">
+    
+    <!-- All pages get this -->
+    <script src="../shared.js"></script>
+    
+    <!-- Gallery pages get this -->
+    <script src="../gallery.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="../index.html" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="../architecture-photography.html">Architecture</a>
+                            <a href="../automotive-photography.html">Automotive</a>
+                            <a href="../headshot-photography.html">Headshot</a>
+                            <a href="../landscape-photography.html">Landscape</a>
+                            <a href="../portraits.html">Portrait</a>
+                            <a href="../real-estate.html">Real Estate</a>
+                            <a href="../engagement-couples-photography.html">Couples</a>
+                        </div>
+                    </li>
+                    <li><a href="../video.html">Video</a></li>
+                    <li><a href="../projects.html">Projects</a></li>
+                    <li><a href="../about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="../blog/index.html">Blog</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="padding-bottom: 20px;">
+            <h1>Project Name</h1>
+            <p style="max-width: 800px;">Brief project description or tagline</p>
+        </section>
+
+        <!-- Hero Image -->
+        <section style="padding: 0 40px 60px; max-width: 1600px; margin: 0 auto;">
+            <img src="../images/projects/project-folder/hero-image.jpg" 
+                 alt="Project Name" 
+                 style="width: 100%; height: auto; display: block;">
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="gallery-grid" style="margin-bottom: 20px;">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="../images/projects/project-folder/image-1.jpg" alt="Project image 1">
+                    <div class="overlay">
+                        <div class="overlay-text">View Image</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="../images/projects/project-folder/image-2.jpg" alt="Project image 2">
+                    <div class="overlay">
+                        <div class="overlay-text">View Image</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="../images/projects/project-folder/image-3.jpg" alt="Project image 3">
+                    <div class="overlay">
+                        <div class="overlay-text">View Image</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="../images/projects/project-folder/image-4.jpg" alt="Project image 4">
+                    <div class="overlay">
+                        <div class="overlay-text">View Image</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="../images/projects/project-folder/image-5.jpg" alt="Project image 5">
+                    <div class="overlay">
+                        <div class="overlay-text">View Image</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="../images/projects/project-folder/image-6.jpg" alt="Project image 6">
+                    <div class="overlay">
+                        <div class="overlay-text">View Image</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="../images/projects/project-folder/image-7.jpg" alt="Project image 7">
+                    <div class="overlay">
+                        <div class="overlay-text">View Image</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="../images/projects/project-folder/image-8.jpg" alt="Project image 8">
+                    <div class="overlay">
+                        <div class="overlay-text">View Image</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details Section -->
+        <section class="services-section">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Project Overview</h2>
+                    <p>First paragraph describing the project objectives, client, and scope of work.</p>
+                    
+                    <p>Second paragraph providing additional context about the creative approach, technical execution, or unique aspects of the project.</p>
+                    
+                    <ul class="service-list">
+                        <li>Client: Client Name</li>
+                        <li>Location: Project Location</li>
+                        <li>Project Type: Type of Photography</li>
+                        <li>Building/Subject Type: Description</li>
+                        <li>Photography Focus: Key Focus Areas</li>
+                        <li>Coverage: Specific Coverage Details</li>
+                    </ul>
+                    
+                    <p>Closing paragraph summarizing the project's impact or deliverables.</p>
+                    
+                    <a href="../contact.html" class="cta-button">Discuss Your Project</a>
+                </div>
+                <div class="services-image" style="background-image: url('../images/projects/project-folder/detail-image.jpg')"></div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section">
+            <h2>Creative Process</h2>
+            
+            <div class="process-item">
+                <div class="process-title">Pre-Production Planning</div>
+                <div class="process-description">Description of planning phase, site assessment, coordination with client, and preparation specific to this project type.</div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-title">Photography Session</div>
+                <div class="process-description">Description of on-site photography work, capturing key elements, specific techniques used, and approach to documenting the subject.</div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-title">Lighting & Composition</div>
+                <div class="process-description">Description of lighting setup, compositional strategies, and technical approach to showcasing the subject effectively.</div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-title">Post-Production</div>
+                <div class="process-description">Description of editing process, color correction, enhancement techniques, and ensuring consistency across all deliverables.</div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-title">Final Delivery</div>
+                <div class="process-description">Description of deliverables, file formats, usage rights, and how images are optimized for client's specific needs.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <nav class="footer-nav">
+            <ul>
+                <li class="dropdown">
+                    <a href="#portfolio">Portfolio</a>
+                    <div class="dropdown-content">
+                        <a href="../architecture-photography.html">Architecture</a>
+                        <a href="../automotive-photography.html">Automotive</a>
+                        <a href="../headshot-photography.html">Headshot</a>
+                        <a href="../landscape-photography.html">Landscape</a>
+                        <a href="../portraits.html">Portrait</a>
+                        <a href="../real-estate.html">Real Estate</a>
+                        <a href="../engagement-couples-photography.html">Couples</a>
+                    </div>
+                </li>
+                <li><a href="../video.html">Video</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="../blog/index.html">Blog</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
+            <a href="https://www.facebook.com/mjkelleyphoto" class="social-icon">FB</a>
+        </div>
+        
+        <div class="copyright">
+            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-controls">
+                <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
+                <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
+                <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page-specific gallery images array
+        window.galleryImages = [
+            { src: '../images/projects/project-folder/image-1.jpg', alt: 'Project image 1 description' },
+            { src: '../images/projects/project-folder/image-2.jpg', alt: 'Project image 2 description' },
+            { src: '../images/projects/project-folder/image-3.jpg', alt: 'Project image 3 description' },
+            { src: '../images/projects/project-folder/image-4.jpg', alt: 'Project image 4 description' },
+            { src: '../images/projects/project-folder/image-5.jpg', alt: 'Project image 5 description' },
+            { src: '../images/projects/project-folder/image-6.jpg', alt: 'Project image 6 description' },
+            { src: '../images/projects/project-folder/image-7.jpg', alt: 'Project image 7 description' },
+            { src: '../images/projects/project-folder/image-8.jpg', alt: 'Project image 8 description' }
+        ];
+
+        // Make gallery visible and initialize lightbox when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add is-ready class to gallery grid
+            const galleryGrid = document.querySelector('.gallery-grid');
+            if (galleryGrid) {
+                galleryGrid.classList.add('is-ready');
+            }
+            
+            // Add is-visible class to all gallery items
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(function(item) {
+                item.classList.add('is-visible');
+            });
+
+            // Initialize lightbox functionality
+            if (typeof window.GalleryAPI !== 'undefined') {
+                window.GalleryAPI.initialize(window.galleryImages);
+            }
+        });
+    </script>
+</body>
+</html>

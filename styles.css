@@ -126,14 +126,14 @@ header {
     padding-left: 25px;
 }
 
-.dropdown > a::after {
+.dropdown>a::after {
     content: " ▾";
     font-size: 10px;
     margin-left: 5px;
     transition: transform 0.3s ease;
 }
 
-.dropdown:hover > a::after {
+.dropdown:hover>a::after {
     transform: rotate(180deg);
 }
 
@@ -196,7 +196,8 @@ main {
 
 /* --- Gallery Loader Style --- */
 #gallery-loader {
-    display: block; /* Shown by default */
+    display: block;
+    /* Shown by default */
     width: 40px;
     height: 40px;
     margin: 80px auto;
@@ -207,8 +208,13 @@ main {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Gallery Styles
@@ -223,7 +229,7 @@ main {
     column-count: 3;
     column-gap: 8px;
     margin-bottom: 80px;
-    
+
     /* --- CORRECTION: Simplify the initial hidden state --- */
     visibility: hidden;
     opacity: 0;
@@ -246,7 +252,7 @@ main {
     cursor: pointer;
     background: #f5f5f5;
     break-inside: avoid;
-    
+
     /* Individual item animation, starts invisible */
     opacity: 0;
     transform: translateY(20px);
@@ -276,7 +282,8 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0);  /* Changed from 0.3 to 0 */
+    background: rgba(0, 0, 0, 0);
+    /* Changed from 0.3 to 0 */
     opacity: 0;
     transition: opacity 0.3s ease;
     display: flex;
@@ -285,11 +292,13 @@ main {
 }
 
 .gallery-item:hover .overlay {
-    opacity: 1;  /* Keep this as 1 for functionality */
+    opacity: 1;
+    /* Keep this as 1 for functionality */
 }
 
 .overlay-text {
-    display: none;  /* Hide the text */
+    display: none;
+    /* Hide the text */
 }
 
 /* Services Section
@@ -312,7 +321,8 @@ main {
 
 .service-image {
     width: 100%;
-    aspect-ratio: 3/2; /* Matches 2400×1600 source images */
+    aspect-ratio: 3/2;
+    /* Matches 2400×1600 source images */
     background-size: cover;
     background-position: center;
     margin-bottom: 20px;
@@ -465,7 +475,8 @@ main {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
 }
@@ -484,7 +495,8 @@ main {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
     background: #000;
@@ -522,9 +534,15 @@ main {
    ========================================================================== */
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     margin-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .project-item {
@@ -532,8 +550,18 @@ main {
     background: #f5f5f5;
     border-radius: 4px;
     overflow: hidden;
-    cursor: pointer;
+    /* cursor: pointer;  -- Removed because the div itself isn't the link anymore, though the overlay will handle the pointer */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    cursor: pointer;
 }
 
 .project-item:hover {
@@ -543,7 +571,7 @@ main {
 
 .project-image {
     width: 100%;
-    height: 300px;
+    aspect-ratio: 3 / 2;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -581,6 +609,8 @@ main {
 
 .project-info {
     padding: 30px;
+    position: relative;
+    z-index: 2;
 }
 
 .project-category {
@@ -956,14 +986,14 @@ main {
     padding-left: 25px;
 }
 
-.footer-dropdown > a::after {
+.footer-dropdown>a::after {
     content: " ▴";
     font-size: 10px;
     margin-left: 5px;
     transition: transform 0.3s ease;
 }
 
-.footer-dropdown:hover > a::after {
+.footer-dropdown:hover>a::after {
     transform: rotate(180deg);
 }
 
@@ -1031,7 +1061,7 @@ main {
     .dropdown:hover .dropdown-content {
         display: none !important;
     }
-    
+
     .dropdown.active .dropdown-content {
         display: block !important;
         position: static;
@@ -1042,11 +1072,11 @@ main {
         background: transparent;
         backdrop-filter: none;
     }
-    
+
     .footer-dropdown:hover .footer-dropdown-content {
         display: none !important;
     }
-    
+
     .footer-dropdown.active .footer-dropdown-content {
         display: block !important;
         position: static;
@@ -1060,6 +1090,7 @@ main {
         transform: none;
         left: auto;
     }
+
     /* END MOBILE DROPDOWN FIX */
 
     .dropdown-content {
@@ -1261,9 +1292,9 @@ main {
     }
 
     .services-section .services-image {
-    aspect-ratio: 3/2 !important;
-    min-height: 180px !important;
-    max-height: 250px !important;
+        aspect-ratio: 3/2 !important;
+        min-height: 180px !important;
+        max-height: 250px !important;
     }
 
     .video-grid {
@@ -1554,8 +1585,9 @@ main {
 .featured-post.blog-post-container {
     margin-bottom: 60px;
     padding-bottom: 60px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    margin-top: 0; /* Override blog-post-container margin-top */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: 0;
+    /* Override blog-post-container margin-top */
 }
 
 /* Reset the centered h1 for featured post titles */
@@ -1565,7 +1597,7 @@ main {
 }
 
 .post-list .post-preview {
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     padding-bottom: 30px;
     margin-bottom: 30px;
 }
@@ -1735,189 +1767,210 @@ main {
 
 /* Shared wrapper used by both individual posts and the featured post */
 .post {
-  max-width: 72ch;
-  margin-inline: auto;
-  padding-inline: clamp(1rem, 2vw, 1.25rem);
+    max-width: 72ch;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 2vw, 1.25rem);
 }
 
 /* Top section: title, meta, hero */
 .post-header {
-  margin-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
 }
+
 .post-title {
-  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin: 0 0 0.15rem 0;
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.15rem 0;
 }
+
 /* Blog Post Title Links */
 .post-title a {
     color: inherit;
     text-decoration: none;
 }
+
 .post-title a:hover {
     opacity: 0.7;
 }
+
 .post-meta {
-  color: #6b7280; /* neutral-500 */
-  font-size: 0.9375rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    color: #6b7280;
+    /* neutral-500 */
+    font-size: 0.9375rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 /* Hero image (optional) */
 .post-hero {
-  margin: 1rem 0 1.25rem 0;
+    margin: 1rem 0 1.25rem 0;
 }
+
 .post-hero img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .08);
 }
 
 /* Body typography */
 .post-content {
-  font-size: 1.0625rem;
-  line-height: 1.75;
-  color: #111827; /* neutral-900 */
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #111827;
+    /* neutral-900 */
 }
-.post-content p { margin: 0 0 0.55em 0; }
+
+.post-content p {
+    margin: 0 0 0.55em 0;
+}
+
 .post-content h2 {
-  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-  margin: 0.8em 0 0.3em;
-  line-height: 1.3;
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+    margin: 0.8em 0 0.3em;
+    line-height: 1.3;
 }
+
 .post-content h3 {
-  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
-  margin: 1.4em 0 0.5em;
+    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+    margin: 1.4em 0 0.5em;
 }
+
 .post-content a {
-  color: #111827;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+    color: #111827;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
 }
+
 .post-content blockquote {
-  margin: 1.2em 0;
-  padding: 0.75em 1em;
-  background: #f9fafb;
-  border-left: 4px solid #e5e7eb;
-  border-radius: 8px;
-  color: #374151;
+    margin: 1.2em 0;
+    padding: 0.75em 1em;
+    background: #f9fafb;
+    border-left: 4px solid #e5e7eb;
+    border-radius: 8px;
+    color: #374151;
 }
+
 .post-content img {
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
-  margin: 1rem 0;
-  max-width: 100%;
-  height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    margin: 1rem 0;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Featured post uses the same shell, but can be inside a card */
 .featured {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding-block: 1.25rem 1.5rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding-block: 1.25rem 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
 }
 
 /* Post list on index */
 .post-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-  margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
 }
+
 @media (min-width: 768px) {
-  .post-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .post-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
+
 .post-card {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform .12s ease, box-shadow .12s ease;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .12s ease, box-shadow .12s ease;
 }
+
 .post-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0,0,0,.06);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .06);
 }
+
 .post-card .post-title {
-  font-size: clamp(1.125rem, 1.7vw, 1.375rem);
+    font-size: clamp(1.125rem, 1.7vw, 1.375rem);
 }
+
 .post-card .post-hero img {
-  aspect-ratio: 3 / 2;
+    aspect-ratio: 3 / 2;
 }
 
 /* Utility: clamp long excerpts to 3 lines (standard + vendor fallback) */
 .line-clamp-3 {
-  overflow: hidden;
+    overflow: hidden;
 
-  /* Standard property (new spec, linter requires this) */
-  line-clamp: 3;
+    /* Standard property (new spec, linter requires this) */
+    line-clamp: 3;
 
-  /* WebKit/Blink fallback for now */
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+    /* WebKit/Blink fallback for now */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 /* Subtle tag pill (if you show categories) */
 .post-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: .4ch;
-  padding: .25rem .55rem;
-  border-radius: 999px;
-  background: #f3f4f6;
-  color: #374151;
-  font-size: .8125rem;
-  line-height: 1;
-  border: 1px solid #e5e7eb;
+    display: inline-flex;
+    align-items: center;
+    gap: .4ch;
+    padding: .25rem .55rem;
+    border-radius: 999px;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: .8125rem;
+    line-height: 1;
+    border: 1px solid #e5e7eb;
 }
 
 /* Footer separator on single post pages */
 .post-footer {
-  margin-top: 2rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid #e5e7eb;
-  color: #6b7280;
-  font-size: 0.95rem;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 0.95rem;
 }
 
 /* Blog Responsive Styles */
 @media (max-width: 768px) {
+
     .blog-index-container,
     .blog-post-container {
         margin: 100px auto 60px;
         padding: 0 20px;
     }
-    
+
     .blog-index-container h1 {
         font-size: 24px;
     }
-    
+
     .blog-post-container h1 {
         font-size: 28px;
     }
-    
+
     .blog-post-container h2 {
         font-size: 22px;
     }
-    
+
     .blog-post-container h3 {
         font-size: 18px;
     }
-    
+
     .post-preview h3 {
         font-size: 20px !important;
     }
@@ -1928,18 +1981,17 @@ main {
         margin: 12px 0 24px 0;
         padding-bottom: 20px;
     }
-    
+
     .author-avatar {
         width: 40px;
         height: 40px;
     }
-    
+
     .author-name {
         font-size: 14px;
     }
-    
+
     .author-title {
         font-size: 12px;
     }
 }
-
