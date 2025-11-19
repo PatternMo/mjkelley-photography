@@ -3,100 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Michael J. Kelley Photography</title>
-    <meta name="description" content="Latest news, tips, and photography insights from Michael J. Kelley Photography.">
+    <title>Photography Projects & Case Studies | Michael J. Kelley | Bay Area</title>
+    <meta name="description" content="Professional photography projects and case studies showcasing complete workflows from concept to delivery. Ground and aerial photography portfolios by Michael J. Kelley.">
     
+    <!-- Link to shared stylesheet -->
     <link rel="stylesheet" href="../styles.css">
     
+    <!-- All pages get this -->
     <script src="../shared.js"></script>
+    
+    <style>
+        .under-construction {
+            text-align: center;
+            padding: 100px 40px;
+            background: #fafafa;
+        }
+        
+        .construction-icon {
+            font-size: 80px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .under-construction h2 {
+            font-size: 32px;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .under-construction p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            .under-construction {
+                padding: 80px 20px;
+            }
+            
+            .construction-icon {
+                font-size: 60px;
+            }
+            
+            .under-construction h2 {
+                font-size: 24px;
+            }
+            
+            .under-construction p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-      <div class="header-container">
-          <a href="../index.html" class="logo">Michael J. Kelley Photography</a>
-          <nav class="header-nav">
-              <div class="menu-toggle" onclick="toggleMenu()">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-              </div>
-              <ul id="nav-menu">
-                  <li class="dropdown">
-                      <a href="#portfolio">Portfolio</a>
-                      <div class="dropdown-content">
-                          <a href="../architecture-photography.html">Architecture</a>
-                          <a href="../automotive-photography.html">Automotive</a>
-                          <a href="../headshot-photography.html">Headshot</a>
-                          <a href="../landscape-photography.html">Landscape</a>
-                          <a href="../portraits.html">Portrait</a>
-                          <a href="../real-estate.html">Real Estate</a>
-                          <a href="../engagement-couples-photography.html">Couples</a>
-                      </div>
-                  </li>
-                  <li><a href="../video.html">Video</a></li>
-                  <li><a href="../projects.html">Projects</a></li>
-                  <li><a href="../about-michael-j-kelley-photography.html">About</a></li>
-                  <li><a href="index.html">Blog</a></li>
-                  <li><a href="../contact.html">Contact</a></li>
-              </ul>
-          </nav>
-      </div>
-  </header>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="../index.html" class="logo">Michael J. Kelley Photography</a>
+            <nav class="header-nav">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="dropdown-content">
+                            <a href="../architecture-photography.html">Architecture</a>
+                            <a href="../automotive-photography.html">Automotive</a>
+                            <a href="../headshot-photography.html">Headshot</a>
+                            <a href="../landscape-photography.html">Landscape</a>
+                            <a href="../portraits.html">Portrait</a>
+                            <a href="../real-estate.html">Real Estate</a>
+                            <a href="../engagement-couples-photography.html">Couples</a>
+                        </div>
+                    </li>
+                    <li><a href="../video.html">Video</a></li>
+                    <li><a href="../projects.html">Projects</a></li>
+                    <li><a href="../about-michael-j-kelley-photography.html">About</a></li>
+                    <li><a href="index.html">Blog</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Main Content -->
     <main>
-      <div class="blog-index-container">
-          <h1>Latest Posts</h1>
-          
-          <!-- Featured Post -->
-          <section class="featured-post blog-post-container">
-            <article class="post">
-                <div class="post-header">
-                <h1 class="post-title">
-                    <a href="/blog/posts/the-ultimate-guide-to-bay-area-sunset-photography.html">The Ultimate Guide to Bay Area Sunset Photography</a>
-                </h1>
-                <div class="post-meta">
-                    <time datetime="2025-08-24T00:00:00.000Z">August 24, 2025</time>
-                    <span class="post-tag">landscape</span>
-                </div>
-                <div class="post-hero">
-                    <a href="/blog/posts/the-ultimate-guide-to-bay-area-sunset-photography.html">
-                    <img src="/blog/images/sunset-guide-header.jpg" alt="The Ultimate Guide to Bay Area Sunset Photography">
-                    </a>
-                </div>
-                </div>
-                <div class="post-content">
-                <p class="line-clamp-3">A detailed guide on finding the best locations and techniques for capturing stunning sunset photos across the San Francisco Bay Area.</p>
-                </div>
-            </article>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Photography Blog</h1>
+            <p>Insights about the photography industry and specific genres.</p>
         </section>
-          
-          <div class="post-list">
-              
-          </div>
-      </div>
+
+        <!-- Under Construction Section -->
+        <section class="under-construction">
+            <div class="construction-icon">🚧</div>
+            <h2>Under Construction</h2>
+            <p>This page is currently being developed to showcase photography industry and genre specific insights. In the meantime, please explore our portfolio galleries to see examples of our work across architectural, automotive, portrait, and landscape photography.</p>
+            <a href="index.html" class="cta-button">View Portfolio</a>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
-        <nav class="footer-nav">
-        <ul>
-            <li class="footer-dropdown">
-                <a href="#portfolio">Portfolio</a>
-                <div class="footer-dropdown-content">
-                    <a href="../architecture-photography.html">Architecture</a>
-                    <a href="../automotive-photography.html">Automotive</a>
-                    <a href="../headshot-photography.html">Headshot</a>
-                    <a href="../landscape-photography.html">Landscape</a>
-                    <a href="../portraits.html">Portrait</a>
-                    <a href="../real-estate.html">Real Estate</a>
-                    <a href="../engagement-couples-photography.html">Couples</a>
-                </div>
-            </li>
-            <li><a href="../video.html">Video</a></li>
-            <li><a href="../projects.html">Projects</a></li>
-            <li><a href="../about-michael-j-kelley-photography.html">About</a></li>
-            <li><a href="index.html">Blog</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-        </ul>
+        <nav class="footer-navigation">
+            <ul>
+                <li class="footer-dropdown">
+                    <a href="#portfolio">Portfolio</a>
+                    <div class="footer-dropdown-content">
+                        <a href="../architecture-photography.html">Architecture</a>
+                        <a href="../automotive-photography.html">Automotive</a>
+                        <a href="../headshot-photography.html">Headshot</a>
+                        <a href="../landscape-photography.html">Landscape</a>
+                        <a href="../portraits.html">Portrait</a>
+                        <a href="../real-estate.html">Real Estate</a>
+                        <a href="../engagement-couples-photography.html">Couples</a>
+                    </div>
+                </li>
+                <li><a href="../video.html">Video</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
         </nav>
         
         <div class="social-icons">
@@ -111,4 +147,5 @@
         </div>
     </footer>
 </body>
+
 </html>
