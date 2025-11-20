@@ -59,8 +59,25 @@ function generateMainSitemap() {
   console.log('Generating main sitemap...');
   
   const htmlFiles = glob.sync('*.html', { 
-    ignore: ['project-template.html'],
+    ignore: [
+      'project-template.html',
+      '*-template.html',
+      '*template*.html',
+      '*uc*.html',
+      '*under-construction*.html'
+    ],
     onlyFiles: true 
+  });
+  
+  // Add project pages from projects directory
+  const projectFiles = glob.sync('projects/**/*.html', {
+    ignore: [
+      '**/*-template.html',
+      '**/*template*.html',
+      '**/*uc*.html',
+      '**/*under-construction*.html'
+    ],
+    onlyFiles: true
   });
   
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -96,10 +113,25 @@ function generateMainSitemap() {
 `;
     });
 
+  // Add project pages at priority 0.8
+  projectFiles
+    .sort()
+    .forEach(file => {
+      const lastMod = getGitLastModified(file);
+      
+      sitemap += `  <url>
+    <loc>${DOMAIN}/${file}</loc>
+    <lastmod>${lastMod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+`;
+    });
+
   sitemap += '</urlset>';
   
   fs.writeFileSync(path.join(OUTPUT_DIR, 'sitemap.xml'), sitemap);
-  console.log(`Main sitemap generated with ${htmlFiles.length} pages`);
+  console.log(`Main sitemap generated with ${htmlFiles.length} root pages and ${projectFiles.length} project pages`);
 }
 
 // Generate image sitemap
@@ -260,7 +292,7 @@ function generateVideoSitemap() {
   console.log(`Video sitemap generated with ${allVideoIds.length} videos`);
 }
 
-// Generate blog sitemap (future)
+// Generate blog sitemap
 function generateBlogSitemap() {
   const blogDir = 'blog';
   
@@ -272,8 +304,12 @@ function generateBlogSitemap() {
   console.log('Generating blog sitemap...');
   
   const blogFiles = glob.sync('blog/**/*.html', { 
-    onlyFiles: true,
-    ignore: ['blog/template/**', 'blog/templates/**'] 
+    ignore: [
+      '**/citation-tracker/**',
+      '**/*template*.html',
+      '**/*uc*.html'
+    ],
+    onlyFiles: true 
   });
   
   if (blogFiles.length === 0) {
