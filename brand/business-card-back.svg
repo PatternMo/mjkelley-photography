@@ -1,0 +1,22 @@
+<svg viewBox="0 0 1050 600" width="1050" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Michael J. Kelley — business card BACK (3.5x2in @ 300dpi).
+       Order: mark -> disciplines (small) -> tagline (one line).
+       For PRINT, convert text to outlines and use the licensed face. -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&amp;family=Space+Mono&amp;display=swap');</style>
+  </defs>
+
+  <rect x="0" y="0" width="1050" height="600" fill="#0c0d0f"/>
+
+  <!-- hex + M mark (centered, upper) -->
+  <path d="M596.01 164 L596.01 246 L525 287 L453.99 246 L453.99 164 L525 123 Z"
+        fill="none" stroke="#e8531f" stroke-width="4.5" stroke-linejoin="round"/>
+  <text x="525" y="208" text-anchor="middle" dominant-baseline="central"
+        font-family="'Chakra Petch', sans-serif" font-weight="700" font-size="84" fill="#ece9e4">M</text>
+
+  <!-- disciplines (small, directly under mark) -->
+  <text x="525" y="372" text-anchor="middle" font-family="'Space Mono', monospace" font-size="21" fill="#8a8d93" letter-spacing="3">INDUSTRIAL, ARCHITECTURAL, ENGINEERING</text>
+
+  <!-- tagline (one line) -->
+  <text x="525" y="432" text-anchor="middle" font-family="'Chakra Petch', sans-serif" font-weight="600" font-size="36" fill="#ece9e4">I shoot machines and mechanical spaces.</text>
+</svg>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROTOTYPE — Michael J. Kelley Photography (industrial rebrand homepage)</title>
+
+<!--
+  ============================================================================
+  PROTOTYPE HOMEPAGE  —  NOT the live site. Standalone test file.
+  Built against design-reference/mjkelleyphoto.com/_direction.md
+  Safe to edit / delete. Does not touch index.html, styles.css, or shared.js.
+
+  Quick-edit knobs:
+    - Tagline text: search "EDIT: TAGLINE" below.
+    - Montage images / captions / order: search "EDIT: MONTAGE" (JS, bottom).
+    - Timing (hold + crossfade): search "EDIT: TIMING" (JS, bottom).
+    - Accent color: --accent in :root.
+  Fonts are FREE STAND-INS (Space Grotesk + Space Mono) approximating the
+  intended technical-grotesque + monospace voice. Swap for the licensed
+  faces (Monument/Founders class + a mono) at build time.
+  ============================================================================
+-->
+
+<link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@600;700&display=block" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0c0d0f;          /* near-black ground */
+    --ink-2: #131417;        /* slightly lifted black */
+    --paper: #ece9e4;        /* off-white text */
+    --muted: #8a8d93;        /* grey for secondary type */
+    --accent: #e8531f;       /* safety orange, pulled from the lift rails */
+    --display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'Space Mono', 'Courier New', monospace;
+
+    --intro-name-in: 1.2s;   /* name fade-in */
+    --settle-at: 4.2s;       /* when nav/tagline settle in + name moves out */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; background: var(--ink); color: var(--paper); }
+  body {
+    font-family: var(--display);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ---------- STAGE (full-viewport montage) ---------- */
+  .stage {
+    position: relative;
+    height: 100svh;
+    width: 100%;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  /* stacked image layers, each cross-fades + subtle Ken Burns */
+  .frame {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background-size: cover;
+    background-position: center;
+    will-change: opacity, transform;
+    /* transform + transition are driven inline by JS so each frame moves in
+       ONE direction only (alternating in/out) and then holds — never reverses. */
+  }
+  .frame.active { opacity: 1; }
+
+  /* darkening scrims: keep the photo dominant but type legible */
+  .stage::before {            /* global subtle vignette so chrome reads */
+    content: "";
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background:
+      linear-gradient(to bottom, rgba(8,9,11,.55) 0%, rgba(8,9,11,0) 22%, rgba(8,9,11,0) 60%, rgba(8,9,11,.75) 100%);
+  }
+  /* during intro the stage sits under full black until the name has landed */
+  .stage::after {
+    content: "";
+    position: absolute; inset: 0; z-index: 3; pointer-events: none;
+    background: var(--ink);
+    opacity: 1;
+    transition: opacity 2s ease;
+  }
+  body.lit .stage::after { opacity: 0; }
+
+  /* faint honeycomb backdrop the name arrives over, then dissolves as the montage emerges */
+  .hexbg {
+    position: absolute; inset: 0; z-index: 9; pointer-events: none;  /* above the reveal mask so it fills the whole window */
+    opacity: .05;                      /* EDIT: faintness of the honeycomb */
+    transition: opacity 1.8s ease;
+  }
+  .hexbg svg { width: 100%; height: 100%; display: block; }
+  body.settled .hexbg { opacity: 0; }  /* fade out once the name lifts / montage takes over */
+
+  /* ---------- INTRO NAME (cinematic open) ---------- */
+  .intro {
+    position: absolute; inset: 0; z-index: 10;   /* name sits above the honeycomb + mask */
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 1.5rem;
+    transition: opacity 1.2s ease, transform 1.2s ease;
+  }
+  .intro h1 {
+    font-weight: 600;
+    font-size: clamp(2rem, 7vw, 6rem);
+    letter-spacing: 0.01em;
+    line-height: 1.0;
+    opacity: 0; transform: translateY(14px);
+    animation: rise var(--intro-name-in) ease forwards .35s;
+  }
+  .intro .sub {
+    margin-top: 1.1rem;
+    font-family: var(--mono);
+    font-size: clamp(.62rem, 1.5vw, .82rem);
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0; transform: translateY(10px);
+    animation: rise 1s ease forwards 1.0s;
+  }
+  .intro .sub b { color: var(--accent); font-weight: 400; }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+  /* hold the name until fonts are ready so it doesn't FOUT-jolt on arrival */
+  .intro h1, .intro .sub { animation-play-state: paused; }
+  body.fonts-ready .intro h1, body.fonts-ready .intro .sub { animation-play-state: running; }
+
+  /* once settled, the intro lifts away */
+  body.settled .intro { opacity: 0; transform: translateY(-18px); pointer-events: none; }
+
+  /* ---------- PERSISTENT CHROME (nav, tagline, counter) ---------- */
+  /* chrome stays at full opacity (always crisp); the .reveal mask below hides it
+     during the intro, then fades away to reveal it — no opacity fade on the text. */
+  .chrome { }
+
+  .reveal {
+    position: absolute; inset: 0; z-index: 8; pointer-events: none;
+    background: linear-gradient(to bottom,
+      #0c0d0f 0%, #0c0d0f 18%, rgba(12,13,15,0) 34%,
+      rgba(12,13,15,0) 60%, #0c0d0f 72%, #0c0d0f 100%);
+    opacity: 1; transition: opacity 1.2s ease;
+  }
+  body.settled .reveal { opacity: 0; }
+  /* (chrome entrance is handled by the .reveal mask, not opacity) */
+
+  nav {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 7;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem clamp(1.2rem, 4vw, 3rem);
+  }
+  nav .wordmark {
+    display: inline-flex; align-items: center; gap: .6rem;
+    font-family: 'Chakra Petch', 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 1.0rem; letter-spacing: 0.02em;
+    color: var(--paper); text-decoration: none; white-space: nowrap;
+  }
+  nav .navmark { width: 27px; height: 27px; flex: 0 0 auto; display: block; }
+  nav .links { display: flex; gap: clamp(1rem, 2.4vw, 2.2rem); }
+  nav .links a {
+    font-family: var(--mono);
+    font-size: .72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--paper); text-decoration: none; opacity: .82;
+    padding-bottom: 3px; border-bottom: 1px solid transparent;
+    transition: color .25s ease, border-color .25s ease, opacity .25s ease;
+  }
+  nav .links a:hover { color: var(--accent); border-color: var(--accent); opacity: 1; }
+
+  /* tagline, bottom-left, over the bottom scrim */
+  .tagline {
+    position: absolute; left: clamp(1.2rem, 4vw, 3rem); bottom: clamp(1.6rem, 5vh, 3rem);
+    z-index: 7; max-width: min(46ch, 78vw);
+  }
+  .tagline h2 {
+    font-weight: 500; line-height: 1.08;
+    font-size: clamp(1.4rem, 3.4vw, 2.6rem);
+    letter-spacing: -0.005em;
+  }
+  .tagline h2 .hl { color: var(--accent); }
+  .tagline p {
+    margin-top: .75rem;
+    font-family: var(--mono);
+    font-size: clamp(.66rem, 1.4vw, .8rem);
+    line-height: 1.5; letter-spacing: 0.04em;
+    color: var(--paper); opacity: .85; max-width: 42ch;
+  }
+
+  /* counter + caption, bottom-right (mono, engineering-readout voice; nods to Noni's index) */
+  .meta {
+    position: absolute; right: clamp(1.2rem, 4vw, 3rem); bottom: clamp(1.6rem, 5vh, 3rem);
+    z-index: 7; text-align: right;
+    font-family: var(--mono); font-size: .72rem; letter-spacing: 0.1em; color: var(--paper);
+  }
+  .meta .count { color: var(--paper); }
+  .meta .count b { color: var(--accent); font-weight: 400; }
+  .meta .caption { margin-top: .4rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em; font-size: .64rem; }
+
+  /* scroll cue, bottom-center */
+  .scroll-cue {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    bottom: 1.4rem; z-index: 7;
+    font-family: var(--mono); font-size: .6rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--muted); opacity: .7;
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{ opacity:.35 } 50%{ opacity:.85 } }
+
+  /* ---------- BELOW THE FOLD (stub so the open isn't a dead end) ---------- */
+  .below {
+    background: var(--ink); padding: clamp(3rem, 9vw, 7rem) clamp(1.2rem, 4vw, 3rem) 5rem;
+    border-top: 1px solid rgba(236,233,228,.08);
+  }
+  .below .eyebrow {
+    font-family: var(--mono); font-size: .68rem; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem;
+  }
+  .below h3 { font-weight: 500; font-size: clamp(1.6rem, 4vw, 3rem); line-height: 1.06; max-width: 20ch; }
+  .below p { margin-top: 1.2rem; color: var(--muted); max-width: 56ch; line-height: 1.6; font-size: 1rem; }
+  .below .note {
+    margin-top: 2.4rem; font-family: var(--mono); font-size: .7rem; color: var(--muted);
+    letter-spacing: 0.04em; line-height: 1.7; border-left: 2px solid var(--accent); padding-left: 1rem;
+  }
+
+  /* ---------- reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    .frame, .frame.active { transition: opacity .4s ease; transform: none; }
+    .intro h1, .intro .sub { animation-duration: .4s; }
+    .scroll-cue { animation: none; }
+  }
+</style>
+</head>
+
+<body class="is-intro">
+
+  <section class="stage" id="stage" aria-label="Industrial photography montage">
+    <div class="hexbg" id="hexbg"></div>
+    <!-- image frames injected by JS -->
+
+    <!-- cinematic name open -->
+    <div class="intro" id="introName">
+      <h1>Michael J. Kelley</h1>
+      <div class="sub">Industrial &nbsp;<b>&middot;</b>&nbsp; Architectural &nbsp;<b>&middot;</b>&nbsp; Engineering</div>
+    </div>
+
+    <!-- persistent chrome -->
+    <div class="chrome">
+      <nav>
+        <a class="wordmark" href="#">
+          <svg class="navmark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z" fill="none" stroke="#e8531f" stroke-width="3.2" stroke-linejoin="round"/>
+            <text x="32" y="34" text-anchor="middle" dominant-baseline="central" font-family="'Chakra Petch',sans-serif" font-weight="700" font-size="30" fill="#ece9e4">M</text>
+          </svg>
+          Michael J. Kelley
+        </a>
+        <div class="links">
+          <!-- proposed restructured nav: industrial lead + studio + utility -->
+          <a href="#">Work</a>
+          <a href="#">Studio</a>
+          <a href="#">Projects</a>
+          <a href="#">Video</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+      </nav>
+
+      <!-- EDIT: TAGLINE -->
+      <div class="tagline">
+        <h2>The spaces that are <span class="hl">hardest</span> to photograph.</h2>
+        <p>Showcasing your engineering and design solutions where most cameras struggle.</p>
+      </div>
+
+      <div class="meta">
+        <div class="count"><b id="cNum">01</b> / <span id="cTot">08</span></div>
+        <div class="caption" id="cCap">ParkWorks Automation</div>
+      </div>
+
+      <div class="scroll-cue">Scroll</div>
+    </div>
+
+    <!-- foreground mask: covers the chrome bands during intro, fades away to reveal crisp chrome -->
+    <div class="reveal"></div>
+  </section>
+
+  <!-- minimal below-the-fold stub so the open releases into something -->
+  <section class="below">
+    <div class="eyebrow">Selected Work</div>
+    <h3>Industrial, architectural &amp; engineering spaces.</h3>
+    <p>Hospitals, science buildings, automated parking systems, and the engineered spaces most
+       cameras struggle with &mdash; lit and composed to look as considered as they were built.</p>
+    <div class="note">
+      PROTOTYPE NOTE — this is the cinematic opening only. Below here would continue into the<br>
+      industrial gallery (asymmetric, framed on the dark ground), then a tonal shift into the<br>
+      lighter Studio room for portraits. Fonts are free stand-ins for the licensed faces.
+    </div>
+  </section>
+
+<script>
+  // ===== EDIT: MONTAGE — ordered, dark-led. Lead with the most cinematic frames. =====
+  var BASE = 'images/projects/parkworks-automation/';
+  var FRAMES = [
+    { src: BASE + '1030-brittan-san-carlos/parkworks-automation-1030-brittan-san-carlos-8.jpg',          cap: 'ParkWorks Automation — 1030 Brittan, San Carlos' },
+    { src: BASE + 'hunters-view-san-francisco/parkworks-automation-hunters-view-san-francisco-7.jpg',      cap: 'ParkWorks Automation — Hunters View, San Francisco' },
+    { src: BASE + '1030-brittan-san-carlos/parkworks-automation-1030-brittan-san-carlos-5.jpg',           cap: 'ParkWorks Automation — 1030 Brittan, San Carlos' },
+    { src: BASE + 'hunters-view-san-francisco/parkworks-automation-hunters-view-san-francisco-5.jpg',      cap: 'ParkWorks Automation — Hunters View, San Francisco' },
+    { src: BASE + '1030-brittan-san-carlos/parkworks-automation-1030-brittan-san-carlos-10.jpg',          cap: 'ParkWorks Automation — 1030 Brittan, San Carlos' },
+    { src: BASE + 'hunters-view-san-francisco/parkworks-automation-hunters-view-san-francisco-3.jpg',      cap: 'ParkWorks Automation — Hunters View, San Francisco' },
+    { src: BASE + '1030-brittan-san-carlos/parkworks-automation-1030-brittan-san-carlos-1.jpg',           cap: 'ParkWorks Automation — 1030 Brittan, San Carlos' },
+    { src: BASE + 'hunters-view-san-francisco/parkworks-automation-hunters-view-san-francisco-9.jpg',      cap: 'ParkWorks Automation — Hunters View, San Francisco' }
+  ];
+
+  // ===== EDIT: TIMING =====
+  var HOLD = 5200;     // ms each frame holds (excludes crossfade)
+  var FIRST_IMAGE_AT = 2600;  // ms — image fades in under the name
+  var SETTLE_AT = 4200;       // ms — name lifts out, nav/tagline/counter settle in
+
+  var stage = document.getElementById('stage');
+  var cNum = document.getElementById('cNum');
+  var cTot = document.getElementById('cTot');
+  var cCap = document.getElementById('cCap');
+  var layers = [];
+  var idx = 0;
+  var current = null;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ===== EDIT: ZOOM (Ken Burns) — each frame moves ONE direction; alternates in/out =====
+  var ZOOM = 0.08;       // drift amount (8%)
+  var ZOOM_SECS = 7;     // drift duration (~ a frame's full on-screen life)
+
+  // build layers + preload
+  FRAMES.forEach(function (f, i) {
+    var d = document.createElement('div');
+    d.className = 'frame';
+    d.style.backgroundImage = 'url("' + f.src + '")';
+    stage.insertBefore(d, stage.firstChild);
+    layers.push(d);
+    var pre = new Image(); pre.src = f.src;   // warm the cache to avoid pop-in
+  });
+  cTot.textContent = pad(FRAMES.length);
+
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+
+  // faint honeycomb backdrop (tessellated pointy-top hexes, scaled to cover the viewport)
+  function hexD(cx,cy,s){
+    var p='';
+    for(var k=0;k<6;k++){ var a=(-30+60*k)*Math.PI/180; p+=(k===0?'M':'L')+(cx+s*Math.cos(a)).toFixed(1)+' '+(cy+s*Math.sin(a)).toFixed(1)+' '; }
+    return p+'Z ';
+  }
+  (function buildHoneycomb(){
+    var Wd=1600, Ht=1000, s=46, sq=Math.sqrt(3), d='';
+    var cols=Math.ceil(Wd/(s*sq))+2, rows=Math.ceil(Ht/(s*1.5))+2;
+    for(var r=-1;r<rows;r++){
+      for(var c=-1;c<cols;c++){
+        d+=hexD(s*sq*(c+0.5*(r&1)), s*1.5*r, s*0.97);
+      }
+    }
+    document.getElementById('hexbg').innerHTML =
+      '<svg viewBox="0 0 '+Wd+' '+Ht+'" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">'+
+      '<path d="'+d+'" fill="none" stroke="#ece9e4" stroke-width="1.1" stroke-linejoin="round"/></svg>';
+  })();
+
+  function show(i){
+    // Freeze the OUTGOING frame at its current scale so it fades out without
+    // reversing or snapping. It holds, opacity-only, then is reset next time it shows.
+    if (current !== null && current !== i) {
+      var prev = layers[current];
+      var held = getComputedStyle(prev).transform;
+      prev.style.transition = 'opacity 1.8s ease';     // opacity only -> transform holds
+      prev.style.transform = (held === 'none') ? '' : held;
+      prev.classList.remove('active');
+    }
+
+    var el = layers[i];
+    if (reduce) {
+      el.style.transition = 'opacity .4s ease';
+      el.classList.add('active');
+    } else {
+      var zoomIn = (i % 2 === 0);                       // alternate: in, out, in, out...
+      var from = zoomIn ? 1 : 1 + ZOOM;
+      var to   = zoomIn ? 1 + ZOOM : 1;
+      el.style.transition = 'none';                     // place the start instantly
+      el.style.transform = 'scale(' + from + ')';
+      void el.offsetWidth;                              // reflow so the start sticks
+      el.style.transition = 'opacity 1.8s ease, transform ' + ZOOM_SECS + 's ease-out';
+      el.classList.add('active');                       // fade in
+      el.style.transform = 'scale(' + to + ')';         // drift ONE direction
+    }
+
+    cNum.textContent = pad(i + 1);
+    cCap.textContent = FRAMES[i].cap;
+    current = i;
+  }
+
+  // --- cinematic open timeline (gated on fonts so nothing FOUT-jolts in) ---
+  var started = false;
+  function startIntro(){
+    if (started) return; started = true;
+    document.body.classList.add('fonts-ready');   // release the name animation, fonts now loaded
+
+    // 1) first image fades in under the name
+    setTimeout(function(){
+      document.body.classList.add('lit');
+      show(0);
+    }, reduce ? 200 : FIRST_IMAGE_AT);
+
+    // 2) name lifts away; nav/tagline/counter settle in; montage advances
+    setTimeout(function(){
+      document.body.classList.remove('is-intro');
+      document.body.classList.add('settled');
+      startLoop();
+    }, reduce ? 600 : SETTLE_AT);
+  }
+
+  // Explicitly fetch every face+weight used in the intro/chrome, then start.
+  // (document.fonts.ready alone resolves too early — esp. for inline-SVG text —
+  //  which caused the "fade halfway then pop into focus" swap.)
+  if (document.fonts && document.fonts.load) {
+    Promise.all([
+      document.fonts.load("700 16px 'Chakra Petch'"),
+      document.fonts.load("600 16px 'Space Grotesk'"),
+      document.fonts.load("500 16px 'Space Grotesk'"),
+      document.fonts.load("400 16px 'Space Mono'")
+    ]).then(function(){ return document.fonts.ready; })
+      .then(startIntro, startIntro);
+    setTimeout(startIntro, 2500);   // fallback if font loading stalls
+  } else {
+    startIntro();
+  }
+
+  function startLoop(){
+    var step = HOLD + 1800; // hold + crossfade
+    setInterval(function(){
+      idx = (idx + 1) % FRAMES.length;
+      show(idx);
+    }, reduce ? 4000 : step);
+  }
+</script>
+</body>
+</html>

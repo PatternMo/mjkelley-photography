@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1050 600" width="1050" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Michael J. Kelley — business card FRONT (3.5x2in @ 300dpi).
+       NOTE: text uses web fonts via @import (renders online / in browsers).
+       For PRINT, convert text to outlines and use the licensed face. -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&amp;family=Space+Mono&amp;display=swap');</style>
+  </defs>
+
+  <rect x="0" y="0" width="1050" height="600" fill="#0c0d0f"/>
+
+  <!-- name + discipline -->
+  <text x="80" y="182" font-family="'Chakra Petch', sans-serif" font-weight="700" font-size="62" fill="#ece9e4" letter-spacing="1">Michael J. Kelley</text>
+  <text x="83" y="224" font-family="'Space Mono', monospace" font-size="22" fill="#ece9e4" fill-opacity="0.82" letter-spacing="5">PHOTOGRAPHY AND VIDEO</text>
+
+  <!-- hex + M mark (top-right) -->
+  <path d="M968.69 134 L968.69 196 L915 227 L861.31 196 L861.31 134 L915 103 Z"
+        fill="none" stroke="#e8531f" stroke-width="4" stroke-linejoin="round"/>
+  <text x="915" y="167" text-anchor="middle" dominant-baseline="central"
+        font-family="'Chakra Petch', sans-serif" font-weight="700" font-size="62" fill="#ece9e4">M</text>
+
+  <!-- contact list -->
+  <text x="83" y="478" font-family="'Space Mono', monospace" font-size="23" fill="#8a8d93" letter-spacing="1">mjkelleyphoto.com</text>
+  <text x="83" y="515" font-family="'Space Mono', monospace" font-size="23" fill="#8a8d93" letter-spacing="1">mj@mjkelleyphoto.com</text>
+  <text x="83" y="552" font-family="'Space Mono', monospace" font-size="23" fill="#8a8d93" letter-spacing="1">415&#183;375&#183;0178</text>
+</svg>
