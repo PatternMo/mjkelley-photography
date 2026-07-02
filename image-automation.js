@@ -6,6 +6,13 @@ const imageCollections = {
         thumbFolder: 'images/headshots/thumbs/',
         images: [
             'headshot-dramatic-style-artist-poet.jpg',
+            'headshot-natural-environment-professional-1.jpg',
+            'headshot-natural-environment-professional-2.jpg',
+            'headshot-natural-environment-professional-3.jpg',
+            'headshot-natural-environment-professional-4.jpg',
+            'headshot-natural-environment-professional-5.jpg',
+            'headshot-natural-environment-professional-6.jpg',
+            'headshot-natural-environment-professional-7.jpg',
             'headshot-professional-executive-team-studio-lighting-1.jpg',
             'headshot-professional-executive-team-studio-lighting-2.jpg',
             'headshot-professional-executive-team-studio-lighting-3.jpg',
@@ -14,17 +21,17 @@ const imageCollections = {
             'headshot-professional-executive-team-studio-lighting-6.jpg',
             'headshot-professional-executive-team-studio-lighting-7.jpg',
             'headshot-professional-executive-team-studio-lighting-8.jpg',
-            'headshot-professional-executive-team-studio-lighting-9.jpg',
-            'headshot-natural-environment-professional-1.jpg',
-            'headshot-natural-environment-professional-2.jpg',
-            'headshot-natural-environment-professional-3.jpg',
-            'headshot-natural-environment-professional-4.jpg',
-            'headshot-natural-environment-professional-5.jpg',
-            'headshot-natural-environment-professional-6.jpg',
-            'headshot-natural-environment-professional-7.jpg'
+            'headshot-professional-executive-team-studio-lighting-9.jpg'
         ],
         thumbnails: [
             'headshot-dramatic-style-artist-poet-thumb.jpg',
+            'headshot-natural-environment-professional-thumb-1.jpg',
+            'headshot-natural-environment-professional-thumb-2.jpg',
+            'headshot-natural-environment-professional-thumb-3.jpg',
+            'headshot-natural-environment-professional-thumb-4.jpg',
+            'headshot-natural-environment-professional-thumb-5.jpg',
+            'headshot-natural-environment-professional-thumb-6.jpg',
+            'headshot-natural-environment-professional-thumb-7.jpg',
             'headshot-professional-executive-team-studio-lighting-thumb-1.jpg',
             'headshot-professional-executive-team-studio-lighting-thumb-2.jpg',
             'headshot-professional-executive-team-studio-lighting-thumb-3.jpg',
@@ -33,26 +40,10 @@ const imageCollections = {
             'headshot-professional-executive-team-studio-lighting-thumb-6.jpg',
             'headshot-professional-executive-team-studio-lighting-thumb-7.jpg',
             'headshot-professional-executive-team-studio-lighting-thumb-8.jpg',
-            'headshot-professional-executive-team-studio-lighting-thumb-9.jpg',
-            'headshot-natural-environment-professional-thumb-1.jpg',
-            'headshot-natural-environment-professional-thumb-2.jpg',
-            'headshot-natural-environment-professional-thumb-3.jpg',
-            'headshot-natural-environment-professional-thumb-4.jpg',
-            'headshot-natural-environment-professional-thumb-5.jpg',
-            'headshot-natural-environment-professional-thumb-6.jpg',
-            'headshot-natural-environment-professional-thumb-7.jpg'
+            'headshot-professional-executive-team-studio-lighting-thumb-9.jpg'
         ],
         alts: [
             'Professional headshot photography featuring headshot dramatic style artist poet',
-            'Professional headshot photography featuring headshot professional executive team studio lighting',
-            'Professional headshot photography featuring headshot professional executive team studio lighting',
-            'Professional headshot photography featuring headshot professional executive team studio lighting',
-            'Professional headshot photography featuring headshot professional executive team studio lighting',
-            'Professional headshot photography featuring headshot professional executive team studio lighting',
-            'Professional headshot photography featuring headshot professional executive team studio lighting',
-            'Professional headshot photography featuring headshot professional executive team studio lighting',
-            'Professional headshot photography featuring headshot professional executive team studio lighting',
-            'Professional headshot photography featuring headshot professional executive team studio lighting',
             'Professional headshot photography featuring headshot natural environment professional',
             'Professional headshot photography featuring headshot natural environment professional',
             'Professional headshot photography featuring headshot natural environment professional',
@@ -60,19 +51,18 @@ const imageCollections = {
             'Professional headshot photography featuring headshot natural environment professional',
             'Professional headshot photography featuring headshot natural environment professional',
             'Professional headshot photography featuring headshot natural environment professional',
-            'Professional headshot photography featuring headshot natural environment professional'
+            'Professional headshot photography featuring headshot professional executive team studio lighting',
+            'Professional headshot photography featuring headshot professional executive team studio lighting',
+            'Professional headshot photography featuring headshot professional executive team studio lighting',
+            'Professional headshot photography featuring headshot professional executive team studio lighting',
+            'Professional headshot photography featuring headshot professional executive team studio lighting',
+            'Professional headshot photography featuring headshot professional executive team studio lighting',
+            'Professional headshot photography featuring headshot professional executive team studio lighting',
+            'Professional headshot photography featuring headshot professional executive team studio lighting',
+            'Professional headshot photography featuring headshot professional executive team studio lighting'
         ],
         thumbAlts: [
             'Professional headshot photography featuring headshot dramatic style artist poet thumb',
-            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
-            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
-            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
-            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
-            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
-            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
-            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
-            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
-            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
             'Professional headshot photography featuring headshot natural environment professional thumb',
             'Professional headshot photography featuring headshot natural environment professional thumb',
             'Professional headshot photography featuring headshot natural environment professional thumb',
@@ -80,7 +70,15 @@ const imageCollections = {
             'Professional headshot photography featuring headshot natural environment professional thumb',
             'Professional headshot photography featuring headshot natural environment professional thumb',
             'Professional headshot photography featuring headshot natural environment professional thumb',
-            'Professional headshot photography featuring headshot natural environment professional thumb'
+            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
+            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
+            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
+            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
+            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
+            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
+            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
+            'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
+            'Professional headshot photography featuring headshot professional executive team studio lighting thumb'
         ]
     },
     architecture: {
@@ -214,13 +212,13 @@ const imageCollections = {
             '1988-Porsche-911-Carrera-Coupe-exterior-rear.jpg',
             '1988-Porsche-911-Carrera-Coupe-passenger-exterior-side-profile.jpg',
             '1995-Mercedes-Benz-E280- AMG-exterior-front-passenger-side-quarter.jpg',
+            '2016-Mazda-MX-5-Miata-Interior-wide-dash.jpg',
             '2016-Mazda-MX-5-Miata-exterior-passenger-side-low-angle-wheel.jpg',
             '2016-Mazda-MX-5-Miata-exterior-passenger-side-profile-high-angle.jpg',
             '2016-Mazda-MX-5-Miata-exterior-passenger-side-profile.jpg',
             '2016-Mazda-MX-5-Miata-exterior-passenger-side-rear-quarter.jpg',
             '2016-Mazda-MX-5-Miata-exterior-rear.jpg',
             '2016-Mazda-MX-5-Miata-interior-drivers-side-steering-wheel-detail.jpg',
-            '2016-Mazda-MX-5-Miata-Interior-wide-dash.jpg',
             '2016-Porsche-Cayman-exterior-drivers-side-profile.jpg',
             '2016-Porsche-Cayman-exterior-passenger-side-front-quarter.jpg',
             '2017-porsche-911-targa-4S-exterior-passengers-side-profile.jpg',
@@ -257,13 +255,13 @@ const imageCollections = {
             '1988-Porsche-911-Carrera-Coupe-exterior-rear-thumb.jpg',
             '1988-Porsche-911-Carrera-Coupe-passenger-exterior-side-profile-thumb.jpg',
             '1995-Mercedes-Benz-E280- AMG-exterior-front-passenger-side-quarter-thumb.jpg',
+            '2016-Mazda-MX-5-Miata-Interior-wide-dash-thumb.jpg',
             '2016-Mazda-MX-5-Miata-exterior-passenger-side-low-angle-wheel-thumb.jpg',
             '2016-Mazda-MX-5-Miata-exterior-passenger-side-profile-high-angle-thumb.jpg',
             '2016-Mazda-MX-5-Miata-exterior-passenger-side-profile-thumb.jpg',
             '2016-Mazda-MX-5-Miata-exterior-passenger-side-rear-quarter-thumb.jpg',
             '2016-Mazda-MX-5-Miata-exterior-rear-thumb.jpg',
             '2016-Mazda-MX-5-Miata-interior-drivers-side-steering-wheel-detail-thumb.jpg',
-            '2016-Mazda-MX-5-Miata-Interior-wide-dash-thumb.jpg',
             '2016-Porsche-Cayman-exterior-drivers-side-profile-thumb.jpg',
             '2016-Porsche-Cayman-exterior-passenger-side-front-quarter-thumb.jpg',
             '2017-porsche-911-targa-4S-exterior-passengers-side-profile-thumb.jpg',
@@ -300,13 +298,13 @@ const imageCollections = {
             'Automotive photography featuring 1988 Porsche 911 Carrera Coupe exterior rear',
             'Automotive photography featuring 1988 Porsche 911 Carrera Coupe passenger exterior side profile',
             'Automotive photography featuring 1995 Mercedes-Benz E280 AMG exterior front passenger side quarter',
+            'Automotive photography featuring 2016 Mazda MX-5 Miata interior wide dash',
             'Automotive photography featuring 2016 Mazda MX-5 Miata exterior passenger side low angle wheel',
             'Automotive photography featuring 2016 Mazda MX-5 Miata exterior passenger side profile high angle',
             'Automotive photography featuring 2016 Mazda MX-5 Miata exterior passenger side profile',
             'Automotive photography featuring 2016 Mazda MX-5 Miata exterior passenger side rear quarter',
             'Automotive photography featuring 2016 Mazda MX-5 Miata exterior rear',
             'Automotive photography featuring 2016 Mazda MX-5 Miata interior driver’s side steering wheel detail',
-            'Automotive photography featuring 2016 Mazda MX-5 Miata interior wide dash',
             'Automotive photography featuring 2016 Porsche Cayman exterior driver’s side profile',
             'Automotive photography featuring 2016 Porsche Cayman exterior passenger side front quarter',
             'Automotive photography featuring 2017 Porsche 911 Targa 4S exterior passenger’s side profile',
@@ -343,13 +341,13 @@ const imageCollections = {
             'Automotive photography featuring 1988 Porsche 911 Carrera Coupe exterior rear',
             'Automotive photography featuring 1988 Porsche 911 Carrera Coupe passenger exterior side profile',
             'Automotive photography featuring 1995 Mercedes-Benz E280 AMG exterior front passenger side quarter',
+            'Automotive photography featuring 2016 Mazda MX-5 Miata interior wide dash',
             'Automotive photography featuring 2016 Mazda MX-5 Miata exterior passenger side low angle wheel',
             'Automotive photography featuring 2016 Mazda MX-5 Miata exterior passenger side profile high angle',
             'Automotive photography featuring 2016 Mazda MX-5 Miata exterior passenger side profile',
             'Automotive photography featuring 2016 Mazda MX-5 Miata exterior passenger side rear quarter',
             'Automotive photography featuring 2016 Mazda MX-5 Miata exterior rear',
             'Automotive photography featuring 2016 Mazda MX-5 Miata interior driver’s side steering wheel detail',
-            'Automotive photography featuring 2016 Mazda MX-5 Miata interior wide dash',
             'Automotive photography featuring 2016 Porsche Cayman exterior driver’s side profile',
             'Automotive photography featuring 2016 Porsche Cayman exterior passenger side front quarter',
             'Automotive photography featuring 2017 Porsche 911 Targa 4S exterior passenger’s side profile',
@@ -450,7 +448,15 @@ const imageCollections = {
             'Engagement-couples-china-town-san-francisco-5.jpg',
             'Engagement-couples-china-town-san-francisco-6.jpg',
             'Engagement-couples-china-town-san-francisco-7.jpg',
+            'Engagement-couples-golden-gate-bridge-san-francisco-1.jpg',
+            'Engagement-couples-golden-gate-bridge-san-francisco-2.jpg',
+            'Engagement-couples-golden-gate-bridge-san-francisco-3.jpg',
+            'Engagement-couples-golden-gate-bridge-san-francisco-4.jpg',
+            'Engagement-couples-golden-gate-bridge-san-francisco-5.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-1.jpg',
+            'Engagement-couples-golden-gate-park-san-francisco-10.jpg',
+            'Engagement-couples-golden-gate-park-san-francisco-11.jpg',
+            'Engagement-couples-golden-gate-park-san-francisco-12.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-2.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-3.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-4.jpg',
@@ -458,10 +464,7 @@ const imageCollections = {
             'Engagement-couples-golden-gate-park-san-francisco-6.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-7.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-8.jpg',
-            'Engagement-couples-golden-gate-park-san-francisco-9.jpg',
-            'Engagement-couples-golden-gate-park-san-francisco-10.jpg',
-            'Engagement-couples-golden-gate-park-san-francisco-11.jpg',
-            'Engagement-couples-golden-gate-park-san-francisco-12.jpg'
+            'Engagement-couples-golden-gate-park-san-francisco-9.jpg'
         ],
         thumbnails: [
             'Engagement-couples-china-town-san-francisco-1-thumb.jpg',
@@ -471,7 +474,15 @@ const imageCollections = {
             'Engagement-couples-china-town-san-francisco-5-thumb.jpg',
             'Engagement-couples-china-town-san-francisco-6-thumb.jpg',
             'Engagement-couples-china-town-san-francisco-7-thumb.jpg',
+            'Engagement-couples-golden-gate-bridge-san-francisco-1-thumb.jpg',
+            'Engagement-couples-golden-gate-bridge-san-francisco-2-thumb.jpg',
+            'Engagement-couples-golden-gate-bridge-san-francisco-3-thumb.jpg',
+            'Engagement-couples-golden-gate-bridge-san-francisco-4-thumb.jpg',
+            'Engagement-couples-golden-gate-bridge-san-francisco-5-thumb.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-1-thumb.jpg',
+            'Engagement-couples-golden-gate-park-san-francisco-10-thumb.jpg',
+            'Engagement-couples-golden-gate-park-san-francisco-11-thumb.jpg',
+            'Engagement-couples-golden-gate-park-san-francisco-12-thumb.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-2-thumb.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-3-thumb.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-4-thumb.jpg',
@@ -479,10 +490,7 @@ const imageCollections = {
             'Engagement-couples-golden-gate-park-san-francisco-6-thumb.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-7-thumb.jpg',
             'Engagement-couples-golden-gate-park-san-francisco-8-thumb.jpg',
-            'Engagement-couples-golden-gate-park-san-francisco-9-thumb.jpg',
-            'Engagement-couples-golden-gate-park-san-francisco-10-thumb.jpg',
-            'Engagement-couples-golden-gate-park-san-francisco-11-thumb.jpg',
-            'Engagement-couples-golden-gate-park-san-francisco-12-thumb.jpg'
+            'Engagement-couples-golden-gate-park-san-francisco-9-thumb.jpg'
         ],
         alts: [
             'Engagement photography featuring couples in china town san francisco',
@@ -492,6 +500,11 @@ const imageCollections = {
             'Engagement photography featuring couples in china town san francisco',
             'Engagement photography featuring couples in china town san francisco',
             'Engagement photography featuring couples in china town san francisco',
+            'Engagement photography featuring engagement couples golden gate bridge san francisco',
+            'Engagement photography featuring engagement couples golden gate bridge san francisco',
+            'Engagement photography featuring engagement couples golden gate bridge san francisco',
+            'Engagement photography featuring engagement couples golden gate bridge san francisco',
+            'Engagement photography featuring engagement couples golden gate bridge san francisco',
             'Engagement photography featuring couples in golden gate park san francisco',
             'Engagement photography featuring couples in golden gate park san francisco',
             'Engagement photography featuring couples in golden gate park san francisco',
@@ -513,6 +526,11 @@ const imageCollections = {
             'Engagement photography featuring couples in china town san francisco',
             'Engagement photography featuring couples in china town san francisco',
             'Engagement photography featuring couples in china town san francisco',
+            'Engagement photography featuring engagement couples golden gate bridge san francisco thumb',
+            'Engagement photography featuring engagement couples golden gate bridge san francisco thumb',
+            'Engagement photography featuring engagement couples golden gate bridge san francisco thumb',
+            'Engagement photography featuring engagement couples golden gate bridge san francisco thumb',
+            'Engagement photography featuring engagement couples golden gate bridge san francisco thumb',
             'Engagement photography featuring couples in golden gate park san francisco',
             'Engagement photography featuring couples in golden gate park san francisco',
             'Engagement photography featuring couples in golden gate park san francisco',
@@ -563,7 +581,8 @@ const imageCollections = {
             'Portrait photography featuring Outdoor Yoga Vasquez Rocks',
             'Portrait photography featuring Outdoor Yoga Vasquez Rocks',
             'Portrait photography featuring Outdoor Yoga Vasquez Rocks',
-            'Portrait photography featuring Sunset Outdoor California Coast'
+            'Portrait photography featuring Sunset Outdoor California Coast',
+            'Portrait photography featuring headshot natural environment professional'
         ],
         thumbAlts: [
             'Portrait photography featuring Outdoor Bride Model Beach California',
@@ -574,33 +593,14 @@ const imageCollections = {
             'Portrait photography featuring Outdoor Yoga Vasquez Rocks',
             'Portrait photography featuring Outdoor Yoga Vasquez Rocks',
             'Portrait photography featuring Outdoor Yoga Vasquez Rocks',
-            'Portrait photography featuring Sunset Outdoor California Coast'
+            'Portrait photography featuring Sunset Outdoor California Coast',
+            'Portrait photography featuring headshot natural environment professional thumb'
         ]
     },
     realestate: {
         folder: 'images/real-estate/',
         thumbFolder: 'images/real-estate/thumbs/',
         images: [
-            'Moss-Beach-aerial-exterior-1.jpg',
-            'Moss-Beach-aerial-exterior-2.jpg',
-            'Moss-Beach-aerial-exterior-3.jpg',
-            'Moss-Beach-aerial-exterior-4.jpg',
-            'Moss-Beach-exterior-1.jpg',
-            'Moss-Beach-exterior-2.jpg',
-            'Moss-Beach-wine-cellar.jpg',
-            'San-Jose-kitchen-interior-1.jpg',
-            'San-Jose-kitchen-interior-2.jpg',
-            'San-Jose-master-bedroom-interior.jpg',
-            'San-Jose-twilight-exterior-1.jpg',
-            'San-Jose-twilight-exterior-2.jpg',
-            'Sausalito-California-exterior-2.jpg',
-            'Sausalito-California-interior-bathroom-shower-vertical.jpg',
-            'Sausalito-California-interior-bathroom.jpg',
-            'Sausalito-California-interior-dining-room-kitchen-2.jpg',
-            'Sausalito-California-interior-dining-room-kitchen.jpg',
-            'Sausalito-California-interior-living-room-view-2.jpg',
-            'Sausalito-California-interior-living-room-view.jpg',
-            'Sausalito-California-interior-living-room.jpg',
             'Hillsborough-California-interior-guest-bedroom.jpg',
             'Hillsborough-California-interior-kitchen-dining-room-2.jpg',
             'Hillsborough-California-interior-kitchen-dining-room.jpg',
@@ -612,29 +612,30 @@ const imageCollections = {
             'Moss-Beach-California-interior-living-room.jpg',
             'Moss-Beach-California-interior-master-bathroom.jpg',
             'Moss-Beach-California-interior-master-bedroom.jpg',
-            'San-Francisco-California-interior-bathroom-shower.jpg'
+            'Moss-Beach-aerial-exterior-1.jpg',
+            'Moss-Beach-aerial-exterior-2.jpg',
+            'Moss-Beach-aerial-exterior-3.jpg',
+            'Moss-Beach-aerial-exterior-4.jpg',
+            'Moss-Beach-exterior-1.jpg',
+            'Moss-Beach-exterior-2.jpg',
+            'Moss-Beach-wine-cellar.jpg',
+            'San-Francisco-California-interior-bathroom-shower.jpg',
+            'San-Jose-kitchen-interior-1.jpg',
+            'San-Jose-kitchen-interior-2.jpg',
+            'San-Jose-master-bedroom-interior.jpg',
+            'San-Jose-twilight-exterior-1.jpg',
+            'San-Jose-twilight-exterior-2.jpg',
+            'Sausalito-California-exterior-2.jpg',
+            'Sausalito-California-exterior-deck-1.jpg',
+            'Sausalito-California-interior-bathroom-shower-vertical.jpg',
+            'Sausalito-California-interior-bathroom.jpg',
+            'Sausalito-California-interior-dining-room-kitchen-2.jpg',
+            'Sausalito-California-interior-dining-room-kitchen.jpg',
+            'Sausalito-California-interior-living-room-view-2.jpg',
+            'Sausalito-California-interior-living-room-view.jpg',
+            'Sausalito-California-interior-living-room.jpg'
         ],
         thumbnails: [
-            'Moss-Beach-aerial-exterior-1-thumb.jpg',
-            'Moss-Beach-aerial-exterior-2-thumb.jpg',
-            'Moss-Beach-aerial-exterior-3-thumb.jpg',
-            'Moss-Beach-aerial-exterior-4-thumb.jpg',
-            'Moss-Beach-exterior-1-thumb.jpg',
-            'Moss-Beach-exterior-2-thumb.jpg',
-            'Moss-Beach-wine-cellar-thumb.jpg',
-            'San-Jose-kitchen-interior-1-thumb.jpg',
-            'San-Jose-kitchen-interior-2-thumb.jpg',
-            'San-Jose-master-bedroom-interior-thumb.jpg',
-            'San-Jose-twilight-exterior-1-thumb.jpg',
-            'San-Jose-twilight-exterior-2-thumb.jpg',
-            'Sausalito-California-exterior-2-thumb.jpg',
-            'Sausalito-California-interior-bathroom-shower-vertical-thumb.jpg',
-            'Sausalito-California-interior-bathroom-thumb.jpg',
-            'Sausalito-California-interior-dining-room-kitchen-2-thumb.jpg',
-            'Sausalito-California-interior-dining-room-kitchen-thumb.jpg',
-            'Sausalito-California-interior-living-room-thumb.jpg',
-            'Sausalito-California-interior-living-room-view-2-thumb.jpg',
-            'Sausalito-California-interior-living-room-view-thumb.jpg',
             'Hillsborough-California-interior-guest-bedroom-thumb.jpg',
             'Hillsborough-California-interior-kitchen-dining-room-2-thumb.jpg',
             'Hillsborough-California-interior-kitchen-dining-room-thumb.jpg',
@@ -646,34 +647,34 @@ const imageCollections = {
             'Moss-Beach-California-interior-living-room-thumb.jpg',
             'Moss-Beach-California-interior-master-bathroom-thumb.jpg',
             'Moss-Beach-California-interior-master-bedroom-thumb.jpg',
-            'San-Francisco-California-interior-bathroom-shower-thumb.jpg'
+            'Moss-Beach-aerial-exterior-1-thumb.jpg',
+            'Moss-Beach-aerial-exterior-2-thumb.jpg',
+            'Moss-Beach-aerial-exterior-3-thumb.jpg',
+            'Moss-Beach-aerial-exterior-4-thumb.jpg',
+            'Moss-Beach-exterior-1-thumb.jpg',
+            'Moss-Beach-exterior-2-thumb.jpg',
+            'Moss-Beach-wine-cellar-thumb.jpg',
+            'San-Francisco-California-interior-bathroom-shower-thumb.jpg',
+            'San-Jose-kitchen-interior-1-thumb.jpg',
+            'San-Jose-kitchen-interior-2-thumb.jpg',
+            'San-Jose-master-bedroom-interior-thumb.jpg',
+            'San-Jose-twilight-exterior-1-thumb.jpg',
+            'San-Jose-twilight-exterior-2-thumb.jpg',
+            'Sausalito-California-exterior-2-thumb.jpg',
+            'Sausalito-California-exterior-deck-1-thumb.jpg',
+            'Sausalito-California-interior-bathroom-shower-vertical-thumb.jpg',
+            'Sausalito-California-interior-bathroom-thumb.jpg',
+            'Sausalito-California-interior-dining-room-kitchen-2-thumb.jpg',
+            'Sausalito-California-interior-dining-room-kitchen-thumb.jpg',
+            'Sausalito-California-interior-living-room-view-2-thumb.jpg',
+            'Sausalito-California-interior-living-room-view-thumb.jpg',
+            'Sausalito-California-interior-living-room-thumb.jpg'
         ],
         alts: [
-            'Real estate photography featuring Moss Beach aerial exterior',
-            'Real estate photography featuring Moss Beach aerial exterior',
-            'Real estate photography featuring Moss Beach aerial exterior',
-            'Real estate photography featuring Moss Beach aerial exterior',
-            'Real estate photography featuring Moss Beach exterior',
-            'Real estate photography featuring Moss Beach exterior',
-            'Real estate photography featuring Moss Beach wine cellar',
-            'Real estate photography featuring San Jose kitchen interior',
-            'Real estate photography featuring San Jose kitchen interior',
-            'Real estate photography featuring San Jose master bedroom interior',
-            'Real estate photography featuring San Jose twilight exterior',
-            'Real estate photography featuring San Jose twilight exterior',
-            'Real estate photography featuring Sausalito California exterior',
-            'Real estate photography featuring Sausalito California exterior deck',
-            'Real estate photography featuring Sausalito California interior bathroom shower vertical',
-            'Real estate photography featuring Sausalito California interior bathroom',
-            'Real estate photography featuring Sausalito California interior dining room kitchen',
-            'Real estate photography featuring Sausalito California interior dining room kitchen',
-            'Real estate photography featuring Sausalito California interior living room view',
-            'Real estate photography featuring Sausalito California interior living room view',
-            'Real estate photography featuring Sausalito California interior living room',
             'Real estate photography featuring Hillsborough California interior guest bedroom',
             'Real estate photography featuring Hillsborough California interior kitchen dining room',
             'Real estate photography featuring Hillsborough California interior kitchen dining room',
-            'Real estate photography featuring Hillsborough California interior kitchen',
+            'Real estate photography featuring Hillsborough California interior kitchen dining room',
             'Real estate photography featuring Hillsborough California interior minimal living room',
             'Real estate photography featuring Hillsborough California interior minimal living room',
             'Real estate photography featuring Moss Beach California interior guest bedroom',
@@ -681,34 +682,34 @@ const imageCollections = {
             'Real estate photography featuring Moss Beach California interior living room',
             'Real estate photography featuring Moss Beach California interior master bathroom',
             'Real estate photography featuring Moss Beach California interior master bedroom',
-            'Real estate photography featuring San Francisco California interior bathroom shower'
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach wine cellar',
+            'Real estate photography featuring San Francisco California interior bathroom shower',
+            'Real estate photography featuring San Jose kitchen interior',
+            'Real estate photography featuring San Jose kitchen interior',
+            'Real estate photography featuring San Jose master bedroom interior',
+            'Real estate photography featuring San Jose twilight exterior',
+            'Real estate photography featuring San Jose twilight exterior',
+            'Real estate photography featuring Sausalito California exterior',
+            'Real estate photography featuring sausalito california exterior deck',
+            'Real estate photography featuring Sausalito California interior bathroom shower vertical',
+            'Real estate photography featuring Sausalito California interior bathroom shower vertical',
+            'Real estate photography featuring Sausalito California interior dining room kitchen',
+            'Real estate photography featuring Sausalito California interior dining room kitchen',
+            'Real estate photography featuring Sausalito California interior living room view',
+            'Real estate photography featuring Sausalito California interior living room view',
+            'Real estate photography featuring Sausalito California interior living room view'
         ],
         thumbAlts: [
-            'Real estate photography featuring Moss Beach aerial exterior',
-            'Real estate photography featuring Moss Beach aerial exterior',
-            'Real estate photography featuring Moss Beach aerial exterior',
-            'Real estate photography featuring Moss Beach aerial exterior',
-            'Real estate photography featuring Moss Beach exterior',
-            'Real estate photography featuring Moss Beach exterior',
-            'Real estate photography featuring Moss Beach wine cellar',
-            'Real estate photography featuring San Jose kitchen interior',
-            'Real estate photography featuring San Jose kitchen interior',
-            'Real estate photography featuring San Jose master bedroom interior',
-            'Real estate photography featuring San Jose twilight exterior',
-            'Real estate photography featuring San Jose twilight exterior',
-            'Real estate photography featuring Sausalito California exterior',
-            'Real estate photography featuring Sausalito California exterior deck',
-            'Real estate photography featuring Sausalito California interior bathroom shower vertical',
-            'Real estate photography featuring Sausalito California interior bathroom',
-            'Real estate photography featuring Sausalito California interior dining room kitchen',
-            'Real estate photography featuring Sausalito California interior dining room kitchen',
-            'Real estate photography featuring Sausalito California interior living room view',
-            'Real estate photography featuring Sausalito California interior living room view',
-            'Real estate photography featuring Sausalito California interior living room',
             'Real estate photography featuring Hillsborough California interior guest bedroom',
             'Real estate photography featuring Hillsborough California interior kitchen dining room',
             'Real estate photography featuring Hillsborough California interior kitchen dining room',
-            'Real estate photography featuring Hillsborough California interior kitchen',
+            'Real estate photography featuring Hillsborough California interior kitchen dining room',
             'Real estate photography featuring Hillsborough California interior minimal living room',
             'Real estate photography featuring Hillsborough California interior minimal living room',
             'Real estate photography featuring Moss Beach California interior guest bedroom',
@@ -716,7 +717,28 @@ const imageCollections = {
             'Real estate photography featuring Moss Beach California interior living room',
             'Real estate photography featuring Moss Beach California interior master bathroom',
             'Real estate photography featuring Moss Beach California interior master bedroom',
-            'Real estate photography featuring San Francisco California interior bathroom shower'
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach aerial exterior',
+            'Real estate photography featuring Moss Beach wine cellar',
+            'Real estate photography featuring San Francisco California interior bathroom shower',
+            'Real estate photography featuring San Jose kitchen interior',
+            'Real estate photography featuring San Jose kitchen interior',
+            'Real estate photography featuring San Jose master bedroom interior',
+            'Real estate photography featuring San Jose twilight exterior',
+            'Real estate photography featuring San Jose twilight exterior',
+            'Real estate photography featuring Sausalito California exterior',
+            'Real estate photography featuring sausalito california exterior deck thumb',
+            'Real estate photography featuring Sausalito California interior bathroom shower vertical',
+            'Real estate photography featuring Sausalito California interior bathroom shower vertical',
+            'Real estate photography featuring Sausalito California interior dining room kitchen',
+            'Real estate photography featuring Sausalito California interior dining room kitchen',
+            'Real estate photography featuring Sausalito California interior living room view',
+            'Real estate photography featuring Sausalito California interior living room view',
+            'Real estate photography featuring Sausalito California interior living room view'
         ]
     }
 };
@@ -771,6 +793,37 @@ function shuffleImageCollection(collection, category) {
 }
 
 // =============================================================================
+// --- IMAGE FORMAT SELECTION (AVIF / WebP / JPG) ---
+// =============================================================================
+// Every gallery JPG ships with same-basename .webp and .avif siblings, generated by the
+// image-pipeline `variants` command — which verifies completeness. The preloader below
+// fail-fasts on a single missing file, so never point this at a format with gaps.
+// Detection decodes tiny in-memory probes (no network). Until it resolves — or if a probe
+// fails — URLs stay .jpg, so the worst case is exactly today's behavior.
+
+let bestImageExt = '.jpg';
+const imageFormatReady = (function () {
+    function probe(dataUri) {
+        return new Promise(resolve => {
+            const img = new Image();
+            img.onload = () => resolve(img.width > 0);
+            img.onerror = () => resolve(false);
+            img.src = dataUri;
+        });
+    }
+    const avifProbe = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAABcAAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAEAAAABAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAAB9tZGF0EgAKCBgABogQEAwgMg8f8D///8WfhwB8+ErK42A=';
+    const webpProbe = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+    return probe(avifProbe).then(avifOk => {
+        if (avifOk) { bestImageExt = '.avif'; return; }
+        return probe(webpProbe).then(webpOk => { if (webpOk) bestImageExt = '.webp'; });
+    }).catch(() => { /* any unexpected failure means: stay on .jpg */ });
+})();
+
+function toBestFormat(url) {
+    return url.replace(/\.jpe?g$/i, bestImageExt);
+}
+
+// =============================================================================
 // --- NEW: ROBUST GALLERY GENERATION WITH IMAGE PRELOADING ---
 // =============================================================================
 
@@ -820,8 +873,8 @@ function generateGalleryHTML(category, containerId = 'gallery-container') {
     collection = shuffleImageCollection(collection, category);
     
     const imagesData = collection.images.map((image, index) => ({
-        src: collection.folder + image,
-        thumbnail: collection.thumbFolder + collection.thumbnails[index],
+        src: toBestFormat(collection.folder + image),
+        thumbnail: toBestFormat(collection.thumbFolder + collection.thumbnails[index]),
         alt: collection.alts[index] || `${category} photography ${index + 1}`,
         thumbAlt: collection.thumbAlts[index] || `${category} photography thumbnail ${index + 1}`
     }));
@@ -867,6 +920,16 @@ function generateGalleryHTML(category, containerId = 'gallery-container') {
             console.log(`✅ Gallery '${category}' successfully loaded and displayed.`);
         })
         .catch(error => {
+            // Safety net (panel-review 2026-07-02): Promise.all above fail-fasts, so a single
+            // variant that 404s or won't decode would blank the whole gallery. If we were
+            // serving a non-JPG format, drop back to JPG once and rebuild — the pre-change
+            // behavior. In JPG mode this branch is exactly the old code path.
+            if (bestImageExt !== '.jpg') {
+                console.warn('A ' + bestImageExt + ' gallery image failed to load; falling back to JPG.', error);
+                bestImageExt = '.jpg';
+                generateGalleryHTML(category, containerId);
+                return;
+            }
             console.error("Error preloading gallery thumbnails:", error);
             loader.style.display = 'none'; // Hide loader on error too
         });
@@ -893,7 +956,9 @@ function initializeGalleryAutomation() {
     if (category) {
         // We only need to call generateGalleryHTML once now.
         // The function handles its own timing.
-        generateGalleryHTML(category);
+        // Format detection settles first so every URL is built in the best format
+        // (it always resolves; on any failure bestImageExt stays '.jpg').
+        imageFormatReady.then(() => generateGalleryHTML(category));
     } else {
         // If there's no category, make sure to hide the loader if it exists
         const loader = document.getElementById('gallery-loader');
