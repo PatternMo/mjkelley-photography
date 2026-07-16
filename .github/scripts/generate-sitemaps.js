@@ -144,7 +144,9 @@ function generateImageSitemap() {
     return;
   }
   
-  const imageFiles = glob.sync('images/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { 
+  // JPG is the canonical image format; .webp/.avif are derived siblings of the same photos
+  // (2026-07-02 format work) and must not appear as duplicate sitemap entries.
+  const imageFiles = glob.sync('images/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}', {
     ignore: ['**/thumbs/**', '**/thumb/**', 'blog/images-source/**', 'blog/image-source/**'],
     onlyFiles: true
   });
