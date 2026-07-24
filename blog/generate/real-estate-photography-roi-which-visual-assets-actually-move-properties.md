@@ -1,7 +1,7 @@
 ---
 title: "Real Estate Photography ROI: Which Visual Assets Actually Move Properties"
 date: "2026-07-24"
-description: "A working photographer reads the industry data on which listing visuals actually pay: photos, aerials, 3D tours, video, and twilight shots."
+description: "the industry data on which listing visuals actually pay: photos, aerials, 3D tours, video, and twilight shots."
 author: "Michael J. Kelley"
 image: "/blog/images/dji-0923-hdr-edit.jpg"
 category: "Real Estate"
