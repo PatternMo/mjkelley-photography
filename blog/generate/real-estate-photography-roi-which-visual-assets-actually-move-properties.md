@@ -58,13 +58,13 @@ I'd speculate that most younger buyers are tech-savvy and value good digital exp
 
 Beyond the core three, this is [the biggest statistical reason](https://resimpli.com/blog/real-estate-video-statistics/) to include video as it's one of the most effective ways to increase engagement. **41% of buyers** used online video sites in their home search ([NAR, Real Estate in a Digital Age 2021](https://www.nar.realtor/sites/default/files/documents/2021-real-estate-in-a-digital-age-10-05-2021.pdf)). Yet only [**38% of agents** use video](https://resimpli.com/blog/real-estate-video-statistics/)—creating a huge opportunity to stand out.
 
-Why is video so effective? One reason could be that video shows how the layout of a property works—how one room connects to another. In 30-60 seconds, you give people a complete visual experience of the space and spacing. This is often faster than sorting through photos or taking a full 3D tour. It's low effort, low commitment, and can serve as a gateway that leads to deeper engagement with the listing.
-
-Video can be especially important for out-of-state buyers and anyone making decisions without visiting the actual home.
-
 <div class="video-wrapper">
 <iframe src="https://www.youtube.com/embed/vLqSuIEu6FA" title="Caelesta Vineyard - Reel - Drone Videography" allowfullscreen></iframe>
 </div>
+
+Why is video so effective? One reason could be that video shows how the layout of a property works—how one room connects to another. In 30-60 seconds, you give people a complete visual experience of the space and spacing. This is often faster than sorting through photos or taking a full 3D tour. It's low effort, low commitment, and can serve as a gateway that leads to deeper engagement with the listing.
+
+Video can be especially important for out-of-state buyers and anyone making decisions without visiting the actual home.
 
 ## The Twilight Effect: 3x More Showings
 
