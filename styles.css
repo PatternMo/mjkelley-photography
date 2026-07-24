@@ -1818,6 +1818,11 @@ main {
     box-shadow: 0 6px 24px rgba(0, 0, 0, .08);
 }
 
+/* Embedded video in post body */
+.post-content .video-wrapper {
+    margin-bottom: 1.75rem;
+}
+
 /* Body typography */
 .post-content {
     font-size: 1.0625rem;
