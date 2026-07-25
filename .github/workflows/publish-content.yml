@@ -1,0 +1,92 @@
+name: Publish Site Content
+
+# One pipeline, one writer. Replaces blog-post-convert.yml + update-sitemaps.yml,
+# which ran in parallel on the same push, both auto-committed to main, and raced
+# each other. Order matters here: blog HTML is generated and COMMITTED before the
+# sitemaps run, so a brand-new post is present on disk when the sitemap globs
+# blog/**/*.html and has a real git date for its <lastmod>.
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Serialize runs. Two pushes in quick succession queue instead of colliding.
+concurrency:
+  group: publish-content
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # full history: sitemap <lastmod> comes from git log
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'          # keyed on package-lock.json
+
+      - name: Install dependencies
+        run: npm ci             # exact versions from package-lock.json
+
+      - name: Create blog directories
+        run: mkdir -p blog/generate blog/template blog/posts blog/images
+
+      - name: Configure git identity
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Generate blog posts and index
+        run: node .github/scripts/generate-blog.js
+
+      - name: Commit blog output
+        run: |
+          git add blog/posts/ blog/index.html
+          if git diff --staged --quiet; then
+            echo "No blog changes to commit"
+          else
+            git commit -m "Auto-generate blog posts [skip ci]"
+          fi
+
+      - name: Generate sitemaps
+        run: node .github/scripts/generate-sitemaps.js
+
+      - name: Commit sitemaps
+        run: |
+          git add sitemap.xml blog-sitemap.xml image-sitemap.xml video-sitemap.xml
+          if git diff --staged --quiet; then
+            echo "No sitemap changes to commit"
+          else
+            git commit -m "Auto-update sitemaps [skip ci]"
+          fi
+
+      - name: Push generated output
+        run: |
+          if [ "$(git rev-list --count origin/main..HEAD)" -eq 0 ]; then
+            echo "Nothing to push"
+            exit 0
+          fi
+          # --autostash so an incidental dirty file can never abort the rebase.
+          # Retry covers the case where someone else pushes between pull and push.
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
+              echo "Pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; retrying"
+            sleep 5
+          done
+          echo "Push failed after 3 attempts"
+          exit 1
+
+      - name: Trigger Netlify deploy
+        if: success()
+        run: curl -X POST -d {} "${{ secrets.NETLIFY_BUILD_HOOK }}"
