@@ -4,6 +4,7 @@ date: "2026-07-24"
 description: "The industry data on which listing visuals actually pay: photos, aerials, 3D tours, video, and twilight shots."
 author: "Michael J. Kelley"
 image: "/blog/images/dji-0923-hdr-edit.jpg"
+image_caption: "Berkeley Commons Building, shot at golden hour sunset."
 category: "Real Estate"
 tags: ["real estate photography", "ROI", "Bay Area"]
 ---
@@ -22,7 +23,10 @@ So why do I still trust the direction of the data? Because the strongest numbers
 
 Photography gives any property an edge, and the research I've found provides evidence to support this. Here's what the data shows: a complete visual strategy performs best, but some assets provide higher return on investment than others.
 
-![Aerial view of the Hilton Lake Las Vegas Resort and Spa at sunset with desert mountains beyond](/blog/images/hilton-lake-las-vegas-resort-and-spa-darker-7-1711475453.webp)
+<figure>
+<img src="/blog/images/hilton-lake-las-vegas-resort-and-spa-darker-7-1711475453.webp" alt="Aerial view of the Hilton Lake Las Vegas Resort and Spa at sunset with desert mountains beyond">
+<figcaption>Hilton Lake Las Vegas Resort and Spa, shot at golden hour sunset.</figcaption>
+</figure>
 
 ## The Core Three: General Photography + Aerial + 3D Virtual Tours
 
@@ -34,7 +38,10 @@ Here's what you gain with each:
 
 Interior and exterior shots provide complete coverage of all rooms, bathrooms, and spaces. As the data shows, this remains the biggest factor for most buyers when deciding which properties to consider and visit.
 
-![Victorian family kitchen interior, Haight Street, San Francisco](/blog/images/haight-street-victorian-family-kitchen-interior-1.jpg)
+<figure>
+<img src="/blog/images/haight-street-victorian-family-kitchen-interior-1.jpg" alt="Victorian family kitchen interior, Haight Street, San Francisco">
+<figcaption>Daytime interiors shoot, San Francisco Victorian.</figcaption>
+</figure>
 
 Professional photography captures the essence of each space, highlights the home's best attributes, and emphasizes natural and artificial lighting. These images tell a visual story that buyers can connect with. This takes professional equipment and an experienced eye—the result is faster sale times, strong ROI, and images that enhance your portfolio.
 
@@ -42,7 +49,10 @@ Professional photography captures the essence of each space, highlights the home
 
 Aerial photography provides a complete overview of a property and exterior spaces that ground-level shots can't achieve. Top-down aerials give buyers a clear view of roof condition, and aerial perspectives easily highlight desirable neighborhood features like ocean proximity, beaches, or nearby parks.
 
-![Top-down aerial of the Lake Las Vegas waterfront showing rooftops, marina docks, and pathways](/blog/images/hilton-lake-las-vegas-resort-and-spa-darker-1-1711475451.webp)
+<figure>
+<img src="/blog/images/hilton-lake-las-vegas-resort-and-spa-darker-1-1711475451.webp" alt="Top-down aerial of the Lake Las Vegas waterfront showing rooftops, marina docks, and pathways">
+<figcaption>Top-down aerial of the shops and dining area at Lake Las Vegas.</figcaption>
+</figure>
 
 [According to MLS data analysis](https://homejab.com/aerial-photography/), homes with aerial photography are **68% more likely to sell**. This visual asset can also [increase sale price up to 10%](https://homejab.com/maximizing-roi-with-drone-photography-a-guide/). While larger, more valuable properties are more likely to have aerials, the aerial perspective helps buyers visualize any property as a whole and understand its relationship to the surrounding area.
 
@@ -70,7 +80,10 @@ Video can be especially important for out-of-state buyers and anyone making deci
 
 Twilight shots highlight outdoor lighting features, fire pits, pool and hot tub lights, landscape lighting, and the home's own lighting. This is best achieved during golden hour or just after sunset in blue hour.
 
-![Virtual twilight exterior of a Fremont home with warm glowing windows at dusk](/blog/images/33839-farmhouse-fremont-5-1.jpg)
+<figure>
+<img src="/blog/images/33839-farmhouse-fremont-5-1.jpg" alt="Virtual twilight exterior of a Fremont home with warm glowing windows at dusk">
+<figcaption>Virtual twilight of a Fremont, CA home, taken in the day and recreated to look like sunset.</figcaption>
+</figure>
 
 Listings that include twilight shots experience [**3x more showings**](https://shoot2sell.com/twilight-photography) on average. When a twilight shot is the hero image, expect **76% more views** compared to daytime shots, plus increased click-throughs. Listings with any twilight photos command [**66% more views**](https://www.virtuance.com/virtual-twilights/).
 

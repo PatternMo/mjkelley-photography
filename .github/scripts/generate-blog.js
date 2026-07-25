@@ -66,7 +66,12 @@ async function generatePosts() {
 
     const htmlContent = marked(stripLeadingH1(content));
 
+    // Optional hero caption from front-matter (`image_caption`); omitted entirely when absent.
+    const heroCaption = safe(data.image_caption).trim();
+    const heroCaptionHtml = heroCaption ? `<figcaption>${heroCaption}</figcaption>` : '';
+
     const finalPostHtml = postTemplate
+      .replace(/{{hero_caption}}/g, () => heroCaptionHtml)
       .replace(/{{title}}/g, safe(data.title))
       .replace(/{{description}}/g, safe(data.description))
       .replace(/{{image}}/g, safe(data.image))
