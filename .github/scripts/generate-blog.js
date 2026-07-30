@@ -34,7 +34,7 @@ const toDateParts = (d) => {
   if (isNaN(dt.getTime())) return { iso: '', human: '' };
   return {
     iso: dt.toISOString(),
-    human: dt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    human: dt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }),
   };
 };
 
@@ -108,17 +108,32 @@ async function generatePosts() {
   if (posts.length) {
     const f = posts[0];
 
+    // Previous posts reuse the featured-slide markup so every post on the
+    // index keeps the full card: title, meta, hero, excerpt.
     previousPostsHtml = posts.slice(1).map(p => {
-      const tags = (p.tags || []).map(t => `#${t}`).join(' ');
+      const heroHtml = p.image ? `
+                <div class="post-hero">
+                    <a href="${p.url}">
+                    <img src="${p.image}" alt="${p.title}">
+                    </a>
+                </div>` : '';
       return `
-        <div class="post-preview">
-          <h3><a href="${p.url}">${p.title}</a></h3>
-          <p class="post-meta">
-            <span class="post-date">${safe(p.date)}</span>
-            <span class="post-tags">${safe(tags)}</span>
-          </p>
-          <p>${safe(p.description)}</p>
-        </div>
+          <section class="featured-post blog-post-container">
+            <article class="post">
+                <div class="post-header">
+                <h1 class="post-title">
+                    <a href="${p.url}">${p.title}</a>
+                </h1>
+                <div class="post-meta">
+                    <time datetime="${safe(p.date_iso)}">${safe(p.date_human)}</time>
+                    <span class="post-tag">${safe(p.category)}</span>
+                </div>${heroHtml}
+                </div>
+                <div class="post-content">
+                <p class="line-clamp-3">${safe(p.description)}</p>
+                </div>
+            </article>
+        </section>
       `;
     }).join('');
 

@@ -1878,7 +1878,7 @@ main {
 
 /* Captioned images: <figure><img><figcaption> */
 .post-content figure {
-    margin: 1rem 0 1.75rem;
+    margin: 1rem 0;
 }
 
 .post-content figure img {
