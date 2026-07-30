@@ -25,7 +25,7 @@ So why?
 
 The big thorough set, the strict shot list, the quantity are for buyers who will never put hands on this car, never see it in person, never get to test drive before committing anywhere from fifteen thousand to over three hundred thousand for it. The set has to give them the feel of what it's like to sit behind the wheel.
 
-So a big part of the job is connecting people through visual language to the story of the car and its condition, forming an emotional as well as intellectual feel for the vehicle with a procession of frames that show how cool it is and document its imperfections.
+So a big part of the job is connecting people through visual language, providing an emotional as well as intellectual feel for the vehicle with a procession of frames.
 
 For outdoor shoots, another vital aspect that makes all this possible is location and time of day. Because cars are so reflective, the sun intensity and landscape have a huge effect on whether you're getting clean lines on the body or a mess of reflected surroundings that make it hard to see the paint's condition.
 
@@ -77,11 +77,11 @@ After spiraling in, I do the trunk and the engine, sometimes lighting the engine
 
 I also use flags occasionally to block sun stripes and get consistent light on the dash and seats. I'll use a tripod for floor mats if the light is low, so I can get a long exposure with crisp carpet and full disclosure of how the mat and the floor under the mat were cared for, the confession part.
 
-## Consistency and Process Tell the Car's Story
+## Let the Car Tell the Story
 
-The shooting process builds a narrative, frame by frame, for this particular car with many layers: design, coolness, and features are all a part of that story. Shooting the interior like a dream, so it's yummy and slick, but also shooting the mats so they're well lit and sharp, shooting those sides of the seats and headrests so they all match the same framing, and you can see the texture and care. That's just as important as the hero shots, maybe more so.
+Different cars require different shots. But all cars require emphasis on the details.
 
-How you shoot, angles you choose, and coverage also depend on the car.
+Shooting the interior like a dream, so it's yummy and slick, but also shooting the mats so they're well lit and sharp, shooting those sides of the seats and headrests so their framing is consistent, and you can see the fabric and stitch texture. Those details are just as important as the hero shots, maybe more so.
 
 For classics, supercars, and luxury sports cars, there are often more potential shots because of unique sculpted body designs and features other cars just don't have. Think Ferrari, Lamborghini, or a '60s Corvette. On a 1957 Corvette I shot for a Bay Area classic car dealership, the shapes themselves made the shot list longer—a body like that gives you angles a five-year-old sedan simply doesn't have.
 
