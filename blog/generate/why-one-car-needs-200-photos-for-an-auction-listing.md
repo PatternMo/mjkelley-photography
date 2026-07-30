@@ -9,7 +9,7 @@ category: "Automotive"
 tags: ["automotive photography", "auction photography", "Bay Area"]
 ---
 
-The deliverables for auction automotive photography are 150 to 200 image sets that tell the car's story and how cool it is, disclose its blemishes, and document how well it was cared for. But why so much coverage?
+The deliverables for auction automotive photography are 150 to 200 image sets that tell the car's story and show how cool it is, disclose its blemishes, and document how well it was cared for. But why so much coverage?
 
 The sheer image quantity is a tall order.
 
