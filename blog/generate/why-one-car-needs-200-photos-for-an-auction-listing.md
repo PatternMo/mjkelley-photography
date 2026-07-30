@@ -52,7 +52,7 @@ Shooting fast with tested experience, you know the desirable range for every asp
 
 Speed allows one to slip into a creative flow where you don't have to think about the last shot or the other door; you just feel how you framed it, and frame it the same way, making sure everything is sharp, in focus, and properly exposed as you go.
 
-Flow lets you execute a signature style and solve creative problems at hyperspeed. It slows time down. And allows you to do more in less time, giving your full creative potential to a shoot with a hard time limit.
+Flow lets you execute a signature style and solve creative problems at hyperspeed. Even though you're moving fast, it's as if time slows down, allowing you to do more, giving your full creative potential to a shoot with a hard time limit.
 
 Speed equals creative flow.
 
