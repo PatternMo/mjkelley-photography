@@ -52,9 +52,9 @@ Shooting fast with tested experience, you know the desirable range for every asp
 
 Speed allows one to slip into a creative flow where you don't have to think about the last shot or the other door; you just feel how you framed it, and frame it the same way, making sure everything is sharp, in focus, and properly exposed as you go.
 
-Flow lets you execute a signature style and solve creative problems at hyperspeed. Even though you're moving fast, it's as if time slows down, allowing you to do more, giving your full creative potential to a shoot with a hard time limit.
+Flow lets you execute a signature style and solve creative problems at hyperspeed. Even though you're moving fast, it's as if time slows down.
 
-Speed equals creative flow.
+> Speed equals flow state.
 
 Muscle memory helps too. Spiraling gets you from wide full body to close body details, scrapes, and the confession part. For undersides, I'll bring an AD600, a powerful strobe light on a stand, sometimes two, and bounce off the concrete to light directly on the underside detail. This is especially helpful if the car is up on a rack.
 
@@ -94,13 +94,13 @@ For classics, supercars, and luxury sports cars, there are often more potential 
 
 Some photographers shooting other genres complain auction photography doesn't offer creative control. They name the shot list and strict requirements. I see their point.
 
-For them, full creative control means designing the shot list with the client through scouting or having go-to shots customized for that client's needs.
+For them, full control means designing the shot list with the client through scouting or having go-to shots customized for that client's needs.
 
 A set shot list might seem counterintuitive to creative freedom. But working with limitations isn't a defect of art, and infinite possibilities can also lead to a muddled voice.
 
-There isn't really a wrong approach. Whether you're in a position to create a shot list with a client that serves their needs or you're shooting a photography brief of predetermined shots that represent the acceptance criteria for an auction listing—both approaches have potential for creative freedom.
+There isn't really a wrong approach. Whether you're in a position to create a shot list with a client that serves their needs or you're shooting a photography brief of predetermined shots that represent the acceptance criteria for an auction listing—both approaches leave room to make the work yours.
 
-But working with the limitations and running against them is a ripe place for creativity. Tension is good for creative problem-solving. And personally, I've found it's helped me develop a signature across a set.
+But working with the limitations and running against them is a ripe place for creativity. And personally, I've found it's helped me develop a signature across a set.
 
 After a while, you find your angles and your takes on these shots in general. I love the 45-degree downward tilt at the door handles, standing at a 45-degree angle to the car. Those feel like my angles. You begin to own the composition on these shots, and the accumulated decisions become your own personal signature throughout a 150 to 200 shot set infused with creative flow.
 
