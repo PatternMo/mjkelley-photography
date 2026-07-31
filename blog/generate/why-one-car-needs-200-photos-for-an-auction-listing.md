@@ -15,7 +15,7 @@ The sheer image quantity is a tall order.
 
 Photographers I've worked for, shooting in other genres, and charging thousands for a set of thirty in architecture think this pace and deliverable are insane.
 
-Dealerships require fewer images for their inventory on their own websites, because people can come in and touch the car and drive it, yet when the same dealerships hire me for auction work, I'm doing the 150 to 200 set.
+Dealerships require fewer images for their inventory on their own websites, yet when the same dealerships hire me for auction work, I'm doing the 150 to 200 set.
 
 It has to be done fast to stay profitable for me, and affordable for the client: under two hours per shoot. It has to include video, sometimes up to six if a driving video is desired. And I still have to cull and edit the whole set, which takes time.
 
