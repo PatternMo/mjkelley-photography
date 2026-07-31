@@ -114,6 +114,6 @@ After a while, you find your angles and your takes on these shots in general. I 
 <figcaption>The same angle owned on a different car: the door handle of a 2004 Ferrari 360 Spider at sunset in Los Gatos, CA.</figcaption>
 </figure>
 
-Everyone gets the same list. The choice is whether to use it as a checkbox or commit to considering how you render every shot. Any photographer can execute an auction shot list. But knowing what each shot does, how it contributes to a set, and having a signature approach that ties the whole set together, telling the car's story, is where years of experience and reps come in. For the client, that's what a signature is worth: 200 frames that look like one person made them on purpose, a cohesive whole, a consistent visual experience.
+Everyone gets the same list. The choice is whether to use it as a checkbox or commit to thoughtfully rendering every shot. Any photographer can execute an auction shot list. But knowing what each shot does, how it contributes to a set, and having a signature approach that ties the whole set together, telling the car's story, is where years of experience and reps come in. For the client, that's what a signature is worth: 200 frames that look like one person made them on purpose, a cohesive whole, a consistent visual experience.
 
 An experience that gives you the feel of what it's like to sit behind the wheel without ever driving the car.
