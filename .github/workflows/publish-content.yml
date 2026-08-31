@@ -49,7 +49,9 @@ jobs:
 
       - name: Commit blog output
         run: |
-          git add blog/posts/ blog/index.html
+          # Root and projects/ globs pick up related-posts stamping (the runner
+          # starts from a fresh checkout, so only generator writes are dirty).
+          git add blog/posts/ blog/index.html *.html projects/*.html
           if git diff --staged --quiet; then
             echo "No blog changes to commit"
           else
