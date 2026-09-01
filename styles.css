@@ -1583,8 +1583,8 @@ main {
 
 /* Featured post inherits blog-post-container styles but needs spacing adjustments */
 .featured-post.blog-post-container {
-    margin-bottom: 60px;
-    padding-bottom: 60px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     margin-top: 0;
     /* Override blog-post-container margin-top */
