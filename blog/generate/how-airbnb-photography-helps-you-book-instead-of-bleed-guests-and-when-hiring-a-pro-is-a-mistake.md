@@ -49,7 +49,7 @@ The client's original photos didn't thoroughly describe what this place had to o
 
 ## The Decisions You Don't See
 
-The Muir Beach property I mentioned above had ocean and coastline views. I wanted those views inside the shots, in focus and correctly exposed, so I bracketed the exposures and pulled the windows in afterward, a technique carried over from real estate: the window scene was not blown out and the interior was not overly dark. Both had good exposure, the way your eye sees them and the camera alone doesn't.
+The Muir Beach property I mentioned earlier had ocean and coastline views. I wanted those views inside the shots, in focus and correctly exposed, so I bracketed the exposures and pulled the windows in afterward, a technique carried over from real estate: the window scene was not blown out and the interior was not overly dark. Both had good exposure, the way your eye sees them and the camera alone doesn't.
 
 <figure>
 <img src="/blog/images/muir-beach-hallway-pulled-window.jpg" alt="A hallway with an arched doorway leading to a lit bedroom, and a large window on the right showing a coastal hillside with houses, both interior and view correctly exposed">
@@ -69,7 +69,7 @@ For a listing, a vignette is a promise. A towel folded and draped over the batht
 <figcaption>Towel draped over tub, San Francisco, CA.</figcaption>
 </figure>
 
-I feel a certain way when I'm standing in a space. The job is portraying that feeling with the lighting, the camera, the composition, in a way that stays true to the place and meets the platform's standards. How you get there is the artistry and the creative problem-solving.
+When I'm standing in a space, I look for those promises, and I pay attention to how I feel in that space. The job is portraying that feeling with the lighting, the camera, the composition, in a way that stays true to the place and meets the platform's standards. How you get there requires artistry and creative problem-solving: all the decisions that make a final image what it is.
 
 <figure>
 <img src="/blog/images/woodside-stone-basin-sink.jpg" alt="A carved black stone vessel sink on a light wood counter against patterned tile, brass wall-mounted faucet and vertical sconces beside a black-framed mirror">
