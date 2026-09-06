@@ -95,8 +95,12 @@ const isRootRelative = (p) => /^\/(?![\/\\])/.test(p);
 // computed from the front-matter path; keep in sync with pipeline.js
 // (heroDerivPathFor / blogThumbPathFor).
 const HERO_DERIV_WIDTH = 1200;
-// Hero box: 850px container minus 40px padding each side, full width below that.
-const HERO_SIZES = '(max-width: 850px) 100vw, 770px';
+// Hero box: .post is max-width 72ch (~601px CSS at the body font) with ~20px padding each
+// side, so the image tops out at ~600px and only shrinks below a ~640px viewport. Stating the
+// TRUE box matters: a 2x screen needs 1200 device px, which is exactly the -1200 file (no
+// resample at all); overstating it (770px) pushed 2x screens to the 2000px original and the
+// browser shrink that segments thin lines (2026-09-06, his retina report after the first fix).
+const HERO_SIZES = '(max-width: 640px) 100vw, 600px';
 
 const siteFile = (rootRel) => path.join(baseDir, rootRel.replace(/^\//, ''));
 
