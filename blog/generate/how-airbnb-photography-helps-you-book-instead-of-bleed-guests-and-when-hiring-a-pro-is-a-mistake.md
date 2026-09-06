@@ -187,8 +187,8 @@ Sometimes it goes past the review: [Airbnb's refund policy](https://www.airbnb.c
 [Airbnb's published photography guidance](https://www.airbnb.com/resources/hosting-homes/a/how-to-take-great-photos-for-your-listing-687): shoot straight ahead, from a neutral position, "to give guests a realistic view of your place." There's no official rule against wide lenses. The warnings live in host guides, and the choice is a stylistic one.
 
 <figure>
-<img src="/blog/images/sausalito-living-room.jpg" alt="A living room with an open door and windows showing trees and water beyond, a light sofa in the foreground, wicker coffee table, and an electric fireplace under a TV">
-<figcaption>Pulling the windows for a hint of the Bay view, Sausalito, CA.</figcaption>
+<img src="/blog/images/haight-street-victorian-family-kitchen-interior-1.jpg" alt="A Victorian kitchen shot straight on: walnut cabinets flanking an exposed brick chimney, a stainless range, a butcher-block island with two mustard stools, and a tall window on the right">
+<figcaption>Shot straight on from a neutral position, Haight Street Victorian, San Francisco, CA.</figcaption>
 </figure>
 
 Hosts themselves are split on it. Some treat wide-angle as standard practice and swear by it. [One longtime host](https://community.withairbnb.com/t5/Hosting/Usage-of-professional-pictures-to-delude-guests/m-p/927744) skips professional photos entirely: "I'd prefer guest be pleasantly surprised rather than disappointed." And [one veteran contributor](https://community.withairbnb.com/t5/Ask-about-your-listing/Important-thing-to-be-aware-of-before-using-Airbnb-professional/m-p/1042262) on Airbnb's own forum argues that professional photography is exactly what's making listings look like something they aren't—that the rise in pro photos brought a rise in accuracy complaints.
