@@ -86,11 +86,62 @@ function relatedPosts(posts, { key = null, excludeSlug = null, limit = 3 } = {})
 // forward slash (protocol-relative `//host/...` and backslashes rejected).
 const isRootRelative = (p) => /^\/(?![\/\\])/.test(p);
 
+// --- hero display derivatives ------------------------------------------------
+// The image-pipeline tool (private workspace, not this repo) writes two siblings
+// next to a hero JPG: "<base>-1200.jpg" and "thumbs/<base>-thumb.jpg" (240x160).
+// Browsers alias fine edges when they shrink a 2000px file into the ~600px hero
+// box or the 120x80 related-posts slot, so the markup points at the near-size
+// file WHEN IT EXISTS on disk and falls back to the original otherwise. Names are
+// computed from the front-matter path; keep in sync with pipeline.js
+// (heroDerivPathFor / blogThumbPathFor).
+const HERO_DERIV_WIDTH = 1200;
+// Hero box: 850px container minus 40px padding each side, full width below that.
+const HERO_SIZES = '(max-width: 850px) 100vw, 770px';
+
+const siteFile = (rootRel) => path.join(baseDir, rootRel.replace(/^\//, ''));
+
+// Pixel width from the JPEG SOF header (no image library in this repo). 0 if unreadable.
+function jpegWidth(file) {
+  try {
+    const b = fs.readFileSync(file);
+    if (b[0] !== 0xFF || b[1] !== 0xD8) return 0;
+    let i = 2;
+    while (i + 9 < b.length) {
+      if (b[i] !== 0xFF) { i++; continue; }
+      const m = b[i + 1];
+      if (m === 0xFF) { i++; continue; }
+      if (m === 0xD8 || m === 0x01 || (m >= 0xD0 && m <= 0xD7)) { i += 2; continue; }
+      const isSof = (m >= 0xC0 && m <= 0xCF) && m !== 0xC4 && m !== 0xC8 && m !== 0xCC;
+      if (isSof) return b.readUInt16BE(i + 7);
+      if (m === 0xDA) return 0;
+      i += 2 + b.readUInt16BE(i + 2);
+    }
+  } catch (e) { /* fall through */ }
+  return 0;
+}
+
+// ` srcset="..." sizes="..."` for a hero, or '' when no -1200 sibling exists.
+function heroSrcsetAttrs(image) {
+  if (!image || !isRootRelative(image) || !/\.jpe?g$/i.test(image)) return '';
+  const deriv = image.replace(/\.jpe?g$/i, `-${HERO_DERIV_WIDTH}.jpg`);
+  if (!fs.existsSync(siteFile(deriv))) return '';
+  const origW = jpegWidth(siteFile(image));
+  const candidates = [`${deriv} ${HERO_DERIV_WIDTH}w`];
+  if (origW > HERO_DERIV_WIDTH) candidates.push(`${image} ${origW}w`);
+  return ` srcset="${escapeHtml(candidates.join(', '))}" sizes="${HERO_SIZES}"`;
+}
+
+// Related-posts thumb: thumbs/<base>-thumb.jpg when present, else the original.
+function thumbSrc(image) {
+  const t = image.replace(/([^\/]+)\.jpe?g$/i, (m, base) => `thumbs/${base}-thumb.jpg`);
+  return t !== image && fs.existsSync(siteFile(t)) ? t : image;
+}
+
 function renderRelatedItems(items) {
   return items.map(p => {
     let imgHtml = '';
     if (p.image && isRootRelative(p.image)) {
-      imgHtml = `<img class="related-posts-thumb" src="${escapeHtml(p.image)}" alt="" loading="lazy"> `;
+      imgHtml = `<img class="related-posts-thumb" src="${escapeHtml(thumbSrc(p.image))}" alt="" loading="lazy"> `;
     } else if (p.image) {
       // Any other shape would resolve differently at different page depths
       // (or off-origin); render the item headline-only rather than risk it.
@@ -257,6 +308,7 @@ async function generatePosts() {
       .replace(/{{continue_reading}}/g, () => continueReadingHtml)
       .replace(/{{title}}/g, () => p.title)
       .replace(/{{description}}/g, () => p.description)
+      .replace(/{{hero_srcset}}/g, () => heroSrcsetAttrs(p.image))
       .replace(/{{image}}/g, () => p.image)
       .replace(/{{url}}/g, () => p.url)
       .replace(/{{slug}}/g, () => p.slug)
@@ -281,7 +333,7 @@ async function generatePosts() {
       const heroHtml = p.image ? `
                 <div class="post-hero">
                     <a href="${p.url}">
-                    <img src="${p.image}" alt="${p.title}">
+                    <img src="${p.image}"${heroSrcsetAttrs(p.image)} alt="${p.title}">
                     </a>
                 </div>` : '';
       return `
@@ -310,13 +362,14 @@ async function generatePosts() {
       .replace(/{{featured_date_iso}}/g, safe(f.date_iso))
       .replace(/{{featured_date_human}}/g, safe(f.date_human))
       .replace(/{{featured_category}}/g, safe(f.category))
+      .replace(/{{featured_hero_srcset}}/g, () => heroSrcsetAttrs(f.image))
       .replace(/{{featured_hero}}/g, safe(f.image))
       .replace(/{{featured_hero_alt}}/g, f.title)
       .replace(/{{featured_excerpt}}/g, safe(f.description))
       .replace(/{{previous_posts}}/g, previousPostsHtml);
   } else {
     finalIndexHtml = finalIndexHtml
-      .replace(/{{featured_title}}|{{featured_url}}|{{featured_date_iso}}|{{featured_date_human}}|{{featured_category}}|{{featured_hero}}|{{featured_hero_alt}}|{{featured_excerpt}}/g, '')
+      .replace(/{{featured_title}}|{{featured_url}}|{{featured_date_iso}}|{{featured_date_human}}|{{featured_category}}|{{featured_hero_srcset}}|{{featured_hero}}|{{featured_hero_alt}}|{{featured_excerpt}}/g, '')
       .replace(/{{previous_posts}}/g, '');
   }
 
