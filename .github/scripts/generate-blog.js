@@ -87,14 +87,16 @@ function relatedPosts(posts, { key = null, excludeSlug = null, limit = 3 } = {})
 const isRootRelative = (p) => /^\/(?![\/\\])/.test(p);
 
 // --- hero display derivatives ------------------------------------------------
-// The image-pipeline tool (private workspace, not this repo) writes two siblings
-// next to a hero JPG: "<base>-1200.jpg" and "thumbs/<base>-thumb.jpg" (240x160).
+// The image-pipeline tool (private workspace, not this repo) writes siblings next
+// to a hero JPG: "<base>-600.jpg", "<base>-1200.jpg" and "thumbs/<base>-thumb.jpg" (240x160).
 // Browsers alias fine edges when they shrink a 2000px file into the ~600px hero
 // box or the 120x80 related-posts slot, so the markup points at the near-size
 // file WHEN IT EXISTS on disk and falls back to the original otherwise. Names are
 // computed from the front-matter path; keep in sync with pipeline.js
 // (heroDerivPathFor / blogThumbPathFor).
-const HERO_DERIV_WIDTH = 1200;
+// One candidate per pixel density: 600 for 1x screens, 1200 for 2x. Even a clean 2x shrink of
+// the 1200 file segmented thin lines (chrome chair legs, macrame cords) on a 1x screen.
+const HERO_DERIV_WIDTHS = [600, 1200];
 // Hero box: .post is max-width 72ch (~601px CSS at the body font) with ~20px padding each
 // side, so the image tops out at ~600px and only shrinks below a ~640px viewport. Stating the
 // TRUE box matters: a 2x screen needs 1200 device px, which is exactly the -1200 file (no
@@ -127,11 +129,14 @@ function jpegWidth(file) {
 // ` srcset="..." sizes="..."` for a hero, or '' when no -1200 sibling exists.
 function heroSrcsetAttrs(image) {
   if (!image || !isRootRelative(image) || !/\.jpe?g$/i.test(image)) return '';
-  const deriv = image.replace(/\.jpe?g$/i, `-${HERO_DERIV_WIDTH}.jpg`);
-  if (!fs.existsSync(siteFile(deriv))) return '';
+  const candidates = [];
+  for (const w of HERO_DERIV_WIDTHS) {
+    const deriv = image.replace(/\.jpe?g$/i, `-${w}.jpg`);
+    if (fs.existsSync(siteFile(deriv))) candidates.push(`${deriv} ${w}w`);
+  }
+  if (!candidates.length) return '';
   const origW = jpegWidth(siteFile(image));
-  const candidates = [`${deriv} ${HERO_DERIV_WIDTH}w`];
-  if (origW > HERO_DERIV_WIDTH) candidates.push(`${image} ${origW}w`);
+  if (origW > Math.max(...HERO_DERIV_WIDTHS)) candidates.push(`${image} ${origW}w`);
   return ` srcset="${escapeHtml(candidates.join(', '))}" sizes="${HERO_SIZES}"`;
 }
 
