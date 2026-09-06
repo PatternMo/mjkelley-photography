@@ -188,7 +188,7 @@ Sometimes it goes past the review: [Airbnb's refund policy](https://www.airbnb.c
 
 <figure>
 <img src="/blog/images/haight-street-victorian-family-kitchen-interior-1.jpg" alt="A Victorian kitchen shot straight on: walnut cabinets flanking an exposed brick chimney, a stainless range, a butcher-block island with two mustard stools, and a tall window on the right">
-<figcaption>Shot straight on from a neutral position, Haight Street Victorian, San Francisco, CA.</figcaption>
+<figcaption>Haight Street Victorian Kitchen, San Francisco, CA.</figcaption>
 </figure>
 
 Hosts themselves are split on it. Some treat wide-angle as standard practice and swear by it. [One longtime host](https://community.withairbnb.com/t5/Hosting/Usage-of-professional-pictures-to-delude-guests/m-p/927744) skips professional photos entirely: "I'd prefer guest be pleasantly surprised rather than disappointed." And [one veteran contributor](https://community.withairbnb.com/t5/Ask-about-your-listing/Important-thing-to-be-aware-of-before-using-Airbnb-professional/m-p/1042262) on Airbnb's own forum argues that professional photography is exactly what's making listings look like something they aren't—that the rise in pro photos brought a rise in accuracy complaints.
