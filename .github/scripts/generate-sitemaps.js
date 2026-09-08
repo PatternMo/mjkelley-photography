@@ -134,6 +134,10 @@ function generateMainSitemap() {
   console.log(`Main sitemap generated with ${htmlFiles.length} root pages and ${projectFiles.length} project pages`);
 }
 
+// Image sitemap limits (safe to tune - docs/sitemap-automation.md)
+const IMAGES_PER_PAGE = 10;            // portfolio category pages
+const PROJECT_IMAGES_PER_PAGE = 1000;  // project pages: every referenced frame, up to Google's per-URL cap
+
 // Generate image sitemap
 function generateImageSitemap() {
   console.log('Generating image sitemap...');
@@ -182,6 +186,22 @@ function generateImageSitemap() {
     }
   });
 
+  // Project pages (2026-09-08, his request): images/projects/** has no category page, so each
+  // project page maps to the full-size project images it references itself (thumbs excluded).
+  // Listing sets are the point of those pages, so they are not capped at IMAGES_PER_PAGE;
+  // Google's own limit is 1,000 images per URL.
+  const projectPages = glob.sync('projects/*.html', { ignore: ['projects/*template*.html'], onlyFiles: true });
+  projectPages.forEach(pageFile => {
+    const html = fs.readFileSync(pageFile, 'utf8');
+    const refs = new Set();
+    for (const m of html.matchAll(/(?:src|srcset)=["']\.\.\/(images\/projects\/[^"'\s]+\.(?:jpg|jpeg|png))["']/gi)) refs.add(m[1]);
+    for (const m of html.matchAll(/src: '\.\.\/(images\/projects\/[^']+\.(?:jpg|jpeg|png))'/gi)) refs.add(m[1]);
+    const images = [...refs].filter(f => !/\/thumbs?\//i.test(f) && fs.existsSync(f));
+    if (!images.length) return;
+    const title = (html.match(/<title>([^<|]+)/) || [, path.basename(pageFile, '.html')])[1].trim();
+    categories['project:' + pageFile] = { page: pageFile, images, limit: PROJECT_IMAGES_PER_PAGE, label: title };
+  });
+
   // Generate entries for each category page
   Object.entries(categories).forEach(([category, data]) => {
     if (data.images.length === 0) return;
@@ -199,8 +219,11 @@ function generateImageSitemap() {
     <lastmod>${lastMod}</lastmod>
 `;
 
-    // Limit to 10 images per page for performance
-    data.images.slice(0, 10).forEach(imagePath => {
+    // Portfolio pages are limited to IMAGES_PER_PAGE for performance; project pages carry their own limit
+    const caption = data.label
+      ? `${data.label}, project photography by Michael J. Kelley in the San Francisco Bay Area`
+      : `Professional ${category.replace('-', ' ')} photography by Michael J. Kelley in the San Francisco Bay Area`;
+    data.images.slice(0, data.limit || IMAGES_PER_PAGE).forEach(imagePath => {
       const imageUrl = `${DOMAIN}/${imagePath}`;
       const imageName = path.basename(imagePath, path.extname(imagePath))
         .replace(/[-_]/g, ' ')
@@ -209,7 +232,7 @@ function generateImageSitemap() {
       sitemap += `    <image:image>
       <image:loc>${imageUrl}</image:loc>
       <image:title>${imageName} | Michael J. Kelley Photography</image:title>
-      <image:caption>Professional ${category.replace('-', ' ')} photography by Michael J. Kelley in the San Francisco Bay Area</image:caption>
+      <image:caption>${caption}</image:caption>
     </image:image>
 `;
     });
