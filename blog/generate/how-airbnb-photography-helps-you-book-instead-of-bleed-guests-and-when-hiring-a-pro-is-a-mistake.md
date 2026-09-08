@@ -1,7 +1,7 @@
 ---
 title: "How Airbnb Photography Helps You Book Instead of Bleed Guests (and When Hiring a Pro Is a Mistake)"
 date: "2026-08-31"
-description: "In a rental listing, photos are the \"what am I getting\" half of the guest's decision. The real numbers on hiring a pro - and when your iPhone is enough."
+description: "In a rental listing, photos are the \"what am I getting\" half of the guest's decision. Find out the real numbers on hiring a pro and when to use your iPhone instead."
 author: "Michael J. Kelley"
 image: "/blog/images/sf-victorian-living-room.jpg"
 image_caption: "The Victorian's living room. San Francisco, CA."
