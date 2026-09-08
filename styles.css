@@ -2035,6 +2035,13 @@ main {
     padding: 0 40px 80px;
 }
 
+/* When related posts follow a FAQ or process list, pull the heading up: those sections end with
+   80px padding plus the last item's 30px margin, which read as a dead band (his note, 2026-09-08). */
+.faq-section + .related-posts-section,
+.process-section + .related-posts-section {
+    margin-top: -60px;
+}
+
 .related-posts h2 {
     font-size: 28px;
     font-weight: 300;
