@@ -81,7 +81,7 @@ I also use flags occasionally to block sun stripes and get consistent light on t
 
 Different cars require different shots. But all cars require emphasis on the details.
 
-Shooting the interior like a dream, so it's yummy and slick, but also shooting the mats so they're well lit and sharp, shooting those sides of the seats and headrests so their framing is consistent, and you can see the fabric and stitch texture. Those details are just as important as the hero shots, maybe more so.
+Shooting the interior like a dream, so it's yummy and slick, but also shooting the mats so they're well lit and sharp, shooting those sides of the seats and headrests so their framing is consistent, and you can see the fabric and stitch texture. Those details are just as important as the hero shots, [maybe more so.](/blog/posts/the-most-important-photos-in-a-car-auction-listing-might-be-the-floor-mats.html)
 
 For classics, supercars, and luxury sports cars, there are often more potential shots because of unique sculpted body designs and features other cars just don't have. Think Ferrari, Lamborghini, or a '60s Corvette. On a 1957 Corvette I shot for a Bay Area classic car dealership, the shapes themselves made the shot list longer—a body like that gives you angles a five-year-old sedan simply doesn't have.
 
