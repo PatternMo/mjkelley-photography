@@ -1,7 +1,7 @@
 ---
 title: "The Most Important Photos in a Car Auction Listing Might Be the Floor Mats"
 date: "2026-09-08"
-description: "About 92% of an auction gallery is detail shots—seat edges, stitching, headrests—and they're where a buyer reads how the car was cared for."
+description: "About 92% of an auction gallery is detail shots—seat edges, stitching, headrests—show a car's condition and build trust with bidders."
 author: "Michael J. Kelley"
 image: "/blog/images/2018-bmw-430i-convertible-passenger-side-floor-mat.jpg"
 image_caption: "2018 BMW 430i Convertible, passenger-side floor mat, San Mateo, CA."
