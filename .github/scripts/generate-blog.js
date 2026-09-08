@@ -59,8 +59,18 @@ const firstCategory = (data) => {
 
 // The category key used for related-post matching is the DISPLAYED category
 // (front-matter `category`, else first tag), normalized. One key: what the
-// reader sees is what the algorithm matches.
-const normalizeKey = (v) => String(v || '').trim().toLowerCase();
+// reader sees is what the algorithm matches - except where two displayed
+// categories are one subject for related-reading purposes. CATEGORY_GROUPS
+// maps a normalized displayed category to its group key; labels on the page
+// are untouched. Added 2026-09-08 (his call): "Interiors" (the Airbnb post,
+// ruled its own category 2026-08-31) and "Interior Design" never paired.
+const CATEGORY_GROUPS = {
+  'interiors': 'interior design',
+};
+const normalizeKey = (v) => {
+  const k = String(v || '').trim().toLowerCase();
+  return CATEGORY_GROUPS[k] || k;
+};
 
 // Remove a leading H1 from markdown so we don’t duplicate the title from the template.
 const stripLeadingH1 = (md) => md.replace(/^\s*#\s+.+?\n+/, '');
