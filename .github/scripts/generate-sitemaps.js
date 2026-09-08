@@ -196,6 +196,7 @@ function generateImageSitemap() {
     const refs = new Set();
     for (const m of html.matchAll(/(?:src|srcset)=["']\.\.\/(images\/projects\/[^"'\s]+\.(?:jpg|jpeg|png))["']/gi)) refs.add(m[1]);
     for (const m of html.matchAll(/src: '\.\.\/(images\/projects\/[^']+\.(?:jpg|jpeg|png))'/gi)) refs.add(m[1]);
+    for (const m of html.matchAll(/url\(['"]?\.\.\/(images\/projects\/[^'")\s]+\.(?:jpg|jpeg|png))['"]?\)/gi)) refs.add(m[1]); // CSS backgrounds (the overview side image)
     const images = [...refs].filter(f => !/\/thumbs?\//i.test(f) && fs.existsSync(f));
     if (!images.length) return;
     const title = (html.match(/<title>([^<|]+)/) || [, path.basename(pageFile, '.html')])[1].trim();
