@@ -72,6 +72,13 @@ const normalizeKey = (v) => {
   return CATEGORY_GROUPS[k] || k;
 };
 
+// Every link inside a post body opens in a new tab (his rule, 2026-09-08) - off-site sources and
+// his own posts alike. Only the rendered Markdown gets this; the template's Continue Reading and
+// Related Reading links stay same-tab. rel="noopener" is the standard companion to target=_blank.
+function newTabLinks(html) {
+  return html.replace(/<a\s+(?![^>]*\btarget=)([^>]*?)>/gi, '<a $1 target="_blank" rel="noopener">');
+}
+
 // Remove a leading H1 from markdown so we don’t duplicate the title from the template.
 const stripLeadingH1 = (md) => md.replace(/^\s*#\s+.+?\n+/, '');
 
@@ -313,7 +320,7 @@ async function generatePosts() {
 
   // Pass 2: render every post with its Continue Reading block.
   for (const p of posts) {
-    const htmlContent = marked(stripLeadingH1(p.content));
+    const htmlContent = newTabLinks(marked(stripLeadingH1(p.content)));
 
     // Optional hero caption from front-matter (`image_caption`); omitted entirely when absent.
     const heroCaption = p.image_caption.trim();
