@@ -90,7 +90,7 @@ And I’ve become happier with the result and the overall set.
 
 Over time I came to realize you can develop a unique style on any type of shot, whether it be a Lambo body or a Mazda floor mat. You find your angles, you begin to own the composition, and the accumulated decisions become your own personal signature across the set. I stopped discriminating and just tried to make all my shots good. And that act, I think, made me better at the overall set.
 
-> More on how briefs and shot lists inform style [here](https://www.mjkelleyphoto.com/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html).
+> Read this before your next auction shoot: [How a strict photo brief actually frees up your creativity](https://www.mjkelleyphoto.com/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html).
 
 <figure>
 <img src="/blog/images/1990-ferrari-testarossa-driver-side-floor-mat.jpg" alt="Tan carpet floor mat embroidered FERRARI in red on the driver side of a 1990 Testarossa, tan leather seat and pedals around it">
