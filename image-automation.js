@@ -824,19 +824,70 @@ function toBestFormat(url) {
 }
 
 // =============================================================================
+// --- RESPONSIVE CANDIDATES (srcset / sizes) ---
+// =============================================================================
+// Canonical JPG URLs in, candidates out. Every candidate goes through toBestFormat
+// individually (a whole srcset string would not match the anchored regex), and the
+// candidates are rebuilt from the canonical JPGs on every generateGalleryHTML call —
+// so the JPG fallback branch below rebuilds them in JPG too.
+
+// The 2x grid derivative made by the image pipeline: thumbs/<original base>-thumb-1200w.jpg.
+// It is named from the ORIGINAL's basename, which is not always the thumbnail's basename
+// (one legacy thumb is `<base>-thumb-8.jpg` next to an original `<base>-8.jpg`), so build
+// it from the original. Returns null for anything that is not a JPG; a derivative that is
+// missing on disk is handled by the one-shot error fallback below.
+function thumb1200For(fullJpgUrl, thumbFolder) {
+    const file = fullJpgUrl.split('/').pop();
+    if (!/\.jpe?g$/i.test(file)) return null;
+    return thumbFolder + file.replace(/\.jpe?g$/i, '-thumb-1200w.jpg');
+}
+
+// Grid tile width per breakpoint: 480 and below one column (100vw - 40px page padding);
+// 768 and below two columns (1px gap); above, three columns (8px gaps) inside a
+// 1600px max-width section with 40px padding -> 501.333px per column at full width.
+const GALLERY_GRID_SIZES = '(max-width: 480px) calc(100vw - 40px), (max-width: 768px) calc(50vw - 20.5px), min(501.333px, calc((100vw - 96px) / 3))';
+
+// Lightbox: width ceiling 95% of a viewport with 40px of parent padding; height caps
+// 85% / 75% (<=768) / 50% (<=480) of the viewport, so the width demand of a given image
+// is its aspect ratio times that height cap.
+function lightboxSizesFor(aspect) {
+    const a = Math.round(aspect * 1000) / 1000;
+    return '(max-width: 480px) min(calc(95vw - 38px), calc(50vh * ' + a + ')), ' +
+           '(max-width: 768px) min(calc(95vw - 38px), calc(75vh * ' + a + ')), ' +
+           'min(calc(95vw - 38px), calc(85vh * ' + a + '))';
+}
+
+// One-shot recovery for a grid tile whose chosen candidate 404s or will not decode.
+// Those failures happen after innerHTML, so they never reach the preloader's catch.
+function handleGalleryThumbError(img) {
+    img.onerror = null;
+    const jpgFallback = img.getAttribute('data-thumb-jpg');
+    img.removeAttribute('srcset');
+    img.removeAttribute('sizes');
+    if (jpgFallback) img.src = jpgFallback;
+}
+
+// =============================================================================
 // --- NEW: ROBUST GALLERY GENERATION WITH IMAGE PRELOADING ---
 // =============================================================================
 
 /**
  * Preloads an array of image sources and returns a promise that resolves when all are loaded.
+ * Resolves with the natural dimensions of each source, in the order given (the lightbox
+ * needs the aspect ratio to size its candidates). Failure behavior is unchanged: a single
+ * source that will not load still rejects the whole batch, fail-fast.
  * @param {string[]} sources - An array of image URLs to preload.
- * @returns {Promise<void>}
+ * @returns {Promise<Array<{src: string, width: number, height: number}>>}
  */
 function preloadImages(sources) {
     const promises = sources.map(src => {
         return new Promise((resolve, reject) => {
             const img = new Image();
-            img.onload = resolve;
+            img.onload = () => resolve({
+                src: src,
+                width: img.naturalWidth || img.width || 0,
+                height: img.naturalHeight || img.height || 0
+            });
             img.onerror = reject; // You might want to handle errors differently
             img.src = src;
         });
@@ -872,37 +923,77 @@ function generateGalleryHTML(category, containerId = 'gallery-container') {
     // Shuffle the collection
     collection = shuffleImageCollection(collection, category);
     
-    const imagesData = collection.images.map((image, index) => ({
-        src: toBestFormat(collection.folder + image),
-        thumbnail: toBestFormat(collection.thumbFolder + collection.thumbnails[index]),
-        alt: collection.alts[index] || `${category} photography ${index + 1}`,
-        thumbAlt: collection.thumbAlts[index] || `${category} photography thumbnail ${index + 1}`
-    }));
+    const imagesData = collection.images.map((image, index) => {
+        const fullJpg = collection.folder + image;
+        const thumb800Jpg = collection.thumbFolder + collection.thumbnails[index];
+        const thumb1200Jpg = thumb1200For(fullJpg, collection.thumbFolder);
+        return {
+            src: toBestFormat(fullJpg),
+            thumbnail: toBestFormat(thumb800Jpg),
+            thumb800Jpg: thumb800Jpg,
+            thumb1200: thumb1200Jpg ? toBestFormat(thumb1200Jpg) : null,
+            alt: collection.alts[index] || `${category} photography ${index + 1}`,
+            thumbAlt: collection.thumbAlts[index] || `${category} photography thumbnail ${index + 1}`
+        };
+    });
 
     // Array of thumbnail sources to preload
     const thumbnailSources = imagesData.map(img => img.thumbnail);
 
     // --- Start Preloading ---
     preloadImages(thumbnailSources)
-        .then(() => {
+        .then((dimensions) => {
             // --- This code runs ONLY after ALL thumbnails are loaded ---
 
-            // 1. Set the global array for the lightbox
-            window.galleryImages = imagesData.map(img => ({ src: img.src, alt: img.alt }));
-            
+            // 0. Aspect ratio of each image, measured on the thumb we just preloaded
+            //    (the thumb is a scaled copy of the original, so the ratio matches).
+            imagesData.forEach((img, index) => {
+                const dim = dimensions && dimensions[index];
+                const aspect = dim && dim.height > 0 ? dim.width / dim.height : null;
+                img.aspect = aspect && isFinite(aspect) && aspect > 0 ? aspect : null;
+            });
+
+            // 1. Set the global array for the lightbox. srcset/sizes are optional extras:
+            //    entries without them (project pages pass plain {src, alt}) behave as before.
+            window.galleryImages = imagesData.map(img => {
+                const entry = { src: img.src, alt: img.alt };
+                if (img.thumb1200 && img.aspect) {
+                    // Real pixel width of the original: landscape originals are 2400 wide,
+                    // portrait ones are 2400 tall and narrower than that.
+                    const origW = img.aspect >= 1 ? 2400 : Math.round(2400 * img.aspect);
+                    if (origW > 1200) {
+                        entry.srcset = `${img.thumb1200} 1200w, ${img.src} ${origW}w`;
+                        entry.sizes = lightboxSizesFor(img.aspect);
+                    }
+                }
+                return entry;
+            });
+
             // 2. Generate the final HTML
-            const galleryHTML = imagesData.map((img, index) => `
+            const galleryHTML = imagesData.map((img, index) => {
+                const responsive = img.thumb1200
+                    ? ` srcset="${img.thumbnail} 800w, ${img.thumb1200} 1200w" sizes="${GALLERY_GRID_SIZES}"`
+                    : '';
+                return `
                 <div class="gallery-item" onclick="openLightbox(${index})" data-full-src="${img.src}">
-                    <img src="${img.thumbnail}" alt="${img.thumbAlt}" class="gallery-thumbnail">
+                    <img src="${img.thumbnail}"${responsive} data-thumb-jpg="${img.thumb800Jpg}" alt="${img.thumbAlt}" class="gallery-thumbnail">
                     <div class="overlay">
                         <div class="overlay-text">${img.alt}</div>
                     </div>
                 </div>
-            `).join('');
+            `;
+            }).join('');
 
             // 3. Populate the container
             galleryContainer.innerHTML = galleryHTML;
-            
+
+            // 3b. One-shot per-tile recovery: a missing 1200 derivative (or one of its
+            //     avif/webp siblings) must never blank a tile. Attached synchronously here,
+            //     before any error event can be dispatched.
+            galleryContainer.querySelectorAll('img.gallery-thumbnail').forEach(el => {
+                el.onerror = function () { handleGalleryThumbError(this); };
+            });
+
             // 4. Initialize the lightbox functionality
             if (typeof window.GalleryAPI !== 'undefined' && window.GalleryAPI.initialize) {
                 window.GalleryAPI.initialize(window.galleryImages);

@@ -12,6 +12,30 @@ let galleryImages = [];
 let lightboxActive = false;
 let touchStartX = 0;
 let touchEndX = 0;
+// Incremented on every lightbox update so a slow earlier load cannot overwrite a later one.
+let lightboxRequestToken = 0;
+
+/**
+ * Applies an entry's responsive candidates to an image element, in the only order that
+ * works: sizes, then srcset, then the caller sets src. A stale srcset left in place would
+ * keep the previous image selected even after src changes, so entries without candidates
+ * (project-page galleries pass plain {src, alt}) get both attributes removed.
+ * @param {HTMLImageElement} imgEl
+ * @param {Object} entry - gallery image entry, optionally carrying srcset and sizes
+ */
+function applyResponsiveAttributes(imgEl, entry) {
+    if (entry && entry.srcset) {
+        if (entry.sizes) {
+            imgEl.setAttribute('sizes', entry.sizes);
+        } else {
+            imgEl.removeAttribute('sizes');
+        }
+        imgEl.setAttribute('srcset', entry.srcset);
+    } else {
+        imgEl.removeAttribute('srcset');
+        imgEl.removeAttribute('sizes');
+    }
+}
 
 // =============================================================================
 // Lightbox Core Functions
@@ -94,23 +118,48 @@ function updateLightboxImage() {
     if (!lightboxImg || !galleryImages[currentImageIndex]) return;
     
     const currentImage = galleryImages[currentImageIndex];
-    
+    const requestToken = ++lightboxRequestToken;
+
     // Fade out current image
     lightboxImg.style.opacity = '0.5';
-    
-    // Load new image
+
+    // Load new image (the probe carries the same candidates, so it warms the cache
+    // with the file the displayed image will actually pick)
+    let candidatesFailed = false;
+    let probeRetried = false;
     const img = new Image();
     img.onload = function() {
+        if (requestToken !== lightboxRequestToken) return; // a newer image won the race
+        // One-shot recovery: if the chosen candidate 404s or will not decode, drop the
+        // candidates and retry the plain original.
+        lightboxImg.onerror = function() {
+            this.onerror = null;
+            this.removeAttribute('srcset');
+            this.removeAttribute('sizes');
+            this.src = currentImage.src;
+        };
+        applyResponsiveAttributes(lightboxImg, candidatesFailed ? null : currentImage);
         lightboxImg.src = currentImage.src;
         lightboxImg.alt = currentImage.alt;
         lightboxImg.style.opacity = '1';
     };
     img.onerror = function() {
+        if (requestToken !== lightboxRequestToken) return;
+        // A missing derivative must not stop the lightbox from showing the image:
+        // retry the probe once on the plain original, then display without candidates.
+        if (!probeRetried && img.hasAttribute('srcset')) {
+            probeRetried = true;
+            candidatesFailed = true;
+            applyResponsiveAttributes(img, null);
+            img.src = currentImage.src;
+            return;
+        }
         console.error('Failed to load image:', currentImage.src);
         lightboxImg.style.opacity = '1';
     };
+    applyResponsiveAttributes(img, currentImage);
     img.src = currentImage.src;
-    
+
     // Update counter
     if (lightboxCounter) {
         lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
@@ -159,8 +208,11 @@ function preloadAdjacentImages() {
     ];
     
     preloadIndexes.forEach(index => {
+        const entry = galleryImages[index];
+        if (!entry) return;
         const img = new Image();
-        img.src = galleryImages[index].src;
+        applyResponsiveAttributes(img, entry);
+        img.src = entry.src;
     });
 }
 
