@@ -123,11 +123,14 @@ const HERO_SIZES = '(max-width: 640px) 100vw, 600px';
 
 const siteFile = (rootRel) => path.join(baseDir, rootRel.replace(/^\//, ''));
 
-// Pixel width from the JPEG SOF header (no image library in this repo). 0 if unreadable.
-function jpegWidth(file) {
+// Pixel size from the JPEG SOF header (no image library in this repo). The SOF
+// payload carries height at +5 and width at +7. { width: 0, height: 0 } if
+// unreadable. `jpegWidth` is the width-only form the hero code has always used.
+function jpegDimensions(file) {
+  const none = { width: 0, height: 0 };
   try {
     const b = fs.readFileSync(file);
-    if (b[0] !== 0xFF || b[1] !== 0xD8) return 0;
+    if (b[0] !== 0xFF || b[1] !== 0xD8) return none;
     let i = 2;
     while (i + 9 < b.length) {
       if (b[i] !== 0xFF) { i++; continue; }
@@ -135,13 +138,15 @@ function jpegWidth(file) {
       if (m === 0xFF) { i++; continue; }
       if (m === 0xD8 || m === 0x01 || (m >= 0xD0 && m <= 0xD7)) { i += 2; continue; }
       const isSof = (m >= 0xC0 && m <= 0xCF) && m !== 0xC4 && m !== 0xC8 && m !== 0xCC;
-      if (isSof) return b.readUInt16BE(i + 7);
-      if (m === 0xDA) return 0;
+      if (isSof) return { width: b.readUInt16BE(i + 7), height: b.readUInt16BE(i + 5) };
+      if (m === 0xDA) return none;
       i += 2 + b.readUInt16BE(i + 2);
     }
   } catch (e) { /* fall through */ }
-  return 0;
+  return none;
 }
+
+const jpegWidth = (file) => jpegDimensions(file).width;
 
 // ` srcset="..." sizes="..."` for a hero, or '' when no -1200 sibling exists.
 function heroSrcsetAttrs(image) {
@@ -155,6 +160,174 @@ function heroSrcsetAttrs(image) {
   const origW = jpegWidth(siteFile(image));
   if (origW > Math.max(...HERO_DERIV_WIDTHS)) candidates.push(`${image} ${origW}w`);
   return ` srcset="${escapeHtml(candidates.join(', '))}" sizes="${HERO_SIZES}"`;
+}
+
+// --- body image derivatives --------------------------------------------------
+// Same problem as the heroes, one slot down: a 1600px body JPG painted into the
+// ~600px post column is shrunk by the browser, and every reader pays for the
+// full file. The image-pipeline tool writes, beside a body image
+// "/blog/images/<base>.jpg": "<base>-800.jpg" plus webp/avif siblings of BOTH
+// widths. When the complete set is on disk the rendered <img> becomes a
+// <picture> with avif/webp/jpg candidates; when anything is missing the tag is
+// left exactly as marked produced it. Sanctioned addition 2026-09-11 (his go).
+//
+// Post-processing the rendered HTML (not a marked renderer.image override) is
+// deliberate: captioned photos are raw <figure> HTML that marked passes through
+// untouched, so the renderer hook never sees them (docs/blog-automation.md).
+const BODY_DERIV_WIDTH = 800;
+// The post column, measured in the browser 2026-09-11 (Playwright, published
+// posts served locally): .post-content is 600.5px CSS at 1280 and 1440 wide,
+// 604.5 at 900, 608.5 at 800, and 100vw-40 below ~640 (350 at a 390 phone).
+// The element is `article.post.blog-post-container`: border-box min(72ch =
+// 640.5px, 100vw) with padding-inline clamp(1rem, 2vw, 1.25rem) above 768px and
+// a flat 20px at/below it. These two expressions track that within 1px.
+const BODY_IMG_SIZES = '(max-width: 768px) min(600px, calc(100vw - 40px)), calc(640px - clamp(32px, 4vw, 40px))';
+// Flex-paired photos (two <img style="width: 50%"> in a flex row with a 0.5rem
+// gap, see the auction post) get half the column. Measured 296.3px at 1280 and
+// 171px at 390 - the gap makes the real box a few px under half, so these state
+// a hair more than the truth, never less.
+const BODY_IMG_SIZES_HALF = '(max-width: 768px) min(300px, calc(50vw - 24px)), calc((640px - clamp(32px, 4vw, 40px)) / 2)';
+// Every sibling that must exist before an <img> is upgraded. Miss one and the
+// browser could pick a candidate that 404s (a <picture> source has no fallback).
+const BODY_DERIV_SUFFIXES = [`-${BODY_DERIV_WIDTH}.jpg`, `-${BODY_DERIV_WIDTH}.webp`, `-${BODY_DERIV_WIDTH}.avif`, '.webp', '.avif'];
+
+// A complete <img ...> tag: quoted attribute values may contain ">".
+const IMG_TAG_RE = /<img\b(?:[^>"']|"[^"]*"|'[^']*')*>/gi;
+// One attribute inside a tag: name, optional ="value" / ='value' / bare value.
+const ATTR_RE = /([^\s=\/>"'<]+)(\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'=<>`]+))?/g;
+
+// Ordered attribute list; `raw` is the original source text so anything we keep
+// is re-emitted byte for byte (original quoting, spacing inside the value).
+function parseImgAttrs(tag) {
+  const inner = tag.replace(/^<img/i, '').replace(/\/?>$/, '');
+  const attrs = [];
+  let m;
+  ATTR_RE.lastIndex = 0;
+  while ((m = ATTR_RE.exec(inner)) !== null) {
+    let value = '';
+    if (m[2]) {
+      value = m[2].replace(/^\s*=\s*/, '');
+      if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1);
+      }
+    }
+    attrs.push({ name: m[1].toLowerCase(), value, raw: m[0] });
+  }
+  return attrs;
+}
+
+const attrValue = (attrs, name) => {
+  const a = attrs.find(x => x.name === name);
+  return a ? a.value : null;
+};
+
+// Root-relative site path for a body-image src written either as
+// "/blog/images/x.jpg" or relative to the post at /blog/posts/. Anything that
+// is not a plain same-origin JPG under /blog/images returns null.
+// The charset is deliberately narrow: letters, digits, dot, dash, underscore
+// and slash. marked emits src values already HTML-escaped, so a name carrying
+// "&" or a quote would have to be un-escaped for the disk check and re-escaped
+// for the markup. Nothing in /blog/images is named that way (the pipeline
+// slugifies), so such a src is simply left as a plain img.
+function bodyImageRootPath(src) {
+  if (!src) return null;
+  if (!/^[A-Za-z0-9._\-\/]+$/.test(src)) return null;
+  if (src.startsWith('//')) return null;
+  if (!/\.jpe?g$/i.test(src)) return null;
+  const rootRel = src.startsWith('/') ? path.posix.normalize(src) : path.posix.normalize('/blog/posts/' + src);
+  return /^\/blog\/images\/[A-Za-z0-9._-]+\.jpe?g$/i.test(rootRel) ? rootRel : null;
+}
+
+// { urlBase, width, height } when the complete derivative set is on disk, else null.
+// urlBase keeps the src's own shape (root-relative or relative), so the emitted
+// candidates resolve from the same place the original did.
+function bodyImageDerivatives(src) {
+  const rootRel = bodyImageRootPath(src);
+  if (!rootRel) return null;
+  const rootBase = rootRel.replace(/\.jpe?g$/i, '');
+  for (const suffix of BODY_DERIV_SUFFIXES) {
+    if (!fs.existsSync(siteFile(rootBase + suffix))) return null;
+  }
+  // A real descriptor or nothing: an unreadable header (0) or an original that
+  // is not wider than the 800 derivative would emit a bogus/duplicate "w".
+  // The height comes from the same read and becomes the intrinsic aspect box.
+  const { width, height } = jpegDimensions(siteFile(rootRel));
+  if (!(width > BODY_DERIV_WIDTH) || !(height > 0)) {
+    console.warn(`body-images: ${rootRel} has derivatives but unusable dimensions (${width}x${height}); left as a plain img`);
+    return null;
+  }
+  return { urlBase: src.replace(/\.jpe?g$/i, ''), width, height };
+}
+
+const srcsetFor = (urlBase, ext, width) =>
+  `${urlBase}-${BODY_DERIV_WIDTH}.${ext} ${BODY_DERIV_WIDTH}w, ${urlBase}.${ext} ${width}w`;
+
+// <picture> is inline by default, so a flex child's width must live on the
+// wrapper; the inner img then fills it. Keeps whatever else the author wrote.
+function wrapperStyle(style) {
+  const parts = String(style).split(';').map(s => s.trim()).filter(Boolean);
+  if (!parts.some(p => /^min-width\s*:/i.test(p))) parts.push('min-width: 0');
+  if (!parts.some(p => /^display\s*:/i.test(p))) parts.push('display: block');
+  return parts.join('; ') + ';';
+}
+
+// One rendered <img> -> <picture> when its derivatives all exist, else itself.
+function responsiveBodyImage(tag) {
+  const attrs = parseImgAttrs(tag);
+  const src = attrValue(attrs, 'src');
+  if (!src) return tag;
+  if (attrs.some(a => a.name === 'srcset')) return tag; // already responsive
+  const deriv = bodyImageDerivatives(src);
+  if (!deriv) return tag;
+
+  const style = attrValue(attrs, 'style') || '';
+  const isHalf = /width\s*:\s*50%/i.test(style);
+  // Nothing here is re-escaped: `src` passed a charset that excludes every
+  // character escapeHtml touches, the srcsets are built from it, the sizes are
+  // literals, and the wrapper style is re-emitted from already-escaped source
+  // text. Escaping again would turn a "&amp;" in an author's style into
+  // "&amp;amp;".
+  const sizesAttr = ` sizes="${isHalf ? BODY_IMG_SIZES_HALF : BODY_IMG_SIZES}"`;
+
+  // Original attributes, in order, minus src (re-emitted first) and minus the
+  // inline style when it moves to the wrapper.
+  const kept = attrs
+    .filter(a => a.name !== 'src')
+    .map(a => (a.name === 'style' && isHalf
+      ? ' style="width: 100%; height: auto; display: block;"'
+      : ` ${a.raw}`))
+    .join('');
+  const lazy = attrs.some(a => a.name === 'loading') ? '' : ' loading="lazy"';
+  // Intrinsic size of the ORIGINAL, so the browser can reserve the aspect box
+  // before a lazy image arrives (without these a not-yet-loaded lazy img is a
+  // zero-height box and text jumps as photos land). These only supply the ratio:
+  // styles.css keeps `max-width: 100%; height: auto` on `.post-content img` and
+  // `.blog-post-container img`, and the flex-pair inner style repeats
+  // `width: 100%; height: auto`, so CSS still decides the painted size.
+  // An author who wrote their own width/height keeps it.
+  const hasSize = attrs.some(a => a.name === 'width' || a.name === 'height');
+  const intrinsic = hasSize ? '' : ` width="${deriv.width}" height="${deriv.height}"`;
+
+  const img = `<img src="${src}" srcset="${srcsetFor(deriv.urlBase, 'jpg', deriv.width)}"${sizesAttr}${intrinsic}${kept}${lazy}>`;
+  const open = isHalf ? `<picture style="${wrapperStyle(style)}">` : '<picture>';
+  return open
+    + `<source type="image/avif" srcset="${srcsetFor(deriv.urlBase, 'avif', deriv.width)}"${sizesAttr}>`
+    + `<source type="image/webp" srcset="${srcsetFor(deriv.urlBase, 'webp', deriv.width)}"${sizesAttr}>`
+    + img
+    + '</picture>';
+}
+
+// Rewrite every eligible <img> in a rendered post body. Images already inside a
+// <picture> are skipped whole (an author who hand-wrote one owns it). Anchors
+// and <figure>/<figcaption> are untouched: <picture> is valid anywhere an <img>
+// is, including inside <a>, so the wrap happens in place.
+function responsiveBodyImages(html) {
+  const skip = [];
+  const pictureRe = /<picture\b[\s\S]*?<\/picture\s*>/gi;
+  let p;
+  while ((p = pictureRe.exec(html)) !== null) skip.push([p.index, p.index + p[0].length]);
+  const inSkip = (i) => skip.some(([s, e]) => i >= s && i < e);
+  return html.replace(IMG_TAG_RE, (tag, offset) => (inSkip(offset) ? tag : responsiveBodyImage(tag)));
 }
 
 // Related-posts thumb: thumbs/<base>-thumb.jpg when present, else the original.
@@ -320,7 +493,7 @@ async function generatePosts() {
 
   // Pass 2: render every post with its Continue Reading block.
   for (const p of posts) {
-    const htmlContent = newTabLinks(marked(stripLeadingH1(p.content)));
+    const htmlContent = responsiveBodyImages(newTabLinks(marked(stripLeadingH1(p.content))));
 
     // Optional hero caption from front-matter (`image_caption`); omitted entirely when absent.
     const heroCaption = p.image_caption.trim();
