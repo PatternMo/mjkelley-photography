@@ -1,0 +1,522 @@
+/* ==========================================================================
+   magazine.css — v2 homepage below-fold MAGAZINE FLOW trials (variant A
+   structure evolved per the Peter Lyons reference: full-bleed images pressed
+   to the viewport edges, alternating sides, editorial copy beside or
+   overlapping them, blog entries interlaced as first-class rows).
+
+   Three trials share this file; the row anatomy is chosen per-row by class:
+     .mag-row                subject row, image left, copy right (clean)
+     .mag-row--flip          mirrored (image right, copy left)
+     .mag-row--overlap       copy becomes a panel overlapping the image's
+                             inner bottom edge (the Lyons card device,
+                             translated to the dark neutral shell)
+     .mag-row--blog          editorial entry (smaller image, kicker, date)
+
+   Tokens come from v2.css / palette-neutral.css. Photos carry all color.
+   ========================================================================== */
+
+.mag-flow {
+    overflow: hidden;
+    padding: 0 clamp(1.2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* round 11: close the gap between the People row and the footer */
+.mag-flow .mag-row:last-of-type { margin-bottom: clamp(1rem, 2vw, 1.5rem); }
+
+/* --- feature sections (RULED 2026-08-31, round 2): each subject image LARGE,
+   end to end across the window, natural aspect ratio (no crop), with a
+   transparent card + button OVER the image, alternating sides — left for
+   Engineered Spaces, right for Architecture, and so on. --- */
+/* RULED round 8 — back to the round-2 design: image large, end to end,
+   NATURAL aspect (no crop); transparent card floating over the image,
+   alternating sides. */
+.mag-feature {
+    position: relative;
+    margin: clamp(3rem, 6vw, 5rem) 0;
+}
+
+.mag-feature > img {
+    width: 100%;
+    height: auto; /* natural aspect */
+    display: block;
+}
+
+.mag-feature .select-cap {
+    line-height: 1.5;
+    margin-top: .6rem;
+    padding: 0 clamp(1.2rem, 4vw, 3rem);
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.mag-card {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: clamp(1.5rem, 6vw, 6rem);
+    width: min(460px, 42%);
+    background: rgba(12, 13, 15, .68); /* transparent card; blur keeps text legible over bright frames */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--hairline);
+    padding: clamp(1.5rem, 2.6vw, 2.4rem);
+    z-index: 2;
+}
+
+.mag-feature--right .mag-card {
+    left: auto;
+    right: clamp(1.5rem, 6vw, 6rem);
+}
+
+.mag-card .label {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.mag-card h3 {
+    font-family: var(--display);
+    font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 .9rem;
+    text-wrap: balance;
+}
+
+.mag-card p {
+    font-size: .95rem;
+    line-height: 1.65;
+    color: var(--paper);
+    opacity: .85;
+    margin: 0 0 1.4rem;
+}
+
+@media (max-width: 768px) {
+    .mag-card,
+    .mag-feature--right .mag-card {
+        position: static;
+        transform: none;
+        width: auto;
+        margin: -3rem clamp(1.2rem, 5vw, 2rem) 0;
+        left: auto;
+        right: auto;
+    }
+}
+
+/* --- blog list (RULED 2026-08-31, round 2: smaller images, list alignment,
+   blurb description under each headline) --- */
+.mag-blog-list { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+
+.mag-blog-item {
+    display: grid;
+    grid-template-columns: clamp(140px, 16vw, 210px) 1fr;
+    gap: clamp(1.2rem, 3vw, 2.4rem);
+    align-items: center;
+    padding: clamp(1.4rem, 2.5vw, 2rem) 0;
+    border-top: 1px solid var(--hairline);
+}
+
+.mag-blog-item:last-child { border-bottom: 1px solid var(--hairline); }
+
+.mag-blog-item .mag-thumb { display: block; line-height: 0; }
+
+.mag-blog-item .mag-thumb img {
+    width: 100%;
+    height: auto; /* natural aspect here too */
+    display: block;
+}
+
+.mag-blog-item h3 {
+    font-family: var(--display);
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0 0 .5rem;
+}
+
+.mag-blog-item h3 a { color: var(--paper); text-decoration: none; }
+.mag-blog-item h3 a:hover { text-decoration: underline; }
+
+.mag-blog-item .mag-blurb {
+    font-size: .92rem;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0 0 .5rem;
+    max-width: 62ch;
+}
+
+.mag-blog-item .mag-date { margin-bottom: 0; }
+
+.mag-blog-item .go { white-space: nowrap; }
+
+@media (max-width: 700px) {
+    .mag-blog-item { grid-template-columns: 1fr; }
+    .mag-blog-item .go { justify-self: start; }
+}
+
+/* --- quiet links strip: contained, calm (was rendering as a broken menu) --- */
+.mag-flow .select-links {
+    max-width: 1400px;
+    margin: clamp(2rem, 4vw, 3rem) auto 0;
+    padding: 2rem 0 1rem;
+}
+
+/* RULED 2026-08-31: contained, not edge-bleed — display images keep a border
+   of ground between themselves and the browser window. */
+.mag-row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    margin: clamp(4rem, 9vw, 8rem) auto;
+    max-width: 1400px;
+}
+
+.mag-row:first-child { margin-top: clamp(1rem, 3vw, 2.5rem); }
+
+/* --- image: pressed hard against the viewport edge --- */
+.mag-img {
+    grid-column: 1 / 8;
+    grid-row: 1;
+    display: block;
+    line-height: 0;
+}
+
+.mag-row--flip .mag-img { grid-column: 6 / 13; }
+
+.mag-img img {
+    width: 100%;
+    height: min(72vh, 660px);
+    object-fit: cover;
+    display: block;
+}
+
+/* caption sits under the image, mono like the v2 system */
+.mag-img .select-cap {
+    position: static;
+    line-height: 1.5;
+    margin-top: .6rem;
+    padding: 0;
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.mag-row--flip .mag-img .select-cap { text-align: right; }
+
+/* --- copy beside the image (clean anatomy) --- */
+.mag-copy {
+    grid-column: 8 / 12;
+    grid-row: 1;
+    padding: 0 clamp(1.2rem, 3vw, 2.4rem);
+}
+
+.mag-row--flip .mag-copy { grid-column: 2 / 6; }
+
+.mag-copy .label {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.1rem;
+}
+
+.mag-copy h3 {
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 1rem;
+    text-wrap: balance;
+}
+
+.mag-copy p {
+    font-size: .98rem;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0 0 1.6rem;
+    max-width: 44ch;
+}
+
+/* reuse the v2 .go link treatment; nothing new to learn */
+
+.mag-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.4rem 2.2rem;
+}
+
+/* flipped select-rows right-align their text; the buttons follow */
+.select-row--flip .mag-actions { justify-content: flex-end; }
+
+/* --- section CTA button (RULED 2026-08-31: each subject row carries one) --- */
+.mag-cta {
+    display: inline-block;
+    margin-top: .4rem;
+    padding: .85rem 1.9rem;
+    border: 1px solid var(--paper);
+    font-family: var(--display);
+    font-size: .92rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--paper);
+    text-decoration: none;
+    transition: background .25s ease-out, color .25s ease-out;
+}
+
+.mag-cta:hover,
+.mag-cta:focus-visible {
+    background: var(--paper);
+    color: var(--ink);
+}
+
+/* --- blog section (RULED 2026-08-31 round 3: own full-width band on an
+   off-black dark-gray ground to separate it; entries pushed toward the
+   center; no per-item read link — thumb and headline carry the click) --- */
+.mag-blog-section {
+    background: #232429; /* RULED round 5: a tone or two lighter than ink-2, still off-black */
+    margin: 0;
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 8vw, 9rem);
+}
+
+.mag-blog-inner {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+/* RULED round 7/10 (stepped down twice): section heading at 1.25x */
+.mag-blog-section .mag-kicker {
+    font-size: .9rem;
+    margin-bottom: 1.2rem;
+}
+
+/* round 10: close the gap into the blog band */
+.selects .select-row:last-child { margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+
+/* --- overlap anatomy: the copy panel rides the image's inner bottom edge --- */
+.mag-row--overlap .mag-copy {
+    grid-column: 6 / 11;
+    align-self: end;
+    z-index: 2;
+    background: var(--ink-2);
+    border: 1px solid var(--hairline);
+    padding: clamp(1.6rem, 3vw, 2.6rem);
+    margin-bottom: clamp(2.5rem, 7vw, 5rem);
+}
+
+.mag-row--overlap.mag-row--flip .mag-copy { grid-column: 3 / 8; }
+
+/* overlapped image gives the panel somewhere to sit */
+.mag-row--overlap .mag-img { grid-column: 1 / 9; }
+.mag-row--overlap.mag-row--flip .mag-img { grid-column: 5 / 13; }
+
+/* --- blog entry rows: smaller image, editorial dressing --- */
+.mag-row--blog { margin: clamp(3rem, 7vw, 6rem) 0; }
+
+.mag-row--blog .mag-img { grid-column: 1 / 6; }
+.mag-row--blog.mag-row--flip .mag-img { grid-column: 8 / 13; }
+
+.mag-row--blog .mag-img img { height: min(48vh, 420px); }
+
+.mag-row--blog .mag-copy { grid-column: 6 / 11; }
+.mag-row--blog.mag-row--flip .mag-copy { grid-column: 3 / 8; }
+
+/* overlap anatomy on blog rows */
+.mag-row--blog.mag-row--overlap .mag-img { grid-column: 1 / 7; }
+.mag-row--blog.mag-row--overlap.mag-row--flip .mag-img { grid-column: 7 / 13; }
+.mag-row--blog.mag-row--overlap .mag-copy { grid-column: 5 / 10; margin-bottom: clamp(1.6rem, 4vw, 3rem); }
+.mag-row--blog.mag-row--overlap.mag-row--flip .mag-copy { grid-column: 4 / 9; }
+
+.mag-kicker {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.1rem;
+}
+
+.mag-row--blog h3 {
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    font-weight: 500;
+}
+
+.mag-row--blog h3 a {
+    text-decoration: none;
+    color: var(--paper);
+}
+
+.mag-row--blog h3 a:hover { text-decoration: underline; }
+
+.mag-date {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .12em;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+}
+
+/* --- responsive: stack; overlap panel pulls up onto the image --- */
+@media (max-width: 900px) {
+    .mag-row,
+    .mag-row--flip,
+    .mag-row--blog { grid-template-columns: 1fr; }
+
+    .mag-row .mag-img,
+    .mag-row--flip .mag-img,
+    .mag-row--overlap .mag-img,
+    .mag-row--overlap.mag-row--flip .mag-img,
+    .mag-row--blog .mag-img,
+    .mag-row--blog.mag-row--flip .mag-img,
+    .mag-row--blog.mag-row--overlap .mag-img,
+    .mag-row--blog.mag-row--overlap.mag-row--flip .mag-img {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .mag-img img { height: min(52vh, 440px); }
+    .mag-row--blog .mag-img img { height: min(40vh, 320px); }
+
+    .mag-row .mag-copy,
+    .mag-row--flip .mag-copy,
+    .mag-row--blog .mag-copy,
+    .mag-row--blog.mag-row--flip .mag-copy {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        padding: 1.6rem clamp(1.2rem, 5vw, 2rem) 0;
+    }
+
+    .mag-row--overlap .mag-copy,
+    .mag-row--overlap.mag-row--flip .mag-copy,
+    .mag-row--blog.mag-row--overlap .mag-copy,
+    .mag-row--blog.mag-row--overlap.mag-row--flip .mag-copy {
+        grid-column: 2 / 12;
+        margin: -3rem 0 0;
+        padding: 1.6rem 1.8rem;
+    }
+
+    .mag-row--flip .mag-img .select-cap { text-align: left; }
+}
+
+@media (max-width: 480px) {
+    .mag-copy h3 { font-size: 1.35rem; }
+    .mag-row { margin: 3.5rem 0; }
+}
+
+/* ==========================================================================
+   2026-09-16 — index-home.html (his ruled order 2026-09-14): brief band under
+   the montage (his description line + one button) and the three section
+   bands. Bands reuse the round-9 select-row anatomy; only the text sizing
+   changes because his lines are full sentences, not headlines.
+   ========================================================================== */
+.brief {
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* centered, his call 2026-09-22 ("move that pitch text to the center") */
+.brief-inner { text-align: center; }
+
+.brief h2 {
+    font-weight: 500;
+    font-size: clamp(1.6rem, 3.6vw, 2.8rem);
+    line-height: 1.12;
+    max-width: 30ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* services block under the pitch line, his text 2026-09-22 */
+.brief-services {
+    max-width: 62ch;
+    margin: 2.2rem auto 0;
+}
+
+.brief-services h3 {
+    font-weight: 500;
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    letter-spacing: 0.01em;
+    margin: 0 0 .8rem;
+}
+
+.brief-services p {
+    font-size: clamp(.95rem, 1.2vw, 1.05rem);
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0 0 .9rem;
+}
+
+.brief .mag-actions { margin-top: 1.8rem; justify-content: center; }
+
+/* section bands: sentence-length lines at a reading size */
+.select-row--band .select-copy h3 {
+    font-size: clamp(1.2rem, 2.1vw, 1.7rem);
+    line-height: 1.3;
+    max-width: 30ch;
+}
+
+.selects--bands .select-row { margin-bottom: clamp(3rem, 7vw, 6rem); }
+
+/* --- Portraits band slides (2026-09-16, his ask): three frames crossfading in a
+   fixed 3:2 box, three dots under the image. object-fit: cover so any shape he
+   supplies fills the box; .is-on marks the visible slide and the active dot. --- */
+.select-slides { position: relative; background: var(--ink-2); }
+
+.select-slides .slide {
+    position: absolute;
+    inset: 0;
+    display: block;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.select-slides .slide.is-on { opacity: 1; position: relative; }
+
+/* the first slide's flow height sets the box; the others stack on it */
+.select-slides .slide img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.select-slides:hover .slide img { transform: none; }
+
+.select-slides .slide-dots {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 2.2rem;
+    display: flex;
+    justify-content: center;
+    gap: .55rem;
+}
+
+.select-slides .slide-dots button {
+    width: 9px; height: 9px;
+    padding: 0;
+    border: 1px solid var(--paper);
+    border-radius: 50%;
+    background: transparent;
+    opacity: .7;
+    cursor: pointer;
+    transition: background .25s ease, opacity .25s ease;
+}
+
+.select-slides .slide-dots button.is-on,
+.select-slides .slide-dots button:hover { background: var(--paper); opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+    .select-slides .slide { transition: opacity .3s ease; }
+}

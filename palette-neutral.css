@@ -1,0 +1,28 @@
+/* PALETTE TRIAL — neutral dark, NO accent color.
+   Hypothesis: the photos carry all color; the chrome stays colorless
+   (the Noni/Calver discipline). Ground is pure neutral near-black — no tint.
+   Loads AFTER v2.css + cinematic.css; overrides tokens only. */
+
+:root {
+    --ink: #0b0b0c;          /* neutral near-black, no color cast */
+    --ink-2: #151517;
+    --paper: #ebe9e6;
+    --muted: #8b8b8d;
+    --accent: #ebe9e6;       /* accent = paper: labels/hovers are white, not colored */
+    --hairline: rgba(235, 233, 230, .08);
+}
+
+.stage:not(.stage--light) {
+    --stage-rgb: 11, 11, 12;
+    --scrim-rgb: 7, 7, 8;
+}
+
+/* light zone (Studio): "no accent" means near-ink there, not near-white */
+body.zone-light { --accent: #1a1b1e; }
+
+/* the tagline keyword keeps emphasis via underline instead of color */
+.tagline h2 .hl {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+}

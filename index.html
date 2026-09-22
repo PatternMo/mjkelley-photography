@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bay Area Photographer Michael J. Kelley</title>
     <meta name="description" content="Bay Area Architectural, Real Estate, Automotive, Headshot, Portrait & Landscape Photography | Michael J. Kelley">
-    
+
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230c0d0f'/%3E%3Cpath d='M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z' fill='none' stroke='%23e8531f' stroke-width='3.2' stroke-linejoin='round'/%3E%3Ctext x='32' y='34' text-anchor='middle' dominant-baseline='central' font-family='sans-serif' font-weight='700' font-size='30' fill='%23ece9e4'%3EM%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@600;700&display=block" rel="stylesheet">
+
     <!-- Schema Markup -->
     <script type="application/ld+json">
     {
@@ -341,191 +347,215 @@
     }
     </script>
 
-    <!-- Link to shared stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- All pages get this -->
-    <script src="shared.js"></script>
-    
-    <!-- Page-specific styles -->
-    <style>
-        /* Homepage-specific banner image */
-        .banner-image {
-            background-image: url('images/automotive/2017-porsche-911-targa-4S-exterior-passengers-side-profile.jpg');
-            background-position: center top; /* This crops from the bottom */
-        }
-        /* Phones and small tablets: the 1200px gallery derivative covers a 390px screen at 3x;
-           desktop keeps the 2400px original (responsive-images plan, 2026-09-11). */
-        @media (max-width: 768px) {
-            .banner-image {
-                background-image: url('images/automotive/thumbs/2017-porsche-911-targa-4S-exterior-passengers-side-profile-thumb-1200w.jpg');
-            }
-        }
-        
-        /* Homepage-specific service images */
-        .service:nth-child(1) .service-image {
-            background-image: url('images/architecture/thumbs/woodside-vineyard-estate-exterior-1-thumb.jpg');
-        }
-
-        .service:nth-child(2) .service-image {
-            background-image: url('images/automotive/thumbs/2023-Lamborghini-Huracan-STO-Exterior-front-thumb.jpg');
-        }
-
-        .service:nth-child(3) .service-image {
-            background-image: url('images/headshots/thumbs/headshot-professional-executive-team-studio-lighting-1-thumb.jpg');
-        }
-
-        .service:nth-child(4) .service-image {
-            background-image: url('images/portraits/thumbs/Outdoor-Portrait-Bride-Model-Beach-California-1-thumb.jpg');
-        }
-
-        .service:nth-child(5) .service-image {
-            background-image: url('images/landscape/thumbs/Landscape-Photography-El-Capitan-Yosemite-California-1-thumb.jpg');
-        }
-
-        .service:nth-child(6) .service-image {
-            background-image: url('images/engagement-couples/thumbs/Engagement-couples-golden-gate-park-san-francisco-1-thumb.jpg');
-        }      
-        
-        /* Override about-content grid for homepage */
-        .about-content {
-            display: block;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-
-
-    </style>
+    <link rel="stylesheet" href="v2.css">
+    <link rel="stylesheet" href="cinematic.css">
+    <link rel="stylesheet" href="palette-neutral.css">
+    <link rel="stylesheet" href="magazine.css">
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">Michael J. Kelley Photography</a>
-            <nav class="header-nav">
-                <div class="menu-toggle" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul id="nav-menu">
-                    <li class="dropdown">
-                        <a href="#portfolio">Work</a>
-                        <div class="dropdown-content">
-                            <a href="architecture-photography.html">Architecture</a>
-                            <a href="projects.html">Industrial/Engineering</a>
-                            <a href="studio.html">Portrait/Headshot</a>
-                            <a href="landscape-photography.html">Landscape</a>
-                        </div>
-                    </li>
-                    <li><a href="headshot-photography.html">Studio</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="video.html">Video</a></li>
-                    <li><a href="about-michael-j-kelley-photography.html">About</a></li>
-                    <li><a href="blog/index.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+
+<!-- Homepage: v2 build integrated 2026-09-22 from Web/prototypes/v2/index-home.html.
+     Stylesheets v2.css / cinematic.css / palette-neutral.css / magazine.css and cinematic.js
+     are used by this page only; every other page stays on styles.css. -->
+<body class="is-intro">
+
+    <!-- Header (overlays the stage on cinematic pages; shared.js hooks intact) -->
+    <header class="site-header site-header--overlay">
+        <a href="index.html" class="wordmark">
+            <svg class="navmark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z" fill="none" stroke="#e8531f" stroke-width="3.2" stroke-linejoin="round"/>
+                <text x="32" y="34" text-anchor="middle" dominant-baseline="central" font-family="'Chakra Petch',sans-serif" font-weight="700" font-size="30" fill="#ece9e4">M</text>
+            </svg>
+            Michael J. Kelley
+        </a>
+        <nav class="header-nav">
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="nav-menu">
+                <li class="dropdown">
+                    <a href="#portfolio">Work</a>
+                    <!-- WORK DROPDOWN: his order 2026-09-16 (terminal); targets RULED 2026-09-22
+                         (terminal, verbatim): "Architecture should go to current architecture page,
+                         studio goes to headshots page, portraits and headshots go to studio page.
+                         Landscape goes to the old landscape page and Industrial Engineering goes to
+                         the project page." Automotive is not in his list. -->
+                    <div class="dropdown-content">
+                        <a href="architecture-photography.html">Architecture</a>
+                        <a href="projects.html">Industrial/Engineering</a>
+                        <a href="studio.html">Portrait/Headshot</a>
+                        <a href="landscape-photography.html">Landscape</a>
+                    </div>
+                </li>
+                <li><a href="headshot-photography.html">Studio</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="blog/index.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Bay Area Photography Sessions</h1>
-            <p>Capturing narratives with imagery.<br>
-            </p>
-        </section>
+    <!-- 1. Cinematic opening -->
+    <section class="stage" id="stage" aria-label="Industrial photography montage">
+        <div class="hexbg" id="hexbg"></div>
+        <!-- image frames injected by cinematic.js -->
 
-        <!-- Banner Image -->
-        <div class="banner-image"></div>
+        <div class="intro" id="introName">
+            <h1>Michael J. Kelley</h1>
+            <div class="sub">Industrial &nbsp;<b>&middot;</b>&nbsp; Architectural &nbsp;<b>&middot;</b>&nbsp; Engineering</div>
+        </div>
 
-        <!-- Services Section -->
-        <section class="services">
-          <div class="services-grid">
-              <a href="architecture-photography.html" class="service">
-                  <div class="service-image"></div>
-                  <h3>Architectural Photography</h3>
-                  <p>Professional architectural photography throughout the Bay Area. Specializing in luxury homes, commercial spaces, and interior design.</p>
-              </a>
-              
-              <a href="automotive-photography.html" class="service">
-                  <div class="service-image"></div>
-                  <h3>Automotive Photography</h3>
-                  <p>Dynamic automotive photography for dealerships, collectors, and enthusiasts. Studio and location shoots showcasing vehicles at their finest.</p>
-              </a>
-              
-              <a href="headshot-photography.html" class="service">
-                  <div class="service-image"></div>
-                  <h3>Headshot Photography</h3>
-                  <p>Professional headshots in our Berkeley studio or on location. Corporate headshots, and creative portraiture for executives.</p>
-              </a>
-              
-              <a href="portraits.html" class="service">
-                  <div class="service-image"></div>
-                  <h3>Portrait Photography</h3>
-                  <p>Professional portraits in our Berkeley studio or on location. Modeling portfolios, actor portraits, and creative portraiture.</p>
-              </a>
-              
-              <a href="landscape-photography.html" class="service">
-                  <div class="service-image"></div>
-                  <h3>Landscape & Aerial</h3>
-                  <p>Fine art landscape photography and aerial perspectives. Part 107 certified for commercial drone operations throughout California.</p>
-              </a>
-              
-              <a href="engagement-couples-photography.html" class="service">
-                  <div class="service-image"></div>
-                  <h3>Engagement & Couples Photography</h3>
-                  <p>On location surprise engagement shoots around the Bay Area and studio couples photography.</p>
-              </a>
-          </div>
-</section>
+        <!-- EDIT: TAGLINE (round-2 scaffolding; his replacement pending) -->
+        <div class="tagline">
+            <h2>The spaces that are <span class="hl">hardest</span> to photograph.</h2>
+            <p>Showcasing your engineering and design solutions where most cameras struggle.</p>
+        </div>
 
-        <!-- About Section -->
-        <section class="about-section">
-            <div class="about-content">
-                <h2>Berkeley Studio & Bay Area Services</h2>
+        <div class="meta">
+            <div class="count"><b id="cNum">01</b> / <span id="cTot">09</span></div>
+            <div class="caption" id="cCap">ParkWorks Automation</div>
+        </div>
+
+        <div class="scroll-cue">Scroll</div>
+
+        <!-- foreground mask: hides chrome bands during intro, fades to reveal crisp chrome -->
+        <div class="reveal"></div>
+    </section>
+
+    <!-- 2. Brief band: his description line + one button. EDIT: BRIEF -->
+    <section class="brief">
+        <div class="brief-inner">
+            <div class="eyebrow">Industrial &middot; Architectural &middot; Engineering</div>
+            <h2>Shooting in spaces inhospitable to cameras and coming back with clear sharp images.</h2>
+            <!-- his text, verbatim (terminal, 2026-09-22) -->
+            <div class="brief-services">
+                <h3>Berkeley Studio &amp; Bay Area Services</h3>
                 <p>Based in Berkeley, California, I provide professional photography services throughout the San Francisco Bay Area. With over a decade of experience, I specialize in architectural, automotive, portrait, and landscape photography.</p>
                 <p>As a Part 107 certified drone pilot, I offer comprehensive aerial photography and videography services, combining ground-level and aerial perspectives for complete visual storytelling.</p>
             </div>
-        </section>
-    </main>
+            <div class="mag-actions">
+                <a class="mag-cta" href="contact.html">Discuss Your Project</a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <nav class="footer-nav">
-        <ul>
-            <li class="footer-dropdown">
-                <a href="#portfolio">Work</a>
-                <div class="footer-dropdown-content">
-                    <a href="architecture-photography.html">Architecture</a>
-                    <a href="projects.html">Industrial/Engineering</a>
-                    <a href="studio.html">Portrait/Headshot</a>
-                    <a href="landscape-photography.html">Landscape</a>
+    <!-- 3. Section bands REMOVED 2026-09-22 on his call ("take out the section
+         descriptions and images of the middle, not sure they're helping"). The
+         three bands (Architecture/Engineering, Automotive, Portraits slider) and
+         his three band lines live in git history and in the 2026-09-16 status
+         entry if they come back. -->
+
+    <!-- 4. BLOG SECTION (RULED round 3: full-width off-black band, entries
+         centered, no per-item read link). Future generator contract: one
+         marker, limit="4" variant="feature" — latest posts, newest
+         first, this markup. Hand-stamped preview: today's 3 posts. -->
+    <section class="mag-blog-section">
+        <div class="mag-blog-inner">
+            <div class="mag-kicker">From the Blog</div>
+
+            <div class="mag-blog-list">
+
+                <div class="mag-blog-item fade-item">
+                    <a class="mag-thumb" href="/blog/posts/reading-the-room-interior-design-translated-with-photography.html">
+                        <img src="/blog/images/half-moon-bay-living-room-curved-windows.jpg" alt="" loading="lazy">
+                    </a>
+                    <div>
+                        <div class="label">Interior Design</div>
+                        <h3><a href="/blog/posts/reading-the-room-interior-design-translated-with-photography.html">Reading the Room: Interior Design, Translated with Photography</a></h3>
+                        <p class="mag-blurb">Interior design photography is translation: a photographer reads the room the designer built and carries its mood into images clients can feel.</p>
+                        <div class="mag-date">August 27, 2026</div>
+                    </div>
                 </div>
-            </li>
-            <li><a href="headshot-photography.html">Studio</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="video.html">Video</a></li>
-            <li><a href="about-michael-j-kelley-photography.html">About</a></li>
-            <li><a href="blog/index.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+
+                <div class="mag-blog-item fade-item">
+                    <a class="mag-thumb" href="/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html">
+                        <img src="/blog/images/1990-ferrari-testarossa-front-three-quarter-marin-county.jpg" alt="" loading="lazy">
+                    </a>
+                    <div>
+                        <div class="label">Automotive</div>
+                        <h3><a href="/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html">Why One Car Needs 200 Photos For An Auction Listing</a></h3>
+                        <p class="mag-blurb">In automotive auction photography, the 150-photo set is the test drive for bidders who never sit behind the wheel.</p>
+                        <div class="mag-date">July 30, 2026</div>
+                    </div>
+                </div>
+
+                <div class="mag-blog-item fade-item">
+                    <a class="mag-thumb" href="/blog/posts/real-estate-photography-roi-which-visual-assets-actually-move-properties.html">
+                        <img src="/blog/images/dji-0923-hdr-edit.jpg" alt="" loading="lazy">
+                    </a>
+                    <div>
+                        <div class="label">Real Estate</div>
+                        <h3><a href="/blog/posts/real-estate-photography-roi-which-visual-assets-actually-move-properties.html">Real Estate Photography ROI: Which Visual Assets Actually Move Properties</a></h3>
+                        <p class="mag-blurb">The industry data on which listing visuals actually pay: photos, aerials, 3D tours, video, and twilight shots.</p>
+                        <div class="mag-date">July 24, 2026</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Footer -->
+    <footer class="site-footer">
+        <nav class="footer-navigation">
+            <ul>
+                <li class="footer-dropdown">
+                    <a href="#portfolio">Work</a>
+                    <div class="footer-dropdown-content">
+                        <a href="architecture-photography.html">Architecture</a>
+                        <a href="projects.html">Industrial/Engineering</a>
+                        <a href="studio.html">Portrait/Headshot</a>
+                        <a href="landscape-photography.html">Landscape</a>
+                    </div>
+                </li>
+                <li><a href="headshot-photography.html">Studio</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="about-michael-j-kelley-photography.html">About</a></li>
+                <li><a href="blog/index.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
-        
+
         <div class="social-icons">
             <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
             <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
             <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
             <a href="https://www.facebook.com/mjkelleyphoto" class="social-icon">FB</a>
         </div>
-        
+
         <div class="copyright">
             © 2025 Michael J. Kelley Photography | All Rights Reserved.
         </div>
     </footer>
+
+    <script src="shared.js"></script>
+    <script src="cinematic.js"></script>
+    <script>
+        // ===== EDIT: MONTAGE — his 2026-09-14 picks; opens on Brittan 8 (Brittan 9 pulled 2026-09-16: unlevel/distorted at full size).
+        // No portraits in the banner (his ruling 2026-09-16). Intuit frame pending his edit.
+        // `pos` = background-position for phone crops (optional; default center).
+        var PW = 'images/projects/parkworks-automation/';
+        var NOVA = 'images/projects/1965-chevrolet-nova/';
+        Cinematic.init({
+            frames: [
+                { src: PW + '1030-brittan-san-carlos/parkworks-automation-1030-brittan-san-carlos-8.jpg',       cap: 'ParkWorks Automation — 1030 Brittan, San Carlos' },
+                { src: PW + 'hunters-view-san-francisco/parkworks-automation-hunters-view-san-francisco-3.jpg', cap: 'ParkWorks Automation — Hunters View, San Francisco' },
+                { src: PW + 'felix-apartments-santa-rosa/parkworks-automation-felix-apartments-santa-rosa-7.jpg', cap: 'ParkWorks Automation — Felix Apartments, Santa Rosa' },
+                { src: NOVA + '1965-chevrolet-nova-168.jpg',                                                     cap: '1965 Chevrolet Nova — Auction Listing' },
+                { src: 'images/home/berkeley-commons-twilight-aerial-2400.jpg',                                   cap: 'Berkeley Commons — Twilight Aerial' },
+                { src: PW + '1030-brittan-san-carlos/parkworks-automation-1030-brittan-san-carlos-6.jpg',       cap: 'ParkWorks Automation — 1030 Brittan, San Carlos' },
+                { src: 'images/home/2004-ferrari-360-spider-engine-bay-los-gatos-2400.jpg',                       cap: '2004 Ferrari 360 Spider — Engine Bay' },
+                { src: PW + 'hunters-view-san-francisco/parkworks-automation-hunters-view-san-francisco-4.jpg', cap: 'ParkWorks Automation — Hunters View, San Francisco' },
+                { src: NOVA + '1965-chevrolet-nova-165.jpg',                                                     cap: '1965 Chevrolet Nova — Auction Listing' }
+            ]
+        });
+
+        // reveal the blog items as they scroll into view (shared.js)
+        initializeScrollFadeIn('.fade-item');
+    </script>
 </body>
 </html>

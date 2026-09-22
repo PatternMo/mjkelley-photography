@@ -1,0 +1,237 @@
+/* ==========================================================================
+   cinematic.css — reusable cinematic-opening component (PROTOTYPE v2)
+   Extracted from prototypes/prototype-homepage.html. Used by index, studio,
+   and landscape pages, each with its own words + montage (cinematic.js).
+
+   Color-tokenized: the dark default lives on .stage; the Studio page adds
+   .stage--light for the warm bone treatment. The reveal-mask gradient and
+   the stage ground MUST come from the same variable (--stage-rgb) or the
+   mask edge becomes visible during the intro.
+
+   Behavior invariants preserved from the prototype (do not "simplify"):
+   - Chrome text is NEVER opacity-faded (browsers composite it soft, then it
+     pops crisp). The .reveal gradient mask hides chrome bands during the
+     intro and fades away instead. Chrome stays opacity 1 throughout.
+   - Honeycomb (z9) + intro name (z10) sit ABOVE the mask (z8); chrome (z7)
+     sits below it.
+   - Each montage frame Ken-Burns drifts in ONE direction then freezes
+     (cinematic.js drives transform/transition inline).
+   ========================================================================== */
+
+.stage {
+    /* dark defaults — override via .stage--light */
+    --stage-rgb: 12, 13, 15;             /* ground: reveal mask + intro cover */
+    --scrim-rgb: 8, 9, 11;               /* vignette scrim over the photos */
+    --stage-ground: rgb(var(--stage-rgb));
+    --stage-text: var(--paper);
+    --stage-muted: var(--muted);
+
+    position: relative;
+    height: 100svh;
+    width: 100%;
+    overflow: hidden;
+    background: var(--stage-ground);
+    color: var(--stage-text);
+}
+
+.stage--light {
+    --stage-rgb: 243, 240, 234;          /* warm bone (Studio zone) */
+    --scrim-rgb: 246, 243, 238;
+    --stage-text: var(--ink);
+    --stage-muted: #6f6e68;
+}
+
+/* stacked image layers; opacity + one-direction zoom driven inline by JS */
+.frame {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background-size: cover;
+    background-position: center;
+    will-change: opacity, transform;
+}
+
+.frame.active { opacity: 1; }
+
+/* vignette so chrome reads over the photo; photo stays dominant */
+.stage::before {
+    content: "";
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background:
+        linear-gradient(to bottom,
+            rgba(var(--scrim-rgb), .55) 0%,
+            rgba(var(--scrim-rgb), 0) 22%,
+            rgba(var(--scrim-rgb), 0) 60%,
+            rgba(var(--scrim-rgb), .75) 100%);
+}
+
+/* full ground cover during intro, lifts when body.lit */
+.stage::after {
+    content: "";
+    position: absolute; inset: 0; z-index: 3; pointer-events: none;
+    background: var(--stage-ground);
+    opacity: 1;
+    transition: opacity 2s ease;
+}
+
+body.lit .stage::after { opacity: 0; }
+
+/* faint honeycomb the name arrives over; dissolves once settled */
+.hexbg {
+    position: absolute; inset: 0; z-index: 9; pointer-events: none;
+    opacity: .05;                          /* EDIT: honeycomb faintness */
+    color: var(--stage-text);              /* SVG strokes use currentColor */
+    transition: opacity 1.8s ease;
+}
+
+.hexbg svg { width: 100%; height: 100%; display: block; }
+
+body.settled .hexbg { opacity: 0; }
+
+/* ---------- intro name (cinematic open) ---------- */
+.intro {
+    position: absolute; inset: 0; z-index: 10;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 1.5rem;
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.intro h1 {
+    font-weight: 600;
+    font-size: clamp(2rem, 7vw, 6rem);
+    letter-spacing: 0.01em;
+    line-height: 1.0;
+    color: var(--stage-text);
+    opacity: 0; transform: translateY(14px);
+    animation: cinematic-rise var(--intro-name-in, 1.2s) ease forwards .35s;
+}
+
+.intro .sub {
+    margin-top: 1.1rem;
+    font-family: var(--mono);
+    font-size: clamp(.62rem, 1.5vw, .82rem);
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--stage-muted);
+    opacity: 0; transform: translateY(10px);
+    animation: cinematic-rise 1s ease forwards 1.0s;
+}
+
+.intro .sub b { color: var(--accent); font-weight: 400; }
+
+@keyframes cinematic-rise { to { opacity: 1; transform: translateY(0); } }
+
+/* hold the name until fonts are ready — no FOUT jolt */
+.intro h1, .intro .sub { animation-play-state: paused; }
+body.fonts-ready .intro h1, body.fonts-ready .intro .sub { animation-play-state: running; }
+
+body.settled .intro { opacity: 0; transform: translateY(-18px); pointer-events: none; }
+
+/* ---------- reveal mask (hides chrome bands during intro) ---------- */
+.reveal {
+    position: absolute; inset: 0; z-index: 8; pointer-events: none;
+    background: linear-gradient(to bottom,
+        rgb(var(--stage-rgb)) 0%,
+        rgb(var(--stage-rgb)) 18%,
+        rgba(var(--stage-rgb), 0) 34%,
+        rgba(var(--stage-rgb), 0) 60%,
+        rgb(var(--stage-rgb)) 72%,
+        rgb(var(--stage-rgb)) 100%);
+    opacity: 1; transition: opacity 1.2s ease;
+}
+
+body.settled .reveal { opacity: 0; }
+
+/* ---------- stage chrome: tagline (bottom-left) ---------- */
+.tagline {
+    position: absolute;
+    left: clamp(1.2rem, 4vw, 3rem);
+    bottom: clamp(1.6rem, 5vh, 3rem);
+    z-index: 7;
+    max-width: min(46ch, 78vw);
+}
+
+.tagline h2 {
+    font-weight: 500;
+    line-height: 1.08;
+    font-size: clamp(1.4rem, 3.4vw, 2.6rem);
+    letter-spacing: -0.005em;
+    color: var(--stage-text);
+}
+
+.tagline h2 .hl { color: var(--accent); }
+
+.tagline p {
+    margin-top: .75rem;
+    font-family: var(--mono);
+    font-size: clamp(.66rem, 1.4vw, .8rem);
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: var(--stage-text);
+    opacity: .85;
+    max-width: 42ch;
+}
+
+/* ---------- counter + caption (bottom-right, engineering readout) ---------- */
+.meta {
+    position: absolute;
+    right: clamp(1.2rem, 4vw, 3rem);
+    bottom: clamp(1.6rem, 5vh, 3rem);
+    z-index: 7;
+    text-align: right;
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: 0.1em;
+    color: var(--stage-text);
+}
+
+.meta .count b { color: var(--accent); font-weight: 400; }
+
+.meta .caption {
+    margin-top: .4rem;
+    color: var(--stage-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: .64rem;
+}
+
+/* ---------- scroll cue ---------- */
+.scroll-cue {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    bottom: 1.4rem; z-index: 7;
+    font-family: var(--mono);
+    font-size: .6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--stage-muted);
+    opacity: .7;
+    animation: cinematic-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes cinematic-pulse { 0%,100%{ opacity:.35 } 50%{ opacity:.85 } }
+
+/* ---------- phones: stack the chrome (2026-09-22; the tagline sub-line, the
+   caption and the scroll cue overlapped at 400px, seen on the 09-16 capture) ---------- */
+@media (max-width: 640px) {
+    .tagline { max-width: calc(100vw - 2.4rem); bottom: 4.2rem; }
+    .meta {
+        left: 1.2rem; right: 1.2rem; bottom: 1.3rem;
+        display: flex; align-items: baseline; gap: .8rem;
+        text-align: left;
+    }
+    .meta .count { flex: none; }
+    .meta .caption {
+        margin-top: 0; min-width: 0;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .scroll-cue { display: none; }
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .frame, .frame.active { transition: opacity .4s ease; transform: none; }
+    .intro h1, .intro .sub { animation-duration: .4s; }
+    .scroll-cue { animation: none; }
+}
