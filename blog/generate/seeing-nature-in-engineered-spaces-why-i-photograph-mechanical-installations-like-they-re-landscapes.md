@@ -5,7 +5,7 @@ description: "A parking garage is a forest with the lights off. How a photograph
 author: "Michael J. Kelley"
 image: "/blog/images/forest-light-beams-san-francisco-peninsula.jpg"
 image_caption: "Light beams streaming through a forest, San Francisco Peninsula, CA."
-category: "Industrial"
+category: "Engineering"
 tags: ["industrial photography", "mechanical installation photography", "automated parking system photography", "parking garage photography", "engineering firm photography"]
 ---
 
