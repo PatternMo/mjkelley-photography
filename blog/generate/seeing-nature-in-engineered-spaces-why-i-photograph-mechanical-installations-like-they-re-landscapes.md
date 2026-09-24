@@ -177,7 +177,7 @@ The third garage installation, in San Carlos, had lighting design inside the act
 
 I’m careful not to make these spaces unrealistically bright. You want the places that are dark to keep some of that shadow. On the Monterey column, I left the car segments on the left and right darker. It just looked better to me.
 
-It’s okay to use darkness and shadow as you would use light. It can help craft the mood, make objects and machinery look three-dimensional. Leaving aspects of the image dark, I can veil the parts of the garage that don’t flatter the photography or the place. Traffic cones packed into a corner, elements that don’t help the main subject.
+It’s okay to use darkness and shadow as you would use light. It can help craft the mood, make objects and machinery look three-dimensional. Leaving aspects of the image dark, I can veil the parts of the garage that don’t flatter the photography or the place. Traffic cones packed into a corner, elements that don’t contribute to the subject.
 
 Sometimes I am reducing the visual mess with shadow. I use shadow to focus and draw attention to the well-lit mechanical aspects or the car traveling through the system.
 
