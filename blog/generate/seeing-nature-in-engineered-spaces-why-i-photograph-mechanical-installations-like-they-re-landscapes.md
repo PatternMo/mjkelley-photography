@@ -137,7 +137,7 @@ You learn how to read it.
 
 And create it.
 
-If there is an opening, I always look for that first. I ask the client for any photographs they have from the build, and I correlate those with a sun study that maps the light coming into the building throughout the day. Then I try to time the shoot for the best light streaming in, if it has any.
+Is there an opening for natural light? I always look for that first. I ask the client for any photographs they have from the build, and I correlate those with a sun study that maps the light coming into the building throughout the day. Then I try to time the shoot for the best light streaming in, if it has any.
 
 Most garages don’t.
 
