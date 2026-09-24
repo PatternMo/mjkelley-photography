@@ -191,12 +191,12 @@ This is also the mindset at work.
 
 The first time I shot one of these garages, I felt like I was going beyond my creative capacity, pushing into uncharted territory. I didn’t exactly feel like I knew how to shoot a space like this. The experience is similar to approaching the blank page on a new topic. Even though you’ve written before, a new subject feels a bit like the first time all over again.
 
-I use architecture techniques in the composite and in the lighting. I use luxury real estate framing for the one-point and two-point shots. I use car photography to place the car so it takes on desirable reflections on the platform and not distracting overexposed pieces of light. I use portraiture lighting for the mid-range and close-up shots of the panels and the things people interact with. Motion blur is an architecture and lifestyle technique. And I use landscape knowledge for thinking about the space, the sense of the space, and what light exists in there.
-
 <figure>
 <img src="/blog/images/parkworks-hunters-view-one-point-taillights.jpg" alt="Rear view of a car with taillights lit, centered on a parking platform between steel posts and chains, orange floor plate in front">
 <figcaption>One-point shot of the car inside the system, taillights on, Hunters View, San Francisco, CA.</figcaption>
 </figure>
+
+I use architecture techniques in the composite and in the lighting. I use luxury real estate framing for the one-point and two-point shots. I use car photography to place the car so it takes on desirable reflections on the platform and not distracting overexposed pieces of light. I use portraiture lighting for the mid-range and close-up shots of the panels and the things people interact with. Motion blur is an architecture and lifestyle technique. And I use landscape knowledge for thinking about the space, the sense of the space, and what light exists in there.
 
 I’m using the entirety of my experience as a photographer to approach a challenge like this and to find solutions for this environment.
 
