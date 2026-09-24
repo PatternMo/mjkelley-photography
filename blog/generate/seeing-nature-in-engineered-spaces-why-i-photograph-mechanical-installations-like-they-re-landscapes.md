@@ -179,8 +179,6 @@ I’m careful not to make these spaces unrealistically bright. You want the plac
 
 It’s okay to use darkness and shadow as you would use light. It can help craft the mood, make objects and machinery look three-dimensional. Leaving aspects of the image dark, I can veil the parts of the garage that don’t flatter the photography or the place. Traffic cones packed into a corner, elements that don’t contribute to the subject.
 
-Sometimes I am reducing the visual mess with shadow. I use shadow to focus and draw attention to the well-lit mechanical aspects or the car traveling through the system.
-
 You can let go of detail in the shadows more in these spaces than you would in an architecture or luxury real estate shoot.
 
 > "When possible, I use dramatic lighting to focus on the worker, to create theatrical effect, and also to obscure all the visual clutter that is omnipresent in factories." —[Christopher Payne](https://youtu.be/Rn9Cs8Q6gAs), photographer
@@ -201,6 +199,5 @@ I use architecture techniques in the composite and in the lighting. I use luxury
 I’m using the entirety of my experience as a photographer to approach a challenge like this and to find solutions for this environment.
 
 The first time I shot one of these garages, I felt like I was going beyond my creative capacity, pushing into uncharted territory. I didn’t exactly feel like I knew how to shoot a space like this. The experience is similar to approaching the blank page on a new topic even though you’ve written before. A new subject feels a bit like the first time all over again.
-
 
 Know the subject from a starting place. For me it was the forest light epiphany. Branch out from there. That is what liberated me to shoot these spaces without struggling and guessing on every shot. It let me see their beauty, connect with it, and work to capture it.
