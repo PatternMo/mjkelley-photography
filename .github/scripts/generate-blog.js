@@ -52,9 +52,19 @@ const toDateParts = (d) => {
 };
 
 const firstCategory = (data) => {
+  if (Array.isArray(data.category)) return data.category.length ? String(data.category[0]) : '';
   if (data.category) return data.category;
   if (Array.isArray(data.tags) && data.tags.length) return String(data.tags[0]);
   return '';
+};
+
+// Displayed category label (2026-09-24, his request "Engineering and
+// Landscape"): `category` may be a front-matter array; every entry shows,
+// joined with a middle dot, while related-post matching keys on the FIRST
+// entry only (firstCategory). A plain string behaves exactly as before.
+const categoryLabel = (data) => {
+  if (Array.isArray(data.category)) return data.category.map(c => String(c).trim()).filter(Boolean).join(' \u00b7 ');
+  return firstCategory(data);
 };
 
 // The category key used for related-post matching is the DISPLAYED category
@@ -516,7 +526,7 @@ async function generatePosts() {
     const { data, content } = matter(raw);
     const slug = toSlug(data.title, file);
     const { iso: date_iso, human: date_human } = toDateParts(data.date);
-    const category = firstCategory(data);
+    const category = categoryLabel(data);
     return {
       title: safe(data.title),
       description: safe(data.description),
@@ -526,7 +536,7 @@ async function generatePosts() {
       date_iso,
       date_human,
       category,
-      relatedKey: normalizeKey(category),
+      relatedKey: normalizeKey(firstCategory(data)),
       slug,
       url: `/blog/posts/${slug}.html`,
       content,
