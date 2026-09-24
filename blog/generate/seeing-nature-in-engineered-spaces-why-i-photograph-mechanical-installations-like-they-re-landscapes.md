@@ -189,6 +189,8 @@ This is also the mindset at work.
 
 ## Layering All the Experience: What a Mindset Accomplishes
 
+The first time I shot one of these garages, I felt like I was going beyond my creative capacity, pushing into uncharted territory. I didn’t exactly feel like I knew how to shoot a space like this. The experience is similar to approaching the blank page on a new topic. Even though you’ve written before, a new subject feels a bit like the first time all over again.
+
 I use architecture techniques in the composite and in the lighting. I use luxury real estate framing for the one-point and two-point shots. I use car photography to place the car so it takes on desirable reflections on the platform and not distracting overexposed pieces of light. I use portraiture lighting for the mid-range and close-up shots of the panels and the things people interact with. Motion blur is an architecture and lifestyle technique. And I use landscape knowledge for thinking about the space, the sense of the space, and what light exists in there.
 
 <figure>
@@ -198,6 +200,4 @@ I use architecture techniques in the composite and in the lighting. I use luxury
 
 I’m using the entirety of my experience as a photographer to approach a challenge like this and to find solutions for this environment.
 
-The first time I shot one of these garages, I felt like I was going beyond my creative capacity, pushing into uncharted territory. I didn’t exactly feel like I knew how to shoot a space like this. The experience is similar to approaching the blank page on a new topic even though you’ve written before. A new subject feels a bit like the first time all over again.
-
-Know the subject from a starting place. For me it was the forest light epiphany. Branch out from there. That is what liberated me to shoot these spaces without struggling and guessing on every shot. It let me see their beauty, connect with it, and work to capture it.
+The process begins with learning about the subject in some way. Knowing what you’re shooting and then connecting with it. For me it was the forest light epiphany that let me into the subject. Once you have a starting place like that, you can branch out from there. This is how I was liberated to shoot these spaces without struggling and guessing on every shot. It let me see their beauty, connect with it, and try to capture it.
