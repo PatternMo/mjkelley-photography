@@ -405,6 +405,17 @@ function renderFeatureItems(items) {
   }).join('\n\n');
 }
 
+// One .post-tag pill per category (2026-09-24, his call "two different
+// tags"): the templates carry the literal <span class="post-tag">{{category}}</span>
+// (and the featured variant); the generator swaps that whole literal for one
+// span per entry so a list renders as separate pills with no template edit.
+const TAG_LITERAL = '<span class="post-tag">{{category}}</span>';
+const FEATURED_TAG_LITERAL = '<span class="post-tag">{{featured_category}}</span>';
+function categoryTagsHtml(p) {
+  const cats = (p.categories && p.categories.length) ? p.categories : (p.category ? [p.category] : []);
+  return cats.map(c => `<span class="post-tag">${escapeHtml(c)}</span>`).join(' ');
+}
+
 // --- static-page stamping ----------------------------------------------------
 
 const MARKER_BEGIN = '<!-- RELATED-POSTS:BEGIN';
@@ -527,6 +538,9 @@ async function generatePosts() {
     const slug = toSlug(data.title, file);
     const { iso: date_iso, human: date_human } = toDateParts(data.date);
     const category = categoryLabel(data);
+    const categories = Array.isArray(data.category)
+      ? data.category.map(c => safe(String(c).trim())).filter(Boolean)
+      : (category ? [category] : []);
     return {
       title: safe(data.title),
       description: safe(data.description),
@@ -536,6 +550,7 @@ async function generatePosts() {
       date_iso,
       date_human,
       category,
+      categories,
       relatedKey: normalizeKey(firstCategory(data)),
       slug,
       url: `/blog/posts/${slug}.html`,
@@ -560,6 +575,7 @@ async function generatePosts() {
     const continueReadingHtml = renderRelatedBlock(related, 'Continue Reading:');
 
     const finalPostHtml = postTemplate
+      .split(TAG_LITERAL).join(categoryTagsHtml(p))
       .replace(/{{hero_caption}}/g, () => heroCaptionHtml)
       .replace(/{{continue_reading}}/g, () => continueReadingHtml)
       .replace(/{{title}}/g, () => p.title)
@@ -601,7 +617,7 @@ async function generatePosts() {
                 </h1>
                 <div class="post-meta">
                     <time datetime="${safe(p.date_iso)}">${safe(p.date_human)}</time>
-                    <span class="post-tag">${safe(p.category)}</span>
+                    ${categoryTagsHtml(p)}
                 </div>${heroHtml}
                 </div>
                 <div class="post-content">
@@ -617,6 +633,7 @@ async function generatePosts() {
       .replace(/{{featured_url}}/g, f.url)
       .replace(/{{featured_date_iso}}/g, safe(f.date_iso))
       .replace(/{{featured_date_human}}/g, safe(f.date_human))
+      .split(FEATURED_TAG_LITERAL).join(categoryTagsHtml(f))
       .replace(/{{featured_category}}/g, safe(f.category))
       .replace(/{{featured_hero_srcset}}/g, () => heroSrcsetAttrs(f.image))
       .replace(/{{featured_hero}}/g, safe(f.image))
