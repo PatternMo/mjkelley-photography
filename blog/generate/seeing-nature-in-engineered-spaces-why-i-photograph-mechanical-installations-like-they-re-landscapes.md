@@ -168,7 +168,7 @@ Shooting it was like shooting a tree in a forest and having the focus be on that
 
 ## Using Darkness and Shadow to Emphasize the Subject
 
-The third garage installation, in San Carlos, had lighting design inside the actual parking system, so I got inside the system and used its own lights as the source to set the mood and tone. Dark, good dark. I was able to make it look sci-fi and cinematic.
+The third garage installation, in San Carlos, had lighting design inside the actual parking system, so I got inside the system and used its own lights as the source to set the mood and tone. I was able to make it look sci-fi and cinematic.
 
 <figure>
 <img src="/blog/images/parkworks-1030-brittan-system-own-lights.jpg" alt="A dark blue-toned automated parking system lit by a single vertical light strip, cars on platforms receding into shadow">
