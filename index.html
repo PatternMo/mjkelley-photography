@@ -7,7 +7,7 @@
     <meta name="description" content="Bay Area Architectural, Real Estate, Automotive, Headshot, Portrait & Landscape Photography | Michael J. Kelley">
 
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230c0d0f'/%3E%3Cpath d='M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z' fill='none' stroke='%23e8531f' stroke-width='3.2' stroke-linejoin='round'/%3E%3Ctext x='32' y='34' text-anchor='middle' dominant-baseline='central' font-family='sans-serif' font-weight='700' font-size='30' fill='%23ece9e4'%3EM%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230c0d0f'/%3E%3Cpath d='M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z' fill='none' stroke='%23ece9e4' stroke-width='3.2' stroke-linejoin='round'/%3E%3Ctext x='32' y='34' text-anchor='middle' dominant-baseline='central' font-family='sans-serif' font-weight='700' font-size='30' fill='%23ece9e4'%3EM%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@600;700&display=block" rel="stylesheet">
@@ -22,7 +22,7 @@
           "@id": "https://www.mjkelleyphoto.com/#business",
           "name": "Michael J. Kelley Photography",
           "alternateName": "MJK Photography",
-          "description": "Professional photography services in the San Francisco Bay Area specializing in architectural, automotive, portrait, and landscape photography. Part 107 certified drone pilot offering aerial photography and videography.",
+          "description": "Professional photography services in the San Francisco Bay Area specializing in architectural, industrial and engineering, automotive, and portrait photography. Part 107 certified drone pilot offering aerial photography and videography.",
           "url": "https://www.mjkelleyphoto.com",
           "logo": {
             "@type": "ImageObject",
@@ -365,7 +365,7 @@
                 <path d="M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z" fill="none" stroke="#e8531f" stroke-width="3.2" stroke-linejoin="round"/>
                 <text x="32" y="34" text-anchor="middle" dominant-baseline="central" font-family="'Chakra Petch',sans-serif" font-weight="700" font-size="30" fill="#ece9e4">M</text>
             </svg>
-            Michael J. Kelley
+            Michael J. Kelley Photography
         </a>
         <nav class="header-nav">
             <div class="menu-toggle" onclick="toggleMenu()">
@@ -383,8 +383,9 @@
                          the project page." Automotive is not in his list. -->
                     <div class="dropdown-content">
                         <a href="architecture-photography.html">Architecture</a>
+                        <a href="automotive-photography.html">Automotive</a>
                         <a href="projects.html">Industrial/Engineering</a>
-                        <a href="studio.html">Portrait/Headshot</a>
+                        <a href="headshot-photography.html">Portrait/Headshot</a>
                         <a href="landscape-photography.html">Landscape</a>
                     </div>
                 </li>
@@ -433,7 +434,7 @@
             <!-- his text, verbatim (terminal, 2026-09-22) -->
             <div class="brief-services">
                 <h3>Berkeley Studio &amp; Bay Area Services</h3>
-                <p>Based in Berkeley, California, I provide professional photography services throughout the San Francisco Bay Area. With over a decade of experience, I specialize in architectural, automotive, portrait, and landscape photography.</p>
+                <p>Based in Berkeley, California, I provide professional photography services throughout the San Francisco Bay Area. With over a decade of experience, I specialize in architectural, industrial and engineering, automotive, and portrait photography.</p>
                 <p>As a Part 107 certified drone pilot, I offer comprehensive aerial photography and videography services, combining ground-level and aerial perspectives for complete visual storytelling.</p>
             </div>
             <div class="mag-actions">
@@ -449,50 +450,66 @@
          entry if they come back. -->
 
     <!-- 4. BLOG SECTION (RULED round 3: full-width off-black band, entries
-         centered, no per-item read link). Future generator contract: one
-         marker, limit="4" variant="feature" — latest posts, newest
-         first, this markup. Hand-stamped preview: today's 3 posts. -->
+         centered, no per-item read link). Generator-stamped since
+         2026-09-24 (his call): the RELATED-POSTS marker pair below, with
+         limit="4" variant="feature", is filled by .github/scripts/
+         generate-blog.js on every push with the latest four posts, newest
+         first, in this markup. Do not hand-edit the cards. -->
     <section class="mag-blog-section">
         <div class="mag-blog-inner">
             <div class="mag-kicker">From the Blog</div>
 
             <div class="mag-blog-list">
 
+                <!-- RELATED-POSTS:BEGIN limit="4" variant="feature" -->
+                        <div class="mag-blog-item fade-item">
+                    <a class="mag-thumb" href="/blog/posts/seeing-nature-in-engineered-spaces-why-i-photograph-mechanical-installations-like-they-re-landscapes.html">
+                        <img src="/blog/images/forest-light-beams-san-francisco-peninsula-600.jpg" alt="" loading="lazy">
+                    </a>
+                    <div>
+                        <div class="label">Industrial</div>
+                        <h3><a href="/blog/posts/seeing-nature-in-engineered-spaces-why-i-photograph-mechanical-installations-like-they-re-landscapes.html">Seeing Nature in Engineered Spaces: Why I Photograph Mechanical Installations Like They’re Landscapes</a></h3>
+                        <p class="mag-blurb">A parking garage is a forest with the lights off. How a photographer reads an engineered space, then lights it so the system shows what it does.</p>
+                        <div class="mag-date">September 24, 2026</div>
+                    </div>
+                </div>
+
+                <div class="mag-blog-item fade-item">
+                    <a class="mag-thumb" href="/blog/posts/the-most-important-photos-in-a-car-auction-listing-might-be-the-floor-mats.html">
+                        <img src="/blog/images/2018-bmw-430i-convertible-passenger-side-floor-mat-600.jpg" alt="" loading="lazy">
+                    </a>
+                    <div>
+                        <div class="label">Automotive</div>
+                        <h3><a href="/blog/posts/the-most-important-photos-in-a-car-auction-listing-might-be-the-floor-mats.html">The Most Important Photos in a Car Auction Listing Might Be the Floor Mats</a></h3>
+                        <p class="mag-blurb">About 92% of an auction gallery is detail shots: seat edges, stitching, headrests—all show a car&#39;s condition and help build trust with potential bidders.</p>
+                        <div class="mag-date">September 8, 2026</div>
+                    </div>
+                </div>
+
+                <div class="mag-blog-item fade-item">
+                    <a class="mag-thumb" href="/blog/posts/how-airbnb-photography-helps-you-book-instead-of-bleed-guests-and-when-hiring-a-pro-is-a-mistake.html">
+                        <img src="/blog/images/sf-victorian-living-room-600.jpg" alt="" loading="lazy">
+                    </a>
+                    <div>
+                        <div class="label">Interiors</div>
+                        <h3><a href="/blog/posts/how-airbnb-photography-helps-you-book-instead-of-bleed-guests-and-when-hiring-a-pro-is-a-mistake.html">How Airbnb Photography Helps You Book Instead of Bleed Guests (and When Hiring a Pro Is a Mistake)</a></h3>
+                        <p class="mag-blurb">In a rental listing, photos are the &quot;what am I getting&quot; half of the guest&#39;s decision. Find out the real numbers on hiring a pro and when to use your iPhone instead.</p>
+                        <div class="mag-date">August 31, 2026</div>
+                    </div>
+                </div>
+
                 <div class="mag-blog-item fade-item">
                     <a class="mag-thumb" href="/blog/posts/reading-the-room-interior-design-translated-with-photography.html">
-                        <img src="/blog/images/half-moon-bay-living-room-curved-windows.jpg" alt="" loading="lazy">
+                        <img src="/blog/images/half-moon-bay-living-room-curved-windows-600.jpg" alt="" loading="lazy">
                     </a>
                     <div>
                         <div class="label">Interior Design</div>
-                        <h3><a href="/blog/posts/reading-the-room-interior-design-translated-with-photography.html">Reading the Room: Interior Design, Translated with Photography</a></h3>
+                        <h3><a href="/blog/posts/reading-the-room-interior-design-translated-with-photography.html">Reading the Room: Interior Design Translated with Photography</a></h3>
                         <p class="mag-blurb">Interior design photography is translation: a photographer reads the room the designer built and carries its mood into images clients can feel.</p>
                         <div class="mag-date">August 27, 2026</div>
                     </div>
                 </div>
-
-                <div class="mag-blog-item fade-item">
-                    <a class="mag-thumb" href="/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html">
-                        <img src="/blog/images/1990-ferrari-testarossa-front-three-quarter-marin-county.jpg" alt="" loading="lazy">
-                    </a>
-                    <div>
-                        <div class="label">Automotive</div>
-                        <h3><a href="/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html">Why One Car Needs 200 Photos For An Auction Listing</a></h3>
-                        <p class="mag-blurb">In automotive auction photography, the 150-photo set is the test drive for bidders who never sit behind the wheel.</p>
-                        <div class="mag-date">July 30, 2026</div>
-                    </div>
-                </div>
-
-                <div class="mag-blog-item fade-item">
-                    <a class="mag-thumb" href="/blog/posts/real-estate-photography-roi-which-visual-assets-actually-move-properties.html">
-                        <img src="/blog/images/dji-0923-hdr-edit.jpg" alt="" loading="lazy">
-                    </a>
-                    <div>
-                        <div class="label">Real Estate</div>
-                        <h3><a href="/blog/posts/real-estate-photography-roi-which-visual-assets-actually-move-properties.html">Real Estate Photography ROI: Which Visual Assets Actually Move Properties</a></h3>
-                        <p class="mag-blurb">The industry data on which listing visuals actually pay: photos, aerials, 3D tours, video, and twilight shots.</p>
-                        <div class="mag-date">July 24, 2026</div>
-                    </div>
-                </div>
+        <!-- RELATED-POSTS:END -->
 
             </div>
         </div>
@@ -506,8 +523,9 @@
                     <a href="#portfolio">Work</a>
                     <div class="footer-dropdown-content">
                         <a href="architecture-photography.html">Architecture</a>
+                        <a href="automotive-photography.html">Automotive</a>
                         <a href="projects.html">Industrial/Engineering</a>
-                        <a href="studio.html">Portrait/Headshot</a>
+                        <a href="headshot-photography.html">Portrait/Headshot</a>
                         <a href="landscape-photography.html">Landscape</a>
                     </div>
                 </li>
@@ -521,14 +539,14 @@
         </nav>
 
         <div class="social-icons">
-            <a href="https://www.instagram.com/themjkelley" class="social-icon">IG</a>
-            <a href="https://www.youtube.com/@themjkelley/" class="social-icon">YT</a>
-            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon">LI</a>
-            <a href="https://www.facebook.com/mjkelleyphoto" class="social-icon">FB</a>
+            <a href="https://www.instagram.com/themjkelley" class="social-icon" target="_blank" rel="noopener">IG</a>
+            <a href="https://www.youtube.com/@themjkelley/" class="social-icon" target="_blank" rel="noopener">YT</a>
+            <a href="https://www.linkedin.com/in/themjkelley/" class="social-icon" target="_blank" rel="noopener">LI</a>
+            <a href="https://www.facebook.com/mjkelleyphoto" class="social-icon" target="_blank" rel="noopener">FB</a>
         </div>
 
         <div class="copyright">
-            © 2025 Michael J. Kelley Photography | All Rights Reserved.
+            © <span class="copyright-year">2026</span> Michael J. Kelley Photography | All Rights Reserved.
         </div>
     </footer>
 
@@ -550,7 +568,8 @@
                 { src: PW + '1030-brittan-san-carlos/parkworks-automation-1030-brittan-san-carlos-6.jpg',       cap: 'ParkWorks Automation — 1030 Brittan, San Carlos' },
                 { src: 'images/home/2004-ferrari-360-spider-engine-bay-los-gatos-2400.jpg',                       cap: '2004 Ferrari 360 Spider — Engine Bay' },
                 { src: PW + 'hunters-view-san-francisco/parkworks-automation-hunters-view-san-francisco-4.jpg', cap: 'ParkWorks Automation — Hunters View, San Francisco' },
-                { src: NOVA + '1965-chevrolet-nova-165.jpg',                                                     cap: '1965 Chevrolet Nova — Auction Listing' }
+                { src: NOVA + '1965-chevrolet-nova-165.jpg',                                                     cap: '1965 Chevrolet Nova — Auction Listing' },
+                { src: 'images/home/parkworks-monterey-control-panel-2400.jpg',                                  cap: 'ParkWorks Automation — Monterey, Control Panel' }
             ]
         });
 

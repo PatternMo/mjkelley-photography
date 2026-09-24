@@ -304,3 +304,13 @@ if (document.readyState === 'loading') {
     // DOM is already loaded
     initializeSharedFunctionality();
 }
+
+// Footer copyright year: keeps the year current on every page (his request
+// 2026-09-24; the year had been hand-typed as 2025 site-wide). Additive only.
+(function () {
+    function setYear() {
+        var y = String(new Date().getFullYear());
+        document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = y; });
+    }
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', setYear); } else { setYear(); }
+})();

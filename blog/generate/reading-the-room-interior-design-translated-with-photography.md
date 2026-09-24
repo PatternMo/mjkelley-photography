@@ -1,5 +1,5 @@
 ---
-title: "Reading the Room: Interior Design, Translated with Photography"
+title: "Reading the Room: Interior Design Translated with Photography"
 date: "2026-08-27"
 description: "Interior design photography is translation: a photographer reads the room the designer built and carries its mood into images clients can feel."
 author: "Michael J. Kelley"

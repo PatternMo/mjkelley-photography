@@ -47,7 +47,14 @@ header {
     color: #333;
     text-decoration: none;
     letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
+
+/* Hexagon M mark beside the header wordmark on the light pages (his call
+   2026-09-24): same mark as the dark homepage header, drawn in near-black. */
+.logo .navmark { width: 27px; height: 27px; flex: 0 0 auto; display: block; }
 
 /* Navigation Styles
    ========================================================================== */

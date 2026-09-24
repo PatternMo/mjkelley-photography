@@ -360,6 +360,41 @@ ${renderRelatedItems(items)}
         </aside>`;
 }
 
+// Homepage "From the Blog" cards (variant="feature"): the band's own markup
+// (magazine.css .mag-blog-item), one card per post, newest first. The thumb
+// prefers the hero's -600 display derivative when it exists (the card box is
+// well under 600px CSS) and falls back to the original hero. Everything
+// interpolated is escaped; a non-root-relative image renders no thumb.
+function featureThumbSrc(image) {
+  const d = image.replace(/([^\/]+)\.jpe?g$/i, (m, base) => `${base}-600.jpg`);
+  return d !== image && fs.existsSync(siteFile(d)) ? d : image;
+}
+
+function renderFeatureItems(items) {
+  return items.map(p => {
+    let thumbHtml = '';
+    if (p.image && isRootRelative(p.image)) {
+      thumbHtml = `
+                    <a class="mag-thumb" href="${escapeHtml(p.url)}">
+                        <img src="${escapeHtml(featureThumbSrc(p.image))}" alt="" loading="lazy">
+                    </a>`;
+    } else if (p.image) {
+      console.warn(`related-posts: feature image for "${p.slug}" is not root-relative (${p.image}); rendering card without thumb`);
+    }
+    // Without a thumb the card is a single grid child; span both columns so
+    // the text does not sit in the narrow thumb column (magazine.css).
+    const spanAttr = thumbHtml ? '' : ' style="grid-column: 1 / -1;"';
+    return `                <div class="mag-blog-item fade-item">${thumbHtml}
+                    <div${spanAttr}>
+                        <div class="label">${escapeHtml(p.category)}</div>
+                        <h3><a href="${escapeHtml(p.url)}">${escapeHtml(p.title)}</a></h3>
+                        <p class="mag-blurb">${escapeHtml(p.description)}</p>
+                        <div class="mag-date">${escapeHtml(p.date_human)}</div>
+                    </div>
+                </div>`;
+  }).join('\n\n');
+}
+
 // --- static-page stamping ----------------------------------------------------
 
 const MARKER_BEGIN = '<!-- RELATED-POSTS:BEGIN';
@@ -387,7 +422,10 @@ function discoverMarkedPages() {
 // category = blog category to match first (empty/absent = latest posts)
 // limit    = max items 1-9 (absent = 3)
 // heading  = block heading (absent = "Related Reading")
-const MARKER_BEGIN_RE = /^<!-- RELATED-POSTS:BEGIN( category="([^"]*)")?( limit="([1-9])")?( heading="([^"]*)")? -->$/;
+// variant  = "feature" renders the homepage "From the Blog" cards (latest
+//            posts, newest first, no heading, no section wrapper) instead of
+//            the related-posts aside. Absent = the aside. (2026-09-24)
+const MARKER_BEGIN_RE = /^<!-- RELATED-POSTS:BEGIN( category="([^"]*)")?( limit="([1-9])")?( heading="([^"]*)")?( variant="(feature)")? -->$/;
 
 // Replace the marker interior via literal indexOf/slice (no regex on page
 // content, no replacement-string expansion). Guard: exactly one BEGIN and one
@@ -424,6 +462,7 @@ function stampPage(relFile, html, blockHtml) {
     category: grammar[2] || '',
     limit: grammar[4] ? parseInt(grammar[4], 10) : 3,
     heading: grammar[6] || 'Related Reading',
+    variant: grammar[8] || '',
     build: () => html.slice(0, bClose + 3) + interior + html.slice(e),
   };
 }
@@ -440,10 +479,18 @@ function stampStaticPages(posts) {
 
     const key = normalizeKey(probe.category) || null;
     const items = relatedPosts(posts, { key, limit: probe.limit });
-    const block = renderRelatedBlock(items, probe.heading);
-    const wrapped = block ? `<section class="related-posts-section">
+    let wrapped;
+    if (probe.variant === 'feature') {
+      // Cards only: the page owns the section, kicker and list wrapper.
+      // Always the latest N, newest first, regardless of any category
+      // attribute on the marker (posts is already sorted newest-first).
+      wrapped = renderFeatureItems(posts.slice(0, probe.limit));
+    } else {
+      const block = renderRelatedBlock(items, probe.heading);
+      wrapped = block ? `<section class="related-posts-section">
         ${block}
         </section>` : '';
+    }
 
     const stamped = stampPage(relFile, html, wrapped).build();
     // Write only when bytes changed: unchanged pages keep their git date, so
