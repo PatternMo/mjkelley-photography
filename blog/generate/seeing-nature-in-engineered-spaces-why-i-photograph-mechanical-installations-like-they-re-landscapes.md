@@ -164,7 +164,7 @@ But in post, I noticed when the light shot up over one car, the opposite car loo
 
 That was the longest single shot of the day, something like ten frames, and two or three hours of editing on one photograph.
 
-Shooting it was like shooting a tree in a forest and having the focus be on that tree. But the lighting was portraiture: a key, a fill, and two rim lights. And the composite technique was architecture. Of all of them, this one is the least like a landscape photograph. It’s more like trying to show depth in a cavern.
+Shooting it was like shooting a tree in a forest and having the focus be on that tree. But the lighting was portraiture: a key, a fill, and two rim lights. And the composite technique was architecture. Of all of them, this one is the least like a landscape photograph. It was more like shooting a tree inside a cavern, and using lighting and shadow to emphasize the column.
 
 ## Using Darkness and Shadow to Emphasize the Subject
 
