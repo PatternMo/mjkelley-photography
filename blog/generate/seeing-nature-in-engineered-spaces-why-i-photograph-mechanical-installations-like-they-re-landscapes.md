@@ -200,4 +200,4 @@ I use architecture techniques in the composite and in the lighting. I use luxury
 
 I’m using the entirety of my experience as a photographer to approach a challenge like this and to find solutions for this environment.
 
-The process begins with learning about the subject in some way. Knowing what you’re shooting and then connecting with it. For me it was the forest light epiphany that let me into the subject. Once you have a starting place like that, you can branch out from there. This is how I was liberated to shoot these spaces without struggling and guessing on every shot. It let me see their beauty, connect with it, and try to capture it.
+The process begins with learning about the subject in some way. Knowing what you’re shooting and then connecting with it. For me it was the forest light epiphany that let me into the subject. Once you have a starting place like that, you can branch out from there. This liberated me to shoot these spaces without struggling and guessing on every shot. It let me see their beauty, connect with it, and try to capture it.
