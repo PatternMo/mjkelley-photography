@@ -470,6 +470,16 @@
     }
     .brief .eyebrow .sep { display: none; }
     .brief .eyebrow span:not(.sep) { margin-right: -.32em; } /* cancel trailing letter-space so each word centers */
+
+    /* his call, msg 10110: "Move the stack for mobile only down and then close
+       the gap": the stack sits under the pitch line, and the band starts closer
+       to the banner text */
+    .brief { padding-top: 1.6rem; }
+    .brief-inner { display: flex; flex-direction: column; }
+    .brief h2 { order: 0; }
+    .brief .eyebrow { order: 1; margin: 1.5rem 0 0; }
+    .brief-services { order: 2; margin-top: 1.8rem; }
+    .brief .mag-actions { order: 3; }
 }
 
 /* section bands: sentence-length lines at a reading size */
