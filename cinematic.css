@@ -292,6 +292,9 @@ body.settled .reveal { opacity: 0; }
     /* at its new height the credit sat in the intro mask's clear band and ghosted
        through the name; keep it hidden until the intro settles */
     .meta { transition: opacity 1.2s ease; }
+    /* the credit shared the header's z-index (7) and, coming later in the page,
+       drew over the open menu (his screenshot, msg 10117) */
+    .meta { z-index: 6; }
     body:not(.settled) .meta { opacity: 0; }
     .tagline { margin-top: .9rem; }
     /* 6) tagline cut on phones (his call, msg 10113: "Cut this for mobile");
