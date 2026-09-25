@@ -294,6 +294,10 @@ body.settled .reveal { opacity: 0; }
     .meta { transition: opacity 1.2s ease; }
     body:not(.settled) .meta { opacity: 0; }
     .tagline { margin-top: .9rem; }
+    /* 6) tagline bigger on phones (his screenshot, msg 10101: "All this text can be
+       bigger and more readable for mobile.") */
+    .tagline h2 { font-size: 1.75rem; line-height: 1.12; }
+    .tagline p { font-size: .95rem; line-height: 1.55; letter-spacing: .02em; }
 }
 
 /* ---------- reduced motion ---------- */
