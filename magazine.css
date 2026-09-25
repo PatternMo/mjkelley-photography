@@ -460,6 +460,18 @@
 
 .brief .mag-actions { margin-top: 1.8rem; justify-content: center; }
 
+/* phones: the disciplines line stacks one word per line, no dots (his call,
+   Telegram msg 10105: "Stack those too for mobile and smaller screens."),
+   matching the intro line in cinematic.css */
+@media (max-width: 640px) {
+    .brief .eyebrow {
+        display: flex; flex-direction: column; align-items: center; gap: .45rem;
+        font-size: .82rem; letter-spacing: .32em;
+    }
+    .brief .eyebrow .sep { display: none; }
+    .brief .eyebrow span:not(.sep) { margin-right: -.32em; } /* cancel trailing letter-space so each word centers */
+}
+
 /* section bands: sentence-length lines at a reading size */
 .select-row--band .select-copy h3 {
     font-size: clamp(1.2rem, 2.1vw, 1.7rem);
