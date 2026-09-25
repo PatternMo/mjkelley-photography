@@ -196,7 +196,7 @@
         .listing-section .gallery-grid { column-count: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px 8px; margin-bottom: 40px; }
         .listing-section .gallery-item { margin-bottom: 0; }
         @media (max-width: 768px) { .listing-head { padding: 40px 20px; } .listing-section .gallery-grid { grid-template-columns: repeat(2, 1fr); } .listing-summary { padding: 0 20px; } .listing-summary a { display: inline-block; margin: 4px 8px; } }
-        @media (max-width: 480px) { .listing-section .gallery-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 480px) { .listing-section .gallery-grid { grid-template-columns: 1fr; row-gap: 8px; } }   /* one column on phones reads tight at 2px (his call, 2026-09-25) */
     </style>
 </head>
 <body>
