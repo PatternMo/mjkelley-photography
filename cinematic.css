@@ -215,9 +215,8 @@ body.settled .reveal { opacity: 0; }
 /* ---------- phones: stack the chrome (2026-09-22; the tagline sub-line, the
    caption and the scroll cue overlapped at 400px, seen on the 09-16 capture) ---------- */
 @media (max-width: 640px) {
-    .tagline { max-width: calc(100vw - 2.4rem); bottom: 4.2rem; }
+    .tagline { max-width: calc(100vw - 2.4rem); }
     .meta {
-        left: 1.2rem; right: 1.2rem; bottom: 1.3rem;
         display: flex; align-items: baseline; gap: .8rem;
         text-align: left;
     }
@@ -234,7 +233,30 @@ body.settled .reveal { opacity: 0; }
     .frame {
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: center 34%;
+        background-position: center top;
+    }
+    /* gaps closed (msg 10011 "close the two gap between the header and image and the
+       subhead below and the image"): the stage shrinks to header + one 3:2 frame + the
+       text, instead of a full-screen box with the frame floating in it */
+    .stage {
+        --phone-hdr: 72px;
+        height: auto;
+        min-height: 0;
+        padding-top: calc(var(--phone-hdr) + 100vw * 2 / 3);
+        padding-bottom: 1.2rem;
+    }
+    .frame {
+        inset: auto;
+        top: var(--phone-hdr); left: 0; right: 0;
+        height: calc(100vw * 2 / 3);
+    }
+    .tagline {
+        position: relative; left: auto; bottom: auto;
+        margin: 1.1rem 1.2rem 0;
+    }
+    .meta {
+        position: relative; left: auto; right: auto; bottom: auto;
+        margin: .9rem 1.2rem 0;
     }
     /* 2) hamburger readable over bright frames: faint dark backing + stronger top fade */
     .site-header--overlay .menu-toggle {
