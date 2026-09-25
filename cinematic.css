@@ -276,6 +276,24 @@ body.settled .reveal { opacity: 0; }
     .tagline p { font-size: .8rem; opacity: 1; }
     .meta { font-size: .78rem; }
     .meta .caption { font-size: .72rem; color: var(--stage-text); opacity: .85; }
+
+    /* 2026-09-25 (his phone screenshots, msgs 10095/10096):
+       4) intro discipline line: one word per line and larger, instead of a tiny
+          line that wrapped with a dangling dot */
+    .intro .sub {
+        display: flex; flex-direction: column; align-items: center; gap: .45rem;
+        font-size: .82rem; letter-spacing: .32em;
+    }
+    .intro .sub b { display: none; }
+    .intro .sub span { margin-right: -.32em; } /* cancel trailing letter-space so each word centers */
+    /* 5) montage credit directly under the image, above the headline */
+    .stage { display: flex; flex-direction: column; }
+    .meta { order: -1; margin: .7rem 1.2rem 0; }
+    /* at its new height the credit sat in the intro mask's clear band and ghosted
+       through the name; keep it hidden until the intro settles */
+    .meta { transition: opacity 1.2s ease; }
+    body:not(.settled) .meta { opacity: 0; }
+    .tagline { margin-top: .9rem; }
 }
 
 /* ---------- reduced motion ---------- */
