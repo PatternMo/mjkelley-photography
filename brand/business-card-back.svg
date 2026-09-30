@@ -8,11 +8,11 @@
 
   <rect x="0" y="0" width="1050" height="600" fill="#0c0d0f"/>
 
-  <!-- hex + M mark = the live site mark (white ring, Chakra Petch 700), scaled; was orange ring until 2026-09-30 (centered, upper) -->
+  <!-- hex + M mark = the live site mark (white ring, Chakra Petch 700), scaled; was orange ring until 2026-09-30; M ink centered in the hexagon (y 34 -> 32.24) on his ask 2026-09-30 (centered, upper) -->
   <g transform="translate(422.10 102.10) scale(3.2157)">
     <path d="M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z"
           fill="none" stroke="#ece9e4" stroke-width="3.2" stroke-linejoin="round"/>
-    <text x="32" y="34" text-anchor="middle" dominant-baseline="central"
+    <text x="32" y="32.24" text-anchor="middle" dominant-baseline="central"
           font-family="'Chakra Petch', sans-serif" font-weight="700" font-size="30" fill="#ece9e4">M</text>
   </g>
 
