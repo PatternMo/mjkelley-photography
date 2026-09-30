@@ -3,7 +3,7 @@
        Order: mark -> disciplines (small) -> tagline (one line).
        For PRINT, convert text to outlines and use the licensed face. -->
   <defs>
-    <style>@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&amp;family=Space+Mono&amp;display=swap');</style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&amp;family=Sora:wght@500;600&amp;family=Space+Mono&amp;display=swap');</style>
   </defs>
 
   <rect x="0" y="0" width="1050" height="600" fill="#0c0d0f"/>
@@ -20,5 +20,5 @@
   <text x="525" y="372" text-anchor="middle" font-family="'Space Mono', monospace" font-size="21" fill="#8a8d93" letter-spacing="3">INDUSTRIAL, ARCHITECTURAL, ENGINEERING</text>
 
   <!-- tagline (one line) -->
-  <text x="525" y="432" text-anchor="middle" font-family="'Chakra Petch', sans-serif" font-weight="600" font-size="36" fill="#ece9e4">I shoot machines and mechanical spaces.</text>
+  <text x="525" y="432" text-anchor="middle" font-family="'Sora', sans-serif" font-weight="500" font-size="36" fill="#ece9e4">I shoot machines and mechanical spaces.</text>
 </svg>
