@@ -8,11 +8,13 @@
 
   <rect x="0" y="0" width="1050" height="600" fill="#0c0d0f"/>
 
-  <!-- hex + M mark (centered, upper) -->
-  <path d="M596.01 164 L596.01 246 L525 287 L453.99 246 L453.99 164 L525 123 Z"
-        fill="none" stroke="#e8531f" stroke-width="4.5" stroke-linejoin="round"/>
-  <text x="525" y="208" text-anchor="middle" dominant-baseline="central"
-        font-family="'Chakra Petch', sans-serif" font-weight="700" font-size="84" fill="#ece9e4">M</text>
+  <!-- hex + M mark = the live site mark (white ring, Chakra Petch 700), scaled; was orange ring until 2026-09-30 (centered, upper) -->
+  <g transform="translate(422.10 102.10) scale(3.2157)">
+    <path d="M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z"
+          fill="none" stroke="#ece9e4" stroke-width="3.2" stroke-linejoin="round"/>
+    <text x="32" y="34" text-anchor="middle" dominant-baseline="central"
+          font-family="'Chakra Petch', sans-serif" font-weight="700" font-size="30" fill="#ece9e4">M</text>
+  </g>
 
   <!-- disciplines (small, directly under mark) -->
   <text x="525" y="372" text-anchor="middle" font-family="'Space Mono', monospace" font-size="21" fill="#8a8d93" letter-spacing="3">INDUSTRIAL, ARCHITECTURAL, ENGINEERING</text>
