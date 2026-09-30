@@ -1,7 +1,7 @@
 ---
 title: "Seeing Nature in Engineered Spaces: Why I Photograph Mechanical Installations Like They’re Landscapes"
 date: "2026-09-24"
-description: "How seeing industrial spaces in terms of landscape lighting, can change the whole approach to capturing design and engineering decisions, and portraying the essence of mechanical environments."
+description: "How seeing industrial spaces in terms of landscape lighting can change the whole approach to capturing design and engineering decisions, and portraying the essence of mechanical environments."
 author: "Michael J. Kelley"
 image: "/blog/images/forest-light-beams-san-francisco-peninsula.jpg"
 image_caption: "Light beams streaming through a forest, San Francisco Peninsula, CA."
