@@ -1,9 +1,11 @@
 <svg viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-  <!-- Michael J. Kelley - favicon (hex + M). Dark fill so the M shows on any tab color.
-       2026-09-30: white ring (was orange) and outlined, centered Chakra Petch Bold M,
-       same as the inline favicon on every page. -->
-  <rect width="64" height="64" fill="#0c0d0f"/>
-  <path d="M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z"
-        fill="none" stroke="#ece9e4" stroke-width="3.2" stroke-linejoin="round"/>
-  <path d="M21.93 21.5H25.71L31.95 35.06H32.02L38.28 21.5H42.06V42.5H38.13V29.72H38.08L33.24 39.56H30.73L25.92 29.72H25.86V42.5H21.93Z" fill="#ece9e4"/>
+  <!-- Michael J. Kelley - favicon, adaptive (his ask 2026-09-30): transparent, black mark
+       in light browser themes, light mark in dark themes (prefers-color-scheme). Mark scaled
+       1.16 with a 3.6 ring so it holds up at 16 px. Same markup is inlined as a data URI in
+       every page; Safari falls back to /favicon.ico (dark tile), iOS to /apple-touch-icon.png. -->
+  <style>.r{fill:none;stroke:#1a1a1a}.m{fill:#1a1a1a}@media (prefers-color-scheme:dark){.r{stroke:#ece9e4}.m{fill:#ece9e4}}</style>
+  <g transform="translate(32 32) scale(1.16) translate(-32 -32)">
+    <path class="r" d="M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z" stroke-width="3.6" stroke-linejoin="round"/>
+    <path class="m" d="M21.93 21.5H25.71L31.95 35.06H32.02L38.28 21.5H42.06V42.5H38.13V29.72H38.08L33.24 39.56H30.73L25.92 29.72H25.86V42.5H21.93Z"/>
+  </g>
 </svg>
