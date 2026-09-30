@@ -17,7 +17,7 @@
   </g>
 
   <!-- disciplines (small, directly under mark) -->
-  <text x="525" y="372" text-anchor="middle" font-family="'Space Mono', monospace" font-size="21" fill="#8a8d93" letter-spacing="3">INDUSTRIAL ARCHITECTURE ENGINEERING</text>
+  <text x="525" y="372" text-anchor="middle" font-family="'Space Mono', monospace" font-size="29" fill="#8a8d93" letter-spacing="4">INDUSTRIAL ARCHITECTURE ENGINEERING</text>
 
   <!-- tagline (one line) -->
   <text x="525" y="432" text-anchor="middle" font-family="'Sora', sans-serif" font-weight="500" font-size="36" fill="#ece9e4">I shoot machines and mechanical spaces.</text>
