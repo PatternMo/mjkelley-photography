@@ -583,6 +583,8 @@ async function generatePosts() {
       .replace(/{{hero_srcset}}/g, () => heroSrcsetAttrs(p.image))
       .replace(/{{image}}/g, () => p.image)
       .replace(/{{url}}/g, () => p.url)
+      // rel=canonical: the extensionless address Google indexes; the sitemaps use the same form (2026-10-04)
+      .replace(/{{canonical_url}}/g, () => 'https://www.mjkelleyphoto.com' + p.url.replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, ''))
       .replace(/{{slug}}/g, () => p.slug)
       .replace(/{{date_iso}}/g, () => safe(p.date_iso))
       .replace(/{{date_human}}/g, () => safe(p.date_human))

@@ -5,6 +5,13 @@ const glob = require('fast-glob');
 
 // Configuration
 const DOMAIN = 'https://www.mjkelleyphoto.com';
+
+// Page <loc> values match each page's rel=canonical: no .html, and an index.html
+// becomes its directory (/, /blog/). Netlify serves both forms; Google indexes
+// the extensionless one (2026-10-04).
+function pageUrl(file) {
+  return `${DOMAIN}/${file.replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '')}`;
+}
 const OUTPUT_DIR = './';
 
 // Page priorities and change frequencies
@@ -105,7 +112,7 @@ function generateMainSitemap() {
       const lastMod = getGitLastModified(file);
       
       sitemap += `  <url>
-    <loc>${DOMAIN}/${file}</loc>
+    <loc>${pageUrl(file)}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>${config.changefreq}</changefreq>
     <priority>${config.priority}</priority>
@@ -120,7 +127,7 @@ function generateMainSitemap() {
       const lastMod = getGitLastModified(file);
       
       sitemap += `  <url>
-    <loc>${DOMAIN}/${file}</loc>
+    <loc>${pageUrl(file)}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -216,7 +223,7 @@ function generateImageSitemap() {
     const lastMod = getGitLastModified(pageFile);
     
     sitemap += `  <url>
-    <loc>${DOMAIN}/${pageFile}</loc>
+    <loc>${pageUrl(pageFile)}</loc>
     <lastmod>${lastMod}</lastmod>
 `;
 
@@ -296,7 +303,7 @@ function generateVideoSitemap() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>${DOMAIN}/video.html</loc>
+    <loc>${pageUrl('video.html')}</loc>
     <lastmod>${lastMod}</lastmod>
 `;
 
@@ -351,10 +358,9 @@ function generateBlogSitemap() {
     .sort()
     .forEach(file => {
       const lastMod = getGitLastModified(file);
-      const url = file.replace(/^blog\//, '');
       
       sitemap += `  <url>
-    <loc>${DOMAIN}/blog/${url}</loc>
+    <loc>${pageUrl(file)}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
