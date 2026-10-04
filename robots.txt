@@ -9,9 +9,7 @@ Allow: /
 Sitemap: https://www.mjkelleyphoto.com/sitemap.xml
 Sitemap: https://www.mjkelleyphoto.com/image-sitemap.xml
 Sitemap: https://www.mjkelleyphoto.com/video-sitemap.xml
-
-# Future blog sitemap (add when blog is live)
-# Sitemap: https://www.mjkelleyphoto.com/blog-sitemap.xml
+Sitemap: https://www.mjkelleyphoto.com/blog-sitemap.xml
 
 # Block AI training bots (uncomment if you want to block them)
 # User-agent: GPTBot
