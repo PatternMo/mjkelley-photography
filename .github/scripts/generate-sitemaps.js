@@ -63,7 +63,7 @@ function generateMainSitemap() {
       'project-template.html',
       '*-template.html',
       '*template*.html',
-      '*uc*.html',
+      '*-uc.html',
       '*under-construction*.html'
     ],
     onlyFiles: true 
@@ -74,7 +74,7 @@ function generateMainSitemap() {
     ignore: [
       '**/*-template.html',
       '**/*template*.html',
-      '**/*uc*.html',
+      '**/*-uc.html',
       '**/*under-construction*.html'
     ],
     onlyFiles: true
@@ -333,7 +333,7 @@ function generateBlogSitemap() {
     ignore: [
       '**/citation-tracker/**',
       '**/*template*.html',
-      '**/*uc*.html'
+      '**/*-uc.html'
     ],
     onlyFiles: true 
   });
