@@ -14,6 +14,12 @@
  *     fonts: [ ... ]        // font-load gate list (defaults below)
  *   });
  *
+ * Dot navigation (added 2026-10-11, his ask): if the page has an element with
+ * id="cDots", one button per frame is built into it. A click jumps to that
+ * frame and restarts the countdown; a mouse resting on the dots pauses the
+ * loop; arrow keys step while a dot has focus; a horizontal swipe on the stage
+ * steps on touch screens. Pages without #cDots behave exactly as before.
+ *
  * Invariants (hard-won — do not change casually):
  * - Font gating uses explicit document.fonts.load() calls per face+weight;
  *   document.fonts.ready alone resolves too early and causes a soft-then-pop
@@ -74,9 +80,13 @@ var Cinematic = (function () {
         var cTot = document.getElementById('cTot');
         var cCap = document.getElementById('cCap');
         var hexbg = document.getElementById('hexbg');
+        var dotsEl = document.getElementById('cDots');
         var layers = [];
+        var dots = [];
         var idx = 0;
         var current = null;
+        var timer = null;
+        var paused = false;
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         // build layers + preload (warm the cache to avoid pop-in)
@@ -90,6 +100,17 @@ var Cinematic = (function () {
             var pre = new Image(); pre.src = f.src;
         });
         if (cTot) { cTot.textContent = pad(frames.length); }
+
+        if (dotsEl) {
+            frames.forEach(function (f, n) {
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.setAttribute('aria-label', 'Image ' + (n + 1) + ' of ' + frames.length + (f.cap ? ': ' + f.cap : ''));
+                b.addEventListener('click', function () { go(n); });
+                dotsEl.appendChild(b);
+                dots.push(b);
+            });
+        }
 
         if (hexbg && config.honeycomb !== false) {
             buildHoneycomb(hexbg);
@@ -124,15 +145,68 @@ var Cinematic = (function () {
 
             if (cNum) { cNum.textContent = pad(i + 1); }
             if (cCap) { cCap.textContent = frames[i].cap || ''; }
+            dots.forEach(function (b, n) {
+                b.classList.toggle('is-on', n === i);
+                if (n === i) { b.setAttribute('aria-current', 'true'); } else { b.removeAttribute('aria-current'); }
+            });
             current = i;
         }
 
+        function stopLoop() {
+            if (timer) { clearInterval(timer); timer = null; }
+        }
+
         function startLoop() {
+            stopLoop();
             var step = HOLD + 1800; // hold + crossfade
-            setInterval(function () {
+            timer = setInterval(function () {
                 idx = (idx + 1) % frames.length;
                 show(idx);
             }, reduce ? 4000 : step);
+        }
+
+        // manual navigation: jump to frame n, then restart the countdown so the
+        // chosen frame gets a full hold. Ignored until the intro has settled.
+        function go(n) {
+            if (!document.body.classList.contains('settled')) { return; }
+            n = (n + frames.length) % frames.length;
+            if (n !== current) { idx = n; show(n); }
+            if (!paused) { startLoop(); }
+        }
+
+        if (dotsEl) {
+            // mouse only: a tap on a phone fires pointerenter with no pointerleave,
+            // which would leave the loop paused
+            dotsEl.addEventListener('pointerenter', function (e) {
+                if (e.pointerType !== 'mouse') { return; }
+                paused = true; stopLoop();
+            });
+            dotsEl.addEventListener('pointerleave', function (e) {
+                if (e.pointerType !== 'mouse') { return; }
+                paused = false;
+                if (document.body.classList.contains('settled')) { startLoop(); }
+            });
+            dotsEl.addEventListener('keydown', function (e) {
+                var k = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+                if (!k || current === null) { return; }
+                e.preventDefault();
+                var from = dots.indexOf(document.activeElement);   // step from the focused dot
+                go((from < 0 ? current : from) + k);
+                if (dots[current]) { dots[current].focus(); }
+            });
+
+            var tx = null, ty = null;
+            stage.addEventListener('touchstart', function (e) {
+                var t = e.changedTouches[0]; tx = t.clientX; ty = t.clientY;
+            }, { passive: true });
+            stage.addEventListener('touchend', function (e) {
+                if (tx === null || current === null) { return; }
+                var t = e.changedTouches[0], dx = t.clientX - tx, dy = t.clientY - ty;
+                tx = null;
+                if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+                    go(current + (dx < 0 ? 1 : -1));
+                }
+            }, { passive: true });
         }
 
         var started = false;
@@ -151,7 +225,7 @@ var Cinematic = (function () {
             setTimeout(function () {
                 document.body.classList.remove('is-intro');
                 document.body.classList.add('settled');
-                startLoop();
+                if (!paused) { startLoop(); }
             }, reduce ? 600 : SETTLE_AT);
         }
 

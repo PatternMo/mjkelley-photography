@@ -196,6 +196,41 @@ body.settled .reveal { opacity: 0; }
     font-size: .64rem;
 }
 
+/* ---------- dot navigation (2026-10-11, his ask) ----------
+   Same look as the portraits slider he approved 2026-09-16: outlined dots,
+   the current one filled. Each button is a larger invisible hit area; the
+   visible 9px dot is its ::before. */
+.meta .dots {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: .6rem;
+    margin-right: -4.5px;                 /* last dot's edge lines up with the text */
+}
+
+.meta .dots button {
+    width: 18px; height: 22px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.meta .dots button::before {
+    content: "";
+    width: 9px; height: 9px;
+    box-sizing: border-box;
+    border: 1px solid var(--stage-text);
+    border-radius: 50%;
+    opacity: .7;
+    transition: background .25s ease, opacity .25s ease;
+}
+
+.meta .dots button.is-on::before,
+.meta .dots button:hover::before { background: var(--stage-text); opacity: 1; }
+
+.meta .dots button:focus-visible { outline: 1px solid var(--accent); outline-offset: 1px; border-radius: 4px; }
+
 /* ---------- scroll cue ---------- */
 .scroll-cue {
     position: absolute;
@@ -300,6 +335,13 @@ body.settled .reveal { opacity: 0; }
     /* 6) tagline cut on phones (his call, msg 10113: "Cut this for mobile");
        the pitch line in the band below carries the message */
     .tagline { display: none; }
+
+    /* 7) dot navigation (2026-10-11): own row under the credit, left-aligned
+       with it, bigger hit areas for thumbs */
+    .meta { flex-wrap: wrap; }
+    .meta .caption { flex: 1 1 0; }       /* zero basis: shrinks + ellipsizes instead of wrapping */
+    .meta .dots { flex-basis: 100%; justify-content: flex-start; margin: .35rem 0 0 -8.5px; }
+    .meta .dots button { width: 26px; height: 30px; }
 }
 
 /* ---------- reduced motion ---------- */
