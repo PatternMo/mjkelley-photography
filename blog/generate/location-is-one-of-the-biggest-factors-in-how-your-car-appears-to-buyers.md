@@ -126,6 +126,10 @@ It reflected.
 
 He didn’t care. It was a race car with a storied history, banged up, with stickers and signatures and handwriting on the body, and he was an engine guy. What he cared about was what was under the hood. But the briefs I shoot ask for a clear view of the paint, and I’m always aware of the reflections, always trying to avoid them. A location can help with this or make it impossible.
 
+You can’t listen to the owner all the time. You can’t trust them that a location is going to be good, or that even they know what the paint’s going to do in a photograph. You have to know that. And even if the color is matte, like even the matte G-Wagon I shot, it’s still going to reflect and still have distracting reflections in the paint, even if the car is a white matte and has markings on it. And you don’t want that.
+
+It helps if the owner is flexible and trusts my locations, the ones I shoot in year round and know well, over any new location or their own recommendation. In the end, we both have to live with the result, and it’s better to live with the best environment possible than one that made good images impossible.
+
 ## The Inevitable Worst-Case Car Shoot Locations and How to Deal With Them
 
 The worst-case location for me is the before-mentioned driveway, usually, unless it’s large enough that it allows me to move and shoot the wide six-point shots. I’ve only done two driveways that were.
