@@ -164,7 +164,7 @@ In four years of shooting cars commercially, I’ve never had a set rejected. Th
 
 The list says floor mats. It doesn’t say tripod, long exposure, focus pulled front to back so the whole mat is sharp. The list says seats. It doesn’t say one-point, level with the lip so the edge sits in plain focus, then push in for the stitching on the lip, then the back, then the headrest, framed the same on every seat in the car.
 
-The brief says what location features to avoid, but it doesn’t tell you that location and time of day are two of the most consequential choices you can make (if shooting outdoors).
+The brief says what location features to avoid, but it doesn’t tell you that [location and time of day](https://www.mjkelleyphoto.com/blog/posts/location-is-one-of-the-biggest-factors-in-how-your-car-appears-to-buyers.html) are two of the most consequential choices you can make (if shooting outdoors).
 
 Everything the brief leaves unsaid is yours.
 

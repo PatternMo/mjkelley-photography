@@ -27,7 +27,7 @@ The big thorough set, the strict shot list, the quantity are for buyers who will
 
 So a big part of the job is connecting people through visual language, providing an emotional as well as intellectual feel for the vehicle with a procession of frames.
 
-For outdoor shoots, another vital aspect that makes all this possible is location and time of day. Because cars are so reflective, the sun intensity and landscape have a huge effect on whether you're getting clean lines on the body or a mess of reflected surroundings that make it hard to see the paint's condition.
+For outdoor shoots, another vital aspect that makes all this possible is [location and time of day](https://www.mjkelleyphoto.com/blog/posts/location-is-one-of-the-biggest-factors-in-how-your-car-appears-to-buyers.html). Because cars are so reflective, the sun intensity and landscape have a huge effect on whether you're getting clean lines on the body or a mess of reflected surroundings that make it hard to see the paint's condition.
 
 <figure>
 <img src="/blog/images/1962-chevrolet-corvette-front-quarter-black-and-white.jpg" alt="Black-and-white low angle of a black 1962 Chevrolet Corvette convertible with a brush-covered hillside behind it">
