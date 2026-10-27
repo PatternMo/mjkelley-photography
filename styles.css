@@ -1851,7 +1851,7 @@ main {
 
 .post-content h3 {
     font-size: clamp(1.125rem, 1.8vw, 1.375rem);
-    margin: 1.4em 0 0.5em;
+    margin: 0.7em 0 0.5em; /* top was 1.4em; halved on his ask 2026-10-27 */
 }
 
 .post-content a {
