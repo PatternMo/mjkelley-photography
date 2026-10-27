@@ -31,9 +31,46 @@ if (!fs.existsSync(postsDir)) fs.mkdirSync(postsDir, { recursive: true });
 
 // helpers
 const safe = (v, f = '') => (v === undefined || v === null ? f : String(v));
-const toSlug = (title, fallback) =>
-  String(title || (fallback || '').replace(/\.md$/i, ''))
-    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+// A title of exactly two sentences builds its address from the first sentence;
+// every other title uses the whole title (his request, 2026-10-27).
+// Cut only when sure. The title must hold exactly one end mark (. ! ? or an
+// ellipsis, with or without a closing quote or bracket) followed by a space and
+// more text, and that mark must be a single plain . ! or ?. The next word must
+// start with an uppercase letter or a digit (opening quotes or brackets may come
+// first). A period must not follow a number (a list "1."), a listed abbreviation
+// (vs., Dr., Jan.), a single initial (J.) or a dotted abbreviation (U.S., Ph.D.).
+// Anything else keeps the whole title: a long address is harmless, a wrongly cut
+// one is permanent. New titles still get a look in the local preview.
+const SLUG_ABBREVIATIONS = new Set([
+  'vs', 'mr', 'mrs', 'ms', 'dr', 'prof', 'st', 'jr', 'sr', 'mt', 'ft', 'no',
+  'vol', 'gen', 'gov', 'sen', 'rep', 'capt', 'lt', 'col', 'sgt', 'rev', 'hon',
+  'inc', 'co', 'corp', 'ltd', 'etc', 'approx', 'ave', 'jan', 'feb', 'mar',
+  'apr', 'jun', 'jul', 'aug', 'sep', 'sept', 'oct', 'nov', 'dec',
+]);
+const slugSource = (title) => {
+  const breaks = [...title.matchAll(/[.!?]+["'”’)\]]*\s+(?=\S)/gu)];
+  if (breaks.length !== 1) return title;
+  const mark = breaks[0][0];
+  if (!/^[.!?]\s+$/u.test(mark)) return title;
+  const at = breaks[0].index;
+  const next = title.slice(at + mark.length);
+  if (!/^["'“‘(\[]*[\p{Lu}\p{N}]/u.test(next)) return title;
+  if (title[at] === '.') {
+    const before = title.slice(0, at);
+    if (/\p{N}$/u.test(before)) return title;
+    const word = (before.match(/[\p{L}.]+$/u) || [''])[0].toLowerCase();
+    if (SLUG_ABBREVIATIONS.has(word) || word.includes('.') || /^\p{L}$/u.test(word)) return title;
+  }
+  return title.slice(0, at + 1);
+};
+const slugify = (s) =>
+  String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+const toSlug = (title, fallback) => {
+  if (!title) return slugify((fallback || '').replace(/\.md$/i, ''));
+  // If the first sentence has no usable characters, fall back to the whole title.
+  return slugify(slugSource(String(title))) || slugify(title);
+};
 
 const escapeHtml = (v) => String(v)
   .replace(/&/g, '&amp;')
@@ -532,10 +569,21 @@ async function generatePosts() {
 
   // Pass 1: parse every post into a record. No rendering yet — every post's
   // related block needs the complete, sorted catalog.
+  // Two posts with the same address would overwrite each other's page; stop the
+  // build instead (more likely since two-sentence titles shorten, 2026-10-27).
+  const slugOwner = new Map();
   const posts = markdownFiles.map(file => {
     const raw = fs.readFileSync(path.join(generateDir, file), 'utf8');
     const { data, content } = matter(raw);
     const slug = toSlug(data.title, file);
+    if (!slug) {
+      throw new Error(`${file}: the title gives an empty address. Use a title with letters or digits a-z/0-9.`);
+    }
+    if (slugOwner.has(slug)) {
+      throw new Error(`Two posts would share the address /blog/posts/${slug}.html: ` +
+        `${slugOwner.get(slug)} and ${file}. Change one of the titles.`);
+    }
+    slugOwner.set(slug, file);
     const { iso: date_iso, human: date_human } = toDateParts(data.date);
     const category = categoryLabel(data);
     const categories = Array.isArray(data.category)
