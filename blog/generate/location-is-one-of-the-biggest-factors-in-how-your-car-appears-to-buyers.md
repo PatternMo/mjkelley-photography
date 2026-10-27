@@ -128,7 +128,7 @@ He didn’t care. It was a race car with a storied history, banged up, with stic
 
 ## The Inevitable Worst-Case Car Shoot Locations and How to Deal With Them
 
-The worst-case location for me is the before-mentioned driveway, usually, unless it fits the six-point list. I’ve only done two driveways that did.
+The worst-case location for me is the before-mentioned driveway, usually, unless it’s large enough that it allows me to move and shoot the wide six-point shots. I’ve only done two driveways that were.
 
 In a driveway shoot, you almost give up all your advantages as a photographer. The only thing you can control maybe is the time of day. I give up my [whole shooting process](https://www.mjkelleyphoto.com/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html). I give up speed. And often I give up the light, because an owner set on the driveway usually isn’t flexible about the time either, so the shoot lands at whatever time is convenient for him or her, and sometimes that’s the afternoon.
 
