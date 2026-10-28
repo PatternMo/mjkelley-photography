@@ -108,7 +108,7 @@ So if I’m forced to shoot in poor light, I change my shooting angles to get th
 
 When you think of good light, think of diffusion (overcast), or the sun low in the sky (golden hour). The lower, depending on the location, the better. And shoot on the lit sides of the car, repositioning the car if necessary, to keep good light on the panels you’re shooting, and avoid silhouetting the car by shooting into the sun.
 
-## “We’re Doing It in My Driveway.” What Happens When You’re Stuck With Sucky Locations?
+## How to Secure a Worthy Shooting Location
 
 I don’t always get to pick. Before every auction shoot, I lead with a question for the owner: did you have a location in mind?
 
@@ -118,19 +118,21 @@ I tell them I know locations that meet all of that and can recommend some in the
 
 When a car’s in a driveway, it just looks like it’s in someone’s driveway. And that can be as distracting as an epic background. And it also makes my job more difficult as far as movement around the vehicle, positioning, and keeping stuff out of the background, like garbage cans, etc.
 
+Parking lots aren’t as bad as driveways, and you can still win with them. Church parking lots work well, and so do the big lots at malls, especially overfill lots. I’ve shot on top of parking garages, on the open roof, and on a weekday a lot of people don’t park up there, so you get open space to move the car around any way you want, and the concrete parapet at the edge isn’t so bad reflected on the body. I parked the car up near the parapet and shot on the side that was open to the lot. The parapet behind me was far enough away to blend into the car at the angle I was shooting.
+
 Usually, once they hear all this, owners agree. Some don’t, and when someone insists on a location, there’s usually a good reason. Sometimes it’s an emotional one. Sometimes it’s stubbornness, or convenience. And sometimes, the smallest group, it’s an owner who has sold at auction before and already has a good spot picked out.
 
 Owners are sure about their paint, too. I once shot a Porsche for an owner who builds custom 911 hot rods out of 1960s Porsches, and he told me the paint was a matte white, not really reflective, so we went out to a spot he picked.
 
 It reflected.
 
-He didn’t care. It was a race car with a storied history, banged up, with stickers and signatures and handwriting on the body, and he was an engine guy. What he cared about was what was under the hood. But the briefs I shoot ask for a clear view of the paint, and I’m always aware of the reflections, always trying to avoid them. A location can help with this or make it impossible.
+He didn’t care. It was a race car with a storied history, banged up, with stickers and signatures and handwriting on the body, and he was an engine guy. What he cared about was what was under the hood. But the briefs I shoot ask for a clear view of the paint, and I’m always aware of the reflections, always trying to avoid them.
 
-You can’t listen to the owner all the time. You can’t trust them that a location is going to be good, or that even they know what the paint’s going to do in a photograph. You have to know that. And even if the color is matte, like even the matte G-Wagon I shot, it’s still going to reflect and still have distracting reflections in the paint, even if the car is a white matte and has markings on it. And you don’t want that.
+Owners don’t always know what their paint will do in a photograph, or whether a location will work. That’s my job to know. Even matte paint reflects, like the matte G-Wagon I shot.
 
 It helps if the owner is flexible and trusts my locations, the ones I shoot in year round and know well, over any new location or their own recommendation. In the end, we both have to live with the result, and it’s better to live with the best environment possible than one that made good images impossible.
 
-## The Inevitable Worst-Case Car Shoot Locations and How to Deal With Them
+## “We’re Doing It in My Driveway.” What Happens When You’re Stuck With Sucky Locations?
 
 The worst-case location for me is the before-mentioned driveway, usually, unless it’s large enough that it allows me to move and shoot the wide six-point shots. I’ve only done two driveways that were.
 
@@ -149,6 +151,10 @@ We pushed it down the long driveway, back into its parking spot, and I shot the 
 Not ideal.
 
 Every driveway shoot I’ve done has been for a particular reason. The car is so old or so unreliable that the owner can’t drive it to a location. Or the owner doesn’t want to pay to have it trailered somewhere. Some dealerships will do that. A lot of owners, even collectors, don’t have a trailer or want to pay for one.
+
+The coolest example I can think of is shooting a legit race car.
+
+The car: a 1992 Acura NSX. The owner told me an ex-Honda racing engineer built it, one of only two he built out of NSX bodies, and that it was a championship car. It wasn’t street legal, so we shot it in the owner’s cul-de-sac, near his driveway, in the afternoon, with tract homes in the background. Not the best lighting, not the best background, not the best location, and kind of still great, because it was a race car sitting in this normal neighborhood. Somehow, that contrast worked even when other elements weren’t ideal.
 
 Sometimes it’s mileage preservation. The Cybertruck I shot against the rolling hills only had roughly seventy miles on it, and the owner only wanted to drive nearby. Understandable. I did end up convincing him to drive it twenty miles.
 
