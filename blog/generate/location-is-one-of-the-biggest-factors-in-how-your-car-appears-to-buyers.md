@@ -15,11 +15,11 @@ Cars are like mirrors. They reflect the environment around them: the bushes and 
 
 Photographic anomalies can also be easily mistaken for the car’s condition. And the two surest ways to mitigate anomalies, distractions, and reflections are good light and a great location.
 
-A lot of times, when I talk about location with an owner, they think “background:” the Golden Gate Bridge, Half Dome at sunrise with the car in the foreground, or epic mountains, like the Tetons rising out of clouds just behind the car. Although those images are great glam shots, in auction photography, location is not about the background. In glam shots the background is another spectacle, a thing in itself, with the car, rather than an environment whose only purpose is to enhance the car and not distract from it.
+A lot of times, when I talk about location with an owner, they think “background:” the Golden Gate Bridge, Half Dome at sunrise with the car in the foreground, or epic mountains, like the Tetons rising out of clouds just behind the car. Although those images are great glam shots, in auction photography, location is not about the background. In glam shots the background is another spectacle, a thing in itself alongside the car, rather than an environment whose only purpose is to enhance the car and not distract from it.
 
 Auction photography is about whether a bidder, looking at your car on a screen, can see the paint and the shape of the body, or just the neighborhood and trees reflected in it.
 
-Light and location are the most consequential choices on an outdoor car shoot. When you do those two things intentionally, I’d say they control more than 80 percent of how a set turns out. On good shoots, you get to make both those choices.
+Light and location are the most consequential choices on an outdoor car shoot. When you do those two things intentionally, I’d say they control more than 80 percent of how a set turns out. On good shoots, I get to make both those choices.
 
 ## What Makes the Best Location for Car Photography?
 
@@ -48,17 +48,17 @@ It’s difficult, sometimes. An open spot in nature is my first pick, but it sti
 
 1. **Enough room to work.** I need to be able to stand fifteen to twenty feet in 360 degrees around the car. Can we park the car in one spot, leave it there the whole time, and I can move around it in my [spiral process](https://www.mjkelleyphoto.com/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html) of circling closer and closer, moving from wide to detailed shots as I go? That’s when I can be fast and efficient.
 
-2. **Environmental distractions reflecting in the car.** If I’m twenty feet away from the car, whatever is behind me has to be low enough, like low grass or a low fence, so it doesn’t reflect in the body. And the car can’t be close to trees or bushes, because they all reflect in the body, and you’ll just see trees and bushes instead of paint condition.
+2. **No environmental distractions reflecting in the car.** If I’m twenty feet away from the car, whatever is behind me has to be low enough, like low grass or a low fence, so it doesn’t reflect in the body. And the car can’t be close to trees or bushes, because they all reflect in the body, and you’ll just see trees and bushes instead of paint condition.
 
-3. **Tall obstructions that break clear views of the car.** Street lights, parking lot lights, solar panels that stick up: when you’re moving around the car, they will stick up out of the car’s roof, and that’s a no-no. Is that an antenna, or is that a faraway light post? You don’t want trees coming out of the top of the car either. You want to see the roof clear from the background, so you can see its shape and where that shape ends.
+3. **No tall obstructions that break clear views of the car.** Street lights, parking lot lights, solar panels that stick up: when you’re moving around the car, they will stick up out of the car’s roof, and that’s a no-no. Is that an antenna, or is that a faraway light post? You don’t want trees coming out of the top of the car either. You want to see the roof clear from the background, so you can see its shape and where that shape ends.
 
 4. **Even, clean light with no dapples or shadows.** You can’t be under trees with sunlight filtering down through them, making shadows and distorting the body of the car. Any dark shadow and then bright sunlight crossing the vehicle, and you just cannot see the paint well.
 
 5. **The sun’s position in reference to the landscape.** I scout by season, with sun-tracking apps, and I take note of landscape features: the height of the nearby hills. I try to know exactly where the sun will come from and when it will come over those hills and blast the body and create sunspots.
 
-6. **Clothes that reflect or blend into a car’s body.** I once wore blue shoes and an orange jacket on a shoot, and those reflected in the car’s body no matter where I stood. I had to work extra hard to find angles to get me out of the shots. I now find it better to wear darker clothing and allow myself to blend into the darker reflections on the car or the wheels.
+6. **Replace clothes that reflect with clothes that blend into the car’s body.** I once wore blue shoes and an orange jacket on a shoot, and those reflected in the car’s body no matter where I stood. I had to work extra hard to find angles to get me out of the shots. I now find it better to wear darker clothing and allow myself to blend into the darker reflections on the car or the wheels.
 
-## The Best Locations Provide an Environment that Enhances the Car’s Features Instead of Distorting Its Condition
+## The Best Locations Provide an Atmosphere Without Distraction
 
 The ideal location doesn’t take over the image, but creates an atmosphere, just a hint of what’s around the car, that enhances the car’s features as much as possible. The atmosphere can be rolling hills behind a car that pair with the car’s curved roofline, the hills in the background matching the shape of the roof, which is satisfying to look at.
 
@@ -100,13 +100,13 @@ At sunrise, sometimes the pink of the sky shows up in the paint.
 
 Golden hour is the best time to photograph cars on clear days.
 
-That nice golden-hour light reflects on the car and that can look really beautiful as a reflection.
+That nice golden-hour light reflects on the car, and it’s the good kind of reflection, the kind that shows the shape.
 
 Unless it’s overcast, which can be really good for cars in late morning or late afternoon, the afternoon means sunspots and glare, and when they’re on the car, you can’t really tell whether the paint is damaged or clean. Glare on the body makes portions look white. And when the sun is too high, it creates a really dark shadow, and the tires are difficult to separate from that darkness.
 
 So if I’m forced to shoot in poor light, I change my shooting angles to get the sunspot off the body, which limits the angles and perspectives I can get. They may not be the most flattering ones for that car, but you do what you can to get the best shots possible given the circumstances.
 
-When you think of good light, think of diffusion (overcast), or the sun low in the sky (golden hour). The lower, depending on the location, the better. And shoot on the lit sides of the car, repositioning the car if necessary, to keep good light on the panels you’re shooting, and avoid silhouetting the car by shooting into the sun.
+When you think of good light, think of diffusion (overcast), or the sun low in the sky (golden hour). The lower, depending on the location, the better. And shoot on the lit sides of the car, repositioning the car if necessary, to keep good light on the panels you’re shooting, and avoid silhouetting the car by shooting into the sun. That’s why, when I ask an owner about the location, I ask about the time too.
 
 ## How to Secure a Worthy Shooting Location
 
@@ -130,11 +130,11 @@ He didn’t care. It was a race car with a storied history, banged up, with stic
 
 Owners don’t always know what their paint will do in a photograph, or whether a location will work. That’s my job to know.
 
-It helps if the owner is flexible and trusts my judgement. I shoot my locations year round and know them well. For me, that’s always better than any alternative. I know where I can get good results. In the end, we both have to live with the result: an environment that makes good images possible or one that makes them impossible.
+In the end, we both have to live with the result: an environment that makes good images possible or one that makes them impossible.
 
 ## “We’re Doing It in My Driveway.” What Happens When You’re Stuck With Sucky Locations?
 
-The worst-case location for me is the before-mentioned driveway, usually, unless it’s large enough that it allows me to move and shoot the wide six-point shots. I’ve only done two driveways that were.
+The worst-case location for me is the before-mentioned driveway, usually, unless it’s large enough that it allows me to move and shoot all the wide shots without repositioning the car. I’ve only done two driveways that were.
 
 In a driveway shoot, you almost give up all your advantages as a photographer. The only thing you can control maybe is the time of day. I give up my [whole shooting process](https://www.mjkelleyphoto.com/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html). I give up speed. And often I give up the light, because an owner set on the driveway usually isn’t flexible about the time either, so the shoot lands at whatever time is convenient for him or her, and sometimes that’s the afternoon.
 
@@ -182,7 +182,7 @@ You don’t. You just respect their situation and try to understand what they’
 
 So I did my best in a normal driveway without a lot of room to work, and I opened the aperture to blur the residential background into shapes.
 
-This driveway client did agree to timing.
+The family did agree to timing.
 
 So I shot the Mercedes at golden hour. As the sun set and the air cooled, the neighborhood quieted, and golden light streamed across the green hood. The car lit up against that neighborhood background. And I rushed through my shot list, making sure I got everything before the light faded.
 
