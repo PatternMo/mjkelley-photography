@@ -114,7 +114,7 @@ I don’t always get to pick. Before every auction shoot, I lead with a question
 
 If they say the driveway, or a parking lot, I walk them through the auction brief. Bring a Trailer doesn’t want people walking through the shots or other cars in the frame, and I don’t want things coming out of the car’s roof, so if we do a parking lot, it has to be empty, with no light posts and no trees hanging over the car with sunlight filtering through.
 
-I tell them I know locations that meet all of that and can recommend some in their area. Unless they can guarantee their spot meets those requirements, there’s a chance of rejection. I’ve never had a gallery rejected, but I’ve shot for a lot of owners who’ve had one rejected. It wastes a lot of time and results in a re-shoot.
+I tell them I know locations that meet all of that and can recommend some in their area, unless they can guarantee their spot meets those requirements.
 
 When a car’s in a driveway, it just looks like it’s in someone’s driveway. And that can be as distracting as an epic background. And it also makes my job more difficult as far as movement around the vehicle, positioning, and keeping stuff out of the background, like garbage cans, etc.
 
@@ -162,7 +162,7 @@ Other times the client is in a town new to me, and I don’t really have my go-t
 
 I shot an amazing muscle car, a 1972 Oldsmobile Cutlass Supreme, in a full apartment parking lot, because the owner was in his eighties or nineties and didn’t want to drive it far, and I worked while cars came in and out and people walked by, and tried to do my best.
 
-It kind of hurts, knowing those aren’t going in my portfolio. I remember these as the worst shoots, but looking back over the galleries now, the cars look great in the sets.
+It kind of hurts, knowing those aren’t going in my portfolio. I remember these as the worst shoots.
 
 Sometimes owners are in their elder years, and you have to be compassionate and kind in those situations.
 
