@@ -118,7 +118,7 @@ I tell them I know locations that meet all of that and can recommend some in the
 
 When a car’s in a driveway, it just looks like it’s in someone’s driveway. And that can be as distracting as an epic background. And it also makes my job more difficult as far as movement around the vehicle, positioning, and keeping stuff out of the background, like garbage cans, etc.
 
-Parking lots aren’t as bad as driveways, and you can still win with them. Church parking lots work well, and so do the big lots at malls, especially overfill lots. I’ve shot on top of parking garages, on the open roof, and on a weekday a lot of people don’t park up there, so you get open space to move the car around any way you want, and the concrete parapet at the edge isn’t so bad reflected on the body. I parked the car up near the parapet and shot on the side that was open to the lot. The parapet behind me was far enough away to blend into the car at the angle I was shooting.
+Parking lots aren’t as bad as driveways, and you can still win with them. Church parking lots work well, and so do the big lots at malls, especially overfill lots. I’ve shot on top of parking garages, on the open roof, and on a weekday a lot of people don’t park up there, so you get open space to move the car around any way you want. I parked the car up near the concrete parapet at the edge and shot on the side that was open to the lot. The parapet behind me was far enough away to blend into the car at the angle I was shooting.
 
 Usually, once they hear all this, owners agree. Some don’t, and when someone insists on a location, there’s usually a good reason. Sometimes it’s an emotional one. Sometimes it’s stubbornness, or convenience. And sometimes, the smallest group, it’s an owner who has sold at auction before and already has a good spot picked out.
 
@@ -128,9 +128,9 @@ It reflected.
 
 He didn’t care. It was a race car with a storied history, banged up, with stickers and signatures and handwriting on the body, and he was an engine guy. What he cared about was what was under the hood. But the briefs I shoot ask for a clear view of the paint, and I’m always aware of the reflections, always trying to avoid them.
 
-Owners don’t always know what their paint will do in a photograph, or whether a location will work. That’s my job to know. Even matte paint reflects, like the matte G-Wagon I shot.
+Owners don’t always know what their paint will do in a photograph, or whether a location will work. That’s my job to know.
 
-It helps if the owner is flexible and trusts my locations, the ones I shoot in year round and know well, over any new location or their own recommendation. In the end, we both have to live with the result, and it’s better to live with the best environment possible than one that made good images impossible.
+It helps if the owner is flexible and trusts my judgement. I shoot my locations year round and know them well. For me, that’s always better than any alternative. I know where I can get good results. In the end, we both have to live with the result: an environment that makes good images possible or one that makes them impossible.
 
 ## “We’re Doing It in My Driveway.” What Happens When You’re Stuck With Sucky Locations?
 
