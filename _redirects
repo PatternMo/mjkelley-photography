@@ -8,3 +8,8 @@
 /product/exterior-real-estate-shots/13      /real-estate            301
 /product/basic-real-estate-full-package/10  /real-estate            301
 /projects-under-construction.html           /projects               301
+
+# Short address for the people business card's QR code (his go, Telegram msg
+# 13765, 2026-10-30). 302 for now: a real /studio page (outdoor portraits +
+# headshots + new work) is planned, and a file at /studio will shadow this rule.
+/studio                                     /headshot-photography   302
