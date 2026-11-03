@@ -46,8 +46,11 @@
             "availableChannel": {
                 "@type": "ServiceChannel",
                 "serviceUrl": "https://www.mjkelleyphoto.com/contact.html",
-                "servicePhone": "+1-415-375-0178",
-                "email": "contact@mjkelleyphoto.com"
+                "servicePhone": {
+                    "@type": "ContactPoint",
+                    "telephone": "+1-415-375-0178",
+                    "email": "contact@mjkelleyphoto.com"
+                }
             },
             "hasOfferCatalog": {
                 "@type": "OfferCatalog",
@@ -262,7 +265,7 @@
     <script src="image-automation.js"></script>
 
 </head>
-<body>
+<body class="theme-dark">
     <!-- Header -->
     <header>
         <div class="header-container">
@@ -279,7 +282,7 @@
                         <div class="dropdown-content">
                             <a href="architecture-photography.html">Architecture</a>
                             <a href="automotive-photography.html">Automotive</a>
-                            <a href="projects.html">Industrial/Engineering</a>
+                            <a href="industrial-engineering-photography.html">Industrial/Engineering</a>
                             <a href="headshot-photography.html">Portrait/Headshot</a>
                             <a href="landscape-photography.html">Landscape</a>
                             <a href="real-estate.html">Real Estate</a>
@@ -339,8 +342,67 @@
             </div>
         </section>
 
+        <!-- Related Projects band: filled from the projects.html cards on every push (generate-blog.js) -->
+        <!-- RELATED-PROJECTS:BEGIN match="automotive" -->
+        <section class="related-projects-section">
+          <h2>Related Projects</h2>
+          <ul class="related-projects-list" role="list">
+            <li class="related-projects-item"><a href="projects/1957-chevrolet-corvette.html"><picture>
+                            <source type="image/avif" srcset="images/projects/1957-chevrolet-corvette/thumbs/1957-chevrolet-corvette-001-card-800.avif 800w, images/projects/1957-chevrolet-corvette/thumbs/1957-chevrolet-corvette-001-card-1480.avif 1480w" sizes="(max-width: 768px) 80vw, (max-width: 833px) 300px, (max-width: 1555px) 36vw, 560px">
+                            <source type="image/webp" srcset="images/projects/1957-chevrolet-corvette/thumbs/1957-chevrolet-corvette-001-card-800.webp 800w, images/projects/1957-chevrolet-corvette/thumbs/1957-chevrolet-corvette-001-card-1480.webp 1480w" sizes="(max-width: 768px) 80vw, (max-width: 833px) 300px, (max-width: 1555px) 36vw, 560px">
+                            <img loading="lazy" src="images/projects/1957-chevrolet-corvette/thumbs/1957-chevrolet-corvette-001-card-800.jpg" srcset="images/projects/1957-chevrolet-corvette/thumbs/1957-chevrolet-corvette-001-card-800.jpg 800w, images/projects/1957-chevrolet-corvette/thumbs/1957-chevrolet-corvette-001-card-1480.jpg 1480w" sizes="(max-width: 768px) 80vw, (max-width: 833px) 300px, (max-width: 1555px) 36vw, 560px"
+                                alt="">
+                        </picture><span class="related-projects-title">1957 Chevrolet Corvette</span></a></li>
+            <li class="related-projects-item"><a href="projects/1965-chevrolet-nova.html"><picture>
+                            <source type="image/avif" srcset="images/projects/1965-chevrolet-nova/thumbs/1965-chevrolet-nova-001-card-800.avif 800w, images/projects/1965-chevrolet-nova/thumbs/1965-chevrolet-nova-001-card-1480.avif 1480w" sizes="(max-width: 768px) 80vw, (max-width: 833px) 300px, (max-width: 1555px) 36vw, 560px">
+                            <source type="image/webp" srcset="images/projects/1965-chevrolet-nova/thumbs/1965-chevrolet-nova-001-card-800.webp 800w, images/projects/1965-chevrolet-nova/thumbs/1965-chevrolet-nova-001-card-1480.webp 1480w" sizes="(max-width: 768px) 80vw, (max-width: 833px) 300px, (max-width: 1555px) 36vw, 560px">
+                            <img loading="lazy" src="images/projects/1965-chevrolet-nova/thumbs/1965-chevrolet-nova-001-card-800.jpg" srcset="images/projects/1965-chevrolet-nova/thumbs/1965-chevrolet-nova-001-card-800.jpg 800w, images/projects/1965-chevrolet-nova/thumbs/1965-chevrolet-nova-001-card-1480.jpg 1480w" sizes="(max-width: 768px) 80vw, (max-width: 833px) 300px, (max-width: 1555px) 36vw, 560px"
+                                alt="">
+                        </picture><span class="related-projects-title">1965 Chevrolet Nova Custom Hot Rod</span></a></li>
+            <li class="related-projects-item"><a href="projects/2018-bmw-430i-convertible.html"><picture>
+                            <source type="image/avif" srcset="images/projects/2018-bmw-430i-convertible/thumbs/2018-bmw-430i-convertible-001-card-800.avif 800w, images/projects/2018-bmw-430i-convertible/thumbs/2018-bmw-430i-convertible-001-card-1480.avif 1480w" sizes="(max-width: 768px) 80vw, (max-width: 833px) 300px, (max-width: 1555px) 36vw, 560px">
+                            <source type="image/webp" srcset="images/projects/2018-bmw-430i-convertible/thumbs/2018-bmw-430i-convertible-001-card-800.webp 800w, images/projects/2018-bmw-430i-convertible/thumbs/2018-bmw-430i-convertible-001-card-1480.webp 1480w" sizes="(max-width: 768px) 80vw, (max-width: 833px) 300px, (max-width: 1555px) 36vw, 560px">
+                            <img loading="lazy" src="images/projects/2018-bmw-430i-convertible/thumbs/2018-bmw-430i-convertible-001-card-800.jpg" srcset="images/projects/2018-bmw-430i-convertible/thumbs/2018-bmw-430i-convertible-001-card-800.jpg 800w, images/projects/2018-bmw-430i-convertible/thumbs/2018-bmw-430i-convertible-001-card-1480.jpg 1480w" sizes="(max-width: 768px) 80vw, (max-width: 833px) 300px, (max-width: 1555px) 36vw, 560px"
+                                alt="">
+                        </picture><span class="related-projects-title">2018 BMW 430i Convertible</span></a></li>
+          </ul>
+          <div class="related-projects-nav">
+            <button type="button" class="related-projects-prev" aria-label="Scroll projects left">&#8249;</button>
+            <button type="button" class="related-projects-next" aria-label="Scroll projects right">&#8250;</button>
+          </div>
+          <script>
+          (function () {
+            var band = document.currentScript.parentNode;
+            var list = band.querySelector('.related-projects-list');
+            var prev = band.querySelector('.related-projects-prev');
+            var next = band.querySelector('.related-projects-next');
+            if (!list || !prev || !next) return;
+            function step() {
+              var item = list.querySelector('.related-projects-item');
+              return item ? item.getBoundingClientRect().width + 20 : list.clientWidth;
+            }
+            function update() {
+              var max = list.scrollWidth - list.clientWidth - 1;
+              band.classList.toggle('is-scrollable', max > 0);
+              prev.disabled = list.scrollLeft <= 0;
+              next.disabled = list.scrollLeft >= max;
+            }
+            function behavior() {
+              var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              return reduce ? 'auto' : 'smooth';
+            }
+            prev.addEventListener('click', function () { list.scrollBy({ left: -step(), behavior: behavior() }); });
+            next.addEventListener('click', function () { list.scrollBy({ left: step(), behavior: behavior() }); });
+            list.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+          })();
+          </script>
+        </section>
+        <!-- RELATED-PROJECTS:END -->
+
         <!-- FAQ Section -->
-        <section class="faq-section" id="faq">
+        <section class="faq-section faq-section--tinted" id="faq">
             <h2>Car Auction Listing Frequently Asked Questions</h2>
             <div class="faq-item">
                 <div class="faq-question">Why did my listing get rejected without any real explanation?</div>
@@ -415,7 +477,7 @@
                     <div class="footer-dropdown-content">
                         <a href="architecture-photography.html">Architecture</a>
                         <a href="automotive-photography.html">Automotive</a>
-                        <a href="projects.html">Industrial/Engineering</a>
+                        <a href="industrial-engineering-photography.html">Industrial/Engineering</a>
                         <a href="headshot-photography.html">Portrait/Headshot</a>
                         <a href="landscape-photography.html">Landscape</a>
                         <a href="real-estate.html">Real Estate</a>

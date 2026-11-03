@@ -21,18 +21,6 @@
     
     <script src="../../shared.js"></script>
 
-    <script>
-        function loadDisqus() {
-            var disqus_config = function () {
-                this.page.url = 'https://www.mjkelleyphoto.com{{url}}';
-                this.page.identifier = '{{slug}}';
-            };
-            var d = document, s = d.createElement('script');
-            s.src = 'https://mjkelleyphotography.disqus.com/embed.js'; // Replace with your Disqus shortname
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -50,7 +38,7 @@
                         <div class="dropdown-content">
                             <a href="../../architecture-photography.html">Architecture</a>
                             <a href="../../automotive-photography.html">Automotive</a>
-                            <a href="../../projects.html">Industrial/Engineering</a>
+                            <a href="../../industrial-engineering-photography.html">Industrial/Engineering</a>
                             <a href="../../headshot-photography.html">Portrait/Headshot</a>
                             <a href="../../landscape-photography.html">Landscape</a>
                             <a href="../../real-estate.html">Real Estate</a>
@@ -104,7 +92,7 @@
                 <div class="footer-dropdown-content">
                     <a href="../../architecture-photography.html">Architecture</a>
                     <a href="../../automotive-photography.html">Automotive</a>
-                    <a href="../../projects.html">Industrial/Engineering</a>
+                    <a href="../../industrial-engineering-photography.html">Industrial/Engineering</a>
                     <a href="../../headshot-photography.html">Portrait/Headshot</a>
                     <a href="../../landscape-photography.html">Landscape</a>
                     <a href="../../real-estate.html">Real Estate</a>
@@ -131,10 +119,6 @@
         </div>
     </footer>
     
-    <script>
-        window.addEventListener('load', loadDisqus);
-    </script>
-
     <script>
     // Code block copy functionality
     document.addEventListener('DOMContentLoaded', function() {

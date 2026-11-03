@@ -91,6 +91,12 @@ a { color: var(--paper); }
 
 .wordmark .navmark { width: 27px; height: 27px; flex: 0 0 auto; display: block; }
 
+/* Narrow phones (2026-11-03, his go on the Codex fix): the nowrap wordmark plus the menu button
+   needed 332px, so under 360px the page scrolled sideways and the button sat off the edge. */
+@media (max-width: 359px) {
+    .wordmark { font-size: .8rem; }
+}
+
 /* mark follows the tokens (CSS wins over the SVG's presentation attributes),
    so palette trials recolor it without touching the inline SVG */
 .wordmark .navmark path { stroke: var(--accent); }
@@ -156,6 +162,24 @@ a { color: var(--paper); }
     width: 22px;
     height: 2px;
     background: var(--paper);
+}
+
+/* Bigger tap target (2026-11-03, his yes): an invisible 44x44 box around the button takes
+   the tap; the icon and the overlay backing (cinematic.css) look the same.
+   The box reaches toward the screen edge, not left: on 320px phones the site name runs up to
+   the icon. */
+.menu-toggle {
+    position: relative;
+}
+
+.menu-toggle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -6px;   /* this button is 38px wide with its padding, so the box ends at its right edge */
+    width: 44px;
+    height: 44px;
+    transform: translateY(-50%);
 }
 
 /* Main content shell

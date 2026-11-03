@@ -160,6 +160,24 @@ header {
     transition: 0.3s;
 }
 
+/* Bigger tap target (2026-11-03, his yes): the icon stays 20x11, but an invisible 44x44 box
+   around it takes the tap. Taps on a pseudo-element count as taps on the toggle.
+   The box reaches toward the screen edge, not left: on 320px phones the site name runs up to
+   the icon. */
+.menu-toggle {
+    position: relative;
+}
+
+.menu-toggle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    width: 44px;
+    height: 44px;
+    transform: translateY(-50%);
+}
+
 /* Main Content
    ========================================================================== */
 main {
@@ -2115,3 +2133,333 @@ main {
         font-size: 22px;
     }
 }
+
+/* Related Projects band (2026-11-03, his request): project cards from projects.html, stamped by
+   generate-blog.js between the RELATED-PROJECTS markers. One full-width row that scrolls sideways
+   (his follow-up: "horizontal aspect across the page from left to right... scroll the projects from
+   left to right"): swipe or trackpad, plus arrow buttons when the row overflows. Card images are
+   3:2. Card widths here must match BAND_SIZES in the generator. */
+.related-projects-section {
+    padding: 80px 0;
+}
+
+.related-projects-section h2 {
+    font-size: 28px;
+    font-weight: 300;
+    color: #333;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.related-projects-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 40px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 40px;
+    overscroll-behavior-x: contain;
+    /* No visible scrollbar (his ask: "remove the slider bar and make it clean"); the row still
+       scrolls by swipe, trackpad and the arrow buttons. */
+    scrollbar-width: none;
+}
+
+.related-projects-list::-webkit-scrollbar {
+    display: none;
+}
+
+.related-projects-item {
+    flex: 0 0 clamp(300px, 36vw, 560px);
+    scroll-snap-align: start;
+}
+
+/* Centers the row when every card fits; auto margins never clip an overflowing row the way
+   justify-content: center would. */
+.related-projects-item:first-child {
+    margin-left: auto;
+}
+
+.related-projects-item:last-child {
+    margin-right: auto;
+}
+
+.related-projects-item a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.related-projects-item picture,
+.related-projects-item img {
+    display: block;
+    width: 100%;
+}
+
+.related-projects-item img {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.related-projects-item a:hover img {
+    opacity: 0.85;
+}
+
+.related-projects-title {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;
+}
+
+/* Arrows: hidden until the script finds the row wider than the screen. Outlined like the
+   homepage montage dots; the arrow at either end fades when there is nothing more that way. */
+.related-projects-nav {
+    display: none;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.related-projects-section.is-scrollable .related-projects-nav {
+    display: flex;
+}
+
+.related-projects-nav button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid #333;
+    border-radius: 50%;
+    background: none;
+    color: #333;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+}
+
+.related-projects-nav button:hover:not(:disabled) {
+    background: #333;
+    color: #fff;
+}
+
+.related-projects-nav button:disabled {
+    opacity: 0.25;
+    cursor: default;
+}
+
+.related-projects-nav button:focus-visible {
+    outline: 1px solid #333;
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .related-projects-section {
+        padding: 60px 0;
+    }
+
+    .related-projects-section h2 {
+        font-size: 22px;
+    }
+
+    .related-projects-list {
+        padding: 0 20px;
+        scroll-padding-inline: 20px;
+    }
+
+    .related-projects-item {
+        flex-basis: 80vw;
+    }
+}
+
+/* Gray FAQ band (2026-11-03, his ask on the industrial page: "Add the same light gray background
+   to the FAQ that the service descriptions section has"). Full width like .services-section,
+   painted by the shadow and clip instead of a wrapper, so the FAQ stays the related-posts block's
+   direct sibling. Opt in per page with class="faq-section faq-section--tinted". */
+.faq-section--tinted {
+    background: #fafafa;
+    box-shadow: 0 0 0 100vmax #fafafa;
+    clip-path: inset(0 -100vmax);
+    padding-bottom: 50px;
+}
+
+/* The usual pull-up (-60px) would drag the related-posts heading into the gray. */
+.faq-section--tinted + .related-posts-section {
+    margin-top: 0;
+    padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+    .faq-section--tinted {
+        padding-bottom: 30px;
+    }
+
+    .faq-section--tinted + .related-posts-section {
+        padding-top: 60px;
+    }
+}
+
+/* ==========================================================================
+   Dark theme (2026-11-03, his ask: "For all pages except the blog and headshots/portraits, I'd
+   like to turn the same background and text color as the homepage"). Opt in per page with
+   <body class="theme-dark">. Colors are the homepage's (palette-neutral.css): near-black ground,
+   off-white text, a lifted panel tone where the light theme used #fafafa/#f5f5f5. The light rules
+   above stay untouched for the blog, headshots and portraits.
+   ========================================================================== */
+body.theme-dark {
+    --ink: #0b0b0c;                      /* homepage ground */
+    --ink-2: #151517;                    /* homepage lifted panel: cards, fields, placeholders (was #f5f5f5) */
+    --panel: #232429;                    /* homepage "From the Blog" band: full-width sections (was #fafafa);
+                                            his ask: "that dark gray should be the same cast that the
+                                            sections on other pages get" */
+    --card: #1c1c20;                     /* text cards (video, projects): between ink-2 and panel; his ask:
+                                            "lighter. Maybe not as light as the service section" */
+    --ink-3: #2e2f35;                    /* hovers, a step above the panel */
+    --paper: #ebe9e6;                    /* homepage text (was #333) */
+    --paper-soft: rgba(235, 233, 230, .74); /* body copy (was #666) */
+    --muted: #8b8b8d;                    /* homepage secondary (was #999) */
+    --hairline: rgba(235, 233, 230, .1);
+    background: var(--ink);
+    color: var(--paper);
+    color-scheme: dark;
+}
+
+/* header, nav, dropdowns */
+body.theme-dark header { background: rgba(11, 11, 12, .95); border-bottom-color: var(--hairline); }
+body.theme-dark .logo,
+body.theme-dark .header-nav a { color: var(--paper); }
+body.theme-dark .navmark path[stroke] { stroke: var(--paper); }
+body.theme-dark .navmark path:not([fill="none"]) { fill: var(--paper); }
+body.theme-dark .dropdown-content,
+body.theme-dark .footer-dropdown-content { background: rgba(21, 21, 23, .98); border-color: var(--hairline); box-shadow: 0 8px 32px rgba(0, 0, 0, .5); }
+body.theme-dark .dropdown-content a,
+body.theme-dark .footer-dropdown-content a { color: var(--paper); border-bottom-color: var(--hairline); }
+body.theme-dark .dropdown-content a:hover,
+body.theme-dark .footer-dropdown-content a:hover { background: rgba(235, 233, 230, .05); }
+body.theme-dark .menu-toggle span { background: var(--paper); }
+
+@media (max-width: 768px) {
+    body.theme-dark .header-nav ul { background: rgba(21, 21, 23, .98); border-bottom-color: var(--hairline); }
+}
+
+/* hero */
+body.theme-dark .hero h1 { color: var(--paper); }
+body.theme-dark .hero p { color: var(--paper-soft); }
+
+/* gallery placeholders and loader */
+body.theme-dark .gallery-item,
+body.theme-dark .headshot-placeholder { background: var(--ink-2); }
+body.theme-dark .video-item,
+body.theme-dark .project-item { background: var(--card); }
+body.theme-dark #gallery-loader { border-color: var(--ink-3); border-top-color: var(--paper); }
+
+/* panels that were light gray */
+body.theme-dark .services-section,
+body.theme-dark .about-section,
+body.theme-dark .project-details-section,
+body.theme-dark .listing-head,
+body.theme-dark .under-construction { background: var(--panel); }
+body.theme-dark .faq-section--tinted { background: var(--panel); box-shadow: 0 0 0 100vmax var(--panel); }
+
+/* headings */
+body.theme-dark .services-text h2,
+body.theme-dark .service h3,
+body.theme-dark .about-content h2,
+body.theme-dark .about-text h2,
+body.theme-dark .video-section h2,
+body.theme-dark .video-title,
+body.theme-dark .project-title,
+body.theme-dark .project-details-text h2,
+body.theme-dark .process-section h2,
+body.theme-dark .process-title,
+body.theme-dark .faq-section h2,
+body.theme-dark .faq-question,
+body.theme-dark .contact-form h2,
+body.theme-dark .contact-info h3,
+body.theme-dark .form-group label,
+body.theme-dark .listing-section h2,
+body.theme-dark .under-construction h2,
+body.theme-dark .related-posts h2,
+body.theme-dark .related-posts a,
+body.theme-dark .related-projects-section h2,
+body.theme-dark .service-list li:before,
+body.theme-dark .about-text li:before,
+body.theme-dark .project-specs li:before { color: var(--paper); }
+
+/* body copy */
+body.theme-dark .services-text p,
+body.theme-dark .service p,
+body.theme-dark .service-list li,
+body.theme-dark .about-content p,
+body.theme-dark .about-text,
+body.theme-dark .video-description,
+body.theme-dark .project-description,
+body.theme-dark .project-details-text p,
+body.theme-dark .project-specs li,
+body.theme-dark .process-description,
+body.theme-dark .faq-answer,
+body.theme-dark .contact-info p,
+body.theme-dark .contact-info a,
+body.theme-dark .checkbox-group label,
+body.theme-dark .listing-summary,
+body.theme-dark .listing-section .listing-note,
+body.theme-dark .under-construction p,
+body.theme-dark .related-projects-title { color: var(--paper-soft); }
+
+/* secondary text */
+body.theme-dark .project-category,
+body.theme-dark .project-details,
+body.theme-dark .listing-summary a span,
+body.theme-dark .listing-section h2 .listing-count,
+body.theme-dark .construction-icon,
+body.theme-dark .copyright { color: var(--muted); }
+body.theme-dark .listing-summary a { color: var(--paper); }
+
+/* links inside copy (browser blue is unreadable on near-black) */
+body.theme-dark main p a:not([class]),
+body.theme-dark main li a:not([class]),
+body.theme-dark .faq-answer a,
+body.theme-dark .listing-note a { color: var(--paper); text-decoration: underline; text-underline-offset: 2px; }
+
+/* rules between items */
+body.theme-dark .faq-item,
+body.theme-dark .process-item { border-bottom-color: var(--hairline); }
+body.theme-dark .site-footer { border-top-color: var(--hairline); }
+
+/* buttons: the homepage's outlined CTA */
+body.theme-dark .cta-button { background: transparent; color: var(--paper); border: 1px solid var(--paper); }
+body.theme-dark .cta-button:hover,
+body.theme-dark .cta-button:focus-visible { background: var(--paper); color: var(--ink); }
+body.theme-dark .related-projects-nav button { border-color: var(--paper); color: var(--paper); }
+body.theme-dark .related-projects-nav button:hover:not(:disabled) { background: var(--paper); color: var(--ink); }
+body.theme-dark .related-projects-nav button:focus-visible { outline-color: var(--paper); }
+
+/* Cards: a faint light ring so a photo with dark edges (Brittan, the Hunters View ceiling) does not
+   melt into the black ground (his catch, 2026-11-03). Drawn outside the box, so nothing moves. */
+body.theme-dark .project-item,
+body.theme-dark .video-item { box-shadow: 0 0 0 1px rgba(235, 233, 230, .14); }
+body.theme-dark .project-item:hover { box-shadow: 0 0 0 1px rgba(235, 233, 230, .22), 0 20px 40px rgba(0, 0, 0, .6); }
+
+/* contact form */
+body.theme-dark .form-group input,
+body.theme-dark .form-group select,
+body.theme-dark .form-group textarea { background: var(--ink-2); border-color: rgba(235, 233, 230, .18); color: var(--paper); }
+body.theme-dark .form-group input:focus,
+body.theme-dark .form-group select:focus,
+body.theme-dark .form-group textarea:focus { border-color: var(--paper); box-shadow: 0 0 0 1px rgba(235, 233, 230, .25); }
+body.theme-dark .form-group label.required::after { color: #ef7a7a; }
+
+/* footer */
+body.theme-dark .footer-nav a,
+body.theme-dark .footer-navigation a { color: var(--paper-soft); }
+/* The light theme dims footer links to .6 on hover; on dark text already at .74 that fell to 3.8:1
+   (Codex review). Brighten instead. */
+body.theme-dark .footer-nav a:hover,
+body.theme-dark .footer-navigation a:hover { opacity: 1; color: var(--paper); }
+body.theme-dark .social-icon { background: var(--ink-2); color: var(--paper-soft); }
+body.theme-dark .social-icon:hover { background: var(--ink-3); }

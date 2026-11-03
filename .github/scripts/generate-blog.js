@@ -97,8 +97,9 @@ const firstCategory = (data) => {
 
 // Displayed category label (2026-09-24, his request "Engineering and
 // Landscape"): `category` may be a front-matter array; every entry shows,
-// joined with a middle dot, while related-post matching keys on the FIRST
-// entry only (firstCategory). A plain string behaves exactly as before.
+// joined with a middle dot. Related-post matching used the FIRST entry only
+// until 2026-11-03; it now counts every entry (allCategoryKeys below). A plain
+// string behaves exactly as before.
 const categoryLabel = (data) => {
   if (Array.isArray(data.category)) return data.category.map(c => String(c).trim()).filter(Boolean).join(' \u00b7 ');
   return firstCategory(data);
@@ -111,13 +112,28 @@ const categoryLabel = (data) => {
 // maps a normalized displayed category to its group key; labels on the page
 // are untouched. Added 2026-09-08 (his call): "Interiors" (the Airbnb post,
 // ruled its own category 2026-08-31) and "Interior Design" never paired.
+// 2026-11-03 (his rule for the industrial page: "architecture, engineering,
+// and industrial blog posts should get priority"): Architecture and
+// Industrial match as Engineering.
 const CATEGORY_GROUPS = {
   'interiors': 'interior design',
+  'architecture': 'engineering',
+  'industrial': 'engineering',
 };
 const normalizeKey = (v) => {
   const k = String(v || '').trim().toLowerCase();
   return CATEGORY_GROUPS[k] || k;
 };
+
+// Every category a post carries, as matching keys (2026-11-03, his go: a post
+// tagged "Engineering, Landscape" counts as related on the Landscape page too,
+// "as long as the pages end up where they need to be"). A post's own Continue
+// Reading still starts from its first category (relatedKey).
+const allCategoryKeys = (data) => {
+  const raw = Array.isArray(data.category) ? data.category : [firstCategory(data)];
+  return [...new Set(raw.map(normalizeKey).filter(Boolean))];
+};
+const hasKey = (p, k) => (p.relatedKeys || [p.relatedKey]).includes(k);
 
 // Every link inside a post body opens in a new tab (his rule, 2026-09-08) - off-site sources and
 // his own posts alike. Only the rendered Markdown gets this; the template's Continue Reading and
@@ -135,12 +151,24 @@ const stripLeadingH1 = (md) => md.replace(/^\s*#\s+.+?\n+/, '');
 // backfill with the newest posts from other categories, capped at `limit`
 // (3 everywhere unless a page's marker overrides it), always excluding the
 // post being read. The block renders whenever the result is non-empty.
+// Second tier (2026-11-03, his rule: "interiors would be the next most
+// relevant after the three categories we named"). For a key listed here,
+// posts from the listed group fill in after same-group posts and before the
+// newest of everything else. Keys and values are normalized group keys.
+const RELATED_NEXT = {
+  'engineering': 'interior design',
+  // 2026-11-03, his rule for the real estate and architecture pages: "1) newest related,
+  // 2) related 3) newest unrelated", interiors being the related tier.
+  'real estate': 'interior design',
+};
 function relatedPosts(posts, { key = null, excludeSlug = null, limit = 3 } = {}) {
   const pool = posts.filter(p => p.slug !== excludeSlug);
   if (!key) return pool.slice(0, limit);
-  const same = pool.filter(p => p.relatedKey === key);
-  const rest = pool.filter(p => p.relatedKey !== key);
-  return same.concat(rest).slice(0, limit);
+  const next = RELATED_NEXT[key] || null;
+  const same = pool.filter(p => hasKey(p, key));
+  const second = next ? pool.filter(p => !hasKey(p, key) && hasKey(p, next)) : [];
+  const rest = pool.filter(p => !hasKey(p, key) && !(next && hasKey(p, next)));
+  return same.concat(second, rest).slice(0, limit);
 }
 
 // Shared markup for both placements: thumbnail left, headline right.
@@ -560,6 +588,165 @@ function stampStaticPages(posts) {
   }
 }
 
+// --- related projects band ---------------------------------------------------
+// Sanctioned addition 2026-11-03, his request: "a band of images... and a
+// headline 'Related Projects' and the images link to the project pages. As we
+// add new projects related to this category in architecture, engineering, and
+// industrial, they will update here."
+// Source: the project cards on projects.html, in the index's own order (newest
+// shoot first), reusing each card's own image files. A page opts in with
+//   <!-- RELATED-PROJECTS:BEGIN match="kw1,kw2" limit="N" -->  (limit optional, default 3)
+//   <!-- RELATED-PROJECTS:END -->
+// and gets the cards whose .project-category text contains any keyword
+// (case-insensitive). A project page never lists itself. No match = nothing
+// between the markers.
+const PROJECTS_MARKER_BEGIN = '<!-- RELATED-PROJECTS:BEGIN';
+const PROJECTS_MARKER_END = '<!-- RELATED-PROJECTS:END -->';
+const PROJECTS_MARKER_RE = /^<!-- RELATED-PROJECTS:BEGIN match="([^"]+)"( limit="([1-9])")? -->$/;
+// Band layout (his follow-up: "in a horizontal aspect across the page from left
+// to right... and the ability to scroll the projects from left to right"): one
+// full-width row that scrolls sideways. Card width in styles.css is 80vw on
+// phones and clamp(300px, 36vw, 560px) above 768px; BAND_SIZES mirrors it.
+const BAND_SIZES = '(max-width: 768px) 80vw, (max-width: 833px) 300px, (max-width: 1555px) 36vw, 560px';
+// Arrow buttons for mouse users; swipe and trackpad scroll need no script.
+// Self-contained so any page carrying the marker gets working arrows.
+const BAND_SCRIPT = `<script>
+          (function () {
+            var band = document.currentScript.parentNode;
+            var list = band.querySelector('.related-projects-list');
+            var prev = band.querySelector('.related-projects-prev');
+            var next = band.querySelector('.related-projects-next');
+            if (!list || !prev || !next) return;
+            function step() {
+              var item = list.querySelector('.related-projects-item');
+              return item ? item.getBoundingClientRect().width + 20 : list.clientWidth;
+            }
+            function update() {
+              var max = list.scrollWidth - list.clientWidth - 1;
+              band.classList.toggle('is-scrollable', max > 0);
+              prev.disabled = list.scrollLeft <= 0;
+              next.disabled = list.scrollLeft >= max;
+            }
+            function behavior() {
+              var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              return reduce ? 'auto' : 'smooth';
+            }
+            prev.addEventListener('click', function () { list.scrollBy({ left: -step(), behavior: behavior() }); });
+            next.addEventListener('click', function () { list.scrollBy({ left: step(), behavior: behavior() }); });
+            list.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+          })();
+          </script>`;
+
+// Cards are matched by class token and attribute name, not exact spelling, so a
+// hand-edited card (extra classes, attributes in another order) still counts.
+const classRe = (tag, cls) => new RegExp(`<${tag}\\b[^>]*\\bclass="(?:[^"]*\\s)?${cls}(?:\\s[^"]*)?"[^>]*>`, 'g');
+const attrOf = (tagHtml, name) => (tagHtml.match(new RegExp(`\\b${name}="([^"]*)"`)) || [])[1];
+const textOf = (chunk, cls) => {
+  const m = new RegExp(`<div\\b[^>]*\\bclass="(?:[^"]*\\s)?${cls}(?:\\s[^"]*)?"[^>]*>([^<]*)</div>`).exec(chunk);
+  return m ? m[1].trim() : '';
+};
+
+function readProjectCards() {
+  const indexPath = path.join(baseDir, 'projects.html');
+  if (!fs.existsSync(indexPath)) return [];
+  const html = fs.readFileSync(indexPath, 'utf8');
+  const starts = [...html.matchAll(classRe('div', 'project-item'))].map(m => m.index);
+  return starts.map((start, i) => {
+    const chunk = html.slice(start, i + 1 < starts.length ? starts[i + 1] : html.length);
+    const linkTag = (chunk.match(classRe('a', 'project-link-overlay')) || [])[0];
+    const href = linkTag && attrOf(linkTag, 'href');
+    const picture = (chunk.match(/<picture\b[^>]*>[\s\S]*?<\/picture>/) || [])[0];
+    const category = textOf(chunk, 'project-category');
+    const title = textOf(chunk, 'project-title');
+    if (!href || !picture || !title) {
+      console.warn('related-projects: a projects.html card is missing its link, image or title; skipped');
+      return null;
+    }
+    return { href, picture, category, title };
+  }).filter(Boolean);
+}
+
+// Card paths are relative to the site root; a page one folder down needs "../".
+const isRelativeUrl = (u) => !/^(?:[a-z]+:|\/|#)/i.test(u);
+function relink(html, up) {
+  if (!up) return html;
+  return html
+    .replace(/\b(src|href)="([^"]+)"/g, (m, attr, u) => `${attr}="${isRelativeUrl(u) ? up + u : u}"`)
+    .replace(/\bsrcset="([^"]+)"/g, (m, set) => `srcset="${set.split(',').map(part => {
+      const s = part.trim();
+      return isRelativeUrl(s) ? up + s : s;
+    }).join(', ')}"`);
+}
+
+function renderProjectBand(cards, up) {
+  if (!cards.length) return '';
+  const items = cards.map(c => {
+    const pic = c.picture
+      .replace(/\bsizes="[^"]*"/g, `sizes="${BAND_SIZES}"`)
+      .replace(/<img (?![^>]*\bloading=)/, '<img loading="lazy" ')
+      // The visible title names the link; a repeated alt would make screen
+      // readers say it twice, so the thumbnail is decorative here.
+      .replace(/(<img\b[^>]*?\balt=")[^"]*"/, '$1"');
+    return `            <li class="related-projects-item"><a href="${c.href}">${pic}<span class="related-projects-title">${c.title}</span></a></li>`;
+  }).join('\n');
+  return relink(`<section class="related-projects-section">
+          <h2>Related Projects</h2>
+          <ul class="related-projects-list" role="list">
+${items}
+          </ul>
+          <div class="related-projects-nav">
+            <button type="button" class="related-projects-prev" aria-label="Scroll projects left">&#8249;</button>
+            <button type="button" class="related-projects-next" aria-label="Scroll projects right">&#8250;</button>
+          </div>
+          ${BAND_SCRIPT}
+        </section>`, up);
+}
+
+function stampProjectBands() {
+  const cards = readProjectCards();
+  for (const relFile of discoverMarkedPages()) {
+    const filePath = path.join(baseDir, relFile);
+    const html = fs.readFileSync(filePath, 'utf8');
+    const b = html.indexOf(PROJECTS_MARKER_BEGIN);
+    if (b === -1) continue; // not opted in
+    if (html.indexOf(PROJECTS_MARKER_BEGIN, b + PROJECTS_MARKER_BEGIN.length) !== -1) {
+      console.warn(`related-projects: ${relFile} has multiple BEGIN markers; skipping`);
+      continue;
+    }
+    const bClose = html.indexOf('-->', b);
+    const grammar = bClose === -1 ? null : html.slice(b, bClose + 3).match(PROJECTS_MARKER_RE);
+    if (!grammar) {
+      console.warn(`related-projects: ${relFile} BEGIN marker is malformed or unterminated; skipping`);
+      continue;
+    }
+    const e = html.indexOf(PROJECTS_MARKER_END);
+    if (e === -1 || e < bClose) {
+      console.warn(`related-projects: ${relFile} END marker missing or before BEGIN; skipping`);
+      continue;
+    }
+    if (html.indexOf(PROJECTS_MARKER_END, e + 1) !== -1) {
+      console.warn(`related-projects: ${relFile} has multiple END markers; skipping`);
+      continue;
+    }
+    const keywords = grammar[1].split(',').map(k => k.trim().toLowerCase()).filter(Boolean);
+    const limit = grammar[3] ? parseInt(grammar[3], 10) : 3;
+    const self = relFile.split(path.sep).join('/');
+    const up = '../'.repeat(self.split('/').length - 1);
+    const picked = cards
+      .filter(c => c.href !== self && keywords.some(k => c.category.toLowerCase().includes(k)))
+      .slice(0, limit);
+    const block = renderProjectBand(picked, up);
+    const interior = block ? `\n        ${block}\n        ` : '\n        ';
+    const stamped = html.slice(0, bClose + 3) + interior + html.slice(e);
+    if (stamped !== html) {
+      fs.writeFileSync(filePath, stamped);
+      console.log(`related-projects: stamped ${relFile}`);
+    }
+  }
+}
+
 // --- main --------------------------------------------------------------------
 
 async function generatePosts() {
@@ -600,6 +787,7 @@ async function generatePosts() {
       category,
       categories,
       relatedKey: normalizeKey(firstCategory(data)),
+      relatedKeys: allCategoryKeys(data),
       slug,
       url: `/blog/posts/${slug}.html`,
       content,
@@ -700,6 +888,9 @@ async function generatePosts() {
 
   // Pass 3: stamp related-posts blocks into marked static pages.
   stampStaticPages(posts);
+
+  // Pass 4: stamp Related Projects bands from the projects.html cards.
+  stampProjectBands();
 }
 
 generatePosts().catch(err => {

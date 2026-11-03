@@ -18,6 +18,7 @@ const OUTPUT_DIR = './';
 const PAGE_CONFIG = {
   'index.html': { priority: 1.0, changefreq: 'weekly' },
   'architecture-photography.html': { priority: 0.9, changefreq: 'monthly' },
+  'industrial-engineering-photography.html': { priority: 0.9, changefreq: 'monthly' },
   'automotive-photography.html': { priority: 0.9, changefreq: 'monthly' },
   'headshot-photography.html': { priority: 0.9, changefreq: 'monthly' },
   'landscape-photography.html': { priority: 0.9, changefreq: 'monthly' },
@@ -175,6 +176,7 @@ function generateImageSitemap() {
   // Group images by category/page
   const categories = {
     architecture: { page: 'architecture-photography.html', images: [] },
+    industrial: { page: 'industrial-engineering-photography.html', images: [] },
     automotive: { page: 'automotive-photography.html', images: [] },
     headshots: { page: 'headshot-photography.html', images: [] },
     landscape: { page: 'landscape-photography.html', images: [] },
