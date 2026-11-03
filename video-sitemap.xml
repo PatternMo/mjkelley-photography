@@ -3,7 +3,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://www.mjkelleyphoto.com/video</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/vLqSuIEu6FA/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Professional Video Production | Michael J. Kelley Photography</video:title>
@@ -16,13 +16,6 @@
       <video:title>Professional Video Production | Michael J. Kelley Photography</video:title>
       <video:description>Professional video and drone cinematography services in the San Francisco Bay Area by Michael J. Kelley Photography.</video:description>
       <video:player_loc>https://www.youtube.com/embed/prIUWrytr0Q</video:player_loc>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://img.youtube.com/vi/YHDUXdKPtZo/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Professional Video Production | Michael J. Kelley Photography</video:title>
-      <video:description>Professional video and drone cinematography services in the San Francisco Bay Area by Michael J. Kelley Photography.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/YHDUXdKPtZo</video:player_loc>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
     <video:video>
