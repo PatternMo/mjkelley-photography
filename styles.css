@@ -434,7 +434,8 @@ main {
 
 .services-image {
     width: 100%;
-    height: 400px;
+    aspect-ratio: 7 / 5;   /* every services photo is a 7:5 crop (1120x800); was a fixed 400px height
+                              that cut the photo at other widths (his catch, 2026-11-03) */
     background-size: cover;
     background-position: center;
 }
@@ -1196,9 +1197,7 @@ main {
 
     .services-section .services-image {
         height: auto !important;
-        aspect-ratio: 4/3 !important;
-        min-height: 200px !important;
-        max-height: 300px !important;
+        aspect-ratio: 7 / 5 !important;   /* the photo's own shape, so nothing is cut (2026-11-03) */
         order: -1;
         border-radius: 4px;
     }
@@ -1317,9 +1316,7 @@ main {
     }
 
     .services-section .services-image {
-        aspect-ratio: 3/2 !important;
-        min-height: 180px !important;
-        max-height: 250px !important;
+        aspect-ratio: 7 / 5 !important;
     }
 
     .video-grid {
@@ -1539,6 +1536,7 @@ main {
     .headshot-placeholder {
         width: 200px;
         height: 200px;
+        margin: 0 auto 30px;   /* centered over the centered contact text (his ask, 2026-11-03) */
     }
 
     .contact-info {
@@ -2475,3 +2473,92 @@ body.theme-dark .footer-nav a:hover,
 body.theme-dark .footer-navigation a:hover { opacity: 1; color: var(--paper); }
 body.theme-dark .social-icon { background: var(--ink-2); color: var(--paper-soft); }
 body.theme-dark .social-icon:hover { background: var(--ink-3); }
+
+/* ==========================================================================
+   Phone menu overlay (2026-11-03, his ask: "I want the mobile menu to be large, and centered when
+   you click, background transparent over whatever page you're on, then the list of items").
+   Same on every page that uses this stylesheet (the homepage has the twin in v2.css). The header's
+   backdrop-filter makes it the containing block for fixed children, and it sits at the top-left of
+   the screen, so the overlay sizes itself to the viewport from there.
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header-nav #nav-menu.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: auto;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 26px;
+        padding: 80px 20px;
+        background: rgba(11, 11, 12, .72);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        border: 0;
+        overflow-y: auto;
+        z-index: 1;
+    }
+
+    .header-nav #nav-menu.active > li { text-align: center; }
+
+    .header-nav #nav-menu.active a {
+        color: #ebe9e6;
+        font-size: 26px;
+        font-weight: 300;
+        letter-spacing: .5px;
+    }
+
+    .header-nav #nav-menu.active .dropdown.active .dropdown-content { margin-top: 14px; }
+
+    .header-nav #nav-menu.active .dropdown-content a {
+        display: block;
+        padding: 6px 0;
+        border-bottom: 0;
+        font-size: 17px;
+        color: rgba(235, 233, 230, .74);
+    }
+
+    /* A blur inside the header's own backdrop-filter cannot reach the page behind it, so the
+       header drops its blur and background while the menu is open (the overlay sizes itself
+       the same way either way). Without :has() support the overlay just runs more opaque. */
+    header:has(#nav-menu.active) {
+        background: transparent;
+        border-bottom-color: transparent;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    @supports not selector(:has(*)) {
+        .header-nav #nav-menu.active { background: rgba(11, 11, 12, .94); }
+    }
+
+    /* the button stays on top of the overlay and becomes an X */
+    .header-nav .menu-toggle { z-index: 2; }
+    .header-nav .menu-toggle span { transition: transform .25s ease, opacity .25s ease, background .25s ease; }
+    .header-nav:has(#nav-menu.active) .menu-toggle span { background: #ebe9e6; }
+    .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(2) { opacity: 0; }
+    .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+}
+
+/* Related Reading on phones: a two-sentence title shows only its first sentence (his ask,
+   2026-11-03: "the top post should just have the first sentence of the headline making it only
+   three lines"). generate-blog.js wraps the second sentence in .related-posts-title-rest;
+   desktop shows the whole title. */
+@media (max-width: 768px) {
+    .related-posts-title-rest { display: none; }
+}
+
+/* Project pages: the header photo's section carries an inline 40px side padding, so on phones it
+   sat narrower than the 20px-gutter gallery below it (his catch, 2026-11-03). */
+@media (max-width: 768px) {
+    .project-hero {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}

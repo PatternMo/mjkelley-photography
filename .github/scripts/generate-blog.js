@@ -421,7 +421,13 @@ function renderRelatedItems(items) {
       // (or off-origin); render the item headline-only rather than risk it.
       console.warn(`related-posts: image for "${p.slug}" is not root-relative (${p.image}); rendering headline only`);
     }
-    return `            <li class="related-posts-item"><a href="${escapeHtml(p.url)}">${imgHtml}<span class="related-posts-title">${escapeHtml(p.title)}</span></a></li>`;
+    // A two-sentence title (the same careful split as its address, slugSource) wraps its second
+    // sentence so phones can show just the first (his ask, 2026-11-03); desktop shows it all.
+    const first = slugSource(String(p.title));
+    const titleHtml = first !== p.title
+      ? `${escapeHtml(first)}<span class="related-posts-title-rest"> ${escapeHtml(String(p.title).slice(first.length).trim())}</span>`
+      : escapeHtml(p.title);
+    return `            <li class="related-posts-item"><a href="${escapeHtml(p.url)}">${imgHtml}<span class="related-posts-title">${titleHtml}</span></a></li>`;
   }).join('\n');
 }
 
