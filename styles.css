@@ -2119,6 +2119,8 @@ main {
     font-size: 17px;
     font-weight: 400;
     line-height: 1.4;
+    min-width: 0;              /* let the flex item shrink to its column (2026-11-03, Codex review) */
+    overflow-wrap: anywhere;   /* an over-long word wraps instead of pushing past the column */
 }
 
 .related-posts a:hover .related-posts-title {
@@ -2544,14 +2546,6 @@ body.theme-dark .social-icon:hover { background: var(--ink-3); }
     .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
     .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(2) { opacity: 0; }
     .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
-}
-
-/* Related Reading on phones: a two-sentence title shows only its first sentence (his ask,
-   2026-11-03: "the top post should just have the first sentence of the headline making it only
-   three lines"). generate-blog.js wraps the second sentence in .related-posts-title-rest;
-   desktop shows the whole title. */
-@media (max-width: 768px) {
-    .related-posts-title-rest { display: none; }
 }
 
 /* Project pages: the header photo's section carries an inline 40px side padding, so on phones it

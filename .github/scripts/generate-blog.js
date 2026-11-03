@@ -421,15 +421,17 @@ function renderRelatedItems(items) {
       // (or off-origin); render the item headline-only rather than risk it.
       console.warn(`related-posts: image for "${p.slug}" is not root-relative (${p.image}); rendering headline only`);
     }
-    // A two-sentence title (the same careful split as its address, slugSource) wraps its second
-    // sentence so phones can show just the first (his ask, 2026-11-03); desktop shows it all.
-    const first = slugSource(String(p.title));
-    const titleHtml = first !== p.title
-      ? `${escapeHtml(first)}<span class="related-posts-title-rest"> ${escapeHtml(String(p.title).slice(first.length).trim())}</span>`
-      : escapeHtml(p.title);
-    return `            <li class="related-posts-item"><a href="${escapeHtml(p.url)}">${imgHtml}<span class="related-posts-title">${titleHtml}</span></a></li>`;
+    return `            <li class="related-posts-item"><a href="${escapeHtml(p.url)}">${imgHtml}<span class="related-posts-title">${escapeHtml(p.title)}</span></a></li>`;
   }).join('\n');
 }
+
+// Phone title fit (2026-11-03, his pick "A": measure on the visitor's screen, not a character
+// count; Codex-reviewed). The block loads /related-title-fit.js, which trims a related-post
+// title that runs past three lines on phones back to its last natural break, else the last
+// whole word plus an ellipsis, and restores the full title on wider screens. It reads the
+// abbreviation list from data-abbr so it and the address rule (slugSource) share one list.
+// Without JavaScript the titles show in full.
+const RELATED_TITLE_SCRIPT = `<script src="/related-title-fit.js" defer data-abbr="${[...SLUG_ABBREVIATIONS].join(' ')}"></script>`;
 
 function renderRelatedBlock(items, heading) {
   if (!items.length) return '';
@@ -438,6 +440,7 @@ function renderRelatedBlock(items, heading) {
           <ul>
 ${renderRelatedItems(items)}
           </ul>
+          ${RELATED_TITLE_SCRIPT}
         </aside>`;
 }
 
