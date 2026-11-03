@@ -2067,6 +2067,18 @@ main {
     margin-top: -60px;
 }
 
+/* Car project pages end on the "About This Set" panel, not a FAQ or process list, so the
+   heading sat flush against it (his catch, 2026-11-03). */
+.services-section + .related-posts-section {
+    padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+    .services-section + .related-posts-section {
+        padding-top: 60px;
+    }
+}
+
 .related-posts h2 {
     font-size: 28px;
     font-weight: 300;
@@ -2422,7 +2434,7 @@ body.theme-dark .listing-summary a { color: var(--paper); }
 
 /* links inside copy (browser blue is unreadable on near-black) */
 body.theme-dark main p a:not([class]),
-body.theme-dark main li a:not([class]),
+body.theme-dark main li:not(.related-posts-item):not(.related-projects-item) a:not([class]),
 body.theme-dark .faq-answer a,
 body.theme-dark .listing-note a { color: var(--paper); text-decoration: underline; text-underline-offset: 2px; }
 
