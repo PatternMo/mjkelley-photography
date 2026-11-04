@@ -1089,3 +1089,18 @@ main { display: block; }
     .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(2) { opacity: 0; }
     .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
+
+/* Logo under the last link of the phone menu, linking home (his ask 2026-11-03, Telegram msg 14367:
+   "I'd like the logo to go here in the mobile menu, and link to the homepage"). The mark draws in
+   currentColor, so it takes the menu's link color. Hidden everywhere else, desktop included. */
+#nav-menu > .nav-home { display: none; }
+@media (max-width: 768px) {
+    .header-nav #nav-menu.active > .nav-home { display: block; margin-top: 10px; }
+    .header-nav #nav-menu.active > .nav-home > .nav-home-link {
+        display: block;
+        padding: 6px;
+        line-height: 0;
+        border-bottom: 0;
+    }
+    .nav-home-mark { display: block; width: 64px; height: 64px; }
+}
