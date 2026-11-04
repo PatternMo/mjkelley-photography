@@ -1,0 +1,13 @@
+# Netlify response headers (2026-11-03, his go on the blog speed fix).
+# Photos had "max-age=0, must-revalidate", so every visit re-checked every image with the server.
+# Browsers may now keep them for a day (fresh), and for up to a week after that may show the
+# copy they have once while they fetch the new one in the background (stale-while-revalidate).
+# So a photo replaced under the SAME filename can show its old version to a returning visitor:
+# for up to a day, then for one more view any time within the following week. Replacement
+# photos should get new filenames (the pipeline names new photos fresh). A deploy refreshes
+# Netlify's own servers, not visitors' browsers.
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/blog/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

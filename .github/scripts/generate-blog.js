@@ -194,7 +194,13 @@ const HERO_DERIV_WIDTHS = [600, 1200];
 // TRUE box matters: a 2x screen needs 1200 device px, which is exactly the -1200 file (no
 // resample at all); overstating it (770px) pushed 2x screens to the 2000px original and the
 // browser shrink that segments thin lines (2026-09-06, his retina report after the first fix).
-const HERO_SIZES = '(max-width: 640px) 100vw, 600px';
+const HERO_SIZES = '(max-width: 640px) calc(100vw - 40px), 600px';
+// 2026-11-03 (Codex review of the hero <picture>): measured in the browser, the post hero is
+// 100vw - 40px at or below 640px (350 at a 390 phone, 390 at 430) and 600.5 above; "100vw"
+// overstated phones by 40px, enough to send a 3x 430px phone to the 1600 original instead of
+// the 1200 file. The blog index sits inside more padding: 100vw - 112px up to ~720px, then
+// ~600-608px.
+const INDEX_HERO_SIZES = '(max-width: 720px) calc(100vw - 112px), 600px';
 
 const siteFile = (rootRel) => path.join(baseDir, rootRel.replace(/^\//, ''));
 
@@ -224,7 +230,7 @@ function jpegDimensions(file) {
 const jpegWidth = (file) => jpegDimensions(file).width;
 
 // ` srcset="..." sizes="..."` for a hero, or '' when no -1200 sibling exists.
-function heroSrcsetAttrs(image) {
+function heroSrcsetAttrs(image, sizes = HERO_SIZES) {
   if (!image || !isRootRelative(image) || !/\.jpe?g$/i.test(image)) return '';
   const candidates = [];
   for (const w of HERO_DERIV_WIDTHS) {
@@ -234,7 +240,48 @@ function heroSrcsetAttrs(image) {
   if (!candidates.length) return '';
   const origW = jpegWidth(siteFile(image));
   if (origW > Math.max(...HERO_DERIV_WIDTHS)) candidates.push(`${image} ${origW}w`);
-  return ` srcset="${escapeHtml(candidates.join(', '))}" sizes="${HERO_SIZES}"`;
+  return ` srcset="${escapeHtml(candidates.join(', '))}" sizes="${sizes}"`;
+}
+
+// Hero <picture> (2026-11-03, his go "Let's do A" on the blog speed fix): the hero is the
+// heaviest file on a post and its first paint, and it was served as JPEG only while every
+// size already had .avif and .webp siblings (pipeline.js variants). When every candidate
+// exists in all three formats the hero becomes a <picture> with avif/webp/jpg sources, same
+// widths and sizes as the JPEG srcset; any gap leaves the plain JPEG img. The img carries the
+// original's width/height (CSS keeps width 100% / height auto / aspect-ratio, so these only
+// reserve the box) and either fetchpriority="high" (the post hero and the index's featured
+// hero, the first paint) or loading="lazy" decoding="async" (the index cards below the fold).
+function heroCandidateBases(image) {
+  if (!image || !isRootRelative(image) || !/\.jpe?g$/i.test(image)) return null;
+  const list = [];
+  for (const w of HERO_DERIV_WIDTHS) {
+    const deriv = image.replace(/\.jpe?g$/i, `-${w}.jpg`);
+    if (fs.existsSync(siteFile(deriv))) list.push([deriv.replace(/\.jpe?g$/i, ''), w]);
+  }
+  if (!list.length) return null;
+  const origW = jpegWidth(siteFile(image));
+  if (origW > Math.max(...HERO_DERIV_WIDTHS)) list.push([image.replace(/\.jpe?g$/i, ''), origW]);
+  return list;
+}
+
+function heroFormatSrcset(bases, ext) {
+  if (!bases.every(([b]) => fs.existsSync(siteFile(`${b}.${ext}`)))) return null;
+  return escapeHtml(bases.map(([b, w]) => `${b}.${ext} ${w}w`).join(', '));
+}
+
+function heroImgHtml(image, alt, { priority = false, sizes = HERO_SIZES } = {}) {
+  const srcsetAttrs = heroSrcsetAttrs(image, sizes);
+  const dims = image && isRootRelative(image) && /\.jpe?g$/i.test(image)
+    ? jpegDimensions(siteFile(image)) : { width: 0, height: 0 };
+  const sizeAttrs = dims.width && dims.height ? ` width="${dims.width}" height="${dims.height}"` : '';
+  const loadAttrs = priority ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"';
+  const img = `<img src="${escapeHtml(image)}"${srcsetAttrs}${sizeAttrs} alt="${escapeHtml(alt)}"${loadAttrs}>`;
+  const bases = srcsetAttrs ? heroCandidateBases(image) : null;
+  const avif = bases && heroFormatSrcset(bases, 'avif');
+  const webp = bases && heroFormatSrcset(bases, 'webp');
+  if (!avif || !webp) return img;
+  return `<picture><source type="image/avif" srcset="${avif}" sizes="${sizes}">`
+    + `<source type="image/webp" srcset="${webp}" sizes="${sizes}">${img}</picture>`;
 }
 
 // --- body image derivatives --------------------------------------------------
@@ -825,6 +872,7 @@ async function generatePosts() {
       .replace(/{{continue_reading}}/g, () => continueReadingHtml)
       .replace(/{{title}}/g, () => p.title)
       .replace(/{{description}}/g, () => p.description)
+      .replace(/{{hero_img}}/g, () => heroImgHtml(p.image, p.title, { priority: true }))
       .replace(/{{hero_srcset}}/g, () => heroSrcsetAttrs(p.image))
       .replace(/{{image}}/g, () => p.image)
       .replace(/{{url}}/g, () => p.url)
@@ -852,7 +900,7 @@ async function generatePosts() {
       const heroHtml = p.image ? `
                 <div class="post-hero">
                     <a href="${p.url}">
-                    <img src="${p.image}"${heroSrcsetAttrs(p.image)} alt="${p.title}">
+                    ${heroImgHtml(p.image, p.title, { sizes: INDEX_HERO_SIZES })}
                     </a>
                 </div>` : '';
       return `
@@ -882,6 +930,7 @@ async function generatePosts() {
       .replace(/{{featured_date_human}}/g, safe(f.date_human))
       .split(FEATURED_TAG_LITERAL).join(categoryTagsHtml(f))
       .replace(/{{featured_category}}/g, safe(f.category))
+      .replace(/{{featured_hero_img}}/g, () => heroImgHtml(f.image, f.title, { priority: true, sizes: INDEX_HERO_SIZES }))
       .replace(/{{featured_hero_srcset}}/g, () => heroSrcsetAttrs(f.image))
       .replace(/{{featured_hero}}/g, safe(f.image))
       .replace(/{{featured_hero_alt}}/g, f.title)
@@ -889,7 +938,7 @@ async function generatePosts() {
       .replace(/{{previous_posts}}/g, previousPostsHtml);
   } else {
     finalIndexHtml = finalIndexHtml
-      .replace(/{{featured_title}}|{{featured_url}}|{{featured_date_iso}}|{{featured_date_human}}|{{featured_category}}|{{featured_hero_srcset}}|{{featured_hero}}|{{featured_hero_alt}}|{{featured_excerpt}}/g, '')
+      .replace(/{{featured_title}}|{{featured_url}}|{{featured_date_iso}}|{{featured_date_human}}|{{featured_category}}|{{featured_hero_img}}|{{featured_hero_srcset}}|{{featured_hero}}|{{featured_hero_alt}}|{{featured_excerpt}}/g, '')
       .replace(/{{previous_posts}}/g, '');
   }
 
