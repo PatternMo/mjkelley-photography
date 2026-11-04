@@ -458,11 +458,34 @@ function thumbSrc(image) {
   return t !== image && fs.existsSync(siteFile(t)) ? t : image;
 }
 
+// Related-posts thumb tag (2026-11-03, his go "run all fixes": every image in modern formats and
+// sized for the screen). The 240x160 thumb and its 2x "-thumb-480" (pipeline.js blog-derivatives)
+// both have .avif/.webp siblings (pipeline.js variants); the slot is 120x80, 96x64 at 480px and
+// below (styles.css .related-posts img). When the full set exists the img gets a 240w/480w srcset
+// inside a <picture> (styles.css makes the picture the flex item); width/height reserve the box.
+const RELATED_THUMB_SIZES = '(max-width: 480px) 96px, 120px';
+function relatedThumbHtml(image) {
+  const src = thumbSrc(image);
+  const dims = /\.jpe?g$/i.test(src) ? jpegDimensions(siteFile(src)) : { width: 0, height: 0 };
+  const sizeAttrs = dims.width && dims.height ? ` width="${dims.width}" height="${dims.height}"` : '';
+  const base = src.replace(/\.jpe?g$/i, '');
+  const twoX = base + '-480';
+  const exts = ['jpg', 'avif', 'webp'];
+  const complete = base !== src && dims.width
+    && exts.every(ext => fs.existsSync(siteFile(`${base}.${ext}`)) && fs.existsSync(siteFile(`${twoX}.${ext}`)));
+  if (!complete) return `<img class="related-posts-thumb" src="${escapeHtml(src)}"${sizeAttrs} alt="" loading="lazy" decoding="async">`;
+  const twoXW = jpegDimensions(siteFile(`${twoX}.jpg`)).width;
+  const set = (ext) => escapeHtml(`${base}.${ext} ${dims.width}w, ${twoX}.${ext} ${twoXW}w`);
+  return `<picture><source type="image/avif" srcset="${set('avif')}" sizes="${RELATED_THUMB_SIZES}">`
+    + `<source type="image/webp" srcset="${set('webp')}" sizes="${RELATED_THUMB_SIZES}">`
+    + `<img class="related-posts-thumb" src="${escapeHtml(src)}" srcset="${set('jpg')}" sizes="${RELATED_THUMB_SIZES}"${sizeAttrs} alt="" loading="lazy" decoding="async"></picture>`;
+}
+
 function renderRelatedItems(items) {
   return items.map(p => {
     let imgHtml = '';
     if (p.image && isRootRelative(p.image)) {
-      imgHtml = `<img class="related-posts-thumb" src="${escapeHtml(thumbSrc(p.image))}" alt="" loading="lazy"> `;
+      imgHtml = `${relatedThumbHtml(p.image)} `;
     } else if (p.image) {
       // Any other shape would resolve differently at different page depths
       // (or off-origin); render the item headline-only rather than risk it.
@@ -492,22 +515,22 @@ ${renderRelatedItems(items)}
 }
 
 // Homepage "From the Blog" cards (variant="feature"): the band's own markup
-// (magazine.css .mag-blog-item), one card per post, newest first. The thumb
-// prefers the hero's -600 display derivative when it exists (the card box is
-// well under 600px CSS) and falls back to the original hero. Everything
+// (magazine.css .mag-blog-item), one card per post, newest first. The thumb is the hero's
+// display set (-600, -1200, original; avif/webp/jpg) through heroImgHtml, lazy, with the card
+// box as `sizes` (2026-11-03, his go "run all fixes"; was the -600 JPG for every screen, soft on
+// 3x phones where the card is ~85% of the screen). The thumb link repeats the title link, so it
+// is out of the tab order and the accessibility tree. Measured in the browser: full width (~85vw)
+// up to 700px, then the clamp(140px, 16vw, 210px) thumb column (magazine.css). Everything
 // interpolated is escaped; a non-root-relative image renders no thumb.
-function featureThumbSrc(image) {
-  const d = image.replace(/([^\/]+)\.jpe?g$/i, (m, base) => `${base}-600.jpg`);
-  return d !== image && fs.existsSync(siteFile(d)) ? d : image;
-}
+const FEATURE_THUMB_SIZES = '(max-width: 700px) 85vw, (max-width: 875px) 140px, (max-width: 1312px) 16vw, 210px';
 
 function renderFeatureItems(items) {
   return items.map(p => {
     let thumbHtml = '';
     if (p.image && isRootRelative(p.image)) {
       thumbHtml = `
-                    <a class="mag-thumb" href="${escapeHtml(p.url)}">
-                        <img src="${escapeHtml(featureThumbSrc(p.image))}" alt="" loading="lazy">
+                    <a class="mag-thumb" href="${escapeHtml(p.url)}" tabindex="-1" aria-hidden="true">
+                        ${heroImgHtml(p.image, '', { sizes: FEATURE_THUMB_SIZES })}
                     </a>`;
     } else if (p.image) {
       console.warn(`related-posts: feature image for "${p.slug}" is not root-relative (${p.image}); rendering card without thumb`);

@@ -79,6 +79,25 @@ const imageCollections = {
             'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
             'Professional headshot photography featuring headshot professional executive team studio lighting thumb',
             'Professional headshot photography featuring headshot professional executive team studio lighting thumb'
+        ],
+        thumbSizes: [
+            '800x533',
+            '800x800',
+            '800x800',
+            '800x800',
+            '800x800',
+            '800x533',
+            '800x800',
+            '800x800',
+            '800x800',
+            '800x800',
+            '800x800',
+            '800x533',
+            '800x800',
+            '800x800',
+            '800x800',
+            '800x800',
+            '800x800'
         ]
     },
     architecture: {
@@ -187,6 +206,32 @@ const imageCollections = {
             'Architectural photography featuring woodside vineyard estate master bedroom interior thumbnail',
             'Architectural photography featuring woodside vineyard estate master bedroom interior thumbnail',
             'Architectural photography featuring woodside vineyard estate master bedroom interior thumbnail'
+        ],
+        thumbSizes: [
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x1200',
+            '800x533',
+            '800x1200',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x600',
+            '800x533',
+            '800x533',
+            '800x533'
         ]
     },
     automotive: {
@@ -363,6 +408,49 @@ const imageCollections = {
             'Automotive photography featuring 2024 Tesla Cybertruck Beast Foundation Series exterior passenger side front quarter low angle',
             'Automotive photography featuring 2024 Tesla Cybertruck Beast Foundation Series exterior top down view',
             'Automotive photography featuring 2024 Tesla Cybertruck Beast Foundation Series interior driver’s side wide angle'
+        ],
+        thumbSizes: [
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x1200',
+            '800x533',
+            '800x1000',
+            '800x533',
+            '800x1200',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x500',
+            '800x533',
+            '800x533',
+            '800x1200',
+            '800x1200',
+            '800x1200',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x492',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533'
         ]
     },
     landscape: {
@@ -435,6 +523,23 @@ const imageCollections = {
             'Landscape photography featuring Thorton Beach Sunset Aerial',
             'Landscape photography featuring Valley Forest Yosemite California',
             'Landscape photography featuring Valley Forest Yosemite California'
+        ],
+        thumbSizes: [
+            '800x557',
+            '800x533',
+            '800x533',
+            '800x1200',
+            '800x1200',
+            '800x1000',
+            '800x1000',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x541',
+            '800x556',
+            '800x1000',
+            '800x1200',
+            '800x1200'
         ]
     },
     engagement: {
@@ -543,6 +648,32 @@ const imageCollections = {
             'Engagement photography featuring couples in golden gate park san francisco',
             'Engagement photography featuring couples in golden gate park san francisco',
             'Engagement photography featuring couples in golden gate park san francisco'
+        ],
+        thumbSizes: [
+            '800x1200',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x1200',
+            '800x1200',
+            '800x1200',
+            '800x1200',
+            '800x533',
+            '800x1200',
+            '800x1200',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x1200',
+            '800x1200',
+            '800x1200',
+            '800x1200',
+            '800x533',
+            '800x1200'
         ]
     },
     portraits: {
@@ -595,6 +726,18 @@ const imageCollections = {
             'Portrait photography featuring Outdoor Yoga Vasquez Rocks',
             'Portrait photography featuring Sunset Outdoor California Coast',
             'Portrait photography featuring headshot natural environment professional thumb'
+        ],
+        thumbSizes: [
+            '800x533',
+            '800x1200',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x1200',
+            '800x1200'
         ]
     },
     realestate: {
@@ -739,6 +882,41 @@ const imageCollections = {
             'Real estate photography featuring Sausalito California interior living room view',
             'Real estate photography featuring Sausalito California interior living room view',
             'Real estate photography featuring Sausalito California interior living room view'
+        ],
+        thumbSizes: [
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x449',
+            '800x450',
+            '800x449',
+            '800x450',
+            '800x533',
+            '800x533',
+            '800x526',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x1200',
+            '800x1200',
+            '800x1005',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533'
         ]
     },
     industrial: {
@@ -855,6 +1033,34 @@ const imageCollections = {
             'Industrial photography featuring parkworks automation hunters view san francisco thumb',
             'Industrial photography featuring parkworks automation hunters view san francisco thumb',
             'Industrial photography featuring parkworks automation monterey control panel thumb'
+        ],
+        thumbSizes: [
+            '800x533',
+            '800x537',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x532',
+            '800x533',
+            '800x531',
+            '800x533',
+            '800x523',
+            '800x1200',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x533',
+            '800x538',
+            '800x533',
+            '800x533',
+            '800x533'
         ]
     }
 };
@@ -865,10 +1071,14 @@ const imageCollections = {
 
 function getPageLoadCounter(category) {
     const key = `gallery_loads_${category}`;
-    let count = parseInt(localStorage.getItem(key) || '0');
-    count++;
-    localStorage.setItem(key, count.toString());
-    return count;
+    try {
+        let count = parseInt(localStorage.getItem(key) || '0');
+        count++;
+        localStorage.setItem(key, count.toString());
+        return count;
+    } catch (e) {
+        return 1; // storage blocked (private mode, settings): shuffle as on a first visit
+    }
 }
 
 function seededRandom(seed) {
@@ -904,7 +1114,8 @@ function shuffleImageCollection(collection, category) {
         images: shuffledIndices.map(i => collection.images[i]),
         thumbnails: shuffledIndices.map(i => collection.thumbnails[i]),
         alts: shuffledIndices.map(i => collection.alts[i]),
-        thumbAlts: shuffledIndices.map(i => collection.thumbAlts[i])
+        thumbAlts: shuffledIndices.map(i => collection.thumbAlts[i]),
+        thumbSizes: shuffledIndices.map(i => (collection.thumbSizes || [])[i] || '')
     };
 }
 
@@ -912,8 +1123,8 @@ function shuffleImageCollection(collection, category) {
 // --- IMAGE FORMAT SELECTION (AVIF / WebP / JPG) ---
 // =============================================================================
 // Every gallery JPG ships with same-basename .webp and .avif siblings, generated by the
-// image-pipeline `variants` command — which verifies completeness. The preloader below
-// fail-fasts on a single missing file, so never point this at a format with gaps.
+// image-pipeline `variants` command — which verifies completeness. A tile whose file is
+// missing falls back to its 800w JPG once (handleGalleryThumbError), so keep formats complete.
 // Detection decodes tiny in-memory probes (no network). Until it resolves — or if a probe
 // fails — URLs stay .jpg, so the worst case is exactly today's behavior.
 
@@ -929,10 +1140,12 @@ const imageFormatReady = (function () {
     }
     const avifProbe = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAABcAAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAEAAAABAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAAB9tZGF0EgAKCBgABogQEAwgMg8f8D///8WfhwB8+ErK42A=';
     const webpProbe = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
-    return probe(avifProbe).then(avifOk => {
+    const detect = probe(avifProbe).then(avifOk => {
         if (avifOk) { bestImageExt = '.avif'; return; }
         return probe(webpProbe).then(webpOk => { if (webpOk) bestImageExt = '.webp'; });
     }).catch(() => { /* any unexpected failure means: stay on .jpg */ });
+    // never hold the gallery on detection: after 2s it goes ahead with whatever is settled
+    return Promise.race([detect, new Promise(resolve => setTimeout(resolve, 2000))]);
 })();
 
 function toBestFormat(url) {
@@ -944,8 +1157,7 @@ function toBestFormat(url) {
 // =============================================================================
 // Canonical JPG URLs in, candidates out. Every candidate goes through toBestFormat
 // individually (a whole srcset string would not match the anchored regex), and the
-// candidates are rebuilt from the canonical JPGs on every generateGalleryHTML call —
-// so the JPG fallback branch below rebuilds them in JPG too.
+// candidates are rebuilt from the canonical JPGs on every generateGalleryHTML call.
 
 // The 2x grid derivative made by the image pipeline: thumbs/<original base>-thumb-1200w.jpg.
 // It is named from the ORIGINAL's basename, which is not always the thumbnail's basename
@@ -984,35 +1196,109 @@ function handleGalleryThumbError(img) {
 }
 
 // =============================================================================
-// --- NEW: ROBUST GALLERY GENERATION WITH IMAGE PRELOADING ---
+// --- GALLERY GENERATION: WAIT FOR THE IMAGES THE SCREEN ACTUALLY USES ---
 // =============================================================================
+// 2026-11-03 (his report: on phones "there is no loading circle like there is on the desktop
+// ... all the images kind of load and flip by quickly as they load"; his go: "run all fixes").
+// The old flow preloaded the 800w thumbs, then revealed a grid whose srcset picks the 1200w
+// file on 2x/3x screens: phones and retina desktops downloaded every photo twice and the
+// tiles filled in one by one after the spinner left. Now the grid is built hidden, each tile
+// waits for the candidate the browser chose (load + decode), and the grid is revealed once,
+// as on 1x desktops before. MAX_GALLERY_WAIT_MS caps the spinner on a stalled connection.
+// With thumbSizes in the data (pipeline generate-data writes the 800w thumb's '<w>x<h>'),
+// every tile carries width/height, so it holds its space before its photo arrives. Then the
+// tiles load lazily, the spinner waits only for the tiles on screen, and each later tile
+// shows its placeholder box (.is-waiting) until its photo has loaded, then the photo fades in:
+// no layout shift, no half-loaded tiles, and a phone loads only what is near where it
+// scrolls. Without sizes for every tile it falls back to waiting for all of them.
 
-/**
- * Preloads an array of image sources and returns a promise that resolves when all are loaded.
- * Resolves with the natural dimensions of each source, in the order given (the lightbox
- * needs the aspect ratio to size its candidates). Failure behavior is unchanged: a single
- * source that will not load still rejects the whole batch, fail-fast.
- * @param {string[]} sources - An array of image URLs to preload.
- * @returns {Promise<Array<{src: string, width: number, height: number}>>}
- */
-function preloadImages(sources) {
-    const promises = sources.map(src => {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve({
-                src: src,
-                width: img.naturalWidth || img.width || 0,
-                height: img.naturalHeight || img.height || 0
-            });
-            img.onerror = reject; // You might want to handle errors differently
-            img.src = src;
-        });
-    });
-    return Promise.all(promises);
+const MAX_GALLERY_WAIT_MS = 20000;
+
+// '800x533' -> {width: 800, height: 533}; anything else -> null.
+function parseThumbSize(value) {
+    const m = /^(\d+)x(\d+)$/.exec(value || '');
+    if (!m) return null;
+    const width = Number(m[1]), height = Number(m[2]);
+    return width > 0 && height > 0 ? { width, height } : null;
 }
 
 /**
- * Generates gallery HTML only after all thumbnail images have been preloaded.
+ * Permanent one-shot JPG recovery for a grid tile, for the life of the tile: the first failure
+ * of any candidate (also one picked later, after a rotation) swaps the tile to its 800w JPG via
+ * handleGalleryThumbError and calls onRecover (which points the lightbox entry at JPGs); a
+ * second failure marks the tile failed (placeholder, never a broken-image icon). Attach before
+ * settleTile. `img.__tileErrors` counts failures; settleTile reads it.
+ */
+function attachTileRecovery(img, onRecover) {
+    const item = img.closest('.gallery-item');
+    img.addEventListener('error', () => {
+        img.__tileErrors = (img.__tileErrors || 0) + 1;
+        if (img.__tileErrors === 1 && img.getAttribute('data-thumb-jpg')) {
+            handleGalleryThumbError(img);
+            if (onRecover) onRecover();
+        } else if (item) {
+            item.classList.add('is-failed');
+        }
+    });
+}
+
+/**
+ * Resolves when a grid <img> has settled on what it will show: loaded and decoded, or failed
+ * after its JPG recovery. Never rejects, so one bad file cannot hold the gallery back. A decode
+ * result counts only for the request it was started for; a decode that fails for the current
+ * request is treated as a failed load (recovery, then failure).
+ * @param {HTMLImageElement} img
+ * @returns {Promise<{width: number, height: number}|null>} natural size, or null on failure
+ */
+function settleTile(img) {
+    return new Promise(resolve => {
+        let finished = false;
+        let request = 0;   // bumps on every load/error: a decode result counts only for its own request
+        const finish = (size) => {
+            if (finished) return;
+            finished = true;
+            img.removeEventListener('load', onLoad);
+            img.removeEventListener('error', onError);
+            resolve(size);
+        };
+        const onLoad = () => {
+            const mine = ++request;
+            if (!img.naturalWidth) return;
+            const url = img.currentSrc;
+            const size = { width: img.naturalWidth, height: img.naturalHeight };
+            if (!img.decode) { finish(size); return; }
+            const current = () => !finished && mine === request && img.currentSrc === url;
+            img.decode().then(() => {
+                if (current()) finish(size);                         // else a newer request is loading
+            }, () => {
+                if (current()) img.dispatchEvent(new Event('error')); // undecodable: recover or fail
+            });
+        };
+        const onError = () => {
+            request++;
+            // the recovery listener (attached first) has counted this error: the first one starts
+            // the JPG retry, whose load or error comes back here; a second error is final
+            if ((img.__tileErrors || 0) >= 2 || !img.getAttribute('data-thumb-jpg')) finish(null);
+        };
+        img.addEventListener('load', onLoad);
+        img.addEventListener('error', onError);
+        if (img.complete && img.naturalWidth) onLoad();   // already loaded (cache) before we listened
+    });
+}
+
+/**
+ * A tile that fell back to JPG opens JPGs in the lightbox too (its AVIF/WebP set is suspect).
+ */
+function useJpgEntry(entry, img) {
+    if (!entry) return;
+    entry.src = img.srcJpg;
+    if (entry.srcset && img.thumb1200Jpg) {
+        entry.srcset = entry.srcset.split(', ').map(c => c.replace(/\.(avif|webp)(\s)/, '.jpg$2')).join(', ');
+    }
+}
+
+/**
+ * Builds the gallery grid hidden, waits for its images, then reveals it.
  * @param {string} category - The category of images to display.
  * @param {string} containerId - The ID of the gallery container element.
  */
@@ -1035,111 +1321,129 @@ function generateGalleryHTML(category, containerId = 'gallery-container') {
         loader.style.display = 'none'; // Hide loader if no images
         return;
     }
-    
+
     // Shuffle the collection
     collection = shuffleImageCollection(collection, category);
-    
+
     const imagesData = collection.images.map((image, index) => {
         const fullJpg = collection.folder + image;
         const thumb800Jpg = collection.thumbFolder + collection.thumbnails[index];
         const thumb1200Jpg = thumb1200For(fullJpg, collection.thumbFolder);
         return {
             src: toBestFormat(fullJpg),
+            srcJpg: fullJpg,
+            thumb1200Jpg: thumb1200Jpg,
             thumbnail: toBestFormat(thumb800Jpg),
             thumb800Jpg: thumb800Jpg,
             thumb1200: thumb1200Jpg ? toBestFormat(thumb1200Jpg) : null,
             alt: collection.alts[index] || `${category} photography ${index + 1}`,
-            thumbAlt: collection.thumbAlts[index] || `${category} photography thumbnail ${index + 1}`
+            thumbAlt: collection.thumbAlts[index] || `${category} photography thumbnail ${index + 1}`,
+            size: parseThumbSize(collection.thumbSizes && collection.thumbSizes[index])
         };
     });
+    const sized = imagesData.length > 0 && imagesData.every(img => img.size);
 
-    // Array of thumbnail sources to preload
-    const thumbnailSources = imagesData.map(img => img.thumbnail);
-
-    // --- Start Preloading ---
-    preloadImages(thumbnailSources)
-        .then((dimensions) => {
-            // --- This code runs ONLY after ALL thumbnails are loaded ---
-
-            // 0. Aspect ratio of each image, measured on the thumb we just preloaded
-            //    (the thumb is a scaled copy of the original, so the ratio matches).
-            imagesData.forEach((img, index) => {
-                const dim = dimensions && dimensions[index];
-                const aspect = dim && dim.height > 0 ? dim.width / dim.height : null;
-                img.aspect = aspect && isFinite(aspect) && aspect > 0 ? aspect : null;
-            });
-
-            // 1. Set the global array for the lightbox. srcset/sizes are optional extras:
-            //    entries without them (project pages pass plain {src, alt}) behave as before.
-            window.galleryImages = imagesData.map(img => {
-                const entry = { src: img.src, alt: img.alt };
-                if (img.thumb1200 && img.aspect) {
-                    // Real pixel width of the original: landscape originals are 2400 wide,
-                    // portrait ones are 2400 tall and narrower than that.
-                    const origW = img.aspect >= 1 ? 2400 : Math.round(2400 * img.aspect);
-                    if (origW > 1200) {
-                        entry.srcset = `${img.thumb1200} 1200w, ${img.src} ${origW}w`;
-                        entry.sizes = lightboxSizesFor(img.aspect);
-                    }
-                }
-                return entry;
-            });
-
-            // 2. Generate the final HTML
-            const galleryHTML = imagesData.map((img, index) => {
-                const responsive = img.thumb1200
-                    ? ` srcset="${img.thumbnail} 800w, ${img.thumb1200} 1200w" sizes="${GALLERY_GRID_SIZES}"`
-                    : '';
-                return `
+    // 1. Build the grid (still hidden: .gallery-grid has no .is-ready yet). The browser picks
+    //    one candidate per tile from srcset/sizes and starts loading only that file.
+    galleryContainer.innerHTML = imagesData.map((img, index) => {
+        const responsive = img.thumb1200
+            ? ` srcset="${img.thumbnail} 800w, ${img.thumb1200} 1200w" sizes="${GALLERY_GRID_SIZES}"`
+            : '';
+        // every tile with a known size reserves it; lazy loading only when all are sized
+        const box = (img.size ? ` width="${img.size.width}" height="${img.size.height}"` : '') + (sized ? ' loading="lazy"' : '');
+        return `
                 <div class="gallery-item" onclick="openLightbox(${index})" data-full-src="${img.src}">
-                    <img src="${img.thumbnail}"${responsive} data-thumb-jpg="${img.thumb800Jpg}" alt="${img.thumbAlt}" class="gallery-thumbnail">
+                    <img src="${img.thumbnail}"${responsive}${box} data-thumb-jpg="${img.thumb800Jpg}" alt="${img.thumbAlt}" class="gallery-thumbnail" decoding="async">
                     <div class="overlay">
                         <div class="overlay-text">${img.alt}</div>
                     </div>
                 </div>
             `;
-            }).join('');
+    }).join('');
 
-            // 3. Populate the container
-            galleryContainer.innerHTML = galleryHTML;
+    loader.setAttribute('role', 'status');
+    loader.setAttribute('aria-label', 'Loading photos');
 
-            // 3b. One-shot per-tile recovery: a missing 1200 derivative (or one of its
-            //     avif/webp siblings) must never blank a tile. Attached synchronously here,
-            //     before any error event can be dispatched.
-            galleryContainer.querySelectorAll('img.gallery-thumbnail').forEach(el => {
-                el.onerror = function () { handleGalleryThumbError(this); };
-            });
-
-            // 4. Initialize the lightbox functionality
-            if (typeof window.GalleryAPI !== 'undefined' && window.GalleryAPI.initialize) {
-                window.GalleryAPI.initialize(window.galleryImages);
-            }
-
-            // 5. Initialize the fade-in-on-scroll for individual items
-            if (typeof initializeScrollFadeIn === 'function') {
-                initializeScrollFadeIn('.gallery-item');
-            }
-
-            // 6. Hide the loader and reveal the gallery
-            loader.style.display = 'none';
-            galleryContainer.classList.add('is-ready');
-
-            console.log(`✅ Gallery '${category}' successfully loaded and displayed.`);
-        })
-        .catch(error => {
-            // Safety net (panel-review 2026-07-02): Promise.all above fail-fasts, so a single
-            // variant that 404s or won't decode would blank the whole gallery. If we were
-            // serving a non-JPG format, drop back to JPG once and rebuild — the pre-change
-            // behavior. In JPG mode this branch is exactly the old code path.
-            if (bestImageExt !== '.jpg') {
-                console.warn('A ' + bestImageExt + ' gallery image failed to load; falling back to JPG.', error);
-                bestImageExt = '.jpg';
-                generateGalleryHTML(category, containerId);
-                return;
-            }
-            console.error("Error preloading gallery thumbnails:", error);
-            loader.style.display = 'none'; // Hide loader on error too
+    const tiles = Array.from(galleryContainer.querySelectorAll('img.gallery-thumbnail'));
+    let entries = null;   // lightbox entries, built at reveal
+    tiles.forEach((t, i) => attachTileRecovery(t, () => {
+        imagesData[i].recovered = true;
+        if (entries) useJpgEntry(entries[i], imagesData[i]);
+    }));
+    // every tile shows its placeholder until its photo is ready (the on-screen ones normally are
+    // by the reveal; a tile still loading at the time cap keeps its placeholder, not a partial image)
+    tiles.forEach(t => t.closest('.gallery-item').classList.add('is-waiting'));
+    const settling = tiles.map(settleTile);
+    settling.forEach((p, i) => p.then(size => {
+        const item = tiles[i].closest('.gallery-item');
+        item.classList.remove('is-waiting');
+        if (!size) item.classList.add('is-failed');
+    }));
+    // Sized tiles: wait only for those on screen now (the hidden grid is already laid out at its
+    // final size). The others wait invisibly and fade in once loaded.
+    let waitFor = settling;
+    if (sized) {
+        // the loader floats over the grid (styles.css), so the hidden grid already sits where it
+        // will show; if a page's CSS keeps it in the flow, the grid moves up by its height
+        const ls = getComputedStyle(loader);
+        const lift = ls.position === 'absolute' ? 0
+            : loader.offsetHeight + (parseFloat(ls.marginTop) || 0) + (parseFloat(ls.marginBottom) || 0);
+        const onScreen = tiles.map(t => { const r = t.getBoundingClientRect(); return r.bottom - lift > 0 && r.top - lift < window.innerHeight; });
+        waitFor = settling.filter((_, i) => onScreen[i]);   // none on screen: reveal at once
+        tiles.forEach((t, i) => {
+            // on-screen photos load now and first (a lazy tile just below the hidden grid's
+            // fold would not start in Safari until scrolled to); the rest stay lazy
+            t.setAttribute('fetchpriority', onScreen[i] ? 'high' : 'low');
+            if (onScreen[i]) t.loading = 'eager';
         });
+    }
+    const settled = Promise.all(waitFor);
+    const capped = new Promise(resolve => setTimeout(() => resolve(null), MAX_GALLERY_WAIT_MS));
+
+    let revealed = false;
+    const reveal = () => {
+        if (revealed) return;
+        revealed = true;
+
+        // 2. Aspect ratio per image: from the data's thumb size, else from the tile it loaded
+        //    (a scaled copy of the original). A tile still loading at the cap gets null.
+        imagesData.forEach((img, index) => {
+            const dim = img.size || (tiles[index].naturalWidth ? { width: tiles[index].naturalWidth, height: tiles[index].naturalHeight } : null);
+            const aspect = dim && dim.height > 0 ? dim.width / dim.height : null;
+            img.aspect = aspect && isFinite(aspect) && aspect > 0 ? aspect : null;
+        });
+
+        // 3. The lightbox list. srcset/sizes are optional extras: entries without them
+        //    (project pages pass plain {src, alt}) behave as before.
+        entries = imagesData.map(img => {
+            const entry = { src: img.src, alt: img.alt };
+            if (img.thumb1200 && img.aspect) {
+                // Real pixel width of the original: landscape originals are 2400 wide,
+                // portrait ones are 2400 tall and narrower than that.
+                const origW = img.aspect >= 1 ? 2400 : Math.round(2400 * img.aspect);
+                if (origW > 1200) {
+                    entry.srcset = `${img.thumb1200} 1200w, ${img.src} ${origW}w`;
+                    entry.sizes = lightboxSizesFor(img.aspect);
+                }
+            }
+            if (img.recovered) useJpgEntry(entry, img);
+            return entry;
+        });
+        window.galleryImages = entries;
+
+        // 4. Lightbox, fade-in on scroll, then hide the loader and reveal the grid.
+        if (typeof window.GalleryAPI !== 'undefined' && window.GalleryAPI.initialize) {
+            window.GalleryAPI.initialize(window.galleryImages);
+        }
+        if (typeof initializeScrollFadeIn === 'function') {
+            initializeScrollFadeIn('.gallery-item');
+        }
+        loader.style.display = 'none';
+        galleryContainer.classList.add('is-ready');
+        console.log(`Gallery '${category}' loaded and displayed.`);
+    };
+
+    Promise.race([settled, capped]).then(reveal, reveal);
 }
 
 

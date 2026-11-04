@@ -224,12 +224,20 @@ main {
 }
 
 /* --- Gallery Loader Style --- */
+/* The loader floats over the top of the hidden grid (2026-11-03) instead of taking 200px of the
+   flow above it: the grid is laid out at its final place from the start (its tiles carry their
+   sizes), so nothing moves when the loader goes. */
+.gallery-section { position: relative; }
+
 #gallery-loader {
     display: block;
     /* Shown by default */
+    position: absolute;
+    top: 80px;
+    left: 50%;
     width: 40px;
     height: 40px;
-    margin: 80px auto;
+    margin: 0 0 0 -20px;
     border: 4px solid #f3f3f3;
     border-top: 4px solid #555;
     border-radius: 50%;
@@ -293,16 +301,40 @@ main {
     transform: translateY(0);
 }
 
-
 .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* A tile whose photo is still loading shows its placeholder box at the photo's size (the img
+   carries width/height); the photo fades in once loaded and decoded. A photo that fails even its
+   JPG fallback leaves the placeholder, never a broken-image icon (image-automation.js, 2026-11-03). */
+.gallery-item.is-waiting img,
+.gallery-item.is-failed img {
+    opacity: 0;
+}
+
+/* a tile with no stored size holds a 3:2 box while it loads, and if it fails */
+.gallery-item.is-waiting img:not([width]),
+.gallery-item.is-failed img:not([width]) {
+    aspect-ratio: 3 / 2;
 }
 
 .gallery-item:hover img {
     transform: scale(1.05);
+}
+
+/* after the hover rule so it wins at equal specificity */
+@media (prefers-reduced-motion: reduce) {
+    .gallery-item,
+    .gallery-item img,
+    .gallery-item:hover img {
+        transition: none;
+        transform: none;
+    }
+    #gallery-loader { animation-duration: 3s; }   /* slower, still showing that it is working */
 }
 
 .gallery-item .overlay {
@@ -2109,6 +2141,11 @@ main {
     text-decoration: none;
     color: #333;
 }
+
+/* the thumb's <picture> (avif/webp, 2026-11-03) is the flex item, sized by its img; not
+   display: contents, which turns its <source> tags into extra flex items that take the gap */
+.related-posts picture { display: block; flex-shrink: 0; line-height: 0; }
+.related-posts picture img { display: block; }
 
 .related-posts img {
     width: 120px;

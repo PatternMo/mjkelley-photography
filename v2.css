@@ -1016,6 +1016,11 @@ main { display: block; }
     color: var(--paper);
 }
 
+/* the thumb's <picture> (avif/webp, 2026-11-03) is the flex item, sized by its img; not
+   display: contents, which turns its <source> tags into extra flex items that take the gap */
+.related-posts picture { display: block; flex-shrink: 0; line-height: 0; }
+.related-posts picture img { display: block; }
+
 .related-posts img {
     width: 128px;
     height: 84px;

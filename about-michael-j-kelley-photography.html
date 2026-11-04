@@ -385,7 +385,11 @@
             <div class="about-content">
                 <div class="about-sidebar">
                     <div class="headshot-placeholder">
-                      <img src="images/michael-j-kelley-photographer-800.jpg" alt="Michael J. Kelley, Professional Photographer" style="width: 100%; height: 100%; object-fit: cover; border-radius: 2px;">
+                      <picture>
+                        <source type="image/avif" srcset="images/michael-j-kelley-photographer-400w.avif 400w, images/michael-j-kelley-photographer-600w.avif 600w, images/michael-j-kelley-photographer-800w.avif 800w" sizes="(max-width: 768px) 200px, 250px">
+                        <source type="image/webp" srcset="images/michael-j-kelley-photographer-400w.webp 400w, images/michael-j-kelley-photographer-600w.webp 600w, images/michael-j-kelley-photographer-800w.webp 800w" sizes="(max-width: 768px) 200px, 250px">
+                        <img src="images/michael-j-kelley-photographer-800w.jpg" srcset="images/michael-j-kelley-photographer-400w.jpg 400w, images/michael-j-kelley-photographer-600w.jpg 600w, images/michael-j-kelley-photographer-800w.jpg 800w" sizes="(max-width: 768px) 200px, 250px" width="800" height="800" alt="Michael J. Kelley, Professional Photographer" style="width: 100%; height: 100%; object-fit: cover; border-radius: 2px;">
+                      </picture>
                     </div>
                     <div class="contact-info">
                         <h3>Contact Information</h3>

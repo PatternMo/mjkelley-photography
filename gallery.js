@@ -23,14 +23,30 @@ let lightboxRequestToken = 0;
  * @param {HTMLImageElement} imgEl
  * @param {Object} entry - gallery image entry, optionally carrying srcset and sizes
  */
+// Project pages (2026-11-03): an entry may carry `avifSrcset`, a 1200w + original AVIF set, used
+// once this probe has shown the browser decodes AVIF; until then, or without support, the entry's
+// own srcset (if any) or its JPG src is used. Galleries pass `srcset` already in their best format.
+let lightboxAvifOk = false;
+(function () {
+    const probe = new Image();
+    probe.onload = function () { lightboxAvifOk = probe.width > 0; };
+    probe.src = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAABcAAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAEAAAABAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAAB9tZGF0EgAKCBgABogQEAwgMg8f8D///8WfhwB8+ErK42A=';
+})();
+
+// "x.avif" / "x.webp" -> "x.jpg": every site image has a JPG of the same name
+function jpgOf(url) {
+    return String(url).replace(/\.(avif|webp)(?=$|[?#])/i, '.jpg');
+}
+
 function applyResponsiveAttributes(imgEl, entry) {
-    if (entry && entry.srcset) {
+    const srcset = entry && (entry.avifSrcset && lightboxAvifOk ? entry.avifSrcset : entry.srcset);
+    if (srcset) {
         if (entry.sizes) {
             imgEl.setAttribute('sizes', entry.sizes);
         } else {
             imgEl.removeAttribute('sizes');
         }
-        imgEl.setAttribute('srcset', entry.srcset);
+        imgEl.setAttribute('srcset', srcset);
     } else {
         imgEl.removeAttribute('srcset');
         imgEl.removeAttribute('sizes');
@@ -127,31 +143,40 @@ function updateLightboxImage() {
     // with the file the displayed image will actually pick)
     let candidatesFailed = false;
     let probeRetried = false;
+    let jpgRetried = false;
+    let displaySrc = currentImage.src;
     const img = new Image();
     img.onload = function() {
         if (requestToken !== lightboxRequestToken) return; // a newer image won the race
         // One-shot recovery: if the chosen candidate 404s or will not decode, drop the
-        // candidates and retry the plain original.
+        // candidates and show the original as a JPG (always present).
         lightboxImg.onerror = function() {
             this.onerror = null;
             this.removeAttribute('srcset');
             this.removeAttribute('sizes');
-            this.src = currentImage.src;
+            this.src = jpgOf(currentImage.src);
         };
         applyResponsiveAttributes(lightboxImg, candidatesFailed ? null : currentImage);
-        lightboxImg.src = currentImage.src;
+        lightboxImg.src = displaySrc;
         lightboxImg.alt = currentImage.alt;
         lightboxImg.style.opacity = '1';
     };
     img.onerror = function() {
         if (requestToken !== lightboxRequestToken) return;
         // A missing derivative must not stop the lightbox from showing the image:
-        // retry the probe once on the plain original, then display without candidates.
+        // retry the probe once on the plain original, then once as a JPG.
         if (!probeRetried && img.hasAttribute('srcset')) {
             probeRetried = true;
             candidatesFailed = true;
             applyResponsiveAttributes(img, null);
-            img.src = currentImage.src;
+            img.src = displaySrc;
+            return;
+        }
+        if (!jpgRetried && jpgOf(displaySrc) !== displaySrc) {
+            jpgRetried = true;
+            candidatesFailed = true;
+            displaySrc = jpgOf(displaySrc);
+            img.src = displaySrc;
             return;
         }
         console.error('Failed to load image:', currentImage.src);

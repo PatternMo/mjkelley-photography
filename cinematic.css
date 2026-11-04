@@ -53,6 +53,18 @@
 
 .frame.active { opacity: 1; }
 
+/* responsive frames (cinematic.js, 2026-11-03): a <picture> fills the frame and covers it,
+   like the background-size: cover it replaces; phones letterbox it below */
+.frame > picture,
+.frame > picture > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.frame > picture > img { object-fit: cover; object-position: center; }
+
 /* vignette so chrome reads over the photo; photo stays dominant */
 .stage::before {
     content: "";
@@ -270,6 +282,7 @@ body.settled .reveal { opacity: 0; }
         background-repeat: no-repeat;
         background-position: center top;
     }
+    .frame > picture > img { object-fit: contain; object-position: center top; }
     /* gaps closed (msg 10011 "close the two gap between the header and image and the
        subhead below and the image"): the stage shrinks to header + one 3:2 frame + the
        text, instead of a full-screen box with the frame floating in it */
