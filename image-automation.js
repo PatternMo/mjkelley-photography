@@ -927,7 +927,6 @@ const imageCollections = {
             'parkworks-automation-1030-brittan-san-carlos-11.jpg',
             'parkworks-automation-1030-brittan-san-carlos-2.jpg',
             'parkworks-automation-1030-brittan-san-carlos-3.jpg',
-            'parkworks-automation-1030-brittan-san-carlos-4.jpg',
             'parkworks-automation-1030-brittan-san-carlos-5.jpg',
             'parkworks-automation-1030-brittan-san-carlos-7.jpg',
             'parkworks-automation-1030-brittan-san-carlos-8.jpg',
@@ -955,7 +954,6 @@ const imageCollections = {
             'parkworks-automation-1030-brittan-san-carlos-11-thumb.jpg',
             'parkworks-automation-1030-brittan-san-carlos-2-thumb.jpg',
             'parkworks-automation-1030-brittan-san-carlos-3-thumb.jpg',
-            'parkworks-automation-1030-brittan-san-carlos-4-thumb.jpg',
             'parkworks-automation-1030-brittan-san-carlos-5-thumb.jpg',
             'parkworks-automation-1030-brittan-san-carlos-7-thumb.jpg',
             'parkworks-automation-1030-brittan-san-carlos-8-thumb.jpg',
@@ -979,7 +977,6 @@ const imageCollections = {
             'parkworks-automation-monterey-control-panel-thumb.jpg'
         ],
         alts: [
-            'Industrial photography featuring parkworks automation 1030 brittan san carlos',
             'Industrial photography featuring parkworks automation 1030 brittan san carlos',
             'Industrial photography featuring parkworks automation 1030 brittan san carlos',
             'Industrial photography featuring parkworks automation 1030 brittan san carlos',
@@ -1015,7 +1012,6 @@ const imageCollections = {
             'Industrial photography featuring parkworks automation 1030 brittan san carlos thumb',
             'Industrial photography featuring parkworks automation 1030 brittan san carlos thumb',
             'Industrial photography featuring parkworks automation 1030 brittan san carlos thumb',
-            'Industrial photography featuring parkworks automation 1030 brittan san carlos thumb',
             'Industrial photography featuring parkworks automation felix apartments santa rosa thumb',
             'Industrial photography featuring parkworks automation felix apartments santa rosa thumb',
             'Industrial photography featuring parkworks automation felix apartments santa rosa thumb',
@@ -1037,7 +1033,6 @@ const imageCollections = {
         thumbSizes: [
             '800x533',
             '800x537',
-            '800x533',
             '800x533',
             '800x533',
             '800x532',
