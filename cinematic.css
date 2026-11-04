@@ -243,6 +243,30 @@ body.settled .reveal { opacity: 0; }
 
 .meta .dots button:focus-visible { outline: 1px solid var(--accent); outline-offset: 1px; border-radius: 4px; }
 
+/* pause/play, first in the row, drawn at the dots' size (2026-11-03, his ask): two 3px bars,
+   a play triangle once paused; same hit area and colour as a dot */
+.meta .dots button.dots-pause { gap: 3px; }
+.meta .dots button.dots-pause::before,
+.meta .dots button.dots-pause::after {
+    content: "";
+    width: 3px; height: 9px;
+    border: 0;
+    border-radius: 0;
+    background: var(--stage-text);
+    opacity: .7;
+    transition: opacity .25s ease;
+}
+.meta .dots button.dots-pause:hover::before,
+.meta .dots button.dots-pause:hover::after { opacity: 1; }
+.meta .dots button.dots-pause.is-paused::before {
+    width: 0; height: 0;
+    background: none;
+    border-style: solid;
+    border-width: 4.5px 0 4.5px 8px;
+    border-color: transparent transparent transparent var(--stage-text);
+}
+.meta .dots button.dots-pause.is-paused::after { display: none; }
+
 /* ---------- scroll cue ---------- */
 .scroll-cue {
     position: absolute;

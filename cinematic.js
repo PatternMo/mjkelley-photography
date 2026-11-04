@@ -101,7 +101,8 @@ var Cinematic = (function () {
         var autoTok = 0;             // bumps when the auto-advance is stopped or rescheduled
         var navTok = 0;              // bumps on every manual choice (dot, swipe, arrow)
         var navPending = false;      // a manual choice is waiting for its frame
-        var hoverPause = false, focusPause = false;
+        var hoverPause = false, focusPause = false, userPause = false;
+        var pauseBtn = null;
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         var resp = config.responsive || null;
         var widths = resp && resp.widths && resp.widths.length ? resp.widths.slice().sort(function (a, b) { return a - b; }) : null;
@@ -112,7 +113,7 @@ var Cinematic = (function () {
         var MANUAL_WAIT_MS = 10000;  // a dot/swipe/arrow choice waits this long for its frame
         var pics = [];               // per frame: responsive picture state, or null (background frame)
 
-        function paused() { return hoverPause || focusPause; }
+        function paused() { return hoverPause || focusPause || userPause; }
         function settled() { return document.body.classList.contains('settled'); }
 
         function srcsetFor(base, ext) {
@@ -262,6 +263,22 @@ var Cinematic = (function () {
         if (cTot) { cTot.textContent = pad(frames.length); }
 
         if (dotsEl) {
+            // pause/play first, the size of a dot (2026-11-03, his ask: "Pause button the same size
+            // as the dots would be great and positioned first"; WCAG 2.2.2). Reduced motion does not
+            // rotate, so there is nothing to pause and no button.
+            if (!reduce) {
+                pauseBtn = document.createElement('button');
+                pauseBtn.type = 'button';
+                pauseBtn.className = 'dots-pause';
+                pauseBtn.setAttribute('aria-label', 'Pause slideshow');
+                pauseBtn.addEventListener('click', function () {
+                    userPause = !userPause;
+                    pauseBtn.classList.toggle('is-paused', userPause);
+                    pauseBtn.setAttribute('aria-label', userPause ? 'Play slideshow' : 'Pause slideshow');
+                    if (userPause) { stopLoop(); } else { scheduleNext(); }
+                });
+                dotsEl.appendChild(pauseBtn);
+            }
             frames.forEach(function (f, n) {
                 var b = document.createElement('button');
                 b.type = 'button';
@@ -370,9 +387,14 @@ var Cinematic = (function () {
                 hoverPause = false; scheduleNext();
             });
             // keyboard focus on the dots pauses the rotation (WCAG 2.2.2); it resumes on leaving
-            dotsEl.addEventListener('focusin', function () { focusPause = true; stopLoop(); });
+            // (focus on the pause button itself does not count: that button states its own choice)
+            dotsEl.addEventListener('focusin', function (e) {
+                if (e.target === pauseBtn) { return; }
+                focusPause = true; stopLoop();
+            });
             dotsEl.addEventListener('focusout', function (e) {
-                if (e.relatedTarget && dotsEl.contains(e.relatedTarget)) { return; }
+                if (e.relatedTarget && e.relatedTarget !== pauseBtn && dotsEl.contains(e.relatedTarget)) { return; }
+                if (!focusPause) { return; }
                 focusPause = false; scheduleNext();
             });
             dotsEl.addEventListener('keydown', function (e) {
