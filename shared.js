@@ -17,6 +17,37 @@ function toggleMenu() {
     }
 }
 
+/**
+ * Footer menu button (2026-11-03, his ask: the footer's phone menu icon opens the same menu as the
+ * header): opens the header's phone menu, moves focus to its first link, closes on Escape, and
+ * when the menu closes by any route (X, outside click, Escape) puts focus back on the button.
+ * aria-expanded follows the menu.
+ */
+function openMenuFromFooter(btn) {
+    const menu = document.getElementById('nav-menu');
+    if (!menu || menu.classList.contains('active')) return;
+    menu.classList.add('active');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    const first = menu.querySelector('a');
+    if (first) first.focus({ preventScroll: true });
+    const onKey = function (e) {
+        if (e.key === 'Escape') menu.classList.remove('active');
+    };
+    const watcher = new MutationObserver(function () {
+        if (menu.classList.contains('active')) return;
+        watcher.disconnect();
+        document.removeEventListener('keydown', onKey);
+        if (btn) {
+            btn.setAttribute('aria-expanded', 'false');
+            if (document.activeElement === document.body || menu.contains(document.activeElement)) {
+                btn.focus({ preventScroll: true });
+            }
+        }
+    });
+    watcher.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    document.addEventListener('keydown', onKey);
+}
+
 // =============================================================================
 // Mobile Dropdown Handling (IMPROVED)
 // =============================================================================

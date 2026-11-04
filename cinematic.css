@@ -160,7 +160,7 @@ body.settled .reveal { opacity: 0; }
     position: absolute;
     left: clamp(1.2rem, 4vw, 3rem);
     bottom: clamp(1.6rem, 5vh, 3rem);
-    z-index: 7;
+    z-index: 6;   /* below the header (7), which stays fixed over the page since 2026-11-03 */
     max-width: min(46ch, 78vw);
 }
 
@@ -190,7 +190,7 @@ body.settled .reveal { opacity: 0; }
     position: absolute;
     right: clamp(1.2rem, 4vw, 3rem);
     bottom: clamp(1.6rem, 5vh, 3rem);
-    z-index: 7;
+    z-index: 6;   /* below the fixed header (7) */
     text-align: right;
     font-family: var(--mono);
     font-size: .72rem;
@@ -271,7 +271,7 @@ body.settled .reveal { opacity: 0; }
 .scroll-cue {
     position: absolute;
     left: 50%; transform: translateX(-50%);
-    bottom: 1.4rem; z-index: 7;
+    bottom: 1.4rem; z-index: 6;   /* below the fixed header (7) */
     font-family: var(--mono);
     font-size: .6rem;
     letter-spacing: 0.3em;

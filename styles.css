@@ -2604,6 +2604,28 @@ body.theme-dark .social-icon:hover { background: var(--ink-3); }
     .nav-home-mark { display: block; width: 64px; height: 64px; }
 }
 
+/* Footer menu button (2026-11-03, his ask: "making the mobile menu icon for the footer menu as
+   well. A click will make the same mobile navigation menu appear as the header nav menu"): on
+   phones one menu icon replaces the footer links and opens the header's menu (toggleMenu). Same
+   icon as the header; a 44px tap box. */
+.footer-menu-toggle { display: none; }
+@media (max-width: 768px) {
+    .footer-nav ul,
+    .footer-navigation ul { display: none; }
+    .footer-menu-toggle {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 16px 12px;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        color: #333;
+    }
+    .footer-menu-toggle span { display: block; width: 20px; height: 1px; background: currentColor; }
+    body.theme-dark .footer-menu-toggle { color: var(--paper); }
+}
+
 /* Project pages: the header photo's section carries an inline 40px side padding, so on phones it
    sat narrower than the 20px-gutter gallery below it (his catch, 2026-11-03). */
 @media (max-width: 768px) {

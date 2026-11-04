@@ -549,6 +549,7 @@
     <!-- 5. Footer -->
     <footer class="site-footer">
         <nav class="footer-navigation">
+            <button type="button" class="footer-menu-toggle" aria-label="Open menu" aria-controls="nav-menu" aria-expanded="false" onclick="event.stopPropagation(); (window.openMenuFromFooter || toggleMenu)(this);"><span></span><span></span><span></span></button>
             <ul>
                 <li class="footer-dropdown">
                     <a href="#portfolio">Work</a>
@@ -609,6 +610,19 @@
 
         // reveal the blog items as they scroll into view (shared.js)
         initializeScrollFadeIn('.fade-item');
+
+        // the fixed header takes the dark bar once the page scrolls (v2.css .is-scrolled)
+        (function () {
+            var header = document.querySelector('.site-header--overlay');
+            if (!header) { return; }
+            var on = null;
+            function update() {
+                var scrolled = window.scrollY > 8;
+                if (scrolled !== on) { on = scrolled; header.classList.toggle('is-scrolled', scrolled); }
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        })();
     </script>
 </body>
 </html>

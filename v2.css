@@ -70,10 +70,28 @@ a { color: var(--paper); }
     padding: 1.4rem clamp(1.2rem, 4vw, 3rem);
 }
 
-/* on cinematic pages the header overlays the stage (below the reveal mask, z8) */
+/* on cinematic pages the header overlays the stage (below the reveal mask, z8). Since 2026-11-03
+   it stays put while the page scrolls, like the header on every other page (his ask: "stationary
+   on other pages but not on the homepage. Fix this to be consistent"): see-through over the
+   slideshow, then the other pages' dark bar once the page scrolls (index.html sets .is-scrolled). */
 .site-header--overlay {
-    position: absolute;
+    position: fixed;
     top: 0; left: 0; right: 0;
+    border-bottom: 1px solid transparent;
+    transition: background .3s ease, border-color .3s ease;
+}
+.site-header--overlay.is-scrolled {
+    background: rgba(11, 11, 12, .95);
+    border-bottom-color: var(--hairline);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+/* a blur on the header would trap the open phone menu's own blur; drop it while the menu is open */
+.site-header:has(#nav-menu.active) {
+    background: transparent;
+    border-bottom-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
 }
 
 .wordmark {
@@ -1040,6 +1058,24 @@ main { display: block; }
 
 @media (max-width: 480px) {
     .related-posts img { width: 100px; height: 66px; }
+}
+
+/* Footer menu button (2026-11-03, his ask, same as styles.css): on phones one menu icon, the
+   homepage header's own icon, replaces the footer links and opens the header's menu. */
+.footer-menu-toggle { display: none; }
+@media (max-width: 768px) {
+    .footer-navigation ul { display: none; }
+    .footer-menu-toggle {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 14px 11px;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        color: var(--paper);
+    }
+    .footer-menu-toggle span { display: block; width: 22px; height: 2px; background: currentColor; }
 }
 
 /* Phone menu overlay (2026-11-03, his ask: large, centered, a see-through background over the page,
