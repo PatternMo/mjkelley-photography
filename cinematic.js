@@ -111,6 +111,8 @@ var Cinematic = (function () {
         var READY_WAIT_MS = 4000;    // auto-advance waits this long for the next frame, then retries
         var RETRY_MS = 1500;
         var MANUAL_WAIT_MS = 10000;  // a dot/swipe/arrow choice waits this long for its frame
+        var RESUME_MIN_MS = 800;     // after a pause ends, at least this beat before the next change
+        var shownAt = 0;             // when the current frame appeared
         var pics = [];               // per frame: responsive picture state, or null (background frame)
 
         function paused() { return hoverPause || focusPause || userPause; }
@@ -275,7 +277,7 @@ var Cinematic = (function () {
                     userPause = !userPause;
                     pauseBtn.classList.toggle('is-paused', userPause);
                     pauseBtn.setAttribute('aria-label', userPause ? 'Play slideshow' : 'Pause slideshow');
-                    if (userPause) { stopLoop(); } else { scheduleNext(); }
+                    if (userPause) { stopLoop(); } else { resumeLoop(); }
                 });
                 dotsEl.appendChild(pauseBtn);
             }
@@ -328,6 +330,7 @@ var Cinematic = (function () {
                 if (n === i) { b.setAttribute('aria-current', 'true'); } else { b.removeAttribute('aria-current'); }
             });
             current = i;
+            shownAt = Date.now();
             load(nextIndex(i));                                // next frame loads during this hold
         }
 
@@ -345,6 +348,16 @@ var Cinematic = (function () {
             if (reduce || paused() || !settled() || navPending || current === null) { return; }
             var tok = autoTok;
             timer = setTimeout(function () { timer = null; advance(tok); }, delay == null ? STEP : delay);
+        }
+
+        // Ending a pause (mouse off the dots, focus leaving them, Play) does not restart the hold:
+        // the hold kept running while paused, and the pause only held the change back. A frame whose
+        // hold is already up moves on after a short beat; one that just appeared gets the rest of its
+        // hold (2026-11-03, his report: after mousing off the dots "the slideshow pauses for several
+        // seconds").
+        function resumeLoop() {
+            if (current === null) { scheduleNext(); return; }
+            scheduleNext(Math.max(RESUME_MIN_MS, shownAt + STEP - Date.now()));
         }
 
         function advance(tok) {
@@ -384,7 +397,7 @@ var Cinematic = (function () {
             });
             dotsEl.addEventListener('pointerleave', function (e) {
                 if (e.pointerType !== 'mouse') { return; }
-                hoverPause = false; scheduleNext();
+                hoverPause = false; resumeLoop();
             });
             // keyboard focus on the dots pauses the rotation (WCAG 2.2.2); it resumes on leaving
             // (focus on the pause button itself does not count: that button states its own choice)
@@ -395,7 +408,7 @@ var Cinematic = (function () {
             dotsEl.addEventListener('focusout', function (e) {
                 if (e.relatedTarget && e.relatedTarget !== pauseBtn && dotsEl.contains(e.relatedTarget)) { return; }
                 if (!focusPause) { return; }
-                focusPause = false; scheduleNext();
+                focusPause = false; resumeLoop();
             });
             dotsEl.addEventListener('keydown', function (e) {
                 var k = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
