@@ -151,12 +151,16 @@ header {
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+    color: #333;
 }
 
+/* The lines draw in the text color (2026-11-03): phone night modes (Brave's Night Mode runs Dark
+   Reader) darken a dark fill as a background, which left the lines near-invisible on the light
+   pages; as text color they get lightened instead. Same look without night mode. */
 .menu-toggle span {
     width: 20px;
     height: 1px;
-    background: #333;
+    background: currentColor;
     transition: 0.3s;
 }
 
@@ -2542,7 +2546,7 @@ body.theme-dark .social-icon:hover { background: var(--ink-3); }
     /* the button stays on top of the overlay and becomes an X */
     .header-nav .menu-toggle { z-index: 2; }
     .header-nav .menu-toggle span { transition: transform .25s ease, opacity .25s ease, background .25s ease; }
-    .header-nav:has(#nav-menu.active) .menu-toggle span { background: #ebe9e6; }
+    .header-nav:has(#nav-menu.active) .menu-toggle { color: #ebe9e6; }
     .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
     .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(2) { opacity: 0; }
     .header-nav:has(#nav-menu.active) .menu-toggle span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
