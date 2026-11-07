@@ -118,7 +118,7 @@ When a car’s in a driveway, it just looks like it’s in someone’s driveway.
 
 Parking lots aren’t as bad as driveways, and you can still win with them. Church parking lots work well, and so do the big lots at malls, especially overfill lots. I’ve shot on top of parking garages, on the open roof, and on a weekday a lot of people don’t park up there, so you get open space to move the car around any way you want. I parked the car up near the concrete parapet at the edge and shot on the side that was open to the lot. The parapet behind me was far enough away to blend into the car at the angle I was shooting.
 
-Usually, once they hear all this, owners agree. Some don’t, and when someone insists on a location, there’s usually a good reason. Sometimes it’s an emotional one. Sometimes it’s stubbornness, or convenience. And sometimes, the smallest group, it’s an owner who has sold at auction before and already has a good spot picked out.
+Usually, once they hear all this, owners agree. Some don’t, and when someone insists on a location, there’s usually a good reason. Sometimes it’s an emotional one. Sometimes it’s convenience. And sometimes, the smallest group, it’s an owner who has sold at auction before and already has a good spot picked out.
 
 I once shot a Porsche for an owner who builds custom 911 hot rods out of 1960s Porsches, and he told me the paint was a matte white, not really reflective, so we went out to a spot he picked.
 
