@@ -126,7 +126,7 @@ It reflected.
 
 It was a race car with a storied history, banged up, with stickers and signatures and handwriting on the body, and he was an engine guy. What he cared about was what was under the hood. But the briefs I shoot ask for a clear view of the paint, and I’m always aware of the reflections, always trying to avoid them.
 
-Owners don’t always know what their paint will do in a photograph, or whether a location will work. That’s my job to know.
+Owners don’t always know what their paint will do in a photograph, or whether a location will work. But I have to know. That’s the whole job.
 
 In the end, we both have to live with the result: an environment that makes good images possible or one that makes them impossible.
 
