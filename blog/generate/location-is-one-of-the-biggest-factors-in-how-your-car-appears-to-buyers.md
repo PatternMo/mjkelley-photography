@@ -88,15 +88,13 @@ There’s a road, a straight line with water on either side, where the backgroun
 
 Atmospheric environments are the difference between a sleek magazine ad shot and a dingy car catalog shot.
 
-Plenty of photographers choose differently. A lot of influencers will take some hot car into a forest and shoot it with the entire forest reflected in the body, so you can’t see the paint at all. For them I think it’s a stylistic choice, a little artsy. It’s a fine choice if all you care about is stylization. It’s a poor choice for transactional photography like auctions. A spot without those reflections is just much harder to find.
+Plenty of photographers choose differently. A lot of influencers will take some hot car into a forest and shoot it with the entire forest reflected in the body, so you can’t see the paint at all. For them I think it’s a stylistic choice. It’s a fine choice if all you care about is stylization. It’s a poor choice for transactional photography like auctions. A spot without those reflections is just much harder to find.
 
 ## What Is the Best Light for Car Photography?
 
 Light is a whole other consideration that deserves its own post, but briefly, this is what I look for.
 
 95% of the time, I like the sun at an angle to the car and the camera. In other words, I try not to have the car backlit by the sun, so I’m never shooting directly into the sun or silhouetting the car. There are rare moments when this can work, but for the most part I avoid it. I want whatever side of the car I’m shooting to be well lit with good light.
-
-At sunrise, sometimes the pink of the sky shows up in the paint.
 
 Golden hour is the best time to photograph cars on clear days.
 
@@ -122,11 +120,11 @@ Parking lots aren’t as bad as driveways, and you can still win with them. Chur
 
 Usually, once they hear all this, owners agree. Some don’t, and when someone insists on a location, there’s usually a good reason. Sometimes it’s an emotional one. Sometimes it’s stubbornness, or convenience. And sometimes, the smallest group, it’s an owner who has sold at auction before and already has a good spot picked out.
 
-Owners are sure about their paint, too. I once shot a Porsche for an owner who builds custom 911 hot rods out of 1960s Porsches, and he told me the paint was a matte white, not really reflective, so we went out to a spot he picked.
+I once shot a Porsche for an owner who builds custom 911 hot rods out of 1960s Porsches, and he told me the paint was a matte white, not really reflective, so we went out to a spot he picked.
 
 It reflected.
 
-He didn’t care. It was a race car with a storied history, banged up, with stickers and signatures and handwriting on the body, and he was an engine guy. What he cared about was what was under the hood. But the briefs I shoot ask for a clear view of the paint, and I’m always aware of the reflections, always trying to avoid them.
+It was a race car with a storied history, banged up, with stickers and signatures and handwriting on the body, and he was an engine guy. What he cared about was what was under the hood. But the briefs I shoot ask for a clear view of the paint, and I’m always aware of the reflections, always trying to avoid them.
 
 Owners don’t always know what their paint will do in a photograph, or whether a location will work. That’s my job to know.
 
@@ -134,11 +132,13 @@ In the end, we both have to live with the result: an environment that makes good
 
 ## “We’re Doing It in My Driveway.” What Happens When You’re Stuck With Sucky Locations?
 
-The worst-case location for me is the before-mentioned driveway, usually, unless it’s large enough that it allows me to move and shoot all the wide shots without repositioning the car. I’ve only done two driveways that were.
+The worst-case location for me is the before-mentioned driveway, usually, unless it’s large enough that it allows me to move and shoot all the wide shots without repositioning the car. I’ve only shot two that were large enough.
 
-In a driveway shoot, you almost give up all your advantages as a photographer. The only thing you can control maybe is the time of day. I give up my [whole shooting process](https://www.mjkelleyphoto.com/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html). I give up speed. And often I give up the light, because an owner set on the driveway usually isn’t flexible about the time either, so the shoot lands at whatever time is convenient for him or her, and sometimes that’s the afternoon.
+In a driveway shoot, you almost give up all your advantages as a photographer. The only thing you can control maybe is the time of day. I give up my [whole shooting process](https://www.mjkelleyphoto.com/blog/posts/why-one-car-needs-200-photos-for-an-auction-listing.html). I give up speed. And often I give up the light.
 
-Recently I shot a 1973 Buick Electra in a driveway. We took it for a drive around the block, but I didn’t have the owner reposition it, because he was in his seventies or eighties and moving slow, and I thought it would take too long. I went over time anyway, because it’s just difficult to get all the shots in a driveway when you’re working every angle to keep the sun off the car.
+These types of shoots are convenience shoots. Often there aren’t any other location options for these cars for a number of reasons. They’re the types of shoots I did a lot of when starting out with automotive photography, and I still do them occasionally to streamline the process for the owner. But as a photographer, they’re difficult shoots in terms of getting quality images.
+
+Recently I shot a 1973 Buick Electra in a driveway. We took it for a drive around the block, but I didn’t have the owner reposition it because I thought it would take too long. I went over time anyway, due to the difficulty of getting all the shots in a driveway when you’re working every angle to keep the sun off the car.
 
 In a driveway, I move the owner’s garbage cans out of the background, and I ask them to close the garage if it’s messy, so I’m not shooting into it. Sometimes I shoot at a more open aperture to blur whatever is behind the car.
 
@@ -150,29 +150,21 @@ We pushed it down the long driveway, back into its parking spot, and I shot the 
 
 Not ideal.
 
-Every driveway shoot I’ve done has been for a particular reason. The car is so old or so unreliable that the owner can’t drive it to a location. Or the owner doesn’t want to pay to have it trailered somewhere. Some dealerships will do that. A lot of owners, even collectors, don’t have a trailer or want to pay for one.
+Every driveway shoot I’ve done has been for a particular reason. The car is so old or so unreliable that the owner can’t drive it to a location. Sometimes it’s mileage preservation. The Cybertruck I shot against the rolling hills only had roughly seventy miles on it, and the owner only wanted to drive nearby. Understandable. I did end up convincing him to drive it twenty miles.
 
-The coolest example I can think of is shooting a legit race car.
+Other times the client is in a town new to me, and I don’t really have my go-to locations there, so I rely on them to know a good spot, and this can be hit or miss.
 
-The car: a 1992 Acura NSX. The owner told me an ex-Honda racing engineer built it, one of only two he built out of NSX bodies, and that it was a championship car. It wasn’t street legal, so we shot it in the owner’s cul-de-sac, near his driveway, in the afternoon, with tract homes in the background. Not the best lighting, not the best background, not the best location, and kind of still great, because it was a race car sitting in this normal neighborhood. Somehow, that contrast worked even when other elements weren’t ideal.
-
-Sometimes it’s mileage preservation. The Cybertruck I shot against the rolling hills only had roughly seventy miles on it, and the owner only wanted to drive nearby. Understandable. I did end up convincing him to drive it twenty miles.
-
-Other times the client is in a town new to me, and I don’t really have my go-to locations there, so I rely on them to know a good spot, and this is usually hit or miss.
-
-I shot an amazing muscle car, a 1972 Oldsmobile Cutlass Supreme, in a full apartment parking lot, because the owner was in his eighties or nineties and didn’t want to drive it far, and I worked while cars came in and out and people walked by, and tried to do my best.
-
-It kind of hurts, knowing those aren’t going in my portfolio. I remember these as the worst shoots.
+I shot an amazing muscle car, a 1972 Oldsmobile Cutlass Supreme, in a full apartment parking lot, because the owner didn’t want to drive it far, and I worked while cars came in and out and people walked by, and tried to do my best.
 
 Sometimes owners are in their elder years, and you have to be compassionate and kind in those situations.
 
 Sometimes the reason is emotional. I shot three cars, a 1968 Ferrari 365 GT 2+2, a 2011 Shelby Cobra CSX8000 50th Anniversary Edition, and a 1990 Ferrari Testarossa, on a sloped concrete entrance to a high school, because the owners’ late son’s name was on a plaque on the pavement below the cars. His charity had built that part of the school, and the auction proceeds were going to it.
 
-They guaranteed me nobody would walk through the shots, and of course tons of high schoolers walked through the shots, checking out the cars, with lacrosse practice in the background, and I kept asking people to move out of the frame while the cars sat on concrete so sloped they didn’t even sit level. The location sucked. It was a long morning.
+They guaranteed me nobody would walk through the shots, and of course tons of high schoolers walked through the shots, checking out the cars, with lacrosse practice in the background, and I kept asking people to move out of the frame while the cars sat on concrete so sloped they didn’t even sit level. Despite all this, I still got some great shots of these cars. It was just a difficult environment to work with.
 
-But there was a lot of emotional attachment to that spot, and that made it special for the owners, even though it wasn’t ideal for photography.
+There was a lot of emotional attachment to that spot, and that made it special for the owners, even though it wasn’t ideal for photography.
 
-And I shot a Mercedes-Benz AMG GT R in a driveway because the family wouldn’t drive it. The car had belonged to their son, who had recently passed away, and his memory was in that car for them. There was a sacred sort of care and respect in how they treated it. It needed planks just to clear the dip at the end of the driveway, and they didn’t want to move it or touch it at all.
+I shot a Mercedes-Benz AMG GT R in a driveway because the family wouldn’t drive it. The car had belonged to their son, who had recently passed away, and his memory was in that car for them. There was a sacred sort of care and respect in how they treated it. It needed planks just to clear the dip at the end of the driveway, and they didn’t want to move it or touch it at all.
 
 This is a car you’d normally take somewhere at sunrise or sunset, where the landscape reflects in the body at low light, emphasizing the sculpted design.
 
