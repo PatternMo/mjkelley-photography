@@ -45,6 +45,7 @@ body.zone-light .lightbox {
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
     background: var(--ink);
@@ -1145,3 +1146,61 @@ main { display: block; }
     }
     .nav-home-mark { display: block; width: 64px; height: 64px; }
 }
+
+/* ==========================================================================
+   Accessibility and layout pass (2026-11-08, his go after the Codex site review). The homepage
+   twin of the block at the end of styles.css. See Web/status.md.
+   ========================================================================== */
+
+/* The menu icon is a <button> now; strip the browser's button look so it draws as before
+   (this sheet's icon keeps its 6px padding). */
+.menu-toggle {
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    padding: 6px;
+    font: inherit;
+    line-height: 1;
+    color: var(--paper);   /* a button does not inherit text color; this keeps its focus outline visible */
+}
+
+/* Desktop: the Work menu opens for keyboard users too, not only on hover. */
+@media (min-width: 769px) {
+    .dropdown:focus-within .dropdown-content { display: block; }
+    .dropdown.is-dismissed .dropdown-content { display: none; }
+}
+
+/* Phone menu: centered when it fits; when it is taller than the screen (Work open, short or
+   landscape phones) it starts at the top and scrolls, so no link is cut off above the screen.
+   Auto margins center the list and collapse to zero when it overflows. */
+@media (max-width: 768px) {
+    .header-nav #nav-menu.active { justify-content: flex-start; }
+    .header-nav #nav-menu.active > li { flex-shrink: 0; }
+    .header-nav #nav-menu.active > li:first-child { margin-top: auto; }
+    .header-nav #nav-menu.active > li:last-child { margin-bottom: auto; }
+}
+
+/* Skip link: hidden until a keyboard user tabs to it, then shown at the top left. */
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -100px;
+    z-index: 3000;
+    padding: 10px 16px;
+    background: #111;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.skip-link:focus { top: 12px; }
+#main-content:focus { outline: none; }
+
+/* Visible focus for keyboard users on the controls made keyboard-usable in this pass. */
+.menu-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.gallery-item:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }

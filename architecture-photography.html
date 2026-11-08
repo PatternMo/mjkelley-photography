@@ -50,7 +50,7 @@
                 "servicePhone": {
                     "@type": "ContactPoint",
                     "telephone": "+1-415-375-0178",
-                    "email": "contact@mjkelleyphoto.com"
+                    "email": "mj@mjkelleyphoto.com"
                 }
             },
             "hasOfferCatalog": {
@@ -143,7 +143,7 @@
                 "longitude": -122.2730
             },
             "telephone": "+1-415-375-0178",
-            "email": "contact@mjkelleyphoto.com"
+            "email": "mj@mjkelleyphoto.com"
             },
             {
             "@type": "BreadcrumbList",
@@ -179,25 +179,19 @@
     <!-- Gallery Automation -->
     <script src="image-automation.js"></script>
     
-    <!-- Page-specific styles -->
-    <style>
-        /* Services section image for this page */
-        .services-image {
-            background-image: url('https://picsum.photos/600/400?random=19');
-        }
-    </style>
 </head>
 <body class="theme-dark">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <!-- Header -->
     <header>
         <div class="header-container">
             <a href="index.html" class="logo"><svg class="navmark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M54.08 19.25 L54.08 44.75 L32 57.5 L9.92 44.75 L9.92 19.25 L32 6.5 Z" fill="none" stroke="#1a1a1a" stroke-width="3.2" stroke-linejoin="round"/><path d="M21.93 21.5H25.71L31.95 35.06H32.02L38.28 21.5H42.06V42.5H38.13V29.72H38.08L33.24 39.56H30.73L25.92 29.72H25.86V42.5H21.93Z" fill="#1a1a1a"/></svg><span>Michael J. Kelley Photography</span></a>
             <nav class="header-nav">
-                <div class="menu-toggle" onclick="toggleMenu()">
+                <button type="button" class="menu-toggle" onclick="toggleMenu()" aria-label="Menu" aria-controls="nav-menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
                 <ul id="nav-menu">
                     <li class="dropdown">
                         <a href="#portfolio">Work</a>
@@ -223,7 +217,7 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
         <!-- Hero Section -->
         <section class="hero">
             <h1>Architectural Exterior & Interior Photography</h1>

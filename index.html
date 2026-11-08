@@ -65,7 +65,7 @@
             "longitude": -122.2730
           },
           "telephone": "+1-415-375-0178",
-          "email": "contact@mjkelleyphoto.com",
+          "email": "mj@mjkelleyphoto.com",
           "founder": {
             "@type": "Person",
             "name": "Michael J. Kelley",
@@ -340,7 +340,7 @@
             "@type": "ContactPoint",
             "telephone": "+1-415-375-0178",
             "contactType": "customer service",
-            "email": "contact@mjkelleyphoto.com",
+            "email": "mj@mjkelleyphoto.com",
             "availableLanguage": "English",
             "areaServed": "US"
           },
@@ -366,6 +366,7 @@
      Stylesheets v2.css / cinematic.css / palette-neutral.css / magazine.css and cinematic.js
      are used by this page only; every other page stays on styles.css. -->
 <body class="is-intro">
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
     <!-- Header (overlays the stage on cinematic pages; shared.js hooks intact) -->
     <header class="site-header site-header--overlay">
@@ -377,11 +378,11 @@
             Michael J. Kelley Photography
         </a>
         <nav class="header-nav">
-            <div class="menu-toggle" onclick="toggleMenu()">
+            <button type="button" class="menu-toggle" onclick="toggleMenu()" aria-label="Menu" aria-controls="nav-menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
             <ul id="nav-menu">
                 <li class="dropdown">
                     <a href="#portfolio">Work</a>
@@ -410,6 +411,7 @@
         </nav>
     </header>
 
+    <main id="main-content">
     <!-- 1. Cinematic opening -->
     <section class="stage" id="stage" aria-label="Industrial photography montage">
         <div class="hexbg" id="hexbg"></div>
@@ -530,6 +532,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- 5. Footer -->
     <footer class="site-footer">

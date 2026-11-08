@@ -10,6 +10,7 @@
 let currentImageIndex = 0;
 let galleryImages = [];
 let lightboxActive = false;
+let lightboxOpener = null;   // element that had focus when the lightbox opened
 let touchStartX = 0;
 let touchEndX = 0;
 // Incremented on every lightbox update so a slow earlier load cannot overwrite a later one.
@@ -72,12 +73,18 @@ function openLightbox(index) {
     
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
+        // Remember where focus was so closing can put it back (2026-11-08 accessibility pass).
+        if (!lightboxActive) {
+            const active = document.activeElement;
+            lightboxOpener = active && active !== document.body && !lightbox.contains(active) ? active : null;
+        }
         lightbox.classList.add('active');
         lightboxActive = true;
         document.body.style.overflow = 'hidden';
         
-        // Focus management for accessibility
-        lightbox.focus();
+        // Focus management for accessibility: focus the close control inside the dialog
+        const closeCtl = lightbox.querySelector('.lightbox-close');
+        (closeCtl || lightbox).focus({ preventScroll: true });
         
         // Preload adjacent images for smoother navigation
         preloadAdjacentImages();
@@ -94,10 +101,13 @@ function closeLightbox() {
         lightboxActive = false;
         document.body.style.overflow = 'auto';
         
-        // Return focus to the gallery item that was clicked
-        const galleryItem = document.querySelector(`[onclick="openLightbox(${currentImageIndex})"]`);
+        // Return focus to whatever opened the lightbox; fall back to the tile of the photo shown
+        const galleryItem = (lightboxOpener && document.contains(lightboxOpener))
+            ? lightboxOpener
+            : document.querySelector(`[onclick="openLightbox(${currentImageIndex})"]`);
+        lightboxOpener = null;
         if (galleryItem) {
-            galleryItem.focus();
+            galleryItem.focus({ preventScroll: true });
         }
     }
 }
@@ -284,14 +294,19 @@ function initializeLazyLoading() {
  */
 function handleKeyboardNavigation(e) {
     if (!lightboxActive) return;
+    // Standard photo-viewer keys (2026-11-08, his question "why is space bar the forward
+    // button?"): arrows move, Home/End jump, Escape closes, Tab stays inside. Space and Enter
+    // are left alone so they press whichever button has focus, as everywhere else on the web.
     
     switch(e.key) {
         case 'Escape':
             e.preventDefault();
             closeLightbox();
             break;
+        case 'Tab':
+            trapLightboxFocus(e);
+            break;
         case 'ArrowRight':
-        case ' ': // Spacebar
             e.preventDefault();
             nextImage();
             break;
@@ -358,6 +373,71 @@ function handleSwipeGesture() {
  * Initializes the gallery with provided image data
  * @param {Array} images - Array of image objects with src and alt properties
  */
+function trapLightboxFocus(e) {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+    const focusables = Array.from(lightbox.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])'))
+        .filter(el => !el.disabled && el.offsetParent !== null);
+    if (!focusables.length) { e.preventDefault(); return; }
+    const first = focusables[0], last = focusables[focusables.length - 1];
+    if (!lightbox.contains(document.activeElement)) { e.preventDefault(); first.focus(); return; }
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+
+/**
+ * Keyboard and screen-reader support for galleries and the lightbox (2026-11-08, his go on
+ * the accessibility pass). Works on both gallery systems - category pages (tiles built by
+ * image-automation.js) and project pages (tiles in the HTML) - without changing their markup:
+ * tiles become focusable buttons that open with Enter or Space, the lightbox is announced as a
+ * dialog with a named close control, and the counter is read out as photos change.
+ */
+function enhanceGalleryAccessibility() {
+    const tiles = document.querySelectorAll('.gallery-item[onclick^="openLightbox("]');
+    const total = tiles.length;
+    tiles.forEach(function (tile, i) {
+        if (!tile.hasAttribute('tabindex')) tile.setAttribute('tabindex', '0');
+        tile.setAttribute('role', 'button');
+        const img = tile.querySelector('img');
+        const alt = img && img.getAttribute('alt') ? img.getAttribute('alt').trim() : '';
+        tile.setAttribute('aria-label', 'Open photo ' + (i + 1) + ' of ' + total + (alt ? ': ' + alt : ''));
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox && !lightbox.hasAttribute('role')) {
+        lightbox.setAttribute('role', 'dialog');
+        lightbox.setAttribute('aria-modal', 'true');
+        lightbox.setAttribute('aria-label', 'Photo viewer');
+        lightbox.setAttribute('tabindex', '-1');
+        const closeCtl = lightbox.querySelector('.lightbox-close');
+        if (closeCtl && closeCtl.tagName !== 'BUTTON') {
+            closeCtl.setAttribute('role', 'button');
+            closeCtl.setAttribute('tabindex', '0');
+        }
+        if (closeCtl) closeCtl.setAttribute('aria-label', 'Close photo viewer');
+        const prev = lightbox.querySelector('.lightbox-prev');
+        const next = lightbox.querySelector('.lightbox-next');
+        if (prev) { prev.setAttribute('type', 'button'); prev.setAttribute('aria-label', 'Previous photo'); }
+        if (next) { next.setAttribute('type', 'button'); next.setAttribute('aria-label', 'Next photo'); }
+        const counter = document.getElementById('lightbox-counter');
+        if (counter) counter.setAttribute('aria-live', 'polite');
+    }
+
+    if (!document.documentElement.hasAttribute('data-gallery-keys')) {
+        document.documentElement.setAttribute('data-gallery-keys', '');
+        document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            const t = e.target;
+            if (!t || !t.matches) return;
+            if (t.matches('.gallery-item[role="button"]') || t.matches('.lightbox-close[role="button"]')) {
+                e.preventDefault();
+                e.stopPropagation();
+                t.click();
+            }
+        }, true);
+    }
+}
+
 function initializeGallery(images) {
     if (!Array.isArray(images) || images.length === 0) {
         console.warn('Gallery initialization failed: Invalid or empty image array');
@@ -382,6 +462,7 @@ function initializeGallery(images) {
     
     // Set up event listeners
     setupEventListeners();
+    enhanceGalleryAccessibility();
     
     // Initialize lazy loading if supported
     initializeLazyLoading();

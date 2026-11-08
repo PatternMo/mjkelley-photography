@@ -1399,6 +1399,7 @@ main {
     text-align: left;
 }
 
+.contact-info h2,
 .contact-info h3 {
     font-size: 16px;
     font-weight: 400;
@@ -1650,7 +1651,8 @@ main {
 }
 
 /* Reset the centered h1 for featured post titles */
-.featured-post.blog-post-container h1 {
+.featured-post.blog-post-container h1,
+.featured-post.blog-post-container h2.post-title {
     text-align: left;
     margin-bottom: 15px;
 }
@@ -1712,7 +1714,8 @@ main {
     color: #666;
 }
 
-.blog-post-container h1 {
+.blog-post-container h1,
+.blog-post-container h2.post-title {
     font-size: 36px;
     font-weight: 400;
     color: #333;
@@ -2049,7 +2052,8 @@ main {
         font-size: 24px;
     }
 
-    .blog-post-container h1 {
+    .blog-post-container h1,
+    .blog-post-container h2.post-title {
         font-size: 28px;
     }
 
@@ -2433,6 +2437,7 @@ body.theme-dark .process-title,
 body.theme-dark .faq-section h2,
 body.theme-dark .faq-question,
 body.theme-dark .contact-form h2,
+body.theme-dark .contact-info h2,
 body.theme-dark .contact-info h3,
 body.theme-dark .form-group label,
 body.theme-dark .listing-section h2,
@@ -2634,3 +2639,82 @@ body.theme-dark .social-icon:hover { background: var(--ink-3); }
         padding-right: 20px !important;
     }
 }
+
+/* ==========================================================================
+   Accessibility and layout pass (2026-11-08, his go after the Codex site review: "Investigate
+   accessibility, everything except the gray text ... Test layout risks"). See Web/status.md.
+   ========================================================================== */
+
+/* The menu icon is a <button> now; strip the browser's button look so it draws as before. */
+.menu-toggle {
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    line-height: 1;
+}
+
+/* Section links on the fixed-header pages land below the header, not under it. */
+html { scroll-padding-top: 110px; }
+@media (max-width: 768px) { html { scroll-padding-top: 80px; } }
+
+/* Tablet widths: the site name ran into the menu links between 769 and about 900px. */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .header-container { padding: 0 24px; }
+    .header-nav ul { gap: 22px; }
+}
+@media (min-width: 769px) and (max-width: 900px) {
+    .header-nav ul { gap: 16px; }   /* Safari's wider text left 6px at 769 with 22px gaps */
+}
+
+/* Blog index post titles are h2 now (one h1 per page, "Latest Posts"); keep their old spacing. */
+.blog-post-container h2.post-title { margin-top: 0; }
+
+/* Project cards: the whole card opens the project, text included (the text block sat above
+   the card link). */
+.project-link-overlay { z-index: 3; }
+.project-link-overlay:focus-visible { outline: 3px solid currentColor; outline-offset: -3px; }
+
+/* Desktop: the Work menu opens for keyboard users too, not only on hover. */
+@media (min-width: 769px) {
+    .dropdown:focus-within .dropdown-content { display: block; }
+    .dropdown.is-dismissed .dropdown-content { display: none; }
+}
+
+/* Phone menu: centered when it fits; when it is taller than the screen (Work open, short or
+   landscape phones) it starts at the top and scrolls, so no link is cut off above the screen.
+   Auto margins center the list and collapse to zero when it overflows. */
+@media (max-width: 768px) {
+    .header-nav #nav-menu.active { justify-content: flex-start; }
+    .header-nav #nav-menu.active > li { flex-shrink: 0; }
+    .header-nav #nav-menu.active > li:first-child { margin-top: auto; }
+    .header-nav #nav-menu.active > li:last-child { margin-bottom: auto; }
+}
+
+/* Skip link: hidden until a keyboard user tabs to it, then shown at the top left. */
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -100px;
+    z-index: 3000;
+    padding: 10px 16px;
+    background: #111;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.skip-link:focus { top: 12px; }
+#main-content:focus { outline: none; }
+
+/* Visible focus for keyboard users on the controls made keyboard-usable in this pass. */
+.menu-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+/* Dark pages: the button's own color follows the light bars, so its focus outline shows. */
+body.theme-dark .menu-toggle { color: var(--paper); }
+.gallery-item:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
