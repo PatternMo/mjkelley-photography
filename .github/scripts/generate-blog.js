@@ -932,9 +932,9 @@ async function generatePosts() {
           <section class="featured-post blog-post-container">
             <article class="post">
                 <div class="post-header">
-                <h1 class="post-title">
+                <h2 class="post-title">
                     <a href="${p.url}">${escapeHtml(p.title)}</a>
-                </h1>
+                </h2>
                 <div class="post-meta">
                     <time datetime="${safe(p.date_iso)}">${safe(p.date_human)}</time>
                     ${categoryTagsHtml(p)}
@@ -960,7 +960,7 @@ async function generatePosts() {
       .replace(/{{featured_hero}}/g, safe(f.image))
       .replace(/{{featured_hero_alt}}/g, () => escapeHtml(f.title))
       .replace(/{{featured_excerpt}}/g, () => escapeHtml(safe(f.description)))
-      .replace(/{{previous_posts}}/g, previousPostsHtml);
+      .replace(/{{previous_posts}}/g, () => previousPostsHtml);
   } else {
     finalIndexHtml = finalIndexHtml
       .replace(/{{featured_title}}|{{featured_url}}|{{featured_date_iso}}|{{featured_date_human}}|{{featured_category}}|{{featured_hero_img}}|{{featured_hero_srcset}}|{{featured_hero}}|{{featured_hero_alt}}|{{featured_excerpt}}/g, '')
