@@ -11,3 +11,14 @@
 
 /blog/images/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Security headers on every response (2026-11-08, his go after the Codex site review). Standard,
+# low-risk set: no MIME sniffing, no framing by other sites, referrer trimmed to the origin when
+# leaving the site, and no camera/microphone/location access for any page or embed. A full
+# Content-Security-Policy is not set: the pages use inline scripts and handlers, Google Fonts and
+# YouTube embeds, so a CSP needs its own pass. HSTS is already sent by Netlify.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()

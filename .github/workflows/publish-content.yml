@@ -91,4 +91,5 @@ jobs:
 
       - name: Trigger Netlify deploy
         if: success()
-        run: curl -X POST -d {} "${{ secrets.NETLIFY_BUILD_HOOK }}"
+        # --fail-with-body: a rejected hook fails the job instead of passing silently (2026-11-08, his go)
+        run: curl --fail-with-body --silent --show-error --retry 3 --max-time 30 -X POST -d {} "${{ secrets.NETLIFY_BUILD_HOOK }}"
