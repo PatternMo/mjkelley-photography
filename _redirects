@@ -13,3 +13,8 @@
 # 13765, 2026-10-30). 302 for now: a real /studio page (outdoor portraits +
 # headshots + new work) is planned, and a file at /studio will shadow this rule.
 /studio                                     /headshot-photography   302
+
+# Blog generator templates (2026-11-08, his go): the Action reads them from the
+# repo, so they stay; this blocks them on the live site. The ! forces the rule
+# even though the files exist.
+/blog/template/*                            /404                    404!
