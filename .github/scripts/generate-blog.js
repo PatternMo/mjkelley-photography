@@ -893,8 +893,10 @@ async function generatePosts() {
       .split(TAG_LITERAL).join(categoryTagsHtml(p))
       .replace(/{{hero_caption}}/g, () => heroCaptionHtml)
       .replace(/{{continue_reading}}/g, () => continueReadingHtml)
-      .replace(/{{title}}/g, () => p.title)
-      .replace(/{{description}}/g, () => p.description)
+      // Title and description are plain text from front-matter; escape them so a quote mark
+      // cannot close the meta/og/twitter attributes early (2026-11-08, his go: "Go. Fix.").
+      .replace(/{{title}}/g, () => escapeHtml(p.title))
+      .replace(/{{description}}/g, () => escapeHtml(p.description))
       .replace(/{{hero_img}}/g, () => heroImgHtml(p.image, p.title, { priority: true }))
       .replace(/{{hero_srcset}}/g, () => heroSrcsetAttrs(p.image))
       .replace(/{{image}}/g, () => p.image)
@@ -931,7 +933,7 @@ async function generatePosts() {
             <article class="post">
                 <div class="post-header">
                 <h1 class="post-title">
-                    <a href="${p.url}">${p.title}</a>
+                    <a href="${p.url}">${escapeHtml(p.title)}</a>
                 </h1>
                 <div class="post-meta">
                     <time datetime="${safe(p.date_iso)}">${safe(p.date_human)}</time>
@@ -939,7 +941,7 @@ async function generatePosts() {
                 </div>${heroHtml}
                 </div>
                 <div class="post-content">
-                <p class="line-clamp-3">${safe(p.description)}</p>
+                <p class="line-clamp-3">${escapeHtml(safe(p.description))}</p>
                 </div>
             </article>
         </section>
@@ -947,7 +949,7 @@ async function generatePosts() {
     }).join('');
 
     finalIndexHtml = finalIndexHtml
-      .replace(/{{featured_title}}/g, f.title)
+      .replace(/{{featured_title}}/g, () => escapeHtml(f.title))
       .replace(/{{featured_url}}/g, f.url)
       .replace(/{{featured_date_iso}}/g, safe(f.date_iso))
       .replace(/{{featured_date_human}}/g, safe(f.date_human))
@@ -956,8 +958,8 @@ async function generatePosts() {
       .replace(/{{featured_hero_img}}/g, () => heroImgHtml(f.image, f.title, { priority: true, sizes: INDEX_HERO_SIZES }))
       .replace(/{{featured_hero_srcset}}/g, () => heroSrcsetAttrs(f.image))
       .replace(/{{featured_hero}}/g, safe(f.image))
-      .replace(/{{featured_hero_alt}}/g, f.title)
-      .replace(/{{featured_excerpt}}/g, safe(f.description))
+      .replace(/{{featured_hero_alt}}/g, () => escapeHtml(f.title))
+      .replace(/{{featured_excerpt}}/g, () => escapeHtml(safe(f.description)))
       .replace(/{{previous_posts}}/g, previousPostsHtml);
   } else {
     finalIndexHtml = finalIndexHtml
