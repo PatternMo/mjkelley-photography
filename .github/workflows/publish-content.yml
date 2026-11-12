@@ -93,3 +93,19 @@ jobs:
         if: success()
         # --fail-with-body: a rejected hook fails the job instead of passing silently (2026-11-08, his go)
         run: curl --fail-with-body --silent --show-error --retry 3 --max-time 30 -X POST -d {} "${{ secrets.NETLIFY_BUILD_HOOK }}"
+
+      # Tell Bing and the other IndexNow engines which pages this push added,
+      # changed, or removed, once the new deploy is confirmed live. Best effort:
+      # a failed ping shows on this step but never fails the publish, and the
+      # indexnow-last-sent tag carries unsent pages into the next run.
+      # Sanctioned addition 2026-11-11, his go: "Yeah, design it and coordintate
+      # with codex. test. review, fix." How and why: Web/docs/indexnow-automation.md.
+      - name: Notify search engines (IndexNow)
+        if: success() && github.event_name == 'push'
+        continue-on-error: true
+        timeout-minutes: 15
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          node --test .github/scripts/indexnow-ping.test.js
+          node .github/scripts/indexnow-ping.js --before "$BEFORE_SHA" --head HEAD --state-tag indexnow-last-sent
